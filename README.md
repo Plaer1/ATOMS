@@ -50,6 +50,8 @@ A theme for Steam based on:
 
 
 ## Features:
+* Built from the ground up to be highly configurable, there are already settings in the ``config.css`` with more to come!
+
 * Theme'd basically every page in Steam, *if you see* **anything** *that doesn't look theme'd at all*, ***please*** fill out a bug report or contact me on discord!
 
 * Skip the age gate on store pages (***make sure to fill out your real birthday in the file***: ``utility.js``**!!**).
@@ -62,9 +64,6 @@ A theme for Steam based on:
 
 * Moved "Root" menu to it's own hidden menu:
 ![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/ddf4d9a452b3f83752d7aa7d8b0a05a37378fd1e/steamRootMenu.png)
-
-* Built from the ground up to be highly configurable, there are already settings in the ``config.css`` with more to come!
-
 
 ## Known bugs/to-do's
 <small>If you find **any bugs** not listed here, please don't hesitate to contact me in the place(s) listed above to report new issues.</small>

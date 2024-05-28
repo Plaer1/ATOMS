@@ -25,7 +25,7 @@ A theme for Steam based on:
 (this is easily accessed from the "open file" menu in the bottom right of SFP)
 
 ‎ 
-### **These SFP settings must be configured for a normal experience:**
+### These SFP settings must be configured for a normal experience:
 ```
 	   Inject on Steam start
 	   Inject CSS
@@ -33,8 +33,9 @@ A theme for Steam based on:
 	   Make sure ATOMS is selected from the "Steam skin" dropdown.
 ```
 
-### ** It's not required, but for maximum convenience, I recommend applying the following settings:
-App:**
+
+ ‎ 
+### It's not required, but for maximum convenience, I recommend applying the following settings:
 ```
 	   Show Tray Icon
 	   Minimize to Tray

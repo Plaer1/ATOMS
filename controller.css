@@ -1,0 +1,92 @@
+@import url('config.css');
+*{ font-family: Comic Neue !important; }
+
+
+/*header/footer bg*/
+#Header, #Footer {
+    background: rgba(var(--backgroundDarkest)) !important;
+}
+
+._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, /*main bg*/
+._3TvBVwaH8eIBabTdki35oe, /* controller preview page*/
+._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc, /* Layouts page */
+._1sdvoquNUMKb-NNY0a_gjX, /*popup menu for various options*/
+._34EufgHrrmvt164EDrO1LB .ModalOverlayBackground, /* modal popup for various options */
+.APY6jDS50MNUPuX38IgC0 /* main controller settings bottom stripe */
+ {
+background: rgba(var(--background)) !important;
+}
+
+._3RsRfCOW7Do0JNHcEs2nqX, /* quick settings pannel*/
+._20sN9G_C5kZ9GO_mVUuWTD, /* controller settings 1st menu top half bg*/
+.KFGEkx9yKpW3Mu7w_6vzn, /* non highlighted tabs in various menus*/
+._30VHlA4G1lPFjpUGGpt8iu>._3joNkY6kRyL-6RK1rKIrV2, /* background for various popup*/
+.IbaDJeXoUV46mwyWeP42O._3BeKk1O8jsZ3W8XtvhB-ci, /* steam input explanation popup*/
+._2luCNihqvaHXeE1nGg0AXj  /* background for tiles in the layouts menu*/
+{
+	border: none !important;
+	background: rgba(var(--backgroundDarkish)) !important;
+}
+/* highlighted tab in various menus */
+._3Gp1bACHx__POxmy6Gd3kG {
+	background: rgba(var(--backgroundLight)) !important;
+}
+
+/* slider color */
+.SliderTrack, .SliderTrack::before  {
+	--left-track-color: rgba(var(--accent)) !important;
+}
+
+/* toggle color */
+._2JtC3JSLKaOtdpAVEACsG1::before {
+	background: rgba(var(--accent)) !important;
+}
+/* hover on view layout button on main config page*/
+button._1kn7017HPxqS3NKx_wnI4e.DialogButton.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:enabled.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:active.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:enabled:active:hover.Primary:hover{
+    background: rgba(var(--accent)) !important;
+}
+
+._2MjBd1kKOEyVfqBN5OQOb1, ._2swvcAycL4d0UoHFDoe6-d, ._3i-XV362MvNEX3j_oWQDmQ, ._3s28A0XlOXUOAWRIuBKHuH, /* normal buttons on configurator page*/
+._19SMSHLlXqSLnXM3NjDNBS, /* normal buttons on mouse page*/
+.NoRFSLSfwRijJQt7R51OT, /* normal buttons on keyboard + numpad page*/
+._3yP_pf4vx1Q4W0mt2DR32P /* normal buttons on system page*/
+{
+	border-color: 	 rgba(var(--backgroundLight)) !important;
+	background: 	 rgba(var(--backgroundLight)) !important;
+}
+
+._2MjBd1kKOEyVfqBN5OQOb1.CX4Dp8XyHswkGEEnWeUpq, ._2swvcAycL4d0UoHFDoe6-d.CX4Dp8XyHswkGEEnWeUpq, /* highlighted button on gamepad page */
+._3i-XV362MvNEX3j_oWQDmQ.CX4Dp8XyHswkGEEnWeUpq, ._3s28A0XlOXUOAWRIuBKHuH.CX4Dp8XyHswkGEEnWeUpq, /* highlighted button on gamepad page */
+._19SMSHLlXqSLnXM3NjDNBS.CX4Dp8XyHswkGEEnWeUpq, /* highlighted button on mouse page */
+.NoRFSLSfwRijJQt7R51OT.CX4Dp8XyHswkGEEnWeUpq, /*highlighted button on keyboard + numpad page*/
+._3yP_pf4vx1Q4W0mt2DR32P.CX4Dp8XyHswkGEEnWeUpq /* action sets + system? page*/ 
+{
+    background-color: rgba(var(--accent)) !important;
+    border-color: rgba(var(--accentLight)) !important;
+}
+/* highlighted controller button on configurator page */
+.CX4Dp8XyHswkGEEnWeUpq>div>svg>path{
+	fill: rgba(var(--accent)) !important;
+}
+/* remove box shadow from controller configurator page */
+._3IBLc81yyL08OJ7rfKtF00._31ZleDJpmmVr6YwR5VLHiu ._2JobstxtZVYF3078DblN2M::before, ._2JobstxtZVYF3078DblN2M._1jNhbFODJy7sNdcnEeZkz4::before {
+	box-shadow: none !important;
+}
+.GENH-QVzuWLVWg3zzR2Jh>path, /* controller in the middle*/
+._2e9_GS_zLi4uwjJP8ioCur>svg>path /* mouse outline*/
+{
+    stroke: rgba(var(--accent), var(--opacity2)) !important;
+}
+rect{
+	stroke: rgba(var(--accent)) !important;
+	fill: rgba(var(--accent)) !important;
+}
+/* outlines on the controller page*/
+._3-2qPlSL8zwX9qNG6uOwd0._32vdogZvpModD0rwv2fbhE::before,
+._3-2qPlSL8zwX9qNG6uOwd0.XDwwwI5FN_vpj5tzfKM-8::before {
+	border: solid 2px rgba(var(--accent), var(--opacity2)) !important;
+}
+/* controller image in overview */
+.rlz-U2wn9ktH5Z9trfpZa{
+	filter: grayscale(100%);
+}

@@ -1,0 +1,19 @@
+/*######################################################
+/* scrollbars */
+
+/* scrollbar normally*/
+::-webkit-scrollbar {
+	background: transparent !important;
+	width: 0.6rem !important;
+}
+
+/*scrollbar thumb color*/
+::-webkit-scrollbar-thumb {
+	background: rgba(var(--accent)) !important;
+}
+
+body::-webkit-scrollbar-thumb:window-inactive {
+	background-clip: padding-box !important;
+	background: transparent !important;
+}
+

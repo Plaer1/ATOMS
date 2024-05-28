@@ -1,0 +1,128 @@
+@import url('config.css');
+@import url('shiinaLib/webkit.css');
+@import url('scrollbars.css');
+
+  /* custom element css:
+  #################
+  #################
+  ################
+  ####################################################################################
+  ###################################################################################### */
+/* set the font*/
+*{  /*Uncomment if you want to change the font */
+/*     font-family: var(--font) !important; */
+}
+
+/* make the icon for the ITAD integration nice */ 
+/*TODO: 
+make this shit so that it just uses steam classes instead of doing this way*/
+
+.itad_icon {
+    width: 30px;
+    height: 30px;
+	padding-top: 11px;
+}
+
+.itad_wrapper {
+    padding: 18px 0px 8px 16px;
+    height: auto;
+	display: flex;
+
+}
+.itad_wrapper>a {
+    height: auto;
+}
+.itad_text>span {
+    font-size: larger;
+}
+.game_area_purchase_not_refundable, .game_area_purchase_custom_cart_credit {
+    padding-top: 0 !important;
+}
+.home_page_content_title{
+    color: rgba(var(--accent)) !important;
+}
+
+
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/* Update news popup (internal content)
+
+/* bg for main area and arrow area */
+.O7VJKyPtoS7TXCr6mrwCr, ._1N7O3VXbkpN2z55HsSDZsi{
+    background: rgba(var(--background)) !important;
+}
+
+
+/*#################
+/* icon colors
+
+/*icon stroke*/
+polyline, circle, line{
+  stroke: rgba(var(--accent)) !important;
+}
+
+/*icon fill transparent light*/
+._3ZyZUkBq73dLvZ6zKdM9PQ path, ._3ZyZUkBq73dLvZ6zKdM9PQ path           /* left right arrows when they are not clickable*/
+{
+  fill: rgba(var(--accent), var(--opacity3)) !important;
+}
+
+/*icon fill full color*/
+._3ZyZUkBq73dLvZ6zKdM9PQ.cwA5j4AsP5OB7WjWuOlFv path                    /* left right arrows when they are clickable*/
+{
+  fill: rgba(var(--accent)) !important;
+}
+
+/*#################
+/* button colors
+
+/* click for details*/
+._3YohCYvZ6UbfgCXH2uhaOD {
+    background: rgba(var(--accent)) !important;
+}
+
+/* New! */
+._1W_-xJeWEUqdqGET4AKvTM{
+    background: rgba(var(--accent), var(--opacity2)) !important;
+} 
+
+
+/*#################
+/*little boxes */
+
+/*unselected boxes*/
+.ZQrtMhZB1tpkd2bgBXyIF
+{
+    background: var(--accentMoreTransparent) !important;
+}
+
+/* highlighted box*/
+.ZQrtMhZB1tpkd2bgBXyIF.cwA5j4AsP5OB7WjWuOlFv {
+    background: rgba(var(--accent)) !important;
+} 
+
+/* for the error page in que lmao*/
+#responsive_page_template_content > div.page_header_ctn > div.page_content > h2 {
+	white-space:pre;
+	display:inline-block;
+  }
+#responsive_page_template_content > div.page_header_ctn > div.page_content > h2 span {
+	display:inline-block;
+	transform-origin:left;
+	width: 69px;
+  }
+
+  /* congrats you found the bottom
+  (required to make loading text "fun")
+  */
+.LoadingText {
+	white-space:pre;
+  }
+.LoadingText span {
+	display:inline-block !important;
+	transform-origin:left;
+}

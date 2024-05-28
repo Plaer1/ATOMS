@@ -1,0 +1,89 @@
+{
+  "Patches": [
+    {
+      "MatchRegexString": "https://store.steampowered.com",
+      "TargetCss": "webkit.css",
+      "TargetJs": "webkitStore.js"
+    },
+    {
+      "MatchRegexString": "https://help.steampowered.com",
+      "TargetCss": "webkit.css",
+      "TargetJs": "webkitStore.js"
+    },
+    {
+      "MatchRegexString": "https://steamcommunity.com",
+      "TargetCss": "webkit.css",
+      "TargetJs": "webkitCommunity.js"
+    },
+    {
+      "MatchRegexString": "^Steam$",
+      "TargetCss": "library.css",
+      "TargetJs": "steam.js"
+    },
+    {
+      "MatchRegexString": ".ModalDialogPopup",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": ".FullModalOverlay",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": ".friendsui-container",
+      "TargetCss": "friends.css"
+    },
+    {
+      "MatchRegexString": "^OverlayBrowser_Browser$",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": "^SP Overlay:",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": "Menu$",
+      "TargetCss": "menus.css",
+      "TargetJs": "navigation.js"      
+    },    
+    {
+      "MatchRegexString": "Supernav$",
+      "TargetCss": "menus.css" 
+    },
+    {
+      "MatchRegexString": "^notificationtoasts_",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": "^SteamBrowser_Find$",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": "^OverlayTab\\d+_Find$",
+      "TargetCss": "library.css"
+    },
+    {
+      "MatchRegexString": "^Steam Big Picture Mode$",
+      "TargetCss": "bigpicture.css"
+    },
+    {
+		"MatchRegexString": " Controller Layout$",
+		"TargetCss": "controller.css"
+	},
+    {
+      "MatchRegexString": "^Account Data$",
+      "TargetCss": "webkit.css"
+    },
+    {
+      "MatchRegexString": "^QuickAccess_",
+      "TargetCss": "bigpicture.css"
+    },
+    {
+      "MatchRegexString": "^MainMenu_",
+      "TargetCss": "bigpicture.css"
+    },
+    {
+      "MatchRegexString": "Dev Tools",
+      "TargetCss": "menus.css"
+    }
+  ]
+}

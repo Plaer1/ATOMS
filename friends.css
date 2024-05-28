@@ -1,0 +1,168 @@
+/*@import url('ROSE/friends.css');*/
+@import url('config.css');
+@import url('scrollbars.css');
+
+*
+{
+/*       font-family: var(--font) !important; */
+      box-shadow: none !important;
+      border-top: none !important;
+      border-bottom:  none !important;
+}
+
+/*hide scrollbar when unfocused*/
+div::-webkit-scrollbar-thumb:window-inactive {
+    background-clip: padding-box !important;
+    -webkit-box-shadow: none !important;
+    background: transparent !important;
+}
+::selection {
+    background: rgba(var(--accent)) !important;
+}
+/*all the pages*/
+/*icon stroke*/
+.SVGIcon_X_Line>line,
+.SVGIcon_Maximize>line, 
+.SVGIcon_Maximize rect,
+.SVGIcon_Minimize>line,
+.SVGIcon_MagnifyingGlass path,
+.SVGIcon_PlusCircle line,
+._3nIwHFIw4nSXC_DUrzO_a6 ellipse,
+._3nIwHFIw4nSXC_DUrzO_a6 path
+{
+  stroke: rgba(var(--accent)) !important;
+}
+/*icon fill*/
+.SVGIcon_MagnifyingGlass path,
+.friendArm,
+.friendBody,
+.friendBodyFull,
+.friendHead>circle,
+.plusCircle,
+.Bubble,
+.x623f5XW8KKftpfX7C_tg circle
+{
+  fill: rgba(var(--accent)) !important;
+}
+
+/* fix create chatroom button */
+.createChatRoomButton line {
+    stroke: rgba(var(--backgroundLightish)) !important;
+}
+.createChatRoomButton {
+	background: transparent !important;
+}
+/*disable top gradient*/
+.statusHeaderGlow ellipse,
+._2-sgwZvgc-3h4gcUWbTNTh, /* disable friends header gradient */
+._2hL6ssOeMwczcGsrkJWupl, /*disable footer gradient*/
+.singleWindowFocusBar /* disable "focus" gradient*/
+ {
+    display: none !important;
+}
+.focused:not(.singlewindow) .title-area-highlight {
+	opacity: 0 !important;
+}
+/*context menu bottom stuff*/
+.contextMenuGameTitle, .contextMenuSectionContent {
+    background: rgba(var(--backgroundLightish)) !important;
+}
+/*context menu top stuff*/
+.friendsContextMenu{
+    background: rgba(var(--background)) !important;
+}
+/*##############################################
+/*##############################################
+/*##############################################
+/*##############################################
+/* friends list
+/*light grey headers*/
+.socialListTab, .groupHeaderContainer, .groupName, .friendsListSectionTitle    {
+    background: rgba(var(--backgroundLight)) !important;
+}
+/*friends list bg*/
+.quickAccessFriends, .friendlistListContainer, .friendListHeaderContainer, .ChatRoomList {
+    background: rgba(var(--background)) !important;
+}
+
+/*dark grey bars*/
+.friendListFooter{
+    background: rgba(var(--backgroundDarkish)) !important;
+}
+
+/* title bar + footer*/
+.TitleBar {
+    background: rgba(var(--backgroundDarkest)) !important;
+}
+/* player online status ordering fix*/
+.labelHolder {
+    z-index: 999 !important;
+}
+/* fix unread messages gradient for group chats*/
+.ChatUnreadMessageIndicator{
+background: radial-gradient(ellipse farthest-corner at 0% 50%, rgba(var(--accent), var(--opacity3)) 0%, rgba(var(--accent), var(--opacity2)) 40%, transparent 70%) !important;
+}
+/* fix fill for arrows on expand group chats w/ unread messages  */
+.Collapsed.HasUnreadChats .chatSectionTitle .SVGIcon_DoubleArrow .Arrow1, .Collapsed.HasUnreadChats .chatSectionTitle .SVGIcon_DoubleArrow .Arrow2 {
+    stroke: var(--ingame) !important;
+}
+/* color circle for unread chat blibs*/
+.chatUnreadCircle {
+	background: var(--ingame) !important;
+}
+
+/*##############################################
+/*##############################################
+/*##############################################
+/*##############################################
+/*##############################################
+/* Chat Windows
+
+/*tabs + tab seperator line*/
+.X2iywwN7fcdh9zXpXVsrk._1BNlZUYDbVr8VhCTmq7ksk, .chatHeader {
+     background: rgba(var(--backgroundLightish)) !important; 
+}
+/*chat bg*/
+.ChatHistoryContainer {
+    background: rgba(var(--background)) !important;
+}
+/*bg for msg on hover*/
+.msg:hover{
+    background: rgba(var(--backgroundLightish)) !important;
+} 
+/*emoji picker in message*/
+._3nIwHFIw4nSXC_DUrzO_a6{
+    border: none !important;
+    background: rgba(var(--backgroundDarkish)) !important;
+}
+/* typing notification*/
+.FriendChatTypingNotification{
+    background: linear-gradient(to top, var(--darkgreyLightlyTransparent) 0%, var(--darkgreySlightlyTransparent) 12px, var(--accentInvisible) 80%);
+}
+/* input area container*/
+html.client_chat_frame .chatWindow .chatEntry  {
+    background: rgba(var(--backgroundDarkish)) !important;
+}
+/* text input area & buttons*/
+.pewyBQoFSgFWo_Ms99aRm, button, .DialogInput_Wrapper>input.DialogInput {
+    background: rgba(var(--backgroundDark)) !important;
+}
+/* file upload popup */
+.chatFileUploadPreviewContainer{
+    background: rgba(var(--backgroundDarkish)) !important;
+}
+/* emoji picker background */
+.LQkrbbayZPY11qHm01t7F {
+    background: rgba(var(--backgroundDarkish)) !important;
+}
+.chatRoomGroupNavColumn, /* chat rooms left side */
+.MemberListColumn {
+	background: rgba(var(--backgroundDarkish)) !important;
+}
+/* highlight for active channel in group chat */
+.ActiveTextChannel {
+	background: rgba(var(--backgroundLightish)) !important;
+}
+.friendSearchInput {
+	background: rgba(var(--backgroundLightish)) !important;
+}

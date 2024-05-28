@@ -1,0 +1,19 @@
+@import url('config.css');
+*{  /*Uncomment if you want to change the font */
+/*     font-family: var(--font) !important; */
+	box-shadow: none !important;
+}
+
+/* fix menus at the top */
+.contextMenuItem,
+._1UgM1Pm8SbTWX7_2f-crGt /* notif dropdown */
+ {
+  background: rgba(var(--background)) !important;
+}
+
+/* notifications dropdown button backgrounds */
+._2caCrhFIrYqRuguK-cB6be, 
+._1oERP7bVictkby2hP4BBva
+{
+	background: rgba(var(--backgroundLight)) !important;
+} 

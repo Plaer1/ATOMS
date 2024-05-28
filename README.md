@@ -75,6 +75,7 @@ A theme for Steam, currently in beta, and based on:
   
 * You can use the arrow keys to navigate the steam discovery que.
 
+* You can use ``'Control' + '+'`` and ``'Control' + '-'`` to zoom in and out on the non-library pages. 
 
 ## Known bugs/to-do's
 <small>If you find **any bugs** not listed here, please don't hesitate to contact me in the place(s) listed above to report new issues.</small>

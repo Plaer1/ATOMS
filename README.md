@@ -28,23 +28,23 @@ A theme for Steam based on:
 ‎ 
 ### These SFP settings must be configured for a normal experience:
 ```
-	   Inject on Steam start
-	   Inject CSS
-	   Inject Javascript
-	   Make sure ATOMS is selected from the "Steam skin" dropdown.
+	   ✓ Inject on Steam start
+	   ✓ Inject CSS
+	   ✓ Inject Javascript
+	   ✓ Make sure ATOMS is selected from the "Steam skin" dropdown.
 ```
 
 
  ‎ 
 ### It's not required, but for maximum convenience, I recommend applying the following settings:
 ```
-	   Show Tray Icon
-	   Minimize to Tray
-	   Close to Tray
-	   Start Minimized
-	   Inject on app start
-	   Run Steam on start 
-	   Run on boot
+	   ✓ Show Tray Icon
+	   ✓ Minimize to Tray
+	   ✓ Close to Tray
+	   ✓ Start Minimized
+	   ✓ Inject on app start
+	   ✓ Run Steam on start 
+	   ✓ Run on boot
 ```
 <small> (please note that you should now <b>DISABLE Steam opening on boot</b> in the *Steam* settings)</small>
 

@@ -50,7 +50,7 @@ A theme for Steam based on:
 
 
 ## Features:
-* Built from the ground up to be highly configurable, there are already settings in the ``config.css`` with more to come!
+* Built from the ground up to be highly configurable, there are already plenty of settings in the ``config.css`` with more to come!
 
 * Theme'd basically every page in Steam, *if you see* **anything** *that doesn't look theme'd at all*, ***please*** fill out a bug report or contact me on discord!
 
@@ -64,6 +64,17 @@ A theme for Steam based on:
 
 * Moved "Root" menu to it's own hidden menu:
 ![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/ddf4d9a452b3f83752d7aa7d8b0a05a37378fd1e/steamRootMenu.png)
+
+* added Reload/Restart steam buttons:
+![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/abe7b3d73d615aa63d58135309754ad3ba80a13d/restartaloadMenu.png)
+
+* Dim the artwork of uninstalled games in the library:
+![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/abe7b3d73d615aa63d58135309754ad3ba80a13d/transparentGames.png)
+
+* Hides any personal ickyness. from your steam profile (only works for you, the world still knows what you did).
+  
+* You can use the arrow keys to navigate the steam discovery que.
+
 
 ## Known bugs/to-do's
 <small>If you find **any bugs** not listed here, please don't hesitate to contact me in the place(s) listed above to report new issues.</small>

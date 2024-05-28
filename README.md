@@ -12,15 +12,20 @@ A theme for Steam based on:
 
 
 ## Install:
-[Download and install SFP](https://github.com/PhantomGamers/SFP) to a folder on your pc*
 
-<small><i>*you're going to need this <b>forever</b> so put it somewhere you'll remember... or else.</i></small>
+### [Download and install SFP](https://github.com/PhantomGamers/SFP) to a folder on your pc*
 
-Download and extract the skin (``ATOMS`` folder) to:
+<small><i>*you're going to need this app <b>forever</b> so put it somewhere you'll remember... or else.</i></small>
+‎ ‎ 
+
+‎ 
+### Download and extract the skin folder (``ATOMS``) to:
 ``%steamdata%/steamui/skins``
-(this folder is easily accessed from the "open file" menu in the bottom right of SFP)
 
-**These SFP settings must be configured for a normal experience:**
+(this is easily accessed from the "open file" menu in the bottom right of SFP)
+
+‎ 
+### **These SFP settings must be configured for a normal experience:**
 ```
 	   Inject on Steam start
 	   Inject CSS
@@ -28,7 +33,7 @@ Download and extract the skin (``ATOMS`` folder) to:
 	   Make sure ATOMS is selected from the "Steam skin" dropdown.
 ```
 
-** It's not required, but for maximum convenience, I recommend applying the following settings:
+### ** It's not required, but for maximum convenience, I recommend applying the following settings:
 App:**
 ```
 	   Show Tray Icon

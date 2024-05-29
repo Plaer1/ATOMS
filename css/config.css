@@ -116,7 +116,7 @@ the config is broken down into a few main sections:
 	
 	/* ####################
 	/* Library Settings */
-	--libraryText: "🎮🎮🕹️🕹️🖲️💽" !important;	/* changes the home text in the library*/
+	--libraryText: "Home" !important;	/* changes the home text in the library*/
 	--gameShine: var(--accentGameShine); /*chages highlight game tile hover, see below for other options)*/
 	--achievementGlow: var(--accentGameGlow); /*chages rare achievement glow, see below for other options)*/
 

@@ -10,7 +10,6 @@ function bigWait() {
 
 // ageGate.js
 function skipAgeGate() {
-  'use strict';
   //skips age gate (don't tell gabe or my local senator pls)
   if (document.querySelector("#app_agegate > div.main_content_ctn > div.agegate_text_container.btns > div") != null){
       document.getElementById("ageYear").value = "1969";
@@ -20,8 +19,6 @@ function skipAgeGate() {
   }
 }
 function zoomEnabler() {
-  'use strict';
-
   //enables zoom
   // Load previous zoom level or set to 100 if it's the first time
   var zoomLevel = parseFloat(localStorage.getItem('zoomLevel')) || 1.0;

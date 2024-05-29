@@ -6,8 +6,7 @@ import waitForElement from './waitForElement.js';
 
 //queueKeyHandler.js
 export default function handleQueueKeys() {
-	'use strict';
-
+	
 	// refreshes on que "error"
 	if (document.querySelector("#error_box") != null) {
 		funnyText();

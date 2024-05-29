@@ -26,7 +26,7 @@ A theme for Steam, currently in beta, and based on:
 
 (this is easily accessed from the "open file" menu in the bottom right of SFP)
 ##  ‎ 
-## [if you use Millennium, you can now skip to "features"]("#Features")
+## [if you use Millennium, you can now skip to "features"](#Features)
 
 # If you are using SFP make sure the following settings are configured:
 

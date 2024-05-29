@@ -15,21 +15,18 @@ A theme for Steam, currently in beta, and based on:
 ## Install:
 
 ### [Download and install SFP](https://github.com/PhantomGamers/SFP) to a folder on your pc*
-<small><i>*you're going to need this app <b>forever</b> so put it somewhere you'll remember... or else.</i></small>
-### OR
-(please do not install both)
-### [Download and install Millennium Patcher](https://github.com/SteamClientHomebrew/Millennium)
-##  ‎ 
 
-### Download and extract the folder from the zip (``ATOMS``) to:
-``/steam/steamui/skins``
+<small><i>*you're going to need this app <b>forever</b> so put it somewhere you'll remember... or else.</i></small>
+‎ ‎ 
+
+‎ 
+### Download and extract the skin folder (``ATOMS``) to:
+``%steamdata%/steamui/skins``
 
 (this is easily accessed from the "open file" menu in the bottom right of SFP)
-##  ‎ 
-## [if you use Millennium, you can now skip to "features"](#Features)
 
-# If you are using SFP make sure the following settings are configured:
-
+‎ 
+### These SFP settings must be configured for a normal experience:
 ```
 	   ✓ Inject on Steam start
 	   ✓ Inject CSS
@@ -52,7 +49,7 @@ A theme for Steam, currently in beta, and based on:
 <small> (please note that you should now <b>DISABLE Steam opening on boot</b> in the *Steam* settings)</small>
 
 
-## <a href="#Features"></a>Features:
+## Features:
 * Built from the ground up to be highly configurable, there are already plenty of settings in the ``config.css`` with more to come!
 
 * Theme'd basically every page in Steam, *if you see* **anything** *that doesn't look theme'd at all*, ***please*** fill out a bug report or contact me on discord!
@@ -91,5 +88,7 @@ A theme for Steam, currently in beta, and based on:
 
 ## Credits:
 * [PhantomGamers](https://ko-fi.com/phantomgamers) for SFP, and being generally a cool guy.
-* [Shiina](https://shiinaskins.com) for the Steam Dark Mode skin, which many pages in this project still use.
+*  [Shiina](https://shiinaskins.com) for the Steam Dark Mode skin, which many pages in this project still use.
 
+
+\* this is just the first open-beta, I'm looking into Millineum patcher support for later.

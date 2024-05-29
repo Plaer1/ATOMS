@@ -89,7 +89,13 @@ polyline, circle, line{
 ._1W_-xJeWEUqdqGET4AKvTM{
     background: rgba(var(--accent), var(--opacity2)) !important;
 } 
+/*#################
+/* status colors
 
+/*online color*/
+.online>.friendBlockContent {
+    color: rgba(var(--accent));
+}
 
 /*#################
 /*little boxes */

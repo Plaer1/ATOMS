@@ -39,11 +39,11 @@ the config is broken down into a few main sections:
 
 	/*greys*/
 	--grey: 			30, 30, 30; 	/*#1e1e1e*/
-	--greyDarkish: 		38, 38, 38;		/*#262626*/
+	--greyDarkish: 		28, 28, 28;		/*#262626*/
 	--greyLightish: 	38, 38, 38;		/*#3d3d3d*/
 	--greyLight: 		61, 61, 61;		
 	--greyLightest: 	234, 234, 234;
-	--greyDark: 		27, 27, 27;		/*#1b1b1b*/
+	--greyDark: 		25, 25, 25;		/*#1b1b1b*/
 	--greyDarkest: 		22, 22, 22;		/*#161616*/
 	--white: 			255, 255, 255; 
 	/*reds*/
@@ -116,7 +116,7 @@ the config is broken down into a few main sections:
 	
 	/* ####################
 	/* Library Settings */
-	--libraryHomeText: "🎮🎮🕹️🕹️🖲️💽" !important;	/* changes the home text in the library*/
+	--libraryText: "🎮🎮🕹️🕹️🖲️💽" !important;	/* changes the home text in the library*/
 	--gameShine: var(--accentGameShine); /*chages highlight game tile hover, see below for other options)*/
 	--achievementGlow: var(--accentGameGlow); /*chages rare achievement glow, see below for other options)*/
 

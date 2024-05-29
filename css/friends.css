@@ -78,7 +78,7 @@ div::-webkit-scrollbar-thumb:window-inactive {
 /* friends list
 /*light grey headers*/
 .socialListTab, .groupHeaderContainer, .groupName, .friendsListSectionTitle    {
-    background: rgba(var(--backgroundLight)) !important;
+    background: rgba(var(--backgroundLightish)) !important;
 }
 /*friends list bg*/
 .quickAccessFriends, .friendlistListContainer, .friendListHeaderContainer, .ChatRoomList {

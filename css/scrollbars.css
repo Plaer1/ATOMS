@@ -16,4 +16,7 @@ body::-webkit-scrollbar-thumb:window-inactive {
 	background-clip: padding-box !important;
 	background: transparent !important;
 }
-
+/*online player color*/
+.online>div div {
+    color: rgba(var(--accent)) !important;
+}

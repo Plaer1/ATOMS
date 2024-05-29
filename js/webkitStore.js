@@ -20,7 +20,11 @@ handleQueueKeys();
 
 // Check if button exists
 if (document.querySelector('.btn_addtocart') != null) {
+
 	waitForElement('.game_area_purchase_game', addPriceInfo);
+	waitForElement(".steamLowest", openDefaultBrowserWindows)
+
+
 }
 	// makes the text on the loading element fun
 	if (document.querySelector(".LoadingWrapper") != null ){

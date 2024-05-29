@@ -90,5 +90,3 @@ A theme for Steam, currently in beta, and based on:
 * [PhantomGamers](https://ko-fi.com/phantomgamers) for SFP, and being generally a cool guy.
 *  [Shiina](https://shiinaskins.com) for the Steam Dark Mode skin, which many pages in this project still use.
 
-
-\* this is just the first open-beta, I'm looking into Millineum patcher support for later.

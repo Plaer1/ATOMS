@@ -52,7 +52,7 @@ A theme for Steam, currently in beta, and based on:
 <small> (please note that you should now <b>DISABLE Steam opening on boot</b> in the *Steam* settings)</small>
 
 
-## <a href="#Features">Features:</a>
+## <a href="#Features"></a>Features:
 * Built from the ground up to be highly configurable, there are already plenty of settings in the ``config.css`` with more to come!
 
 * Theme'd basically every page in Steam, *if you see* **anything** *that doesn't look theme'd at all*, ***please*** fill out a bug report or contact me on discord!

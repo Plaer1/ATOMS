@@ -5,7 +5,7 @@
 
 /* Uncomment if you want to change the font */
 *{
-/*   font-family: var(--font) !important; */
+  font-family: var(--font) !important;
   box-shadow: none !important;
 }
 /* Uncomment if you to test stuff 
@@ -172,6 +172,14 @@ margin-right: 8px !important; /*matches vanilla value*/
 /* background for top bar */
 ._3Z7VQ1IMk4E3HsHvrkLNgo{
   background: rgba(var(--backgroundDarkest)) !important;
+}
+/*online color in avatar box on top bar*/
+.online ._1yIzy56YfJIliF6ykwhP2r {
+    background: linear-gradient(to bottom, rgba(var(--accent)) 0%, rgba(var(--accent)) 30%, rgba(var(--accent)) 70%, rgba(var(--accent)) 100%) !important;
+}
+/* online text color in avatar box on top bar*/
+._3yD46y5pd3zOGR7CzKs0mC.online {
+    color: rgba(var(--accent)) !important;
 }
 /* remove text from bottom bar buttons, remove game button from bottom bar buttons, hide url bar in library */
 ._3OhUxFVlQYr9W5ThxstR8k, ._3wJnTtcTLEp0R7eQj_mK8Y, ._2CmrnGY-Amtd83ScJkFvx2,

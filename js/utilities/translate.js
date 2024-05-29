@@ -1,5 +1,5 @@
 // Define the URL to the JSON file
-const jsonFileUrl = 'skins/ATOMS/translations.json';
+const jsonFileUrl = 'skins/ATOMS/data/translations.json';
 
 // Function to get the translation for a given text and country code
 export default async function getTranslation(text, countryCode) {

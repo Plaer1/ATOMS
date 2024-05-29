@@ -33,7 +33,7 @@ function combineTopMenusMain() {
 
       // Iterate through found elements
       elementsToMove.forEach((elementToMove) => {
-
+		bigWait();
         // Append the div to the target element as the first child
         targetElement.insertBefore(elementToMove, targetElement.firstChild);
       });

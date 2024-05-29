@@ -1,10 +1,16 @@
 let targetWindow = window.opener;
 
-export default function addMenuItem(elementText, nextToElement, insertionPosition, onClickAction) {
+export default function addMenuItem(elementText, nextToElement, insertionPosition, onClickAction, additionalClasses = []) {
   
   const newElement = document.createElement('div');
-  // applies classes to the new menu element:
+  // applies default classes to the new menu element:
   newElement.classList.add('_2jXHP0742MyApMUVUM8IFn', '_2uiDecKkKjAq7nimy3uLhG', 'pFo3kQOzrl9qVLPXXGIMp', 'contextMenuItem');
+  
+  // applies additional classes if provided
+  if (Array.isArray(additionalClasses)) {
+    additionalClasses.forEach(cls => newElement.classList.add(cls));
+  }
+
   newElement.textContent = elementText;
 
   newElement.onclick = function () {

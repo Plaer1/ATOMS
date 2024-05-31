@@ -1,4 +1,4 @@
-@import url('config.css');
+@import url('../config.css');
 @import url('shiinaLib/webkit.css');
 @import url('scrollbars.css');
 
@@ -10,7 +10,7 @@
   ###################################################################################### */
 /* set the font*/
 *{  /*Uncomment if you want to change the font */
-/*     font-family: var(--font) !important; */
+    font-family: var(--font) !important;
 }
 
 /* make the icon for the ITAD integration nice */ 

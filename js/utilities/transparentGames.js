@@ -1,7 +1,7 @@
 export default function transparentGames() {
     // Adjust opacity
     const adjustOpacity = (element) => {
-        element.style.cssText = 'opacity: var(--opacity333) !important'; // Using !important to ensure override
+        element.style.cssText = 'opacity: var(--transparentGameOpacity) !important'; // Using !important to ensure override
     };
 
     // Handle DOM changes

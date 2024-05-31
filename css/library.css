@@ -1,11 +1,11 @@
-@import url('config.css');
+@import url('../config.css');
 @import url('scrollbars.css');
 
 
 
 /* Uncomment if you want to change the font */
 *{
-/*   font-family: var(--font) !important; */
+  font-family: var(--font) !important;
   box-shadow: none !important;
 }
 /* Uncomment if you to test stuff 
@@ -50,8 +50,14 @@ html {
   padding-top: 3px !important;
 }
 /*top bar text-dropdowns fix*/
-._2Lu3d-5qLmW4i19ysTt2jT {
-  height: 24px !important;
+._2Lu3d-5qLmW4i19ysTt2jT,
+._3yD46y5pd3zOGR7CzKs0mC /*account container top right*/ {
+max-height: 30px !important;
+  height: 30px !important;
+}
+/*account container top right*/
+._3yD46y5pd3zOGR7CzKs0mC {
+	margin-top: -4px !important;
 }
 
 /*back/forward arrows*/
@@ -66,15 +72,93 @@ html {
   align-items: center;
   height: 40px;
   -webkit-app-region: none;
+}
 
+/*download button progress text color*/
+._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-{
+	color: rgba(var(--accent)) !important;
 }
 /* root menu */
 ._3s0lkohH8wU2do0K1il28Y {
+	margin-top: 0px !important;
     border-radius: 6px !important;
-	min-width: 268px !important;
-    height: 26px !important;
-	z-index: 999 !important;
+	min-width: 232px !important;
+    height: 30px !important;
+	z-index: 3 !important;
 }
+/*root menu toggle button bg*/
+.rootToggleButtonWrapperDiv{
+	background: rgba(var(--backgroundLightish)) !important;
+    border-radius: 6px !important;
+}
+/* top bar button formatting*/
+._2Szzh5sKyGgnLUR870zbDE,
+._1TdaAqMFadi0UTqilrkelR,
+._2EQ7ghgqIdjKv9jsQC0Zq9
+{
+	padding: 0 0 0 0 !important;
+	height: 30px !important;
+	width: 30px !important;
+}
+/* Base styles for the elements */
+._2VtAqT03BpBsVdmxwptn9D,
+._2EQ7ghgqIdjKv9jsQC0Zq9 {
+	/* Apply transition to width changes */
+	transition: max-width 0.3s ease-in-out, min-width 0.3s ease-in-out;
+}
+/* root menu when it's little*/
+
+	@media (max-width: 1551px) {
+		/*downloads fix:*
+		._2VtAqT03BpBsVdmxwptn9D,
+		._2EQ7ghgqIdjKv9jsQC0Zq9 {
+			max-width: 15vw;
+			min-width: 15vw;
+		}
+
+		/*root menu when open on small screens*/
+		._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y{
+			z-index: 999 !important;
+		}
+
+			@media (max-width: 1337px) {
+				/*downloads fix:*/
+				._2VtAqT03BpBsVdmxwptn9D,
+				._2EQ7ghgqIdjKv9jsQC0Zq9 { 
+					max-width: 23vw;
+					min-width: 3vw;
+				}
+
+				@media (max-width: 1212px) {
+					/*downloads fix:*/
+					._2VtAqT03BpBsVdmxwptn9D,
+					._2EQ7ghgqIdjKv9jsQC0Zq9 { 
+							max-width: 16vw;
+							min-width: 3vw;
+					}
+					@media (max-width: 1212px) {
+						/*downloads fix:*/
+						._2VtAqT03BpBsVdmxwptn9D,
+						._2EQ7ghgqIdjKv9jsQC0Zq9 { 
+								max-width: 11vw;
+								min-width: 0.3vw;
+						}
+						._1xCcFYWIrJ7W8WRDmGvR3y>div:nth-child(1){
+							display: none !important;
+						}
+					@media (max-width: 1212px) {
+						/*downloads fix:*/
+						._2VtAqT03BpBsVdmxwptn9D,
+						._2EQ7ghgqIdjKv9jsQC0Zq9 { 
+								max-width: 8vw;
+								min-width: 0.3vw;
+						}
+					}
+					}
+			}
+		}
+  }
+
 /*hide bad steam button in root menu*/
 svg.GG9wVQz6PLlhGHlJyZh4E {
     display: none;
@@ -94,13 +178,29 @@ svg.GG9wVQz6PLlhGHlJyZh4E {
 	background: none !important;
 	height: 40px !important;
 	flex-basis: unset !important;
+	padding-right: 6px !important;
 }
 /* downloads button*/
 ._2EQ7ghgqIdjKv9jsQC0Zq9 {
-margin-right: 8px !important; /*matches vanilla value*/
+	margin-top: 1px;
+	margin-right: 8px !important; /*matches vanilla value*/
 }
-._2EQ7ghgqIdjKv9jsQC0Zq9, /*downloads background */
-._1TdaAqMFadi0UTqilrkelR   /*friends background*/
+/*friends button*/
+._1TdaAqMFadi0UTqilrkelR{
+	margin-top: 1px;
+	justify-content: center !important; 
+}
+/*news button*/
+._5wILZhsLODVwGfcJ0hKmJ{
+	margin-top: -4px !important;
+}
+/*alert button*/
+.RtSv39ZoBOySnb8XQ5hJf {
+	margin-top: -2px !important;
+}
+/*downloads background 
+._2EQ7ghgqIdjKv9jsQC0Zq9, 
+._1TdaAqMFadi0UTqilrkelR   /*friends background
 {
     height: 24px;
     padding-top: 0px;
@@ -115,6 +215,7 @@ margin-right: 8px !important; /*matches vanilla value*/
 /* downloads expanded sizing */
 .ip-YZhijAMZcuRoXBGiye {
 	flex-direction: column !important;
+	justify-content: center !important;
 	padding-top: 0;
 	padding-bottom: 0;
     height: 24px;

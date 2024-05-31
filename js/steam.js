@@ -5,7 +5,6 @@ import waitForElement from './utilities/waitForElement.js';
 import rootMenuDropdown from './utilities/rootMenus/rootMenuDropown.js';
 import transparentGames from './utilities/transparentGames.js';
 
-
 if (document.title == "Steam") {
 
 	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', rootMenuDropdown);

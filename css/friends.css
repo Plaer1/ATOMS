@@ -1,10 +1,9 @@
-/*@import url('ROSE/friends.css');*/
-@import url('config.css');
+@import url('../config.css');
 @import url('scrollbars.css');
 
 *
 {
-/*       font-family: var(--font) !important; */
+      font-family: var(--font) !important;
       box-shadow: none !important;
       border-top: none !important;
       border-bottom:  none !important;

@@ -1,16 +1,19 @@
 # Another Take On Metro Steam:
-[![Thanks for all the fish!](https://img.shields.io/badge/Donate-ko--fi-pink?style=flat-square&logo=kofi&logoColor=pink)](https://ko-fi.com/plaer1)    [![My Discord](https://img.shields.io/discord/493527438928642059?style=flat&logo=discord&logoColor=%23c381ff&color=%23c381ff
+[![Thanks for all the fish!](https://img.shields.io/badge/Donate-ko--fi-pink?style=flat-square&logo=kofi&logoColor=%23c381ff&color=%23c381ff)](https://ko-fi.com/plaer1)    [![My Discord](https://img.shields.io/discord/493527438928642059?style=flat&logo=discord&logoColor=%23c381ff&color=%23c381ff
 )](https://discord.gg/EHMjbeEf82)    [![Follow me on Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2FPleyar1&style=flat&logo=twitter&logoColor=%23c381ff&label=Follow%20me%20on%20Twitter&color=%23c381ff)](https://x.com/Pleyar1)    [![Size of skin](https://img.shields.io/github/repo-size/Plaer1/ATOMS?style=flat&logo=github&logoColor=%23c381ff&color=%23c381ff)](https://github.com/Plaer1/ATOMS/)
 
-A theme for Steam, currently in beta, and based on:
+A theme for Steam, based on:
 [The Unofficial Metro for Steam](https://steamcommunity.com/groups/metroskin/discussions/0/141136086931804907/) and [Steam Dark mode by AikoMidori.](https://github.com/AikoMidori/steam-dark-mode)
 
 <small>If you need support: you can find me as Plær1â€™ in [The Unofficial Metro for Steam Discord](https://discord.gg/UZvkvkh).</small>
 
-| Store Page          | Library                        |
-| ------------------- | ------------------------------ |
-| ![ATOMS Store Page](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamStore.png) | ![ATOMS Steam Library](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamLibrary.png) |
+ | Library                        |
+| ------------------- | 
+| ![ATOMS Steam Library](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamLibrary.png) |
 
+| Store Page          |
+| ------------------------------ |
+| ![ATOMS Store Page](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamStore.png) |
 
 ## Install:
 

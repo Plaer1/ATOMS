@@ -14,39 +14,16 @@ A theme for Steam, currently in beta, and based on:
 
 ## Install:
 
-### [Download and install SFP](https://github.com/PhantomGamers/SFP) to a folder on your pc*
-
-<small><i>*you're going to need this app <b>forever</b> so put it somewhere you'll remember... or else.</i></small>
+### [Download and install Millennium](https://github.com/SteamClientHomebrew/Millennium) to a folder on your pc*
+This will be the app you use to install/manage steam skins.
 ‎ ‎ 
 
 ‎ 
 ### Download and extract the skin folder (``ATOMS``) to:
 ``%steamdata%/steamui/skins``
 
-(this is easily accessed from the "open file" menu in the bottom right of SFP)
-
 ‎ 
-### These SFP settings must be configured for a normal experience:
-```
-	   ✓ Inject on Steam start
-	   ✓ Inject CSS
-	   ✓ Inject Javascript
-	   ✓ Make sure ATOMS is selected from the "Steam skin" dropdown.
-```
-
-
- ‎ 
-### It's not required, but for maximum convenience, I recommend applying the following settings:
-```
-	   ✓ Show Tray Icon
-	   ✓ Minimize to Tray
-	   ✓ Close to Tray
-	   ✓ Start Minimized
-	   ✓ Inject on app start
-	   ✓ Run Steam on start 
-	   ✓ Run on boot
-```
-<small> (please note that you should now <b>DISABLE Steam opening on boot</b> in the *Steam* settings)</small>
+### When you first open Millennium and select the ATOMS skin it will warn you that you need to enable JavaScript, if you do not do this, the theme WILL NOT work!
 
 
 ## Features:
@@ -87,8 +64,7 @@ A theme for Steam, currently in beta, and based on:
 * On that same note, I will be implementing the correct regional pricing for the ITAD support, *before* I fix all the translations, it's just easier to start there. I am very sorry for any inconvienance this causes.
 
 ## Credits:
-* [PhantomGamers](https://ko-fi.com/phantomgamers) for SFP, and being generally a cool guy.
-* [Shiina](https://shiinaskins.com) for the Steam Dark Mode skin, which many pages in this project still use.
 * [ShadowMonster99](https://ko-fi.com/shadowmonster) for Millennium, and being generally a cool guy.
-
+* [Shiina](https://shiinaskins.com) for the Steam Dark Mode skin, which many pages in this project still use.
+* [PhantomGamers](https://ko-fi.com/phantomgamers) for SFP, and being generally a cool guy.
 

@@ -13,6 +13,11 @@
 	background: pink !important;
 }
 */
+/* hide console, temporary, FIXME*/
+._2D64jIEK7wpUR_NlObDW76>div:nth-child(7) {
+	display: none !important;
+}
+/*scrollbar stuff*/
 div::-webkit-scrollbar-thumb:window-inactive {
     background-clip: padding-box !important;
     -webkit-box-shadow: none !important;
@@ -68,10 +73,18 @@ max-height: 30px !important;
 /* JS cheater class for the downloads button */
 .Focusable-downloads {
     display: flex;
-    flex-direction: column;
+	flex-grow: 1;
+    flex-direction: row-reverse;
   align-items: center;
   height: 40px;
   -webkit-app-region: none;
+}
+/* downloads / friends container */
+._3vCzSrrXZzZjVJFZNg9SGu{
+	background: none !important;
+	height: 40px !important;
+	flex-basis: unset !important;
+	padding-right: 6px !important;
 }
 
 /*download button progress text color*/
@@ -82,7 +95,7 @@ max-height: 30px !important;
 ._3s0lkohH8wU2do0K1il28Y {
 	margin-top: 0px !important;
     border-radius: 6px !important;
-	min-width: 232px !important;
+	min-width: 242px !important;
     height: 30px !important;
 	z-index: 3 !important;
 }
@@ -100,15 +113,38 @@ max-height: 30px !important;
 	height: 30px !important;
 	width: 30px !important;
 }
+/*extended download button fix*/
+._2EQ7ghgqIdjKv9jsQC0Zq9{
+	flex-direction: row-reverse !important;
+}
 /* Base styles for the elements */
 ._2VtAqT03BpBsVdmxwptn9D,
 ._2EQ7ghgqIdjKv9jsQC0Zq9 {
 	/* Apply transition to width changes */
-	transition: max-width 0.3s ease-in-out, min-width 0.3s ease-in-out;
+	transition: max-width 0.2s ease-in-out, min-width 0.5s ease-in-out, width 0.5s ease-in-out !important;
 }
-/* root menu when it's little*/
 
-	@media (max-width: 1551px) {
+/*handlebar section of titlebar*/
+._30vB9DdsPK7VrZAbb5Q1Av{
+	flex-shrink: 2 !important;
+}
+
+/*root menu when open*/
+._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y{
+	z-index: 999 !important;
+}
+/*1963*/
+	@media (max-width: 1919px) {
+		/*downloads fix:*/
+		._2VtAqT03BpBsVdmxwptn9D,
+		._1sCy-pm412Smb0wJx0W-4 {
+			max-width: 16vw !important;
+			min-width: 2vw !important;
+		}
+		.ip-YZhijAMZcuRoXBGiye
+		{
+			margin-right: 6px !important;
+		}
 		/*downloads fix:*
 		._2VtAqT03BpBsVdmxwptn9D,
 		._2EQ7ghgqIdjKv9jsQC0Zq9 {
@@ -116,48 +152,45 @@ max-height: 30px !important;
 			min-width: 15vw;
 		}
 
-		/*root menu when open on small screens*/
-		._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y{
-			z-index: 999 !important;
-		}
 
-			@media (max-width: 1337px) {
-				/*downloads fix:*/
-				._2VtAqT03BpBsVdmxwptn9D,
-				._2EQ7ghgqIdjKv9jsQC0Zq9 { 
-					max-width: 23vw;
-					min-width: 3vw;
-				}
-
-				@media (max-width: 1212px) {
-					/*downloads fix:*/
-					._2VtAqT03BpBsVdmxwptn9D,
-					._2EQ7ghgqIdjKv9jsQC0Zq9 { 
-							max-width: 16vw;
-							min-width: 3vw;
-					}
-					@media (max-width: 1212px) {
-						/*downloads fix:*/
-						._2VtAqT03BpBsVdmxwptn9D,
-						._2EQ7ghgqIdjKv9jsQC0Zq9 { 
-								max-width: 11vw;
-								min-width: 0.3vw;
-						}
-						._1xCcFYWIrJ7W8WRDmGvR3y>div:nth-child(1){
-							display: none !important;
-						}
-					@media (max-width: 1212px) {
-						/*downloads fix:*/
-						._2VtAqT03BpBsVdmxwptn9D,
-						._2EQ7ghgqIdjKv9jsQC0Zq9 { 
-								max-width: 8vw;
-								min-width: 0.3vw;
-						}
-					}
-					}
+	
+		@media (max-width: 1499px) {
+			/*hide "downloading" text*/
+			._1xCcFYWIrJ7W8WRDmGvR3y>div:nth-child(1){
+				display: none !important;
 			}
+		/*downloads fix:*/
+		._2VtAqT03BpBsVdmxwptn9D,
+		._1sCy-pm412Smb0wJx0W-4 {
+			max-width: 11vw !important;
+			min-width: 2vw !important;
 		}
-  }
+
+		@media (max-width: 1401px) {
+			/* Base styles for the elements */
+				._2VtAqT03BpBsVdmxwptn9D,
+				._2EQ7ghgqIdjKv9jsQC0Zq9 {
+					/* Apply transition to width changes */
+					transition: max-width 0.1s ease-in-out, min-width 0.2s ease-in-out !important;
+				}
+			._2VtAqT03BpBsVdmxwptn9D{
+				max-width: 6vw !important;
+				min-width: 2vw !important;
+			}
+			@media (max-width: 1324px) {
+				/* Base styles for the elements */
+					._2VtAqT03BpBsVdmxwptn9D,
+					._2EQ7ghgqIdjKv9jsQC0Zq9 {
+						/* Apply transition to width changes */
+						transition: max-width 0.1s ease-in-out, min-width 0.2s ease-in-out !important;
+					}
+				._2VtAqT03BpBsVdmxwptn9D{
+					max-width: 4.20vw !important;
+				}
+		}
+	}
+}
+
 
 /*hide bad steam button in root menu*/
 svg.GG9wVQz6PLlhGHlJyZh4E {
@@ -173,13 +206,7 @@ svg.GG9wVQz6PLlhGHlJyZh4E {
   background: rgba(var(--backgroundLightish)) !important;
 }
 
-/* downloads / friends container */
-._3vCzSrrXZzZjVJFZNg9SGu{
-	background: none !important;
-	height: 40px !important;
-	flex-basis: unset !important;
-	padding-right: 6px !important;
-}
+
 /* downloads button*/
 ._2EQ7ghgqIdjKv9jsQC0Zq9 {
 	margin-top: 1px;
@@ -214,17 +241,19 @@ svg.GG9wVQz6PLlhGHlJyZh4E {
 }
 /* downloads expanded sizing */
 .ip-YZhijAMZcuRoXBGiye {
-	flex-direction: column !important;
+	flex-direction: inherit !important;
 	justify-content: center !important;
 	padding-top: 0;
 	padding-bottom: 0;
+	border-width: 6px,6px,6px,6px;
+	border: rgba(var(--backgroundLightish));
     height: 24px;
 }
 ._2VtAqT03BpBsVdmxwptn9D{
-	width: 384px;
+	max-width: 384px;
 	padding-top: 0;
 	padding-bottom: 0;
-    height: 24px;
+    height: 30px;
 	background: rgba(var(--backgroundLightish));
 	border-radius: 2px;
 

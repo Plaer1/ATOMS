@@ -26,6 +26,7 @@ export default function rootMenuDropdown() {
 			rootToggleButtonWrapperDiv.style.backgroundColor = 'none'; // Setting the background color
 			rootToggleButtonWrapperDiv.style.minWidth = '30px';
 			rootToggleButtonWrapperDiv.style.minHeight = '30px';
+			rootToggleButtonWrapperDiv.style.height = '30px';
 			rootToggleButtonWrapperDiv.style.marginTop = '6px';
 			rootToggleButtonWrapperDiv.style.borderRadius = '6px';
 			rootToggleButtonWrapperDiv.style.display = 'flex';
@@ -85,24 +86,20 @@ export default function rootMenuDropdown() {
 					if (menu.style.display != "flex") {
 						menu.style.display = "flex"; // Show menu
 						logoSVG.querySelector("#logoPath").setAttribute("fill", "rgba(var(--accent))");
-						if (window.innerWidth >= 1551) {
-							rootMenuWrapperDiv.style.marginLeft = "0px";
-							rootMenuWrapperDiv.style.marginTop = "6px";
-							rootToggleButtonWrapperDiv.style.height = "30px";
-						}
-						if (window.innerWidth < 1551) {
-							if(document.querySelector('._2VtAqT03BpBsVdmxwptn9D') || window.innerWidth < 1180){
+						if (
+						menu.getBoundingClientRect().right > document.querySelector('.ip-YZhijAMZcuRoXBGiye').getBoundingClientRect().left + 5 
+						||
+						menu.getBoundingClientRect().right > document.querySelector('._2EQ7ghgqIdjKv9jsQC0Zq9').getBoundingClientRect().left + 5
+						) {
 								rootMenuWrapperDiv.style.marginTop = "42px";
 								rootMenuWrapperDiv.style.marginLeft = "-30px";
-							}else{
-								rootMenuWrapperDiv.style.marginTop = "0px";
-								rootMenuWrapperDiv.style.marginLeft = "0px";
-							}
-							if (rootToggleButtonWrapperDiv.style.height === "30px") {
 								rootToggleButtonWrapperDiv.style.height = "60px";
-							} else {
+
+						}
+						else{
+								rootMenuWrapperDiv.style.marginLeft = "0px";
+								rootMenuWrapperDiv.style.marginTop = "6px";
 								rootToggleButtonWrapperDiv.style.height = "30px";
-							}
 						}
 					} else {
 						menu.style.display = "none"; // Hide menu

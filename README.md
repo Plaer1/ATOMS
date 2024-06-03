@@ -60,19 +60,19 @@ A theme for Steam, based on:
 * Skip the age gate on store pages (***make sure to fill out your real birthday in the file***: ``utility.js``**!!**).
 
 * Is there any deal integration:
-![ATOMS ITAD](https://github.com/Plaer1/ATOMS-Media/blob/ddf4d9a452b3f83752d7aa7d8b0a05a37378fd1e/steamitad.png)
+![ATOMS ITAD](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamitad.png)
 
 * Removed bottom menu and moved buttons to top right:
-![ATOMS Bar Buttons](https://github.com/Plaer1/ATOMS-Media/blob/ddf4d9a452b3f83752d7aa7d8b0a05a37378fd1e/steamTopRightBar.png)
+![ATOMS Bar Buttons](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamTopRightBar.png)
 
 * Moved "Root" menu to it's own hidden menu:
-![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/ddf4d9a452b3f83752d7aa7d8b0a05a37378fd1e/steamRootMenu.png)
+![ATOMS Root Menu](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamRootMenu.png)
 
 * added Reload/Restart steam buttons:
-![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/abe7b3d73d615aa63d58135309754ad3ba80a13d/restartaloadMenu.png)
+![ATOMS Root Menu](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/restartaloadMenu.png)
 
 * Dim the artwork of uninstalled games in the library:
-![ATOMS Root Menu](https://github.com/Plaer1/ATOMS-Media/blob/abe7b3d73d615aa63d58135309754ad3ba80a13d/transparentGames.png)
+![ATOMS Root Menu](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/transparentGames.png)
 
 * Hides any personal ickyness. from your steam profile (only works for you, the world still knows what you did).
   

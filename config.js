@@ -16,3 +16,5 @@ export const year = "1969";
 export const month = "April";
 //day
 export const day = "20";
+
+export const filePathPrefix ="skins/ATOMS";

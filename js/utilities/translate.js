@@ -1,5 +1,6 @@
+import { filePathPrefix } from "../../config.js";
 // Define the URL to the JSON file
-const jsonFileUrl = 'skins/ATOMS/data/translations.json';
+const jsonFileUrl = filePathPrefix + '/data/translations.json';
 
 // Function to get the translation for a given text and country code
 export default async function getTranslation(text, countryCode) {

@@ -1,4 +1,27 @@
+
 {
+
+	"author": "Plær1â€™",
+	"name": "ATOMS",
+	"description": "Just another \"take\" on Metro Steam.",
+	"version": "1.1.1.1",
+  
+	"github": {
+	  "owner": "Plaer1",
+	  "repo_name": "ATOMS"
+	},
+	"discord_support": {
+	  "inviteCodeExcludingLink": "UZvkvkh"
+	},
+	"tags": [
+	  "Minimal",
+	  "Dark",
+	  "Customizable",
+	  "Metro"
+	],
+	"header_image": "https://github.com/Plaer1/ATOMS-Media/blob/ab5236c9122397b7534822bac8cedbce39e17636/atomsHeaderImage.png",
+	"splash_image": "https://github.com/Plaer1/ATOMS-Media/blob/ab5236c9122397b7534822bac8cedbce39e17636/atomsSplashImage.png",
+	  
   "Patches": [
     {
       "MatchRegexString": "https://store.steampowered.com",

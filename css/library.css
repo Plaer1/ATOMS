@@ -532,7 +532,7 @@ background: var(--gameShine);
 /* change "library title" (home text on sidebar)
 note: you may need to adjust the size for best clarity.*/
 ._3O48LaKWcabKx07xdrt1TH::before{
-  content: var(--libraryHomeText) !important;
+  content: var(--libraryText) !important;
   visibility: visible !important;
   font-size:150% !important;
 }

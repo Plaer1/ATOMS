@@ -9,11 +9,11 @@ A theme for Steam, based on:
 
 
 ### Library:
-![ATOMS Steam Library](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamLibrary.png)
+![ATOMS Steam Library](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamLibrary.png)
 
 
 ### Store Page:          
-![ATOMS Store Page](https://github.com/Plaer1/ATOMS-Media/blob/d2844f744c5d28ffb571731a1eb7d43f4f9a2da5/steamStore.png)
+![ATOMS Store Page](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamStore.png)
 
 ## Install:
 

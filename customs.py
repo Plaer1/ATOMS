@@ -23,9 +23,6 @@ def process_file(file_path, mode):
 				lines[i] = new_line
 
 		if '--libraryText:' in line:
-			print("fuck")
-			print("fuck")
-			print("fuck")
 			if mode == '-off':
 				start_index = line.index('--libraryText: ') + len('--libraryText: ')
 				end_index = line.index(';	/* changes the home text in the library*/')

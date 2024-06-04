@@ -355,7 +355,7 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 }
 /* context menu hover bg*/
 ._1KPWUt7wYWSfD3V7sYpsyT,
-.pFo3kQOzrl9qVLPXXGIMp:hover:not(.Play):not(.Install):not(.Update) {
+.pFo3kQOzrl9qVLPXXGIMp:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
 	background: rgba(var(--accent)) !important;
 	color: rgba(var(--backgroundLightest)) !important;
 }
@@ -363,7 +363,8 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 /* context menu install/update button bg */
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLight)) 0%, rgba(var(--accent)) 70%);
 }
@@ -371,7 +372,8 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLightest)) 0%, rgba(var(--accentLight)) 70%);
 }
@@ -393,6 +395,10 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 /*what's new background update (news?)*/
 .B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5:hover ._3Rb_j3lgHaVVIud4Gla7_m, .gpfocus>.B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5 ._3Rb_j3lgHaVVIud4Gla7_m {
 background: rgba(var(--accent), var(--opacity333)) !important;
+}
+/*what's new news text color*/
+._1vIlyxb5BAwKPUkOfO94qZ{
+	color: rgba(var(--accent)) !important;
 }
 /*what's new event background color*/
 ._3OSZu24hLN7YKjqGi7I2Xp {
@@ -1300,5 +1306,14 @@ background: rgba(var(--backgroundDark)) !important;
 ._1ZS_xta5HMXzR8JgxDH6n7,._20QAC4WMXm8qFE8waUT5oo,._1ijTaXJJA5YWl_fW2IxcaT,._1fbRpYO_BFDlMdFLsQMGVE,._3x1HklzyDs4TEjACrRO2tB{
   background: rgba(var(--backgroundDark)) !important;
 }
+/*##############################################
+/*##############################################
+/*##############################################
+/*##############################################
+/*##############################################
+/* misc stuff
+/*title bar on misc popups*/
 
-
+.ModalDialogPopup .ModalDialogBody.DesktopUI .PopupFullWindow .TitleBar {
+	 height: calc(1rem + 12px) !important;
+}

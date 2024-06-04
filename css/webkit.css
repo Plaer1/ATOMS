@@ -38,9 +38,7 @@ make this shit so that it just uses steam classes instead of doing this way*/
 .game_area_purchase_not_refundable, .game_area_purchase_custom_cart_credit {
     padding-top: 0 !important;
 }
-.home_page_content_title{
-    color: rgba(var(--accent)) !important;
-}
+
 
 
 /*#############################################################################

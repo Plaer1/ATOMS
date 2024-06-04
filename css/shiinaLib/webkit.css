@@ -980,7 +980,7 @@ body.v6 .home_rightcol .tab_preview h2 {
 
 .home_page_content .more_content_title span {
     background: transparent !important;
-	color: rgba(var(--accent)) !important;
+	/*color: rgba(var(--accent)) !important;*/
 }
 
 .home_content.single a.screenshot {
@@ -3961,20 +3961,21 @@ div:nth-child(15) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdT
 }
 /* links on main page*/
 body.v6 h2 a {
-    color: rgba(var(--accentDark)) !important;
+    color: rgba(var(--accent)) !important;
 }
 /* links on main page*/
 body.v6 h2 a:hover {
-    color: rgba(var(--accent)) !important;
+    color: rgba(var(--textLightest)) !important;
 }
 a:hover {
-    color: rgba(var(--accent)) !important;
+    color: rgba(var(--textLightest)) !important;
 }
 
 .btnv6_white_transparent>span:hover {
     color: rgba(var(--accent)) !important;
     background: rgba(var(--backgroundLightish)) !important;
 }
+/*various headers
 .apphub_AppName {
     color: rgba(var(--accent)) !important;
 }

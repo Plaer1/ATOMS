@@ -46,6 +46,7 @@ the config is broken down into a few main sections:
 	--greyDark: 		25, 25, 25;		/*#1b1b1b*/
 	--greyDarkest: 		22, 22, 22;		/*#161616*/
 	--white: 			255, 255, 255; 
+
 	/*reds*/
 	--red:				255, 0, 0;
 
@@ -62,16 +63,23 @@ the config is broken down into a few main sections:
 	--purple:			102, 36, 226; 
 
 	/*blues*/
-	--blue:				0, 102, 255; 
+    --blue:					66, 177, 249;         /*0, 102, 255;*/
+    --blueLightish:			0, 0, 0;
+    --blueLight:			127, 174, 196;             /*#d7adff*/
+    --blueLightest:			97, 197, 237;
+    --darkishblue:			0, 0, 0;
+    --darkblue:				30, 37, 47;        /*#ab37a7*/
+    --darkestblue:			33, 41, 52;
 
 	/* Pinks */
-	--pink:				195, 129, 255;		/*#c381ff*/
-	--pinkLightish:		0, 0, 0;
-	--pinkLight:		215, 173, 255;		/*#d7adff*/
-	--pinkLightest:		252, 106, 247;
-	--darkishPink:		0, 0, 0;
-	--darkPink:			171, 55, 167;		/*#ab37a7*/
-	--darkestPink:		154, 70, 151;
+	--pink:					195, 129, 255;		/*#c381ff*/
+	--pinkLightish:			0, 0, 0;
+	--pinkLight:			215, 173, 255;		/*#d7adff*/
+	--pinkLightest:			252, 106, 247;
+	--pinkWhite:			203, 187, 203; /*#cbbcb*/
+	--darkishPink:			0, 0, 0;
+	--darkPink:				171, 55, 167;		/*#ab37a7*/
+	--darkestPink:			154, 70, 151;
 
 
 
@@ -96,8 +104,8 @@ the config is broken down into a few main sections:
 	--backgroundDarkest: 		var(--greyDarkest);
 
 	--textLightish:				var(--);
-	--textLight:				var(--);
-	--textLightest:				var(--);
+	--textLight:				var(--pinkWhite);
+	--textLightest:				var(--white);
 
 	--transparentGameOpacity:	var(--opacity333);
 	
@@ -118,7 +126,7 @@ the config is broken down into a few main sections:
 	
 	/* ####################
 	/* Library Settings */
-	--libraryText: "🎮🎮🕹️🕹️🖲️💽" !important;	/* changes the home text in the library*/
+	--libraryText: "Home";	/* changes the home text in the library*/
 	--gameShine: var(--accentGameShine); /*chages highlight game tile hover, see below for other options)*/
 	--achievementGlow: var(--accentGameGlow); /*chages rare achievement glow, see below for other options)*/
 
@@ -340,3 +348,8 @@ don't use any of this....
 	--accentDarkTransparent: 	var(--transparentdarkPink);
 	--accentDarkerTransparent:	var(--transparentdarkerPink);
 }
+
+
+
+
+

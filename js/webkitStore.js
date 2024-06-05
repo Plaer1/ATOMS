@@ -5,7 +5,9 @@ import {
 	zoomEnabler
 } from './utilities/utility.js';
 import addPriceInfo from './utilities/ITAD/addPriceInfo.js';
+import { wait } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
+import addInfoButtons from './utilities/addInfoButtons.js';
 
 // Skip age gate
 skipAgeGate();
@@ -21,10 +23,10 @@ handleQueueKeys();
 // Check if button exists
 if (document.querySelector('.btn_addtocart') != null) {
 
+
 	waitForElement('.game_area_purchase_game', addPriceInfo);
-	waitForElement(".steamLowest", openDefaultBrowserWindows)
-
-
+	//waitForElement(".steamLowest", /*openDefaultBrowserWindows*/wait); i'm not sure this does anything????
+	waitForElement(".apphub_OtherSiteInfo", addInfoButtons);
 }
 	// makes the text on the loading element fun
 	if (document.querySelector(".LoadingWrapper") != null ){

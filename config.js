@@ -18,3 +18,6 @@ export const month = "April";
 export const day = "20";
 
 export const filePathPrefix ="skins/ATOMS";
+
+/*itad api key*/
+export var itadApiKey = 'cd0d6ea01dd4547fa05f63b58696197dab9d3778';

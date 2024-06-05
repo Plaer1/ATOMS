@@ -1,11 +1,11 @@
+import { itadApiKey } from "../../../config.js";
 function fetchCurrentLowest(appHubAppName) {
   return new Promise((resolve, reject) => {
     //console.log('fetchCurrentLowest started for:', appHubAppName);
     var request = new XMLHttpRequest();
     var country_code = getCountryCode();
-    var apiKey = 'cd0d6ea01dd4547fa05f63b58696197dab9d3778';
 
-    var url = 'https://api.isthereanydeal.com/v01/game/storelow/?key=' + apiKey + '&plains=' + appHubAppName + '&shops=steam,greenmangaming,amazonus,battlenet,epic,gog,humblestore,itchio,macgamestore,microsoft,newegg,origin,uplay,squenix,wingamestore' + '&country=' + country_code;
+    var url = 'https://api.isthereanydeal.com/v01/game/storelow/?key=' + itadApiKey + '&plains=' + appHubAppName + '&shops=steam,greenmangaming,amazonus,battlenet,epic,gog,humblestore,itchio,macgamestore,microsoft,newegg,origin,uplay,squenix,wingamestore' + '&country=' + country_code;
     //console.log('URL:', url);
 
     request.open('GET', url);
@@ -69,9 +69,8 @@ function fetchHistoricalLow(appHubAppName) {
     //console.log('fetchHistoricalLow started for:', appHubAppName);
     var request = new XMLHttpRequest();
     var country_code = getCountryCode();
-    var apiKey = 'c8c5e944568d90b5bd2c3d738a21e38b6a151e27';
 
-    var url = 'https://api.isthereanydeal.com/v01/game/lowest/?key=' + apiKey + '&plains=' + appHubAppName + '&country=' + country_code;
+    var url = 'https://api.isthereanydeal.com/v01/game/lowest/?key=' + itadApiKey + '&plains=' + appHubAppName + '&country=' + country_code;
     //console.log('URL:', url);
 
     request.open('GET', url);
@@ -127,9 +126,8 @@ function fetchSteamLow(appHubAppName) {
     //console.log('fetchSteamLow started for:', appHubAppName);
     var request = new XMLHttpRequest();
     var country_code = getCountryCode();
-    var apiKey = 'c8c5e944568d90b5bd2c3d738a21e38b6a151e27';
 
-    var url = 'https://api.isthereanydeal.com/v01/game/lowest/?key=' + apiKey + '&plains=' + appHubAppName + '&shops=steam' + '&country=' + country_code;
+    var url = 'https://api.isthereanydeal.com/v01/game/lowest/?key=' + itadApiKey + '&plains=' + appHubAppName + '&shops=steam' + '&country=' + country_code;
     //console.log('URL:', url);
 
     request.open('GET', url);

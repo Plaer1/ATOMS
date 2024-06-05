@@ -1317,3 +1317,8 @@ background: rgba(var(--backgroundDark)) !important;
 .ModalDialogPopup .ModalDialogBody.DesktopUI .PopupFullWindow .TitleBar {
 	 height: calc(1rem + 12px) !important;
 }
+
+/*loading throbber*/
+._39-WTtOSEPJqAEjOcNGE3j{
+	filter: var(--accentFilter) !important;
+}

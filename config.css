@@ -63,38 +63,54 @@ the config is broken down into a few main sections:
 	--purple:			102, 36, 226; 
 
 	/*blues*/
-    --blue:					66, 177, 249;         /*0, 102, 255;*/
+    --blue:					66, 177, 249;		/*0, 102, 255;*/
     --blueLightish:			0, 0, 0;
-    --blueLight:			127, 174, 196;             /*#d7adff*/
+    --blueLight:			127, 174, 196;		/*#d7adff*/
     --blueLightest:			97, 197, 237;
     --darkishblue:			0, 0, 0;
-    --darkblue:				30, 37, 47;        /*#ab37a7*/
+    --darkblue:				30, 37, 47;			/*#ab37a7*/
     --darkestblue:			33, 41, 52;
 
 	/* Pinks */
 	--pink:					195, 129, 255;		/*#c381ff*/
-	--pinkLightish:			0, 0, 0;
+
+	--pinkLightish:			205, 151, 255;
 	--pinkLight:			215, 173, 255;		/*#d7adff*/
 	--pinkLightest:			252, 106, 247;
-	--pinkWhite:			203, 187, 203; /*#cbbcb*/
-	--darkishPink:			0, 0, 0;
+	
+	--darkishPink:			170, 106, 207;		
 	--darkPink:				171, 55, 167;		/*#ab37a7*/
 	--darkestPink:			154, 70, 151;
 
+	--pinkWhiteish:			174, 159, 174;		/*#cbbcb*/
+	--pinkWhite:			203, 187, 203;		/*#cbbcb*/
+	--pinkWhiteest:			229, 221, 229;		
 
+	--pinkWhiteDark:		131, 103, 131;
+	--pinkWhiteDarkish:		148, 113, 148;
 
 	/* ATOM'S COLORS */
 	/*change a bunch of accent colors at once*/
 
+	/*static accents*/
 	--accent:		 			var(--pink);
 	--accentLightish:			var(--pinkLightish);
 	--accentLight:				var(--pinkLight);
 	--accentLightest: 			var(--pinkLightest); 
-	--accentDarkish:			var(--pinkDarkish);		
+	--accentDarkish:			var(--darkishPink);		
 	--accentDark:				var(--darkPink);	
 	--accentDarkest:			var(--darkestPink);	
+	
+	/*dynamic accents (MILLINEUM ONLY)
+	--accent:		 			var(--SystemAccentColor-RGB);
+	--accentLightish:			var(--SystemAccentColorLight1-RGB);
+	--accentLight:				var(--SystemAccentColorLight2-RGB);
+	--accentLightest: 			var(--SystemAccentColorLight3-RGB); 
+	--accentDarkish:			var(--SystemAccentColorDark1-RGB);		
+	--accentDark:				var(--SystemAccentColorDark2-RGB);	
+	--accentDarkest:			var(--SystemAccentColorDark3-RGB);	
 
-
+	/*static backgrounds*/
 	--backgroundLightish: 		var(--greyLightish); 
 	--backgroundLight: 			var(--greyLight);
 	--backgroundLightest: 		var(--greyLightest);
@@ -103,14 +119,14 @@ the config is broken down into a few main sections:
 	--backgroundDark: 			var(--greyDark); 
 	--backgroundDarkest: 		var(--greyDarkest);
 
-	--textLightish:				var(--);
+	--textAccented:				var(--accent);
+	--textLightish:				var(--pinkWhiteish);
 	--textLight:				var(--pinkWhite);
-	--textLightest:				var(--white);
+	--textLightest:				var(--pinkWhiteest);
+	--textDarkish:				var(--pinkWhiteDarkish);
+	--textDark:				    var(--pinkWhiteDark);
 
-	--transparentGameOpacity:	var(--opacity333);
 	
-	--halfTransparent:			var(--); /* figure this out*//*fixme*/
-
 	/* some static steam color definitons*/
 	--ingame: #92be38;
 	--steamNearWhite: 			#ccc;
@@ -123,12 +139,13 @@ the config is broken down into a few main sections:
 	/* ####################
 	/* Global Settings */
 	--font: "Comic Neue"; 								/* changes font, must be enabled in the other CSS files (near the top)*/
-	
+	--accentFilter: var(--filterBlueToPink);		/*turns blues pink, must only be used when nessicary*/
 	/* ####################
 	/* Library Settings */
-	--libraryText: "Home";	/* changes the home text in the library*/
-	--gameShine: var(--accentGameShine); /*chages highlight game tile hover, see below for other options)*/
-	--achievementGlow: var(--accentAchievementGlow); /*chages rare achievement glow, see below for other options)*/
+	--libraryText: "Home";					/* changes the home text in the library*/
+	--transparentGameOpacity:	var(--opacity333);		/* changes how transparent the uninstalled games in the library are*/
+	--gameShine: var(--accentGameShine);				/*chages highlight game tile hover, see below for other options)*/
+	--achievementGlow: var(--accentAchievementGlow);	/*chages rare achievement glow, see below for other options)*/
 
 
 
@@ -270,6 +287,15 @@ the config is broken down into a few main sections:
 	--opacity9:		0.9; 
 	--opacity100:	1.0;  
 
+	--filterBlueToPink:		hue-rotate(79deg);
+	--filterBlueToPurple:	hue-rotate(0deg);
+	--filterBlueToBlue:		hue-rotate(0deg);
+	--filterBlueToRed:		hue-rotate(146deg);
+	--filterBlueToGreen:	hue-rotate(282deg);
+	--filterBlueToYellow:	hue-rotate(221deg);
+	--filterBlueToOrange:	hue-rotate(192deg);
+
+	
 
 /* #####################################
 /* ####################

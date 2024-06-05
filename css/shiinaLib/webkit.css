@@ -222,11 +222,11 @@ body.v6 .page_content.browse_reviews {
 
 .daily_deal .dailydeal_desc {
     font-size: 11px !important;
-    color: var(--lightblue) !important;
+    color: rgb(var(--textAccented)) !important;
 }
 
 .dailydeal_countdown.ttip {
-    color: var(--lightblue) !important;
+    color: rgb(var(--textAccented)) !important;
     background-color: var(--blue) !important;
     display: inline-block !important;
     font-size: 10px !important;
@@ -462,7 +462,7 @@ body.v6 .supernav_content {
 
 #store_nav_area .store_nav_bg,
 .home_page_body_ctn.has_takeover #store_nav_area .store_nav_bg {
-    background: var(--lightergrey) !important;
+    background: rgb(var(--backgroundLightish)) !important;
 
 }
 
@@ -947,9 +947,14 @@ img.member_tile {
 }
 
 .tab_item.focus .discount_block .discount_final_price {
-    color: var(--blue-er) !important;
+    color: rgb(var(--textLightish)) !important;
 }
-
+.discount_original_price{
+    color: rgb(var(--textDark));
+}
+.tab_item.focus .discount_block .discount_original_price{
+    color: rgb(var(--textDarkish)) !important;
+}
 #tab_preview_container {
 
     top: 15px !important;

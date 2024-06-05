@@ -2,7 +2,7 @@ import { bigWait, wait } from "../utility.js";
 import waitForElement from "../waitForElement.js";
 
 export default function rootMenuDropdown() {
-
+bigWait();
 	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
 		wait();
 		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {

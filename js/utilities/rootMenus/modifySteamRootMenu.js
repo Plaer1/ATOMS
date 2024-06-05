@@ -5,7 +5,7 @@ import { bigWait, wait } from "../utility.js";
 import waitForElement from "../waitForElement.js";
 
 export default async function modifySteamRootMenu() {
-	
+	bigWait();
 	try {
 
         const reloadSteamMenu = await getTranslation("reloadSteam", document.documentElement.lang);
@@ -19,11 +19,11 @@ export default async function modifySteamRootMenu() {
 			const parentElement = exitButton.parentNode;
 
 			// Add "Reload Steam" menu item before the exit button.
-			const reloadElement = addMenuItem(reloadSteamMenu, '#popup_target > div > div > div:nth-child(11)', 'before', "location.reload()");
+			addMenuItem(reloadSteamMenu, '#popup_target > div > div > div:nth-child(11)', 'before', "location.reload()");
 			// Add "Restart Steam" menu item before the exit button.
-			const restartElement = addMenuItem(restartSteam, '#popup_target > div > div > div:nth-child(12)', 'before', "SteamClient.User.StartRestart(false)");
+			 addMenuItem(restartSteam, '#popup_target > div > div > div:nth-child(12)', 'before', "SteamClient.User.StartRestart(false)");
 			// Add a separator to the menu.
-			const menuSeperatortElement = addMenuItem("", '#popup_target > div > div > div:nth-child(13)', 'before', "", ['_2jXHP0742MyApMUVUM8IFn', '_21GPYlKBCLsHQpTsHw_RL_']);
+			addMenuItem("", '#popup_target > div > div > div:nth-child(13)', 'before', "", ['_2jXHP0742MyApMUVUM8IFn', '_21GPYlKBCLsHQpTsHw_RL_']);
 		});
 
     } catch (error) {

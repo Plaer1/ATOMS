@@ -4,6 +4,12 @@ import waitForElement from './utilities/waitForElement.js';
 
 import rootMenuDropdown from './utilities/rootMenus/rootMenuDropown.js';
 import transparentGames from './utilities/transparentGames.js';
+import { systemAccentColors } from './utilities/systemAccentColors.js';
+
+waitForElement('body', function(element) {
+	systemAccentColors();
+});
+
 
 if (document.title == "Steam") {
 

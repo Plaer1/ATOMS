@@ -100,15 +100,6 @@ the config is broken down into a few main sections:
 	--accentDarkish:			var(--darkishPink);		
 	--accentDark:				var(--darkPink);	
 	--accentDarkest:			var(--darkestPink);	
-	
-	/*dynamic accents (MILLINEUM ONLY)
-	--accent:		 			var(--SystemAccentColor-RGB);
-	--accentLightish:			var(--SystemAccentColorLight1-RGB);
-	--accentLight:				var(--SystemAccentColorLight2-RGB);
-	--accentLightest: 			var(--SystemAccentColorLight3-RGB); 
-	--accentDarkish:			var(--SystemAccentColorDark1-RGB);		
-	--accentDark:				var(--SystemAccentColorDark2-RGB);	
-	--accentDarkest:			var(--SystemAccentColorDark3-RGB);	
 
 	/*static backgrounds*/
 	--backgroundLightish: 		var(--greyLightish); 
@@ -138,14 +129,14 @@ the config is broken down into a few main sections:
 
 	/* ####################
 	/* Global Settings */
-	--font: "Comic Neue"; 								/* changes font, must be enabled in the other CSS files (near the top)*/
-	--accentFilter: var(--filterBlueToPink);		/*turns blues pink, must only be used when nessicary*/
+	--font: "Comic Neue";											/* changes font, must be enabled in the other CSS files (near the top)*/
+	--accentFilter: var(--filterBlueToPink);						/*turns blues pink, must only be used when nessicary*/
 	/* ####################
 	/* Library Settings */
-	--libraryText: "Home";					/* changes the home text in the library*/
-	--transparentGameOpacity:	var(--opacity333);		/* changes how transparent the uninstalled games in the library are*/
-	--gameShine: var(--accentGameShine);				/*chages highlight game tile hover, see below for other options)*/
-	--achievementGlow: var(--accentAchievementGlow);	/*chages rare achievement glow, see below for other options)*/
+	--libraryText:				"🎮🎮🕹️🕹️🖲️💽";					/* changes the home text in the library*/
+	--transparentGameOpacity:	var(--opacity333);					/* changes how transparent the uninstalled games in the library are*/
+	--gameShine:				var(--accentGameShine);				/*chages highlight game tile hover, see below for other options)*/
+	--achievementGlow:			var(--accentAchievementGlow);		/*chages rare achievement glow, see below for other options)*/
 
 
 
@@ -166,108 +157,25 @@ the config is broken down into a few main sections:
 	/* ########################
 	/* Game Shine Gradients: */
 	/*accent color*/
-	--accentGameShine: linear-gradient(
-		to bottom,
-		transparent 0%,
-		rgba(var(--accent), var(--opacity85)) 12px,
-		rgba(var(--accent), var(--opacity75)) 20%,
-		transparent 60%,
-		transparent 85%,
-		rgba(var(--backgroundDarkest), var(--opacity8)) 100%
-	  );
+	--accentGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--accent), var(--opacity85)) 12px, rgba(var(--accent), var(--opacity75)) 20%, transparent 60%, transparent 85%, rgba(var(--backgroundDarkest), var(--opacity8)) 100%);
+
 	/*rainbow*/
-	--rainbowPrideGameShine: linear-gradient(
-		to bottom,
-		transparent 9%,
-		rgba(var(--red), var(--opacity75)) 19%,
-		rgba(var(--orange), var(--opacity75)) 25%,
-		rgba(var(--yellow), var(--opacity75)) 36%,
-		rgba(var(--green), var(--opacity75)) 45%,
-		rgba(var(--blue), var(--opacity75)) 54%,
-		rgba(var(--purple), var(--opacity75)) 63%,
-		transparent 100%
-	  );
+	--rainbowPrideGameShine: linear-gradient( to bottom, transparent 9%, rgba(var(--red), var(--opacity75)) 19%, rgba(var(--orange), var(--opacity75)) 25%, rgba(var(--yellow), var(--opacity75)) 36%, rgba(var(--green), var(--opacity75)) 45%, rgba(var(--blue), var(--opacity75)) 54%, rgba(var(--purple), var(--opacity75)) 63%, transparent 100%);
+
 	/*trans pride*/
-	--transPrideGameShine: linear-gradient(
-		to bottom,
-		transparent 15%,
-		rgba(var(--blue), var(--opacity75)) 22%,
-		rgba(var(--pink), var(--opacity75)) 35%,
-		rgba(var(--white), var(--opacity75)) 49%,
-		rgba(var(--pink), var(--opacity75)) 68%,
-		rgba(var(--blue), var(--opacity75)) 69%,
-		transparent 100%
-	  );
+	--transPrideGameShine: linear-gradient( to bottom, transparent 15%, rgba(var(--blue), var(--opacity75)) 22%, rgba(var(--pink), var(--opacity75)) 35%, rgba(var(--white), var(--opacity75)) 49%, rgba(var(--pink), var(--opacity75)) 68%, rgba(var(--blue), var(--opacity75)) 69%, transparent 100%);
+
 	/*bisexual pride*/
-	--bisexualPrideGameShine: linear-gradient(
-		to bottom,
-		transparent 0%,
-		rgba(var(--darkerPink)) 40%,
-		rgba(var(--Purple), var(--opacity75)) 60%,
-		rgba(var(--Blue), var(--opacity75)) 100%
-	  );
+	--bisexualPrideGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--darkerPink)) 40%, rgba(var(--Purple), var(--opacity75)) 60%, rgba(var(--Blue), var(--opacity75)) 100%);
+
 	/* ###############################
 	/* Achievement Shine Gradients: */
 	  /*accent*/
-	  --accentAchievementGlow: repeating-conic-gradient(
-		rgba(var(--accent), 0.178) 0%,
-		rgba(var(--accent), 0) 6%,
-		rgba(var(--accent), 0.178) 10%,
-		rgba(var(--accent)) 26%,
-		rgba(var(--accent), 0.178) 35%,
-		rgba(var(--accent)) 40%,
-		rgba(var(--accent), 0.178) 60%,
-		rgba(var(--accent)) 82%,
-		rgba(var(--accent), 0.178) 100%
-	  );
+	  --accentAchievementGlow: repeating-conic-gradient( rgba(var(--accent), 0.178) 0%, rgba(var(--accent), 0) 6%, rgba(var(--accent), 0.178) 10%, rgba(var(--accent)) 26%, rgba(var(--accent), 0.178) 35%, rgba(var(--accent)) 40%, rgba(var(--accent), 0.178) 60%, rgba(var(--accent)) 82%, rgba(var(--accent), 0.178) 100% );
 	  /*rainbow*/
-	  --rainbowPrideAchievementGlow: linear-gradient(
-		to bottom,
-		rgba(var(--red), var(--opacity2)) 0%,
-		rgba(var(--red), var(--opacity2)) 2%,
-		rgba(var(--red), var(--opacity666)) 5%,
-		rgba(var(--red), var(--opacity2)) 8%,
-		transparent 11%,
-		rgba(var(--orange), var(--opacity2)) 13%,
-		rgba(var(--orange), var(--opacity666)) 15%,
-		rgba(var(--orange), var(--opacity2)) 18%,
-		transparent 20%,
-		rgba(var(--yellow), var(--opacity2)) 22%,
-		rgba(var(--yellow), var(--opacity666)) 25%,
-		rgba(var(--yellow), var(--opacity2)) 28%,
-		transparent 30%,
-		rgba(var(--green), var(--opacity2)) 32%,
-		rgba(var(--green), var(--opacity666)) 35%,
-		rgba(var(--green), var(--opacity2)) 38%,
-		transparent 40%,
-		rgba(var(--blue), var(--opacity2)) 42%,
-		rgba(var(--blue), var(--opacity666)) 45%,
-		rgba(var(--blue), var(--opacity2)) 48%,
-		transparent 50%,
-		rgba(var(--purple), var(--opacity2)) 52%,
-		rgba(var(--purple), var(--opacity666)) 57%,
-		rgba(var(--purple), var(--opacity2)) 62%,
-		transparent 100%
-	  );
+	  --rainbowPrideAchievementGlow: linear-gradient( to bottom, rgba(var(--red), var(--opacity2)) 0%, rgba(var(--red), var(--opacity2)) 2%, rgba(var(--red), var(--opacity666)) 5%, rgba(var(--red), var(--opacity2)) 8%, transparent 11%, rgba(var(--orange), var(--opacity2)) 13%, rgba(var(--orange), var(--opacity666)) 15%, rgba(var(--orange), var(--opacity2)) 18%, transparent 20%, rgba(var(--yellow), var(--opacity2)) 22%, rgba(var(--yellow), var(--opacity666)) 25%, rgba(var(--yellow), var(--opacity2)) 28%, transparent 30%, rgba(var(--green), var(--opacity2)) 32%, rgba(var(--green), var(--opacity666)) 35%, rgba(var(--green), var(--opacity2)) 38%, transparent 40%, rgba(var(--blue), var(--opacity2)) 42%, rgba(var(--blue), var(--opacity666)) 45%, rgba(var(--blue), var(--opacity2)) 48%, transparent 50%, rgba(var(--purple), var(--opacity2)) 52%, rgba(var(--purple), var(--opacity666)) 57%, rgba(var(--purple), var(--opacity2)) 62%, transparent 100% );
 	  /*trans pride*/
-	  --transPrideAchievementGlow: linear-gradient(
-		to bottom,
-		rgba(var(--blue), var(--opacity666)) 0%,
-		rgba(var(--blue), var(--opacity2)) 10%,
-		transparent 10%,
-		rgba(var(--pink), var(--opacity666)) 13%,
-		rgba(var(--pink), var(--opacity2)) 20%,
-		transparent 20%,
-		rgba(var(--white), var(--opacity666)) 23%,
-		rgba(var(--white), var(--opacity2)) 40%,
-		transparent 40%,
-		rgba(var(--pink), var(--opacity666)) 43%,
-		rgba(var(--pink), var(--opacity2)) 50%,
-		transparent 50%,
-		rgba(var(--blue), var(--opacity666)) 53%,
-		rgba(var(--blue), var(--opacity2)) 60%,
-		transparent 60%
-	  );
+	  --transPrideAchievementGlow: linear-gradient( to bottom, rgba(var(--blue), var(--opacity666)) 0%, rgba(var(--blue), var(--opacity2)) 10%, transparent 10%, rgba(var(--pink), var(--opacity666)) 13%, rgba(var(--pink), var(--opacity2)) 20%, transparent 20%, rgba(var(--white), var(--opacity666)) 23%, rgba(var(--white), var(--opacity2)) 40%, transparent 40%, rgba(var(--pink), var(--opacity666)) 43%, rgba(var(--pink), var(--opacity2)) 50%, transparent 50%, rgba(var(--blue), var(--opacity666)) 53%, rgba(var(--blue), var(--opacity2)) 60%, transparent 60% );
 
 	/*#############################
 	/* hardcoded opacity values*/

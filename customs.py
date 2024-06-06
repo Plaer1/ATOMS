@@ -24,13 +24,27 @@ def process_file(file_path, mode):
 
         if '--libraryText:' in line:
             if mode == '-off':
-                start_index = line.index('--libraryText: ') + len('--libraryText: ')
-                end_index = line.index(';					/* changes the home text in the library*/')
-                new_line = line[:start_index] + '"Home"' + line[end_index:]
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
+                # Check if the substring is present before attempting to find its index
+                if '--libraryText: ' in line and ';					/* changes the home text in the library*/' in line:
+                    start_index = line.index('--libraryText: ') + len('--libraryText: ')
+                    end_index = line.index(';					/* changes the home text in the library*/')
+                    new_line = line[:start_index] + '"Home"' + line[end_index:]
+                    print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
+                    lines[i] = new_line
             elif mode == '-on':
                 new_line = line.replace('Home', '🎮🎮🕹️🕹️🖲️💽')
+                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
+                lines[i] = new_line
+
+        if "@import url('webkitNegativeText.css');" in line:
+            if mode == '-off' and not line.strip().startswith('/*'):
+                # Comment the import line
+                new_line = '/* ' + line.rstrip() + ' */\n'
+                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
+                lines[i] = new_line
+            elif mode == '-on' and line.strip().startswith('/*'):
+                # Uncomment the import line
+                new_line = line.replace('/* ', '').replace(' */', '')
                 print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
                 lines[i] = new_line
 
@@ -52,7 +66,7 @@ def process_css_files(mode):
                 css_files.append(os.path.join(root, file))
     if os.path.exists(config_css_path):
         print(config_css_path)
-        css_files.append(os.path.join(root, config_css_path))
+        css_files.append(config_css_path)
     else:
         print(f"'config.css' not found in {os.path.dirname(os.path.abspath(__file__))}")
     

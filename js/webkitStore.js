@@ -8,12 +8,18 @@ import addPriceInfo from './utilities/ITAD/addPriceInfo.js';
 import { wait } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
 import addInfoButtons from './utilities/addInfoButtons.js';
+import { systemAccentColors } from './utilities/systemAccentColors.js';
+
+waitForElement('body', function(element) {
+	systemAccentColors();
+});
 
 // Skip age gate
 skipAgeGate();
 
 // Enable zoom
-zoomEnabler();
+waitForElement('body', zoomEnabler);
+
 
 // everything below here is optional or in beta
 

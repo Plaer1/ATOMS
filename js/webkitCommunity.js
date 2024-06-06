@@ -1,5 +1,10 @@
 import { zoomEnabler } from './utilities/utility.js';
 import removeProfileBrand from './utilities/removeProfileBrand.js';
+import { systemAccentColors } from './utilities/systemAccentColors.js';
+
+waitForElement('body', function(element) {
+	systemAccentColors();
+});
 
 // Enable zoom
 zoomEnabler();

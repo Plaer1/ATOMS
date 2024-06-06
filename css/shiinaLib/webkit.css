@@ -2689,18 +2689,14 @@ body.v6 #footer .rule {
 }
 
 h2 span.note {
-    background: rgba(47, 137, 188, 1) !important;
-    color: var(--blue-er) !important;
     padding: 0 !important;
     padding-top: 4px !important;
     padding-bottom: 1px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
-
 }
 
 h2 span.note:hover {
-    background: rgba(23, 67, 92, 1) !important;
     color: var(--white) !important;
     padding: 0 !important;
     padding-top: 4px !important;
@@ -2737,15 +2733,6 @@ h2 span.note:hover {
 
 }
 
-.review_box.partial .view_more a {
-    background: rgba(47, 137, 188, 1) !important;
-    color: var(--blue-er) !important;
-}
-
-.review_box.partial .view_more a:hover {
-    background: rgba(23, 67, 92, 1) !important;
-    color: var(--white) !important;
-}
 
 .user_reviews_active_filters .active_filter {
 

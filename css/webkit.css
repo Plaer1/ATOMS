@@ -256,9 +256,13 @@ align-items: center;
 .html5_video_overlay .autoplay_checkbox.checked, /*play video button*/
 .ico16.reportv6, /*report game button*/
 img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], /*thumbs up vote in reviews*/
+img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], /*thumbs up vote in reviews*/
+img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], /* award ribbon in reviews*/
 .review_source, /*review sorce star*/
 .user_reviews_filter_menu .title, /*review container footer text /arrows/etc*/
-.itad_icon /*is there any deal icon*/
+.itad_icon, /*is there any deal icon*/
+.vote_button_ctn  a:not(.btn_active) i, /*thumbs up on store page*/
+.review_box .vote_info .commentCount a /* comment count and icon in review footer on store page*/
 {
 	filter: var(--accentFilter);
 }
@@ -284,6 +288,10 @@ div.early_access_header .heading {
 /*early access banner border*/
 div.early_access_header {
     border: 1px solid rgb(var(--accent));
+}
+/*early access bug banner*/
+div.early_access_banner {
+    background: rgb(var(--backgroundDarkish));
 }
 /*app tags*/
 .app_tag {
@@ -384,6 +392,10 @@ option{
 option:hover{
 	background: rgb(var(--accentLight)) !important;
 }
+/*review footer h1 text*/
+div.bb_h1, .bb_wysiwyg h1 {
+    color: rgb(var(--textAccented)) !important;
+}
 /* early access review warning */
 .early_access_review {
     background: rgb(var(--accentDarkest));
@@ -414,4 +426,73 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
 /*background of genre specific/sale pages*/
 .SaleBackground{
 	background: rgb(var(--background)) !important;
+}
+.btnv6_grey_black {
+    color: rgb(var(--textAccented)) !important;
+    background: rgba(var(--accentDarkest), .2);
+}
+.btnv6_grey_black.btn_active {
+    color: rgb(var(--white)) !important;
+    background: rgba(var(--accent), 0.4 );
+}
+.btnv6_grey_black:hover {
+    color: rgb(var(--white)) !important;
+    background: rgba(var(--accent), .5);
+}
+.review_box.partial .view_more a {
+    color: rgba(var(--textAccented));
+}
+
+/*#########################################################
+/*#######################################
+/*####################
+/* actual review page
+/*h2 text*/
+div.bb_h2, .bb_wysiwyg h2 {
+    color: rgba(var(--textAccented)) !important;
+}
+/*award count number*/
+.review_award_count,
+.apphub_UserReviewCardContent .review_award_aggregated {
+	color: rgba(var(--textAccented)) !important;
+}
+/*username color for active users on */
+.apphub_Card.interactable:hover .apphub_CardContentAuthorName.online a
+{
+    color: rgba(var(--textAccented)) !important;
+}
+/* dropdown  on reviews page*/
+div.filterselect {
+	background: rgba( var(--accent), 0.2 );
+    color: rgba(var(--textAccented)) !important;
+}
+/* expanded dropdown  on reviews page*/
+
+div.filterselect_options {
+    background-color: rgb(var(--accent));
+}
+.apphub_SectionFilterLabel, /*show text at top of reviews page*/
+#footerText>a /*footer text*/
+{
+    color: rgba(var(--textDarkish)) !important;
+}
+/*copyright text in footer*/
+#footerText>div.copyIcon, #footerText>span.copyright{
+	color: rgba(var(--textDark)) !important;
+}
+
+/*outlivne for online users*/
+.playerAvatar.online img, .friend_status_online .friend_block_avatar img, .appHubIconHolder.online img, .avatar_block_status_online img {
+    background: linear-gradient( to bottom, rgb(var(--accentLightish)) 5%, rgb(var(--accent)) 95%);
+}
+/*outlivne for online users*/
+.appHubIconHolder.online{
+    background: linear-gradient( to bottom, rgb(var(--accentLightish)) 5%, rgb(var(--accent)) 95%);
+}
+/* spotlight widget*/
+#widget{
+	box-shadow: none !important;
+	border-top: 1px solid rgb(var(--backgroundLight))	!important;
+    border-left: 1px solid rgb(var(--backgroundLight))	!important;
+    background: rgb(var(--backgroundLightish))	!important;
 }

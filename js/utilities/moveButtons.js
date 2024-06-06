@@ -10,7 +10,7 @@ export default function moveButtons() {
 	/*wait for target and destination elements before proceeding*/
 	waitForElement('._3cykd-VfN_xBxf3Qxriccm', function(element) {
 		waitForElement('._3vCzSrrXZzZjVJFZNg9SGu', function(element) {	
-			wait();
+			bigWait();
 			const targetClass = '_3cykd-VfN_xBxf3Qxriccm';
 			const classesToMove = [
 				'_3vCzSrrXZzZjVJFZNg9SGu'		// whole  bar

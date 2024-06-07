@@ -41,7 +41,6 @@ make this shit so that it just uses steam classes instead of doing this way*/
 }
 
 
-
 /*#############################################################################
 /*#############################################################################
 /*#############################################################################
@@ -258,6 +257,7 @@ align-items: center;
 img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], /*thumbs up vote in reviews*/
 img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], /*thumbs up vote in reviews*/
 img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], /* award ribbon in reviews*/
+img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], /*official steam thumbs up emojo*/
 .review_source, /*review sorce star*/
 .user_reviews_filter_menu .title, /*review container footer text /arrows/etc*/
 .itad_icon, /*is there any deal icon*/
@@ -265,7 +265,27 @@ img[src="https://community.akamai.steamstatic.com/public/shared/images//award_ic
 .review_box .vote_info .commentCount a /* comment count and icon in review footer on store page*/
 {
 	filter: var(--accentFilter);
+} 
+/*game page backgrounds*/
+.game_page_background.game {
+    /*filter: grayscale(1);*/
+	background-size: contain;
 }
+/*
+.game_page_background.game::before
+
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    z-index: 1; /* Ensure the pseudo-element is above the background 
+    pointer-events: none; /* Allow interaction with underlying content 
+}*/
+
 .queue_btn_menu > .queue_menu_arrow.queue_btn_active {
     background: rgba( var(--accent), 0.420 );
 }
@@ -273,6 +293,8 @@ img[src="https://community.akamai.steamstatic.com/public/shared/images//award_ic
 .queue_btn_menu > .queue_menu_arrow {
     background: rgba( var(--accent), 0.2);
 }
+
+
 /*early access banner*/
 div.early_access_header .heading {
     background: linear-gradient(135deg, rgba(var(--accent),1) 0%,rgba(var(--accentDarkish),1) 100%);

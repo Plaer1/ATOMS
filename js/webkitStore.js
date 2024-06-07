@@ -5,13 +5,14 @@ import {
 	zoomEnabler
 } from './utilities/utility.js';
 import addPriceInfo from './utilities/ITAD/addPriceInfo.js';
-import { wait } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
 import addInfoButtons from './utilities/addInfoButtons.js';
 import { systemAccentColors } from './utilities/systemAccentColors.js';
+import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
+waitForElement('body', systemAccentColors);
 
-waitForElement('body', function(element) {
-	systemAccentColors();
+waitForElement('.game_page_background', function(element) {
+applyGrayscaleBackground('game_page_background');
 });
 
 // Skip age gate
@@ -19,6 +20,7 @@ skipAgeGate();
 
 // Enable zoom
 waitForElement('body', zoomEnabler);
+
 
 
 // everything below here is optional or in beta

@@ -287,3 +287,6 @@ don't use any of this....
 
 
 
+body{
+	background: rgb(var(--background)) !important;
+}

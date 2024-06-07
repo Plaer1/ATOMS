@@ -25,6 +25,7 @@ export default async function modifySteamRootMenu() {
 			// Add a separator to the menu.
 			addMenuItem("", '#popup_target > div > div > div:nth-child(13)', 'before', "", ['_2jXHP0742MyApMUVUM8IFn', '_21GPYlKBCLsHQpTsHw_RL_']);
 		});
+		
 
     } catch (error) {
         console.error('Error modifying Steam root menu:', error.message);

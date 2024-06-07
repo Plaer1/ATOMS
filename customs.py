@@ -1,5 +1,6 @@
 ﻿import os
 import sys
+import zipfile
 
 def process_file(file_path, mode):
     print("Processing file:", file_path)  # Console logging
@@ -115,6 +116,23 @@ def process_skin_json(mode):
                 lines[i] = new_line
             file.write(lines[i])
 
+def zip_files():
+    zip_filename = 'ATOMS.zip'
+    exclude_extensions = {'.py', '.md', '.zip'}
+    exclude_dirs = {'.git'}
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(base_dir):
+            # Exclude directories
+            dirs[:] = [d for d in dirs if d not in exclude_dirs]
+            for file in files:
+                if not (root == base_dir and os.path.splitext(file)[1] in exclude_extensions):
+                    file_path = os.path.join(root, file)
+                    arcname = os.path.relpath(file_path, base_dir)
+                    zipf.write(file_path, os.path.join('ATOMS', arcname))
+    print(f"Created zip file {zip_filename}")
+
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else None
 
@@ -123,5 +141,7 @@ if __name__ == '__main__':
         process_css_files(mode)
         process_config_js(mode)
         process_skin_json(mode)
+        if mode == '-off':
+            zip_files()
     else:
         print('Invalid mode. Please use -off or -on.')

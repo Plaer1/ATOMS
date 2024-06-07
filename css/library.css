@@ -17,6 +17,12 @@
 ._2D64jIEK7wpUR_NlObDW76>div:nth-child(7) {
 	display: none !important;
 }
+/*make blue stuff accented*/
+img[src="/images/defaultappimage.png"] /* award ribbon in reviews*/
+
+{
+	filter: var(--accentFilter);
+}
 /*scrollbar stuff*/
 div::-webkit-scrollbar-thumb:window-inactive {
     background-clip: padding-box !important;
@@ -364,7 +370,11 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop
+
+
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLight)) 0%, rgba(var(--accent)) 70%);
 }
@@ -373,7 +383,11 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel:hover,
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop:hover
+
+
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLightest)) 0%, rgba(var(--accentLight)) 70%);
 }
@@ -462,7 +476,8 @@ div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 ._41y1pGJEo9TqrhjUqDK2h defs>clipPath>path,
 ._41y1pGJEo9TqrhjUqDK2h>svg path, /*spellcheck highlight*/
 [direction="left"]>path, /* arrow in the notes menu in the overlay*/
-._1BXjK5v8XI_SEhGola5ftn>svg path/*icons in the bottom bar of the overlay*/
+._1BXjK5v8XI_SEhGola5ftn>svg path,/*icons in the bottom bar of the overlay*/
+._3QZfwcmLlT0T6WNXW7vqx1 /*thumbs up on game page in library*/
 {
   fill: rgba(var(--accent)) !important;
 }
@@ -726,8 +741,11 @@ background: rgba(var(--accent)) !important;
 	color: rgba(var(--accent));
 	background-color: rgba(var(--backgroundLightish));
 }
-.qX4kNo6O0M-mYntdErKSJ{
-	color: rgba(var(--accent)) !important;
+
+.qX4kNo6O0M-mYntdErKSJ,
+.online .r62qzcdJQ0qezZglOtiUX /*online player text*/
+{
+	color: rgba(var(--textAccented)) !important;
 }
 ._1kCN0pAntrcGCSmcc-vYdk path {
 	fill: rgba(var(--accent));
@@ -795,7 +813,10 @@ background: rgba(var(--backgroundLightish));
 ._3QOEiyJx6JNKSPfGtfeQRO{
   color: rgba(var(--accentDark)) !important;
 }
-
+/*thumbs up bg color*/
+._2BlTqJQonHkEpBSpiC1NEA {
+    background: radial-gradient(ellipse farthest-corner at 6% 8%, rgb(var(--accentDarkish)) 0%, rgb(var(--accentDarkish)) 34%, rgb(var(--accentDark)) 100%);
+}
 /*#############################
 /* achievement hover popup / achievement click popup*/
 

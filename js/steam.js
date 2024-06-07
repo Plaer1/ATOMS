@@ -6,9 +6,7 @@ import rootMenuDropdown from './utilities/rootMenus/rootMenuDropown.js';
 import transparentGames from './utilities/transparentGames.js';
 import { systemAccentColors } from './utilities/systemAccentColors.js';
 
-waitForElement('body', function(element) {
-	systemAccentColors();
-});
+waitForElement('body', systemAccentColors);
 
 
 if (document.title == "Steam") {

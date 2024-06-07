@@ -1112,10 +1112,6 @@ body.v6 {
     max-width: 367px !important;
 }
 
-.game_page_background.game {
-    background-image: none !important;
-}
-
 .block_content.block_content_inner.dark {
     background-color: var(--bedarkgrey) !important;
 }

@@ -1,5 +1,4 @@
 export default function addSeperator() {
-    console.log('insertMenuSeperator function called.');
 
     // Create a new hr element with the desired class names
     const newElement = document.createElement('hr');

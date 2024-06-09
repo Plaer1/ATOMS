@@ -9,6 +9,7 @@ import waitForElement from './utilities/waitForElement.js';
 import addInfoButtons from './utilities/addInfoButtons.js';
 import { systemAccentColors } from './utilities/systemAccentColors.js';
 import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
+
 waitForElement('body', systemAccentColors);
 
 waitForElement('.game_page_background', function(element) {

@@ -27,6 +27,6 @@ export default function addMenuItem(elementText, nextToElement, insertionPositio
       referenceElement.parentNode.insertBefore(newElement, referenceElement.nextSibling);
     }
   }
-
+  
   return newElement;
 }

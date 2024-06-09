@@ -44,6 +44,6 @@ export default function addInfoButtons() {
         originalButton.insertBefore(pcgamingwikiInfoButton, originalButton.firstChild);
         originalButton.insertBefore(steamdbInfoButton, pcgamingwikiInfoButton);
     } else {
-        console.log('Button with class apphub_OtherSiteInfo not found');
+
     }
 }

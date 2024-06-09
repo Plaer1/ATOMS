@@ -4,8 +4,9 @@ import waitForElement from "../waitForElement.js";
 export default function rootMenuDropdown() {
 bigWait();
 	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
-		wait();
+		bigWait();
 		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
+			bigWait();
 			// Select the existing menu
 			var menu = document.querySelector("._1Ky59qmywxOUtNcI1cgmkX"); // selecting the menu
 
@@ -47,8 +48,7 @@ bigWait();
 				rootToggleButtonWrapperDiv.appendChild(buttonSVG);
 				target.insertBefore(rootToggleButtonWrapperDiv, target.firstChild); // inserting the menu before the first child of the target
 
-			}else{ console.log("fuckfuckfuckfuckfuckfuck");}
-
+			}
 
 			// Create SVG Logo
 			var logoSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -63,14 +63,7 @@ bigWait();
 			`;
 			buttonSVG.appendChild(logoSVG);
 
-
-
-
-
-				// Insert the wrapper div (with SVG) as the first child after the menu
-				
-				
-			//menu.insertAdjacentElement('afterend', wrapperDiv);
+			// Insert the wrapper div (with SVG) as the first child after the menu
 			rootMenuWrapperDiv.appendChild(menu);
 
 
@@ -78,8 +71,6 @@ bigWait();
 				menu.style.display = "none";
 				menu.style.backgroundColor = 'rgba(var(--backgroundLightish))';
 				
-
-
 				// Button click event
 				buttonSVG.addEventListener("click", function () {
 					
@@ -124,8 +115,7 @@ bigWait();
 				
 					target.insertBefore(rootMenuWrapperDiv, target.firstChild.nextSibling); // inserting the menu after the first child of the target
 				
-				}else{ console.log("fuckfuckfuckfuckfuckfuck");
-				}
-		});
+				}  
+			});
 	});
 }

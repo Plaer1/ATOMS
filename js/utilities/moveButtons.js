@@ -9,6 +9,7 @@ export default function moveButtons() {
 	bigWait();
 	/*wait for target and destination elements before proceeding*/
 	waitForElement('._3cykd-VfN_xBxf3Qxriccm', function(element) {
+		bigWait();
 		waitForElement('._3vCzSrrXZzZjVJFZNg9SGu', function(element) {	
 			bigWait();
 			const targetClass = '_3cykd-VfN_xBxf3Qxriccm';

@@ -7,7 +7,7 @@ import waitForElement from "../waitForElement.js";
 export default async function modifySteamRootMenu() {
 	bigWait();
 	try {
-
+		bigWait();
         const reloadSteamMenu = await getTranslation("reloadSteam", document.documentElement.lang);
 		const restartSteam = await getTranslation("restartSteam", document.documentElement.lang);
         

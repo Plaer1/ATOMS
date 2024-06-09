@@ -445,8 +445,8 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
 ._1VhpnbFYLe10F8k2MVp3eU:hover {
     background: rgb(var(--accentLightest)) !important;
 }
-/*background of genre specific/sale pages*/
-.SaleBackground{
+/*background of genre specific/sale pages without images (so temporary sales should still have (some) theme)*/
+.SaleBackground:not([style*='background-image']){
 	background: rgb(var(--background)) !important;
 }
 .btnv6_grey_black {

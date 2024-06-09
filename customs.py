@@ -94,6 +94,10 @@ def process_config_js(mode):
                     new_line = 'export const filePathPrefix ="skins/ATOMS-git";\n'
                 print("Line edited:", line.strip(), "->", new_line.strip()) # Console logging
                 lines[i] = new_line
+            if 'export const systemAccentsEnabled =' in line:
+                new_line = 'export const systemAccentsEnabled ="0";\n'
+                print("Line edited:", line.strip(), "->", new_line.strip()) # Console logging
+                lines[i] = new_line
             file.write(lines[i])
 
 def process_skin_json(mode):

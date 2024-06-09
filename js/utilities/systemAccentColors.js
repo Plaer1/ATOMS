@@ -12,7 +12,7 @@ export function systemAccentColors() {
 
 	document.documentElement.style.setProperty('--textLightish',	'var(--SystemAccentColorLight2-RGB)');
 	document.documentElement.style.setProperty('--textLight',		'var(--SystemAccentColorLight3-RGB)');
-	document.documentElement.style.setProperty('--textLightest', 	'var(--SystemAccentColorLight3-RGB)'); /*needs js*/
+	document.documentElement.style.setProperty('--textLightest', 	'var(--SystemAccentColorLight3-RGB)'); /*needs js? FIXME*/
 	document.documentElement.style.setProperty('--textDarkish',		'var(--SystemAccentColorDark1-RGB)');		
 	document.documentElement.style.setProperty('--textDark',		'var(--SystemAccentColorDark2-RGB)');
 

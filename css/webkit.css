@@ -129,6 +129,10 @@ polyline, circle, line{
 	display:inline-block !important;
 	transform-origin:left;
 }
+.Bar{
+	background: rgba(var(--accent)) !important;
+
+}
 /*fix for adding other icons to the community hub shortut bar*/
 .apphub_OtherSiteInfo{
 	display: flex;
@@ -268,23 +272,9 @@ img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup
 } 
 /*game page backgrounds*/
 .game_page_background.game {
-    /*filter: grayscale(1);*/
 	background-size: contain;
 }
-/*
-.game_page_background.game::before
 
-{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    z-index: 1; /* Ensure the pseudo-element is above the background 
-    pointer-events: none; /* Allow interaction with underlying content 
-}*/
 
 .queue_btn_menu > .queue_menu_arrow.queue_btn_active {
     background: rgba( var(--accent), 0.420 );

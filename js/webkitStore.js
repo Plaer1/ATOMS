@@ -7,21 +7,23 @@ import addInfoButtons from './utilities/addInfoButtons.js';
 import { systemAccentColors } from './utilities/systemAccentColors.js';
 import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
 
-waitForElement('body', systemAccentColors);
+waitForElement('body', function(element) {
+
+systemAccentColors();
 
 waitForElement('.game_page_background', function(element) {
-applyGrayscaleBackground('game_page_background');
+applyGrayscaleBackground('.game_page_background');
 });
 
-// Skip age gate
-skipAgeGate();
-
+// Skip age gate - DO NOT FORGET TO SET YOUR REAL BIRTHDAY!
+waitForElement('.agegate_birthday_selector', function(element) {
+	if (document.querySelector('.agegate_birthday_selector') != null) {
+		skipAgeGate();	
+	}
+});
 
 // Enable zoom
-if (document.querySelector('.agegate_birthday_selector') != null) {
-	waitForElement('body', zoomEnabler);
-}
-
+zoomEnabler();
 
 // everything below here is optional or in beta
 
@@ -81,3 +83,4 @@ function funnyText() {
 	target.style.color = `rgb(var(--textAccented))`
 }
 	  
+});

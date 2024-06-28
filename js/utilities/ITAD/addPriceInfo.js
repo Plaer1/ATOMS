@@ -29,7 +29,6 @@ export default function addPriceInfo() {
 				appType = 2;
 			}
 		}
-		
 
 		// Find the h1 within the purchase element
 		var gameNameElement = purchaseElement.querySelector('h1');
@@ -65,21 +64,20 @@ export default function addPriceInfo() {
 
 			// Create new element
 			var newElement = document.createElement('div');
-			newElement.classList.add('game_purchase_area_friends_want');
-			newElement.classList.add('itad_wrapper'); 
+			newElement.classList.add('game_purchase_area_friends_want', 'itad_wrapper');
 			if (appType == 0){
-			newElement.innerHTML = `<a href="https://isthereanydeal.com"><img class="itad_icon" src="https://isthereanydeal.com/public/assets/logo-GBHE6XF2.svg" alt="Data provided by IsThereAnyDeal" 
-                              style="margin-right: 7px;"></a>
-                              <div style="display:inline-block;" class="itadText">
-                                <span><a href="steam://openurl_external/https://steamdb.info/app/${appid}/charts/" class="steamLowest">${steamLowPriceString}</a></span><br>
-                                <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/" class="currentLowest">${lowestPriceString}</a></span><br>
-                                <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/history/" class="historicalLowest">${historicalLowPriceString}</a></span><br>
-                              </div>`;
+				newElement.innerHTML = `<a href="https://isthereanydeal.com"><img class="itad_icon" src="https://isthereanydeal.com/public/assets/logo-GBHE6XF2.svg" alt="Data provided by IsThereAnyDeal" 
+								  style="margin-right: 7px;"></a>
+								  <div style="display:inline-block;" class="itad_text">
+									<span><a href="steam://openurl_external/https://steamdb.info/app/${appid}/charts/" class="steamLowest">${steamLowPriceString}</a></span><br>
+									<span><a href="https://isthereanydeal.com/game/${gameNameUrl}/" class="currentLowest">${lowestPriceString}</a></span><br>
+									<span><a href="https://isthereanydeal.com/game/${gameNameUrl}/history/" class="historicalLowest">${historicalLowPriceString}</a></span><br>
+								  </div>`;
 			}
 			else if (appType == 1) {
 				newElement.innerHTML = `<a href="https://isthereanydeal.com"><img class="itad_icon" src="https://isthereanydeal.com/public/assets/logo-GBHE6XF2.svg" alt="Data provided by IsThereAnyDeal" 
 				style="margin-right: 7px;"></a>
-				<div style="display:inline-block;" class="itadText">
+				<div style="display:inline-block;" class="itad_text">
 				  <span><a href="steam://openurl_external/https://steamdb.info/bundle/${appid}/#prices" class="steamLowest">${steamLowPriceString}</a></span><br>
 				  <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/" class="currentLowest">${lowestPriceString}</a></span><br>
 				  <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/history/" class="historicalLowest">${historicalLowPriceString}</a></span><br>
@@ -88,7 +86,7 @@ export default function addPriceInfo() {
 			else if (appType == 2) {
 				newElement.innerHTML = `<a href="https://isthereanydeal.com"><img class="itad_icon" src="https://isthereanydeal.com/public/assets/logo-GBHE6XF2.svg" alt="Data provided by IsThereAnyDeal" 
 				style="margin-right: 7px;"></a>
-				<div style="display:inline-block;" class="itadText">
+				<div style="display:inline-block;" class="itad_text">
 				  <span><a href="steam://openurl_external/https://steamdb.info/sub/${appid}/#prices" class="steamLowest">${steamLowPriceString}</a></span><br>
 				  <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/" class="currentLowest">${lowestPriceString}</a></span><br>
 				  <span><a href="https://isthereanydeal.com/game/${gameNameUrl}/history/" class="historicalLowest">${historicalLowPriceString}</a></span><br>
@@ -96,7 +94,27 @@ export default function addPriceInfo() {
 			}
 			// Insert the new element within the purchase element
 			purchaseElement.appendChild(newElement);
+
+			// Add CSS attributes
+			var style = document.createElement('style');
+			style.innerHTML = `
+			.itad_icon {
+				width: 30px;
+				height: 30px;
+				padding-top: 11px;
+			}
+			.itad_wrapper {
+				padding: 18px 0px 8px 16px;
+				height: auto;
+				display: flex;
+			}
+			.itad_wrapper>a {
+				height: auto;
+			}
+			.itad_text>span {
+				font-size: larger;
+			}`;
+			document.head.appendChild(style);
 		});
-	
 	});
 }

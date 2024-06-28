@@ -1,4 +1,4 @@
-export default function waitForElement(selector, callback, intervalTime = 69, timeout = 1234, waitForOpener = 0) {
+export default function waitForElement(selector, callback, intervalTime = 69, timeout = 4444, waitForOpener = 0) {
     const searchContext = waitForOpener === 1 ? 'Parent Window' : 'Current Context';
   
     const elementCheck = () => {

@@ -7,9 +7,12 @@ import waitForElement from './waitForElement.js';
 // Waits for the target element to be present before moving elements
 export default function combineTopMenus() {
 bigWait();
+bigWait();
   waitForElement('._39oUCO1OuizVPwcnnv88no', function(element) {
 	bigWait();
+	bigWait();
 	waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', function(element) {
+		bigWait();
 		bigWait();
 		waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', function(element) {
 

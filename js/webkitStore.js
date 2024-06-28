@@ -42,6 +42,20 @@ if (document.querySelector('.btn_addtocart') != null) {
 		waitForElement(".LoadingText", funnyText);
 	}
 
+
+
+	
+if (document.title.startsWith("Steam Community ::")) {
+    if (document.querySelector('.profile_header_actions') && document.querySelector('.profile_header_actions').childElementCount == 1) {
+        removeProfileBrand();
+    }
+}
+
+if (document.title.toString() == 'Steam Community') {
+waitForElement('.apphub_background', function(element) {
+	applyGrayscaleBackground('.apphub_background');
+});
+}
 function funnyText() {
 	// Define custom easing function
 	Math.easeInOutSine = (t, b, c, d) => 

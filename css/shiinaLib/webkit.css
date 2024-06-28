@@ -286,7 +286,7 @@ body.v6.summer2018_home .home_page_gutter_giftcard {
 }
 
 .home_page_body_ctn {
-    background: rgba(var(--background)) !important;
+    background-color: rgba(var(--background)) !important;
 }
 
 body.v6.summer2018_home .home_page_body_ctn {
@@ -1105,9 +1105,8 @@ body.v6.newonsteam .newonsteam_headercaps>a {
 }
 
 body.v6 {
-    background: var(--bedarkgrey) !important;
+    background-color: var(--bedarkgrey) !important;
 }
-
 .steam_curator_recommended_game_names {
     max-width: 367px !important;
 }
@@ -1235,10 +1234,10 @@ body.v6 div#global_header .content {
     color: var(--white) !important;
 }
 
-.apphub_background {
+/* .apphub_background {
     background: rgba(var(--background)) !important;
 }
-
+ */
 .popup_block .popup_body {
     background: rgba(var(--backgroundDarkest)) !important;
 }

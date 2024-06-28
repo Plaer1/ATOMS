@@ -7,10 +7,13 @@ import waitForElement from './waitForElement.js';
 // makes sure the targets are there before moving
 export default function moveButtons() {
 	bigWait();
+	bigWait();
 	/*wait for target and destination elements before proceeding*/
 	waitForElement('._3cykd-VfN_xBxf3Qxriccm', function(element) {
 		bigWait();
+		bigWait();
 		waitForElement('._3vCzSrrXZzZjVJFZNg9SGu', function(element) {	
+			bigWait();
 			bigWait();
 			const targetClass = '_3cykd-VfN_xBxf3Qxriccm';
 			const classesToMove = [

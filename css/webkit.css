@@ -18,24 +18,6 @@
 /*TODO: 
 make this shit so that it just uses steam classes instead of doing this way*/
 
-.itad_icon {
-    width: 30px;
-    height: 30px;
-	padding-top: 11px;
-}
-
-.itad_wrapper {
-    padding: 18px 0px 8px 16px;
-    height: auto;
-	display: flex;
-
-}
-.itad_wrapper>a {
-    height: auto;
-}
-.itad_text>span {
-    font-size: larger;
-}
 .game_area_purchase_not_refundable, .game_area_purchase_custom_cart_credit {
     padding-top: 0 !important;
 }
@@ -167,14 +149,18 @@ align-items: center;
 /*#############################################################################
 /*#############################################################################
 /*#############################################################################
-/* Start doing work on store below here
+/* Start doing work on store below here*/
 
-/*sidebar header text*/
-.gutter_header {
+.gutter_header,/*sidebar header text*/
+.dselect_container a.trigger /* name for the dropdown*/
+{
 	color: rgb(var(--textAccented)) !important;
 }
-/*sidebar category text*/
-.gutter_item{
+.gutter_item, /*sidebar category text*/
+.tab_filter_control_row:not(.checked) span.tab_filter_control, /*sidebar in game search page*/
+.search_result_row .col.search_released, /* middle column */
+.searchbar .label
+{
 	color: rgba(var(--textLightish)) !important;
 }
 /* deal text in main store*/
@@ -219,11 +205,22 @@ align-items: center;
 .discount_original_price:before {
     border-bottom: 1.5px solid rgba(var(--accentDarkest), 0.42);
 }
-/*show more games text at bottom of scroll*/
-.more_content_title>span{
+
+.more_content_title>span, /*show more games text at bottom of scroll*/
+.more_content, /*highlighted text at bottom of main store page*/
+.more_content>a /*highlighted random game text at bottom of main store page*/
+
+{
 	color: rgb(var(--textAccented)) !important;
 }
+.more_content>a:hover /*highlighted random game text at bottom of main store page*/
+{
+	color: rgb(var(--textLightest)) !important;
+}
 
+
+
+/*#################################################
 /*games page
 
 /*blue button, add to lib, bundle info, etc*/
@@ -262,11 +259,19 @@ img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/i
 img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], /*thumbs up vote in reviews*/
 img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], /* award ribbon in reviews*/
 img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], /*official steam thumbs up emojo*/
+img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], /*steam thumbs up icon*/
 .review_source, /*review sorce star*/
 .user_reviews_filter_menu .title, /*review container footer text /arrows/etc*/
 .itad_icon, /*is there any deal icon*/
 .vote_button_ctn  a:not(.btn_active) i, /*thumbs up on store page*/
-.review_box .vote_info .commentCount a /* comment count and icon in review footer on store page*/
+.review_box .vote_info .commentCount a, /* comment count and icon in review footer on store page*/
+.top_new_releases_banner_ctn, /*new releases bg color*/
+.tab_filter_control_row:not(.disabled).checked, /*checked boxes on the game sale page*/
+.ds_owned_flag, /*owned games indicatior*/
+.search_review_summary.positive, /* thumbs up */
+.range_input, /*slider color*/
+.popup_menu_subheader /*headers in the popup menus in the store*/
+
 {
 	filter: var(--accentFilter);
 } 
@@ -507,4 +512,30 @@ div.filterselect_options {
 	border-top: 1px solid rgb(var(--backgroundLight))	!important;
     border-left: 1px solid rgb(var(--backgroundLight))	!important;
     background: rgb(var(--backgroundLightish))	!important;
+}
+/*login page background*/
+.login_client_waitforauth{
+	background: rgb(var(--background)) !important;
+}
+/*background on steamdeck page*/
+.dmyDb0MK-1sWxXoU8v3X- {
+	background: rgb(var(--background)) !important;
+}
+/* subheaders on steamdeck page */
+#SaleSection_61022>._2NfLqUpH_h0Ba0jlv9M9ZE,
+#SaleSection_44860>._2NfLqUpH_h0Ba0jlv9M9ZE,
+#SaleSection_34032>._2NfLqUpH_h0Ba0jlv9M9ZE
+{
+	background: rgb(var(--backgroundLight)) !important;
+}
+#SaleSection_34993>._2NfLqUpH_h0Ba0jlv9M9ZE,
+#SaleSection_13578>._2NfLqUpH_h0Ba0jlv9M9ZE,
+._3isvN1K0OSelqFk6h2VmQq /*vr mode alert on store page*/
+{
+	background: rgb(var(--backgroundLightish)) !important;
+
+}
+.faqctn div,
+#SaleSection_31960 .SaleSectionForCustomCSS .SaleTextCtn .Link {
+	color: rgb(var(--backgroundLightest)) !important;
 }

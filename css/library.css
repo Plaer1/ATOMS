@@ -1,6 +1,14 @@
 @import url('../config.css');
 @import url('scrollbars.css');
 
+/* stuff for testing small mode
+.WideWindow,
+.resize-triggers,
+._3xRRJfD2xy95i9NhJxLTp0,
+._1rDh5rXSFZJOqCa4UpnI4z ._3x1HklzyDs4TEjACrRO2tB,
+div.RGNMWtyj73_-WdhflrmuY._3WJCt_OkjPA6npxOtguSt5 > div._3xRRJfD2xy95i9NhJxLTp0.LibraryDisplaySizeMedium.WideWindow {
+	opacity: 0.5;
+}
 
 
 /* Uncomment if you want to change the font */
@@ -13,31 +21,93 @@
 	background: pink !important;
 }
 */
-/* hide console, temporary, FIXME*/
-._2D64jIEK7wpUR_NlObDW76>div:nth-child(7) {
-	display: none !important;
-}
-/*make blue stuff accented*/
-img[src="/images/defaultappimage.png"] /* award ribbon in reviews*/
 
-{
-	filter: var(--accentFilter);
-}
 /*scrollbar stuff*/
 div::-webkit-scrollbar-thumb:window-inactive {
     background-clip: padding-box !important;
     -webkit-box-shadow: none !important;
     background: transparent !important;
-    border-radius: var(--border1) !important;
-}
-::selection {
-    background: rgba(var(--accent)) !important;
-}
-/* make main bg not blueish */
-html {
-    background: rgba(var(--background)) !important;
 }
 
+::selection ,
+._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR,																/*news button activated*/
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd,																	/*alert button activated*/
+._7AlhCx3XGzBeIrQaCneUD._1gqEjB5QsKT_NftD1dEsdZ:not(._2cO0HdvLEGAdhosLekWsmo) ._19axKcqYRuaJ8vdYKYmtTQ::after,	/* color highlighted tab underline */
+._3OSZu24hLN7YKjqGi7I2Xp,																						/*what's new event background color*/
+._3jXWQl2Xun5nCqu_XZuWlx ._2mW8B6npDIK23Ft0oWU46I._1YqUAESt7qu1Zh60YEX9UF,										/*unknown, possibly part of above or below selector*/
+._1UBpAXP408Ez_L_mXhW5Q9,																						/*currently selected game backgroun*/
+.nC-pL16iUnIRcaj1UVnwq ._2tyaVs9BpqcW068aaOrO56,																/*collections button squares */
+._1FnJ6dPuknQFQ2RTpKTI16 >._2AzIX5kl9k6JnxLfR5H4kX,   															/* install button*/
+._3cI5TXsFX3bvpR-7EBOtxq>._2AzIX5kl9k6JnxLfR5H4kX, 																/* play button */
+._1WdC0YUP8FT0dYWZ-QIVZL, 																						/* featured update header color */
+._3Rm36_oeAhvIg6ZYP9l1Jj, ._1FnTqlsi2_-TJf1d5apoS6, 															/*achievement bar color */
+._2_0JonK7eKEvh8IoOvq0-B, 																						/*ccp achievement progress bar(s)*/
+.SEmVpmXrYVl3OxL1sDFTg, 																						/* seperation line*/ 
+._3oavRVhIS9tC3vBsFT4Ggi, 																						/* download/pause button */
+.mA39Hqv8LacDppegb_Q_Z, 																						/* game highlight glow for games w/ no cover */
+.Myra7iGjzCdMPzitboVfh,   																						/*highlighted category color*/
+._3QVsc21O3y-P2jJiD5t6-s._11Gq_4A3cMXdDfUnoeM14v, 																/* dot on the controller page*/ 
+._2JtC3JSLKaOtdpAVEACsG1::before,																				/* toggle color */
+._3ZBFoxumQBb1JEVw_DZzaC																						/* highlighted button for backgrounds in multi select on library screen */
+{
+	background: rgb(var(--accent)) !important;
+}
+
+/*make blue stuff accented*/
+img[src="/images/defaultappimage.png"], /* award ribbon in reviews*/
+.gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, /*thumbs up in game page*/
+._2BlTqJQonHkEpBSpiC1NEA, /*thumbs up bg color*/
+.bGfjajFo4DI-ULSQxw1KY, /* blue "post" button*/
+img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], /*steam thumbs up icon*/
+._2lVtDi3eSjGcLfXVsRgoUy /* bubble effect when you like posts on game pages */
+{
+	filter: var(--accentFilter);
+}
+
+/*##########################################
+/* Various backgrounds */
+html, /* make main bg not blueish */
+._27m9Qbg4ShilOgwvYZWV8l,															/* game overview main bg*/
+._3JV6-V6z0SKmNu6TlI1Bdr,															/* background in overlay browser*/
+._2sNr7PFYcJZWNkEMCDVVPR,															/* hidden games + soundtracks main bg*/
+ ._23zCI_59RJTWRvY-_YCFb9,															/* soundtracks main bg */
+.u1xD3KJEgksF_J_5TLZzO ,															/* collections main bg*/
+.DialogContent_InnerWidth, .DialogContent._DialogLayout, 							/* inner content background*/
+.DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-,		  						/* Update news (just the frame) */
+._1mfQu39T7gxcr0KSHso6_A , 															/* unknown probably same as above or below*/
+._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat,			   						/* background for no controller connected page*/
+._2ZgLvT82YJj60ipYm334jn, ._2vlF5KjDw2loCDFMY4RvKe,			  						/* background of popup (content) */
+.LclHwcOfHFpwObYMD1HLa,																/* launch options popup*/
+ .OhSdLYuggDtBcWjYP0j_9 ,															/* lower bit, top bit, weird gradient fix*/
+._1_cYNJSvS6IXs9vLTEYjy5,															/* lower bit main bg*/
+._2r4TK4BAuU-J4FuF_O7v_5, ._31ptFGGMZrSQc5BCX1e5lm, ._3-V8vjmrwuJM6Ws3tsjFJj>div,	/* lower bit, 2nd top bar, bg */
+._2PF_m-I5yte3WnQhpcz8RC,															/* library menu? dropdown */
+._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper,				/* game search background */
+ ._3pSPluBgf0NeR1kkCLWMhR,															/* collections button background */
+._29b2a87G5A5NZeYh5Kgvea,															/* loading popup (text)*/
+.DesktopUI .DialogMenuPosition>._1tiuYeMmTc9DMG4mhgaQ5w._DialogInputContainer ,		/* dropdowns */
+._1LJqx_qFOC8199RBQO5kU8,															/* info box on game icons */
+._3Sb2o_mQ30IDRh0C72QUUu,															/* Game Page */
+.GTdO0X-5EOwChz3fc2iLU, ._2SdqX9SccD_TtDat-bNo5-,       							/* console page */
+._2JKpGzeAiwmBdY73bfRXz-,                               							/* what's new settings popup bg*/
+._2gSXCB6PbOlMxslr8hm6dm,                               							/* behind the other game list bg*/ 
+._2Nq6ov7A1hGcHXVOXNt_OE, 															/* behind main library bg*/
+._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw, 									/* also behind main library bg*/
+._3f3VJUtyLXUf_JDFE-BaQ6															/* interior bg color */
+{
+	background: rgb(var(--background)) !important;
+}
+
+/*############################
+/*lightish backgrounds*/
+.Oo5JPcEk_erKEYAzYp2nY.Panel,		/* modals popup unselected buttons*/
+._1Lfu7heMNRsXXo1Yfzsp17,			/* modals popup various lightish background*/
+._2vlF5KjDw2loCDFMY4RvKe,			/* modals popup various lightish background*/
+._3wtPUBfilFITcl1s4u6A7T,			/* modals popup various lightish background*/
+.wgbDI6To-SKawn9wQwVaw				/* post-game-summary */
+{
+background: rgba(var(--backgroundLightish));
+}
 /*###########################################################
 /*###########################################################
 /* top bar */
@@ -81,9 +151,9 @@ max-height: 30px !important;
     display: flex;
 	flex-grow: 1;
     flex-direction: row-reverse;
-  align-items: center;
-  height: 40px;
-  -webkit-app-region: none;
+	align-items: center;
+	height: 40px;
+	-webkit-app-region: none;
 }
 /* downloads / friends container */
 ._3vCzSrrXZzZjVJFZNg9SGu{
@@ -92,11 +162,39 @@ max-height: 30px !important;
 	flex-basis: unset !important;
 	padding-right: 6px !important;
 }
-
-/*download button progress text color*/
-._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-{
-	color: rgba(var(--accent)) !important;
+/*############################################################
+/*text accents*/
+._3zWunJFZU6u89fIABN9Gkf a,										/*links in the notes popup*/
+._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL,		/* auto-update setting hover color */
+._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R,			/* auto-update setting hover color */
+.ErrorBoundary>h1,
+.ErrorBoundary>h1 a,
+._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-,				/* download button progress text color*/
+._3qEgQJqeb0zyM12KXq64Or,										/* steam settings header color*/
+._2mZ8LlvoUiyeEUtIWuTri,										/* change game list header text */
+.j46gbjgwR947a_ZyFUQav,											/* text accents*/
+.V7W5cNHTPUuSS-4yBUDaN,											/* text accents*/
+._26lUCOjXyPSIUFyyIijjTT,										/* text accents*/
+.LnM57J5-ZUcH1tTk6ONqn,											/* text accents*/
+._1GFRKatJ8pNhUDi-MwuD9D,										/* comments number font color*/
+._2dVe4z8QrljeVvM0UzTTJ2,										/* thumb text color*/
+._30JUMWVZpKjo5yyNMLHj2N,										/* header activity text color*/
+._3v0cwU9svPlYyRjL6HO1ZC a:not(.LinkButton),					/* links*/
+._3kXEpnxa2qb5znYMSbKT0p,										/* patch notes/icon color*/
+._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM>svg>path,		/* download page bar graph key */
+._2ns4wnmgr4XBzARpwn2NZ1,										/* downloading text color*/
+._23Pup1qLf91kwjALd-jFGc,										/* community tiles header text color */
+._2g3Gley034M1ZGhcq005s,										/* change prefferred copy text color */
+._1vIlyxb5BAwKPUkOfO94qZ,										/* what's new news text color*/
+._1Y5_HA7TsAPMiqgp01e3Ci,										/* What's new shelf text color. */
+._3yD46y5pd3zOGR7CzKs0mC.online,								/* online text color in avatar box on top bar*/
+._3i0kopAostOz2IDi9HqmeN,										/* various header texts*/
+.qX4kNo6O0M-mYntdErKSJ,											/*online player text*/
+.online .r62qzcdJQ0qezZglOtiUX									/*online player text*/
+{
+	color: rgb(var(--textAccented)) !important;
 }
+
 /* root menu */
 ._3s0lkohH8wU2do0K1il28Y {
 	margin-top: 0px !important;
@@ -157,9 +255,6 @@ max-height: 30px !important;
 			max-width: 15vw;
 			min-width: 15vw;
 		}
-
-
-	
 		@media (max-width: 1499px) {
 			/*hide "downloading" text*/
 			._1xCcFYWIrJ7W8WRDmGvR3y>div:nth-child(1){
@@ -198,20 +293,32 @@ max-height: 30px !important;
 }
 
 
-/*hide bad steam button in root menu*/
-svg.GG9wVQz6PLlhGHlJyZh4E {
-    display: none;
-}
-/* top bar buttons BGs, size, etc */
-._2EQ7ghgqIdjKv9jsQC0Zq9, /*downloads background */
-._1TdaAqMFadi0UTqilrkelR,   /*friends background*/
-._3qhGkQ5qLVNQQ-J2-uPoHt, /*steam megaphone */
-._3yD46y5pd3zOGR7CzKs0mC, /* steam bell*/
-._5wILZhsLODVwGfcJ0hKmJ   /* steam player info */
-{
-  background: rgba(var(--backgroundLightish)) !important;
-}
 
+
+/*###############################################
+/* various darker grey elements*/
+/* top bar buttons BGs, size, etc */
+._2EQ7ghgqIdjKv9jsQC0Zq9,															/*downloads background */
+._1TdaAqMFadi0UTqilrkelR,															/*friends background*/
+._3qhGkQ5qLVNQQ-J2-uPoHt,															/*steam megaphone */
+._3yD46y5pd3zOGR7CzKs0mC,															/* steam bell*/
+._5wILZhsLODVwGfcJ0hKmJ,															/* steam player info */
+._3i4EpiSDpxQHVFExxUa1Zp,															/* background for arrow button in the notes menu*/
+._1vG-vFfwpDeNStVbyo1Qy6.P46KVvNDqOUONCIHBwKgU, 									/*background for sections in the game overview page*/
+._2OwqXw1nhBL430bsYTeEr-,															/*same as above*/
+.DialogButton._DialogLayout.Secondary.Focusable,									/* secondary buttons */
+._3ebCJiEl-ybizhZ4avcFw5, ._1VNuYHM6BPBOJspC6zPf5r.IbePLaw-vSvhG1GTenYFg,			/* active/que'd downloads BG */
+._2lNdDLgjQdeBXmMlPO8lvq															/* community content bar*/
+.cvw8DHMUBKuZs5DeLJOQ2,																/*ccp achievement bg*/
+._316Uo4SBrQ_beBdSYn2HNO,															/*ccp achievement global achivement bg color*/
+._3qDWQGB0rtwM3qpXTb11Q-,															/* manage/info/fav buttons*/
+._1-H7tKj_QcGHLUbx5wVsGg,															/* more achievements btn*/
+._1JlC29Ic6L-QvL-39X_d-X, ._1HZy7BvOZuPT8feUwadL4W, .NEMXhMlqXOCJwfgWlHXhT,			/* say something about this game to your friends, news update BGs, achievement bgs, various text-input areas*/
+._2sYIghGVXJr6tsQVvcryy8,															/* headers */
+._2Q95p8Q2cZFieeOi06-FS9 															/* show all collections button*/
+{
+	background: rgb(var(--backgroundLightish)) !important;
+}
 
 /* downloads button*/
 ._2EQ7ghgqIdjKv9jsQC0Zq9 {
@@ -264,12 +371,7 @@ svg.GG9wVQz6PLlhGHlJyZh4E {
 	border-radius: 2px;
 
 }
-/*news button activated*/
-._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR,
-.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd /*alert button activated*/ {
-	background: rgba(var(--accent)) !important;
 
-}
 /* downloads expanded progress bar */
 .yZ55NhARZGx1Awk2qs8pS {
   --color-progress-bar-foreground: rgba(var(--accent)) !important; 
@@ -301,32 +403,41 @@ svg.GG9wVQz6PLlhGHlJyZh4E {
   color: rgba(var(--accent)) !important;
   text-shadow: 0px 0px 1px rgba(var(--accent)) !important;
 }
-/* color highlighted tab underline */
-._7AlhCx3XGzBeIrQaCneUD._1gqEjB5QsKT_NftD1dEsdZ:not(._2cO0HdvLEGAdhosLekWsmo) ._19axKcqYRuaJ8vdYKYmtTQ::after {
-  background: rgba(var(--accent)) !important;
+
+
+._3Z7VQ1IMk4E3HsHvrkLNgo,																																					/* background for top bar */
+._3QkkYqYUNkuL-1EOrIbEhB,																																					/* player backgrounds in family menu*/
+._3m0MnUo45wjLOfNLpZ-3KH,																																					/* sorting header */
+._3T1iFy2maYycwqgFuzERyf,																																					/*controller page footer*/
+._1E_SL1bTibeQ3PQRBZoS_-,																																					/*controller page header*/
+._1E_SL1bTibeQ3PQRBZoS_-::before,																																			/*controller page header::before*/
+._35gM9i287FT5Vx0nL7vX6o																																					/*header*/
+.L_ehQkR9HaVr2cdS1P1lc,																																						/*footer/header stuff*/
+._3QRf-tp5VddAF00vWY5Gn8,._31ptFGGMZrSQc5BCX1e5lm,._38t1mljBjmJfqjpVzMT1CG,._1ul9ZRBfhF0vyj-hrit6nU,																		/* various headers */
+#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div.DialogToggleField._DialogInputContainer._DialogLayout,		/* what's new visibilty settings box*/
+#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div:nth-child(5)												/* what's new hidden game counter box*/
+{
+	background: rgb(var(--backgroundDarkest)) !important;
 }
-/* background for top bar */
-._3Z7VQ1IMk4E3HsHvrkLNgo{
-  background: rgba(var(--backgroundDarkest)) !important;
-}
+
+
+
 /*online color in avatar box on top bar*/
 .online ._1yIzy56YfJIliF6ykwhP2r {
     background: linear-gradient(to bottom, rgba(var(--accent)) 0%, rgba(var(--accent)) 30%, rgba(var(--accent)) 70%, rgba(var(--accent)) 100%) !important;
 }
-/* online text color in avatar box on top bar*/
-._3yD46y5pd3zOGR7CzKs0mC.online {
-    color: rgba(var(--accent)) !important;
-}
-/* remove text from bottom bar buttons, remove game button from bottom bar buttons, hide url bar in library */
-._3OhUxFVlQYr9W5ThxstR8k, ._3wJnTtcTLEp0R7eQj_mK8Y, ._2CmrnGY-Amtd83ScJkFvx2,
-._2foCkpRXhqq0UGVE50BWqj /* game buttton from bottom bar */
+
+._3OhUxFVlQYr9W5ThxstR8k,		/* remove text from bottom bar buttons */
+._3wJnTtcTLEp0R7eQj_mK8Y,		/* remove game button from bottom bar buttons */
+._2CmrnGY-Amtd83ScJkFvx2,		/* hide url bar in library */
+._2foCkpRXhqq0UGVE50BWqj,		/* game buttton from bottom bar */
+svg.GG9wVQz6PLlhGHlJyZh4E,		/* hide bad steam button in root menu*/
+.ooM_c2DA3hF8Wg7zbpK5x,			/* remove weird blur from bottom of some game pages*/
+._3cX_vEKsN9S9EmR0O5w1Ol		/* get rid of strange blurred images on major update notes*/
 {
-  display: none !important;
+	display: none !important;
 }
-/* url bar background in other views*/
-._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K {
-background: rgba(var(--backgroundDark)) !important;
-}
+
 /*make url bar font biger*/
 ._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K ._2m_orETo6AghzAnc0sISCt .MZPxEZcxAGtPDf1NYtouS {
   font-size: 17px !important;
@@ -342,28 +453,26 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 
 /*###########################################################
 /*###########################################################
-/*main library page:
+/*main library page:*/
 
-/* Various backgrounds */
-._3Sb2o_mQ30IDRh0C72QUUu,                               /* Game Page */
-.GTdO0X-5EOwChz3fc2iLU, ._2SdqX9SccD_TtDat-bNo5-,       /* console page */
-._2JKpGzeAiwmBdY73bfRXz-,                               /*what's new settings popup bg*/
-._2gSXCB6PbOlMxslr8hm6dm,                               /*behind the other game list bg*/ 
-._2Nq6ov7A1hGcHXVOXNt_OE, 								/* behind main library bg*/
-._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw 		/* also behind main library bg*/
+._2qyBZV8YvxstXuSKiYDF19,														/* context menu bg */
+.ErrorBoundary,																	/*error page*/
+._3P0Tm2XKLVG_I9wjP3H-Zs,														/* modal popup button backgrounds*/
+._3P0Tm2XKLVG_I9wjP3H-Zs._3p1Hj4MxioFD7iM63Z3s6T,								/* modal popup button backgrounds*/
+._3KDkLoCR8OM8xfdQysKn9t,														/* main download header bg*/
+._2EOPVRm0FFn4LjXaGZ0Xh9,														/* community tiles main bg*/
+.pFo3kQOzrl9qVLPXXGIMp:not(.Play):not(.Install):not(.Update):not(.Pause),		/* context menu bg*/
+.LQkrbbayZPY11qHm01t7F															/* context menu bg*/
 {
-  background: rgba(var(--background)) !important;
+		background: rgb(var(--backgroundDarkish)) !important;
 }
-/* context menu bg */
-._2qyBZV8YvxstXuSKiYDF19
-{
-    background: rgba(var(--backgroundDarkish)) !important;
-}
+
 /* context menu hover bg*/
 ._1KPWUt7wYWSfD3V7sYpsyT,
 .pFo3kQOzrl9qVLPXXGIMp:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
-	background: rgba(var(--accent)) !important;
-	color: rgba(var(--backgroundLightest)) !important;
+	background: rgb(var(--accent)) !important;
+	border-color:rgb(var(--accent)) !important; 
+	color: rgb(var(--backgroundLightest)) !important;
 }
 
 /* context menu install/update button bg */
@@ -373,24 +482,21 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop
-
-
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLight)) 0%, rgba(var(--accent)) 70%);
 }
-/* context menu install/update button bg:hover */
 
+/* context menu install/update button bg:hover */
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel:hover,
 .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop:hover
-
-
 {
 	background: linear-gradient(-45deg, rgba(var(--accentLightest)) 0%, rgba(var(--accentLight)) 70%);
 }
+
 /* Game Page shelf text color. & remove background */
 [class^="DialogDropDown"] {
   color: rgba(var(--accent)) !important;
@@ -410,39 +516,11 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 .B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5:hover ._3Rb_j3lgHaVVIud4Gla7_m, .gpfocus>.B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5 ._3Rb_j3lgHaVVIud4Gla7_m {
 background: rgba(var(--accent), var(--opacity333)) !important;
 }
-/*what's new news text color*/
-._1vIlyxb5BAwKPUkOfO94qZ{
-	color: rgba(var(--accent)) !important;
-}
-/*what's new event background color*/
-._3OSZu24hLN7YKjqGi7I2Xp {
-	background: rgba(var(--accent)) !important;
-}
-/* What's new shelf text color. */
-._1Y5_HA7TsAPMiqgp01e3Ci {
-  color: rgba(var(--accent)) !important;
-}
-/* what's new settings boxes*/
-#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div.DialogToggleField._DialogInputContainer._DialogLayout,     /* visibilty settings box*/
-#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div:nth-child(5)                                               /* hidden game counter box*/
-{
-  background: rgba(var(--backgroundDarkest)) !important;
-}
+
+
 /*what's new toggle background*/
 ._3jXWQl2Xun5nCqu_XZuWlx .GKYwHIpJCXaWh3_8eEfAc._2l9tHgvLGdcJ28Ttj7MBdg {
 background: rgba(var(--accentDark)) !important;
-}
-._3jXWQl2Xun5nCqu_XZuWlx ._2mW8B6npDIK23Ft0oWU46I._1YqUAESt7qu1Zh60YEX9UF{
-  background: rgba(var(--accent)) !important;
-
-}
-/* dropdowns */
-.DesktopUI .DialogMenuPosition>._1tiuYeMmTc9DMG4mhgaQ5w._DialogInputContainer {
-  background: rgba(var(--background)) !important;
-}
-/* info box on game icons */
-._1LJqx_qFOC8199RBQO5kU8{
-  background: rgba(var(--background)) !important;
 }
 
 
@@ -456,30 +534,39 @@ polyline, circle, line,
 .SVGIcon_Information polyline,
 .SVGIcon_Star_Unfilled>path,
 .SVGIcon_Maximize rect,
-.SVGIcon_SketchArrowTopLeft path{
-  stroke: rgba(var(--accent)) !important;
+.SVGIcon_SketchArrowTopLeft path,
+._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq circle,		/*make sort by date/playable accented when active */
+._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq polyline,		/*make sort by date/playable accented when active */ 
+._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path			/*make sort by date/playable accented when active */
+{
+  stroke: rgb(var(--accent)) !important;
 }
+
 /*icon fill*/
-/*.DialogButton>svg>path, overlay icons this was too generic lmao*/
 .SVGIcon_ReadyToPlay path, 
-.SVGIcon_Settings path,svg.MbTRimZpGCATmn39ae8RT>path, /*fixme*//*it makes all the gear icons light up even ones that aren't active (overlay bug)*/
+.SVGIcon_Settings path,svg.MbTRimZpGCATmn39ae8RT>path,				/*fixme*//*it makes all the gear icons light up even ones that aren't active (overlay bug)*/
 div._1tIg-QIrwMNtCm7NcYADyi.k-QNT9kzOEOvG0U_kGmwr>svg>path,
 div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 .SVGIcon_Information polyline,
 .SVGIcon_Information circle.I,
 .SVGIcon_FlatArrow polygon,
 .SVGIcon_BigPicture>path,
-._8WczGhSvMbAdSbw2tyKbN>path, /* thumbs up button in modal popup (when highlighted)*/
-._3SLkgYtScjzED6XrIeoSK1>path, /* thumbs down button in modal popup (when highlighted)*/
-._2AVfXlAuHy0YQ4h1B3Kk2R._2gr2M1hKDYXcLNwR7k05oF>path, /*thumbs up in content feed on game page */
-._41y1pGJEo9TqrhjUqDK2h>svg>g>path, /*underline button when highlighted in the game notes in the overlay*/
+._8WczGhSvMbAdSbw2tyKbN>path,										/* thumbs up button in modal popup (when highlighted)*/
+._3SLkgYtScjzED6XrIeoSK1>path,										/* thumbs down button in modal popup (when highlighted)*/
+._2AVfXlAuHy0YQ4h1B3Kk2R._2gr2M1hKDYXcLNwR7k05oF>path,				/* thumbs up in content feed on game page */
+._41y1pGJEo9TqrhjUqDK2h>svg>g>path,									/* underline button when highlighted in the game notes in the overlay*/
 ._41y1pGJEo9TqrhjUqDK2h defs>clipPath>path,
-._41y1pGJEo9TqrhjUqDK2h>svg path, /*spellcheck highlight*/
-[direction="left"]>path, /* arrow in the notes menu in the overlay*/
-._1BXjK5v8XI_SEhGola5ftn>svg path,/*icons in the bottom bar of the overlay*/
-._3QZfwcmLlT0T6WNXW7vqx1 /*thumbs up on game page in library*/
+._41y1pGJEo9TqrhjUqDK2h>svg path,									/* spellcheck highlight*/
+[direction="left"]>path,											/* arrow in the notes menu in the overlay*/
+._1BXjK5v8XI_SEhGola5ftn>svg path									/* icons in the bottom bar of the overlay*/
+.DialogDropDown_Arrow polygon,										/* dropdown arrow color*/
+._1g-EnGAwBxXdVKtEBcdIK_,											/* thumb color*/
+._1GFRKatJ8pNhUDi-MwuD9D>svg										/* comment bubble color*/
+._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path,				/* make sort by date/playable grey when active */
+._1kCN0pAntrcGCSmcc-vYdk path,										/* unknown button*/
+.online>svg.SVGIcon_MobilePhone>path /*mobile phone icon online*/
 {
-  fill: rgba(var(--accent)) !important;
+  fill: rgb(var(--accent)) !important;
 }
 /*scroll to top button*/
 ._1bCHNUX_0WHTI1fch_8K5R>div{
@@ -497,7 +584,6 @@ div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 }
 /*play next text box frosted background color*/
 ._2d1hSvdpY5L2-GN1EnUb9Z {
-
     background: rgba(var(--accentDarkest)) !important;
 }
 /*play next install button*/
@@ -518,33 +604,21 @@ div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 }
 /*#################
 /* game info popup on tile hover in library*/
-/*title bar*/
-._1RfxlV1H3JsSs-aRaXVJQt {
-    background: rgba(var(--backgroundDark));
-}
+
 /*hide bottom blur*/
 ._1R9r2OBCxAmtuUVrgBEUBw._3Ehhd5MxErV_bXQE4qVhzB {
     z-index: -1;
 }
-/*fix bottom color*/
-._2sGn0cBsD44TjnUIh-lx9d {
-    background: rgba(var(--backgroundDark)) !important;
-}
-
 
 /*#################
 /*game shine*/
 .MyNb5dG3FsBnKdp8j_ntk {
 background: var(--gameShine);
 }
-/*loading popup (text)*/
-._29b2a87G5A5NZeYh5Kgvea{
-	background: rgba(var(--background)) !important;
-}
+
 /*###########################################################
 /*###########################################################
 /* Sidebar on main library page:
-
 
 /* hide contents of library name/home text on sidebar */
 ._3O48LaKWcabKx07xdrt1TH{
@@ -557,12 +631,32 @@ note: you may need to adjust the size for best clarity.*/
   visibility: visible !important;
   font-size:150% !important;
 }
-/* Game list background */
-._9sPoVBFyE_vE87mnZJ5aB
+
+._9sPoVBFyE_vE87mnZJ5aB,																	/* Game list background */
+._36Dp_CLuZbFCm7KDc9tbCv,																	/* in-game overlay just under header area in achievement popup*/
+._26Gmfe09NRsnF7eprTZYdY,																	/* url bar in overlay browser*/
+._5ZEYSTRBHDswDtriduXW0 ,																	/* soundtracks - background for music controls*/
+._1e6tjguQEHdYIehM9aRmO5,																	/* system info popup - program list */
+._1uhQYKdgwmtsVDpLxrmOc4,._3tXYJmiDltr-fLKAH0O_yp,.cLK_FdqhScxUTzHU6WVEN,					/* modal popup(s) setting - button containers*/
+._38FqIwZQKW6BlRyzN66pi6 ,																	/*achievement hover popup  bg*/
+._1UXC2lGcmNTGepRJTwtuH0 																	/*achievement click popup bg*/
+._31ptFGGMZrSQc5BCX1e5lm ,																	/* lower bits on the right bg */
+._3fLo166MlaNqP8r8tTyRz,																	/*lower bit top bar*/
+body > div.LQkrbbayZPY11qHm01t7F.EDl_mzaY3WxkgmYVD8W4d.visible._2qyBZV8YvxstXuSKiYDF19,		/* dropdown background */
+._2sGn0cBsD44TjnUIh-lx9d,																	/* game info popup on tile hover in library -fix bottom color*/
+._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K,											/* url bar background in other views*/
+._1ZS_xta5HMXzR8JgxDH6n7,._20QAC4WMXm8qFE8waUT5oo,._1ijTaXJJA5YWl_fW2IxcaT,					/* mini mode - internal background*/
+._1fbRpYO_BFDlMdFLsQMGVE,._3x1HklzyDs4TEjACrRO2tB,											/* mini mode - internal background*/
+.Z6wLCsR5it0hjFblgrb6,																		/*main downloads BG*/
+._2KA0p5xYePYygXUbjjsPzA,																	/* footer color*/
+._1RfxlV1H3JsSs-aRaXVJQt,																	/* game info popup on tile hover in library title bar*/
+.RTicBCbDcEGkjsbmWzA8C,																		/* settings sidebar color*/
+._3BVe_okecnI7b_bHj5SS42																	/* modal popup(s) settings footer */
 {
-  background: rgba(var(--backgroundDark)) !important;
+	  background: rgb(var(--backgroundDark)) !important;
 }
-/* makes above rule visable */
+
+/* makes above rule visable MIGHT NOT BE REQUIRED?
 ._3x1HklzyDs4TEjACrRO2tB {
   background-image: none !important;
 }
@@ -572,10 +666,7 @@ note: you may need to adjust the size for best clarity.*/
   background: rgba(0, 0, 0, 0) !important;
 }
 
-/*change game list header text */
-._2mZ8LlvoUiyeEUtIWuTri {
-  color: rgba(var(--accent)) !important
-}
+
 /* header for hidden games on sidebar */
 
 
@@ -584,56 +675,25 @@ note: you may need to adjust the size for best clarity.*/
 /* highlight game list headers on hover */
 ._2sYIghGVXJr6tsQVvcryy8:hover {
   background: rgba(var(--accent), var(--opacity5)) !important;
-
-  /*background: rgba(0, 0, 0, 0) !important; 
-  i disabled this chasing the resize bug but i don't think that was it*/
-
 }
 /* highlight game list games on hover */
 ._2-O4ZG0KrnSrzISHBKctFQ:hover {
   background: rgba(var(--accent), var(--opacity333)) !important;
 }
 
-/*update que'd text color.*/
-._2SXJM0PeFEi3gbC7V3S5pE>span,._3uk3F1BmAJQR6rl1TPcaif {
-color: rgba(var(--accentLight)) !important;
+._2SXJM0PeFEi3gbC7V3S5pE>span,._3uk3F1BmAJQR6rl1TPcaif,								/*update que'd text color.*/
+.DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable::placeholder		/* search input placeholder text color */
+{  
+	color: rgba(var(--accentLight)) !important;
 }
-/*currently selected game background */
-._1UBpAXP408Ez_L_mXhW5Q9 {
-  background: rgba(var(--accent)) !important;
-}
-/* dropdown background */
-body > div.LQkrbbayZPY11qHm01t7F.EDl_mzaY3WxkgmYVD8W4d.visible._2qyBZV8YvxstXuSKiYDF19 {
-  background: rgba(var(--backgroundDark)) !important;
-}
-/* collections button background */
-._3pSPluBgf0NeR1kkCLWMhR{
-  background: rgba(var(--background)) !important;
-}
-/*collections button squares */
-.nC-pL16iUnIRcaj1UVnwq ._2tyaVs9BpqcW068aaOrO56 {
-background: rgba(var(--accent)) !important;
-}
+
 /*collections button squares hover/collections page squares */
 
 .nC-pL16iUnIRcaj1UVnwq ._2tyaVs9BpqcW068aaOrO56:hover,
 ._3pSPluBgf0NeR1kkCLWMhR.eNLOx4LVceeMwRvTVWh3 ._2tyaVs9BpqcW068aaOrO56 {
   background: rgba(var(--accentLightest)) !important;
 }
-/* library menu? dropdown */
-._2PF_m-I5yte3WnQhpcz8RC{
-  background: rgba(var(--background)) !important;
-}
-/* game search background */
-._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper{
-  background: rgba(var(--background)) !important;
-}
-/* various darker grey elements*/
-._2sYIghGVXJr6tsQVvcryy8, /* headers */
-._2Q95p8Q2cZFieeOi06-FS9 /* show all collections button*/
-{
-  background: rgba(var(--backgroundLightish)) !important;
-}
+
 /*make sort by date/playable grey when inactive */
 ._3mzKdQXht__YHo6PX1LmB6 circle,._3mzKdQXht__YHo6PX1LmB6 polyline, ._3mzKdQXht__YHo6PX1LmB6 path {
   stroke: var(--almostWhiteSteam) !important;
@@ -643,18 +703,7 @@ background: rgba(var(--accent)) !important;
   fill: var(--almostWhiteSteam) !important;
 }
 
-/*make sort by date/playable grey when inactive */
-._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq circle,._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq polyline, ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path {
-  stroke: rgba(var(--accent)) !important;
-}
-/*part of above item*/
-._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path {
-  fill: rgba(var(--accent)) !important;
-}
 
-
-
-/*###########################################################
 /*###########################################################
 /*GAME PAGE*/
 /* game tags in the top right of image area*/
@@ -662,23 +711,9 @@ background: rgba(var(--accent)) !important;
 	background: rgba(var(--background), var(--opacity7));
 }
 
-/* lower bit*/
-/*lower bit top bar*/
-._3fLo166MlaNqP8r8tTyRz{
-  background: rgba(var(--backgroundDark)) !important;
-}
-
-/* install button*/
-._1FnJ6dPuknQFQ2RTpKTI16 >._2AzIX5kl9k6JnxLfR5H4kX {
-	background: rgba(var(--accent)) !important;
-}
 /* install button:hover*/
 ._1FnJ6dPuknQFQ2RTpKTI16 >._2AzIX5kl9k6JnxLfR5H4kX:hover {
     background: radial-gradient( rgba(var(--accent)) 0%, rgba(var(--accent)) 55%, rgba(var(--accentLightest)) 100%) !important;
-}
-/* play button */
-._3cI5TXsFX3bvpR-7EBOtxq>._2AzIX5kl9k6JnxLfR5H4kX{
-	background: rgba(var(--accent)) !important;
 }
 /* play button:hover */
 ._3cI5TXsFX3bvpR-7EBOtxq>._2AzIX5kl9k6JnxLfR5H4kX:hover{
@@ -697,19 +732,7 @@ background: rgba(var(--accent)) !important;
 ._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX>svg>line{
 	stroke: rgba(var(--backgroundLightest)) !important;
 }
-/*change prefferred copy text color */
-._2g3Gley034M1ZGhcq005s {
-	color: rgba(var(--accent)) !important;
-}
-/* lower bit, 2nd top bar, bg */
-._2r4TK4BAuU-J4FuF_O7v_5, ._31ptFGGMZrSQc5BCX1e5lm, ._3-V8vjmrwuJM6Ws3tsjFJj>div {
-  background: rgba(var(--background)) !important;
-}
 
-/* say something about this game to your friends, news update BGs, achievement bgs, various text-input areas*/
-._1JlC29Ic6L-QvL-39X_d-X, ._1HZy7BvOZuPT8feUwadL4W, .NEMXhMlqXOCJwfgWlHXhT {
-  background: rgba(var(--backgroundLightish)) !important;
-}
 /*rare achievment glow color*/
 .leuGOqykWKVDUuR082MPV{
 	height: 128px;
@@ -742,21 +765,9 @@ background: rgba(var(--accent)) !important;
 	background-color: rgba(var(--backgroundLightish));
 }
 
-.qX4kNo6O0M-mYntdErKSJ,
-.online .r62qzcdJQ0qezZglOtiUX /*online player text*/
-{
-	color: rgba(var(--textAccented)) !important;
-}
-._1kCN0pAntrcGCSmcc-vYdk path {
-	fill: rgba(var(--accent));
-}
 /* do you reccomend this game to other players */
 ._3LE-6w1ItIAB4CKJFCa3Od, ._2SAb6geDpe6toA1GaP0GjH._1E_ENwpaym7n3ke0XFpczv {
 	background: var(--almostWhiteSteam);
-}
-/* post-game-summary */
-.wgbDI6To-SKawn9wQwVaw {
-background: rgba(var(--backgroundLightish));
 }
 
 /* MAJOR UPDATE background */
@@ -768,43 +779,7 @@ background: rgba(var(--backgroundLightish));
 ._3oMUSjOFNB0E9LWcL2sE7{
   background: linear-gradient(to right, transparent 0%, rgba(var(--accent), var(--opacity333)) 18px, rgba(var(--accentDark)) 18px, rgba(var(--accentDarkest)) 22px) !important;
 }
-/* get rid of strange blurred images on major update notes*/
-._3cX_vEKsN9S9EmR0O5w1Ol {
-  display: none !important;
-}
-/* manage/info/fav buttons*/
-._3qDWQGB0rtwM3qpXTb11Q-,
-._1-H7tKj_QcGHLUbx5wVsGg /* more achievements btn*/
-{
-  background: rgba(var(--backgroundLightish)) !important;
-}
 
-/*lower bit, top bit, weird gradient fix*/
-.OhSdLYuggDtBcWjYP0j_9 {
-  background: rgba(var(--background)) !important;
-}
-/*lower bit main bg*/
-._1_cYNJSvS6IXs9vLTEYjy5{
-  background: rgba(var(--background)) !important;
-}
-/* various headers */
-._3QRf-tp5VddAF00vWY5Gn8,._31ptFGGMZrSQc5BCX1e5lm,._38t1mljBjmJfqjpVzMT1CG,._1ul9ZRBfhF0vyj-hrit6nU {
-  background: rgba(var(--backgroundDarkest)) !important;
-}
-/* various header texts*/
-._3i0kopAostOz2IDi9HqmeN {
-  color: rgba(var(--accent)) !important
-}
-/* lower bits on the right bg */
-._31ptFGGMZrSQc5BCX1e5lm {
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*achievement bar color */
-._3Rm36_oeAhvIg6ZYP9l1Jj, ._1FnTqlsi2_-TJf1d5apoS6, 
-._2_0JonK7eKEvh8IoOvq0-B /*ccp achievement progress bar(s)*/
-{
-  background: rgba(var(--accent)) !important;
-}
 /* my review (you've played x hours, have you changed your mind?)*/
 ._1ckgRqBDUbThcwQTHHL6K0{
   border-color: rgba(var(--accent)) !important;
@@ -813,99 +788,45 @@ background: rgba(var(--backgroundLightish));
 ._3QOEiyJx6JNKSPfGtfeQRO{
   color: rgba(var(--accentDark)) !important;
 }
-/*thumbs up bg color*/
+/*thumbs up bg color
 ._2BlTqJQonHkEpBSpiC1NEA {
     background: radial-gradient(ellipse farthest-corner at 6% 8%, rgb(var(--accentDarkish)) 0%, rgb(var(--accentDarkish)) 34%, rgb(var(--accentDark)) 100%);
 }
+
 /*#############################
 /* achievement hover popup / achievement click popup*/
 
-/*chp bg*/
-._38FqIwZQKW6BlRyzN66pi6 {
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*ccp bg*/
-._1UXC2lGcmNTGepRJTwtuH0 {
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*ccp achievement bg*/
-.cvw8DHMUBKuZs5DeLJOQ2,
-._316Uo4SBrQ_beBdSYn2HNO /*ccp achievement global achivement bg color*/
-{
-  background: rgba(var(--backgroundLightish)) !important;
-}
  /*close button*/
 .iYW5hWQwg14WYT4PV3xe_
 {
   background: rgba(var(--backgroundLightish)) !important;
   border:none !important;
 }
-/*footer/header stuff*/
-.L_ehQkR9HaVr2cdS1P1lc {
-  background: rgba(var(--backgroundDarkest)) !important;
-}
+
 /*fast transition*/
 ._3XUANycKE9h4rEXlPo3TIW {
   transition: opacity .15s !important;
 }
-/* footer color*/
-._2KA0p5xYePYygXUbjjsPzA{
-  background: rgba(var(--backgroundDark));
-}
-/* featured update header color */
-._1WdC0YUP8FT0dYWZ-QIVZL {
-    background: rgba(var(--accent)) !important;
-}
+
 /* featured update content border */
 ._3xi-HLpFVHaakihoqhQ_6C  {
 	border-image: none !important;
 	border-color: rgba(var(--accent)) !important;
 }
-/* community content bar*/
-._2lNdDLgjQdeBXmMlPO8lvq {
-background: rgba(var(--backgroundLightish)) !important;
-} 
-/* community tiles main bg*/
-._2EOPVRm0FFn4LjXaGZ0Xh9 {
-    background: rgba(var(--backgroundDarkish));
-}
-/* community tiles header text color */
-._23Pup1qLf91kwjALd-jFGc {
-    color: rgba(var(--accent)) !important;
-}
 
-/*remove weird blur from bottom of some game pages*/
-
-.ooM_c2DA3hF8Wg7zbpK5x /*remove blur image*/
-{
-display: none !important;
-}
 
 /*#############################
-/*Misc
-/* games with normal image 
-._24_AuLm54JVe1Zc0AApCDR._3d_bT685lnWotXxgzKW6am.yDr03475kalWBTwAE-RnwV{}
-/*imageless game bg selector
-[src="/images/defaultappimage.png"]
-  display: none !important;
+/*Misc:
+
+/* bubble effect when you like a post*/
+._2lVtDi3eSjGcLfXVsRgoUy{
+	background-image: radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, transparent 20%, rgba(var(--accent), 33%), transparent 30%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, transparent 10%, rgba(var(--accent), 22%) , transparent 20%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, rgba(var(--accent), 33%), transparent 20%), radial-gradient(circle, transparent 20%, rgba(var(--accent), 33%), transparent 30%)  !important; 
 }
 
 
-
-
-/*###########################################################
 /*###########################################################
 /*DOWNLOADS*/
 
-/*main downloads BG*/
-.Z6wLCsR5it0hjFblgrb6 {
-  background: rgba(var(--backgroundDark));
-}
-/* main download header bg*/
-._3KDkLoCR8OM8xfdQysKn9t{
-  background: rgba(var(--backgroundDarkish));
-
-}
 /* download color gradient again*/
 .edQzwM57P-T5K3eDGkyvZ{
   background: linear-gradient(to right, transparent 15%, rgba(var(--accent)) 90%) !important;
@@ -915,57 +836,23 @@ div._3mZ2rKd2RECK4q4ufmsDYX.pHDI1ddoKXceD5KL7W-4z{
   background: linear-gradient(to right, rgba(var(--accent)) 0%, rgba(var(--accentLightest)) /*accent color but lighter*/ 100%) !important;
 }
 
-._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM>svg>path,/* download page bar graph key */
-._2ns4wnmgr4XBzARpwn2NZ1 /* downloading text color*/
- {
-  color: rgba(var(--accent)) !important;
-}
-/* seperation line*/ 
-.SEmVpmXrYVl3OxL1sDFTg{
-background: rgba(var(--accent)) !important;
-}
+
 /* download graph bar color */
 .gpPxCvNVctmdxo8yfyEAJ, g rect:nth-child(1){
   color: rgba(var(--accent), var(--opacity333)) !important;
 }
 
-/* active/que'd downloads BG */
-._3ebCJiEl-ybizhZ4avcFw5, ._1VNuYHM6BPBOJspC6zPf5r.IbePLaw-vSvhG1GTenYFg {
-  background: rgba(var(--backgroundLightish)) !important;
-}
+
 /* active DL border color */
 ._1VNuYHM6BPBOJspC6zPf5r.IbePLaw-vSvhG1GTenYFg {
   border-color: rgba(var(--backgroundLightish)) !important;
 }
-/* download/pause button */
-._3oavRVhIS9tC3vBsFT4Ggi {
-  background: rgba(var(--accent)) !important;
-}
-/*patch notes/icon color*/
-._3kXEpnxa2qb5znYMSbKT0p{
-  color: rgba(var(--accent)) !important;
-}
 
 
-/* auto-update setting hover color */
-
-._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL, ._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R {
-	color: rgba(var(--accent));
-}
-
-
-
-
-/*###########################################################
 /*###########################################################
 /*modal popup(s) settings */
 
-/*background of popup (content) */
-._2ZgLvT82YJj60ipYm334jn, ._2vlF5KjDw2loCDFMY4RvKe,
-.LclHwcOfHFpwObYMD1HLa /* launch options popup*/
-{
-  background: rgba(var(--background)) !important;
-}
+
 /*remove border from main box
 .lwprNSgEnKfVSHIzsgbFi {
   border: 0 !important;
@@ -975,49 +862,7 @@ background: rgba(var(--accent)) !important;
  background: rgba(var(--backgroundDarkish)) !important;
  border: 0 !important; 
 }
-/*header*/
-._35gM9i287FT5Vx0nL7vX6o{
-  background: rgba(var(--backgroundDarkest)) !important;
-}
-/*header activity text color*/
-._30JUMWVZpKjo5yyNMLHj2N{
-  color: rgba(var(--accent)) !important;
-}
-/*links*/
-._3v0cwU9svPlYyRjL6HO1ZC a:not(.LinkButton){
-  color: rgba(var(--accent)) !important;
-}
-/*footer */
-._3BVe_okecnI7b_bHj5SS42{
-  background-image: none !important;
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*button containers*/
-._1uhQYKdgwmtsVDpLxrmOc4,._3tXYJmiDltr-fLKAH0O_yp,.cLK_FdqhScxUTzHU6WVEN{
-  background: rgba(var(--backgroundDark)) !important;
-}
 
-/*button backgrounds*/
-._3P0Tm2XKLVG_I9wjP3H-Zs, ._3P0Tm2XKLVG_I9wjP3H-Zs._3p1Hj4MxioFD7iM63Z3s6T {
-  background: rgba(var(--backgroundDarkish)) !important;
-}
-
-/*thumb color*/
-._1g-EnGAwBxXdVKtEBcdIK_{
-  fill: rgba(var(--accent)) !important;
-}
-/*thumb text color*/
-._2dVe4z8QrljeVvM0UzTTJ2 {
-  color: rgba(var(--accent)) !important;
-}
-/*comment bubble color*/
-._1GFRKatJ8pNhUDi-MwuD9D>svg {
-  fill: rgba(var(--accent)) !important;
-}
-/*comments number font color*/
-._1GFRKatJ8pNhUDi-MwuD9D {
-  color: rgba(var(--accent)) !important;
-}
 /*sides of modal (not the content) */
 /*change blur in background */
 ._37MAYpIjl0IDA1xVhhsuX8>div:not(._2WEP32t2FdvHSRBiOZug83):not(._24sm_rs0RtItOALHFVIKms):not(._19eb8NMS53lqZR33su0kTr):not(.iJ6kMinIXkRkY49NT2sOx):not(._2SoWN3laHiRo1XbmPyTyPF) {
@@ -1027,27 +872,10 @@ background: rgba(var(--accent)) !important;
 ._37MAYpIjl0IDA1xVhhsuX8>div {
   background: rgba(var(--backgroundDarkest), var(--opacity5)) !important;
 }
-/* dot on the controller page*/ 
-._3QVsc21O3y-P2jJiD5t6-s._11Gq_4A3cMXdDfUnoeM14v{
-	background: rgba(var(--accent)) !important;
-}
- /* background for no controller connected page*/
-._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat{
-	background: rgba(var(--background)) !important;
-}
 
-._3T1iFy2maYycwqgFuzERyf,/*controller page footer*/
-._1E_SL1bTibeQ3PQRBZoS_-,/*controller page header*/
-._1E_SL1bTibeQ3PQRBZoS_-::before
-{ 
-	background: rgba(var(--backgroundDarkest)) !important;
 
-}
 /*#############################
 /*  modals popup*/
-._1Lfu7heMNRsXXo1Yfzsp17, ._2vlF5KjDw2loCDFMY4RvKe, ._3wtPUBfilFITcl1s4u6A7T {
-  background: rgba(var(--backgroundLightish));
-}
 /* various buttons*/
 button.DialogButton.Primary, /*accented button*/
 .gkgG-dWgjpwS_aqlcMNTM /* selected drive for install game modal */
@@ -1059,18 +887,19 @@ button.DialogButton.Primary, /*accented button*/
  /*disabled text*/
 button.DialogButton.Primary.Disabled{
 	text-decoration: line-through !important;
-  color: rgba(var(--backgroundDarkest)) !important;
+	color: rgba(var(--backgroundDarkest)) !important;
 }
 .disabled{
 	text-decoration: line-through !important;
 }
-/*unselected buttons*/
-.Oo5JPcEk_erKEYAzYp2nY.Panel {
-    background: rgba(var(--backgroundLightish));
-}
-/*unselected buttons:hover*/
-.Oo5JPcEk_erKEYAzYp2nY.Panel:hover {
-    background: rgba(var(--backgroundLight));
+
+.Oo5JPcEk_erKEYAzYp2nY.Panel:hover,		/*unselected buttons:hover*/
+._gDkIgrqhJq-FtbuR9wJi,					/*cheevo list backgrounds*/
+._2lgHVJbZwxb10Md7bZ6USU,				/*other cheevo list backgrounds*/
+._1tTuIhabs4uQQmR2udzw_P,				/*cheevo list background tips*/
+._2wBK7MqJSrj6QCxf3357yL				/*headers in the game overview page*/
+{
+	background: rgba(var(--backgroundLight)) !important;
 }
 
 /*comment menu border*/
@@ -1080,172 +909,49 @@ button.DialogButton.Primary.Disabled{
 
 /*check boxes on install popup*/
 stop {
-  stop-color: rgba(var(--accent));
+	stop-color: rgba(var(--accent));
 }
 
 /*############################
 /* steam award popup */
 
-/*text accents*/
-.j46gbjgwR947a_ZyFUQav,
-.V7W5cNHTPUuSS-4yBUDaN,
-._26lUCOjXyPSIUFyyIijjTT,
-.LnM57J5-ZUcH1tTk6ONqn
-{
-  color: rgba(var(--accent)) !important;
-}
 
-._1mfQu39T7gxcr0KSHso6_A {
-  background: rgba(var(--background)) !important;
-}
 
-/*############################
-/* Update news (just the frame) */
-.DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-{
-  background: rgba(var(--background)) !important;
-}
+
 
 /*############################
 /*system info popup 
-/*interior bg color */
-._3f3VJUtyLXUf_JDFE-BaQ6 {
-  background: rgba(var(--background)) !important;
-}
-
 /* activate a product on steam
 /* top color highlight*/
 #popup_target > div > div.FullModalOverlay > div.ModalOverlayContent.active > div > div > div.ModalPosition_TopBar {
-  background: linear-gradient(to right, rgba(var(--accent)) 0%, rgba(var(--accentLightest)) 100%) !important;
+	background: linear-gradient(to right, rgba(var(--accent)) 0%, rgba(var(--accentLightest)) 100%) !important;
 }
 
 /*add a non-steam game
 /* search input bg*/
 .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable{  
-  background: rgba(var(--backgroundLightish)) !important;
-  color: rgba(var(--accentLight)) !important;
+	background: rgba(var(--backgroundLightish)) !important;
+	color: rgba(var(--accentLight)) !important;
 }
-/* search input placeholder text color */
-.DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable::placeholder{  
-  color: rgba(var(--accentLight)) !important;
-}
-/* sorting header */
-._3m0MnUo45wjLOfNLpZ-3KH{
-  background: rgba(var(--backgroundDarkest)) !important;
-}
-/* program list */
-._1e6tjguQEHdYIehM9aRmO5
-{
-  background: rgba(var(--backgroundDark)) !important;
-}
-/* secondary buttons */
-.DialogButton._DialogLayout.Secondary.Focusable{
-  background: rgba(var(--backgroundLightish)) !important;
 
-}
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
+
+
 /*##############################################
 /* settings 
 
-/*inner content background*/
-.DialogContent_InnerWidth, .DialogContent._DialogLayout{
-  background: rgba(var(--background)) !important;
-}
-/*highlighted category color*/
-.Myra7iGjzCdMPzitboVfh{
-  background: rgba(var(--accent)) !important;
-}
-/* sidebar color*/
-.RTicBCbDcEGkjsbmWzA8C {
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*steam settings header color*/
-._3qEgQJqeb0zyM12KXq64Or {
-  color: rgba(var(--accent)) !important;
-}
-/* toggle color */
-._2JtC3JSLKaOtdpAVEACsG1::before {
-  background: rgba(var(--accent)) !important;
-}
-/* highlighted button for backgrounds in multi select on library screen */
-._3ZBFoxumQBb1JEVw_DZzaC {
-  background: rgba(var(--accent)) !important;
-}
-/* player backgrounds in family menu*/
-._3QkkYqYUNkuL-1EOrIbEhB{
-  background: rgba(var(--backgroundDarkest)) !important;
-}
 /* slider color */
 .Mq25Nap224hVdTdtXSsnq, .Mq25Nap224hVdTdtXSsnq::before {
   --left-track-color: rgba(var(--accent));
 }
 
 
-/*dropdown arrow color*/
-.DialogDropDown_Arrow polygon {
-  fill: rgba(var(--accent)) !important;
-}
-
-
-
-
-
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
 /*##############################################
 /* collections.
-/*main bg*/
-.u1xD3KJEgksF_J_5TLZzO {
-  background: rgba(var(--background)) !important;
-}
+
 ._3IWn-2rn7x98o5fDd0rAxb{
 	background: rgba(var(--backgroundDark)) !important;
 }
 
-
-
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/* soundtrakcs
-/*main bg*/
-._23zCI_59RJTWRvY-_YCFb9{
-background: rgba(var(--background)) !important;
-}
-
-/*background for music controls*/
-._5ZEYSTRBHDswDtriduXW0 {
-	background: rgba(var(--backgroundDark)) !important;
-}
-
-
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/* hidden games + soundtracks
-/* main bg*/
-._2sNr7PFYcJZWNkEMCDVVPR {
-  background: rgba(var(--background)) !important;
-}
-/* game highlight glow for games w/ no cover */
-.mA39Hqv8LacDppegb_Q_Z {
-  background: rgba(var(--accent)) !important;
-}
-
-
-
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
 /*##############################################
 /* in-game overlay*/
 /*exit game button*/
@@ -1258,15 +964,6 @@ background: rgba(var(--background)) !important;
     height: 360px;
     width: 640px;
 }
-/*just under header area in achievement popup*/
-._36Dp_CLuZbFCm7KDc9tbCv,
-._26Gmfe09NRsnF7eprTZYdY/* url bar in overlay browser*/ {
-background: rgba(var(--backgroundDark)) !important;
-}
-/*links in the notes popup*/
-._3zWunJFZU6u89fIABN9Gkf a {
-    color: rgba(var(--accent));
-}
 
 /*fix sides of achievements header*/
 ._36Dp_CLuZbFCm7KDc9tbCv {
@@ -1278,6 +975,7 @@ background: rgba(var(--backgroundDark)) !important;
     border-left-width: 24px !important;
     border-color: rgba(var(--backgroundDark)) !important;
 }
+
 /*header when you scroll down in the achievements menu*/
 ._3IBLc81yyL08OJ7rfKtF00._31ZleDJpmmVr6YwR5VLHiu ._2JobstxtZVYF3078DblN2M::before, ._2JobstxtZVYF3078DblN2M._1jNhbFODJy7sNdcnEeZkz4::before,
 .C9tvuqqEXGcrkcAtHrQ_R, /*fix little box in game overview page*/
@@ -1289,48 +987,9 @@ background: rgba(var(--backgroundDark)) !important;
     background: rgba(var(--backgroundDarkest)) !important;
 }
 
-._27m9Qbg4ShilOgwvYZWV8l, /*game overview main bg*/
-._3JV6-V6z0SKmNu6TlI1Bdr /*background in overlay browser*/
- {
-    background: rgba(var(--background)) !important;
-}
-._3i4EpiSDpxQHVFExxUa1Zp, /* background for arrow button in the notes menu*/
-._1vG-vFfwpDeNStVbyo1Qy6.P46KVvNDqOUONCIHBwKgU, /*background for sections in the game overview page*/
-._2OwqXw1nhBL430bsYTeEr- /*same as above*/
-{
-	background: rgba(var(--backgroundLightish)) !important;
-}
-._gDkIgrqhJq-FtbuR9wJi, /*cheevo list backgrounds*/
-._2lgHVJbZwxb10Md7bZ6USU, /*other cheevo list backgrounds*/
-._1tTuIhabs4uQQmR2udzw_P, /*cheevo list background tips*/
-._2wBK7MqJSrj6QCxf3357yL /*headers in the game overview page*/
-{
-	background: rgba(var(--backgroundLight)) !important;
 
-}
 
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/* screenshot manager
-/*internal background color is already done from the setting in the settings section */
 
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
-/* mini mode
-/* internal background*/
-._1ZS_xta5HMXzR8JgxDH6n7,._20QAC4WMXm8qFE8waUT5oo,._1ijTaXJJA5YWl_fW2IxcaT,._1fbRpYO_BFDlMdFLsQMGVE,._3x1HklzyDs4TEjACrRO2tB{
-  background: rgba(var(--backgroundDark)) !important;
-}
-/*##############################################
-/*##############################################
-/*##############################################
-/*##############################################
 /*##############################################
 /* misc stuff
 /*title bar on misc popups*/

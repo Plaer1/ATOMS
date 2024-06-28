@@ -1,8 +1,4 @@
 export default function transparentGames() {
-    // Adjust opacity
-    const adjustOpacity = (element) => {
-        element.style.cssText = 'opacity: var(--transparentGameOpacity) !important'; // Using !important to ensure override
-    };
 
     // Handle DOM changes
     const handleMutations = (mutationsList) => {
@@ -15,7 +11,7 @@ export default function transparentGames() {
                             // Navigate to the target element
                             const targetElement = uninstalledChild.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.nextElementSibling;
                             if (targetElement) {
-                                adjustOpacity(targetElement);
+								targetElement.style.cssText = 'opacity: var(--transparentGameOpacity) !important'; // Using !important to ensure override
                             }
                         }
                     }

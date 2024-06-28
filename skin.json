@@ -1,108 +1,103 @@
 {
 	"author":"Plaer1",
-	"name":"ATOMS-git",
+	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
 	"version":"1.1.1.1.1.1.1",
 	"github":{
-	   "owner":"Plaer1",
-	   "repo_name":"ATOMS"
+		"owner":"Plaer1",
+		"repo_name":"ATOMS"
 	},
 	"discord_support":{
-	   "inviteCodeExcludingLink":"UZvkvkh"
+		"inviteCodeExcludingLink":"UZvkvkh"
 	},
 	"tags":[
-	   "Minimal",
-	   "Dark",
-	   "Customizable",
-	   "Metro"
+		"Minimal",
+		"Dark",
+		"Customizable",
+		"Metro"
 	],
 	"header_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsHeaderImage.png",
 	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
 	"Patches":[
-	   {
-		  "MatchRegexString":"https://store.steampowered.com$",
-		  "TargetCss":"css/webkit.css",
-		  "TargetJs":"js/webkitStore.js"
-	   },
-	   {
-		  "MatchRegexString":"https://help.steampowered.com$",
-		  "TargetCss":"css/webkit.css",
-		  "TargetJs":"js/webkitStore.js"
-	   },
-	   {
-		  "MatchRegexString":"https://steamcommunity.com$",
-		  "TargetCss":"css/webkit.css",
-		  "TargetJs":"js/webkitCommunity.js"
-	   },
-	   {
-		  "MatchRegexString":"^Steam$",
-		  "TargetCss":"css/library.css",
-		  "TargetJs":"js/steam.js"
-	   },
-	   {
-		  "MatchRegexString":".ModalDialogPopup",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":".FullModalOverlay",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":".friendsui-container",
-		  "TargetCss":"css/friends.css"
-	   },
-	   {
-		  "MatchRegexString":"^OverlayBrowser_Browser$",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":"^SP Overlay:",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":"Menu$",
-		  "TargetCss":"css/menus.css",
-		  "TargetJs":"js/navigation.js"
-	   },
-	   {
-		  "MatchRegexString":"Supernav$",
-		  "TargetCss":"css/menus.css"
-	   },
-	   {
-		  "MatchRegexString":"^notificationtoasts_",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":"^SteamBrowser_Find$",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":"^OverlayTab\\d+_Find$",
-		  "TargetCss":"css/library.css"
-	   },
-	   {
-		  "MatchRegexString":"^Steam Big Picture Mode$",
-		  "TargetCss":"css/bigpicture.css"
-	   },
-	   {
-		  "MatchRegexString":" Controller Layout$",
-		  "TargetCss":"css/controller.css"
-	   },
-	   {
-		  "MatchRegexString":"^Account Data$",
-		  "TargetCss":"css/webkit.css"
-	   },
-	   {
-		  "MatchRegexString":"^QuickAccess_",
-		  "TargetCss":"css/bigpicture.css"
-	   },
-	   {
-		  "MatchRegexString":"^MainMenu_",
-		  "TargetCss":"css/bigpicture.css"
-	   },
-	   {
-		  "MatchRegexString":"Dev Tools",
-		  "TargetCss":"css/menus.css"
-	   }
+		{
+			"MatchRegexString":"https://.*.steampowered.com",
+			"TargetCss":"css/webkit.css",
+			"TargetJs":"js/webkitStore.js"
+		},
+		{
+			"MatchRegexString":"https://steamcommunity.com",
+			"TargetCss":"css/webkit.css",
+			"TargetJs":"js/webkitCommunity.js"
+		},
+		{
+			"MatchRegexString":"^Steam$",
+			"TargetCss":"css/library.css",
+			"TargetJs":"js/steam.js"
+		},
+		{
+			"MatchRegexString":".ModalDialogPopup",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":".FullModalOverlay",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":".friendsui-container",
+			"TargetCss":"css/friends.css"
+		},
+		{
+			"MatchRegexString":"^OverlayBrowser_Browser$",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":"^SP Overlay:",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":"Menu$",
+			"TargetCss":"css/menus.css",
+			"TargetJs":"js/navigation.js"
+		},
+		{
+			"MatchRegexString":"Supernav$",
+			"TargetCss":"css/menus.css"
+		},
+		{
+			"MatchRegexString":"^notificationtoasts_",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":"^SteamBrowser_Find$",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":"^OverlayTab\\d+_Find$",
+			"TargetCss":"css/library.css"
+		},
+		{
+			"MatchRegexString":"^Steam Big Picture Mode$",
+			"TargetCss":"css/bigpicture.css"
+		},
+		{
+			"MatchRegexString":" Controller Layout$",
+			"TargetCss":"css/controller.css"
+		},
+		{
+			"MatchRegexString":"^Account Data$",
+			"TargetCss":"css/webkit.css"
+		},
+		{
+			"MatchRegexString":"^QuickAccess_",
+			"TargetCss":"css/bigpicture.css"
+		},
+		{
+			"MatchRegexString":"^MainMenu_",
+			"TargetCss":"css/bigpicture.css"
+		},
+		{
+			"MatchRegexString":"Dev Tools",
+			"TargetCss":"css/menus.css"
+		}
 	]
- }
+}

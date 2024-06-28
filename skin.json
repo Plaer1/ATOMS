@@ -20,17 +20,17 @@
 	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
 	"Patches":[
 	   {
-		  "MatchRegexString":"https://store.steampowered.com",
+		  "MatchRegexString":"^https://store.steampowered.com$",
 		  "TargetCss":"css/webkit.css",
 		  "TargetJs":"js/webkitStore.js"
 	   },
 	   {
-		  "MatchRegexString":"https://help.steampowered.com",
+		  "MatchRegexString":"^https://help.steampowered.com$",
 		  "TargetCss":"css/webkit.css",
 		  "TargetJs":"js/webkitStore.js"
 	   },
 	   {
-		  "MatchRegexString":"https://steamcommunity.com",
+		  "MatchRegexString":"^https://steamcommunity.com$",
 		  "TargetCss":"css/webkit.css",
 		  "TargetJs":"js/webkitCommunity.js"
 	   },

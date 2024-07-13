@@ -1,3 +1,4 @@
+@import url('configDefaults.css');
 @import url('../config.css');
 @import url('scrollbars.css');
 
@@ -13,9 +14,14 @@ div.RGNMWtyj73_-WdhflrmuY._3WJCt_OkjPA6npxOtguSt5 > div._3xRRJfD2xy95i9NhJxLTp0.
 
 /* Uncomment if you want to change the font */
 *{
-/*   font-family: var(--font) !important; */
+  font-family: var(--font) !important;
   box-shadow: none !important;
 }
+
+html,body{
+	background: rgb(var(--background)) !important;
+}
+
 /* Uncomment if you to test stuff 
 *:hover{
 	background: pink !important;
@@ -564,7 +570,8 @@ div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 ._1GFRKatJ8pNhUDi-MwuD9D>svg										/* comment bubble color*/
 ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path,				/* make sort by date/playable grey when active */
 ._1kCN0pAntrcGCSmcc-vYdk path,										/* unknown button*/
-.online>svg.SVGIcon_MobilePhone>path /*mobile phone icon online*/
+.online>svg.SVGIcon_MobilePhone>path,								/*mobile phone icon online*/
+.SVGIcon_ChatBubble>g>path											/*chat bubble on popups/for comment sections*/
 {
   fill: rgb(var(--accent)) !important;
 }

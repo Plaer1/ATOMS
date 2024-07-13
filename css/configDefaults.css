@@ -1,0 +1,294 @@
+/* Makes a funny "fire" effect around games with a negative review score.
+@import url('webkitNegativeText.css'); 
+*/
+
+/* #####################################
+/* ####################
+/* configDefaults.CSS */
+/*
+hello and welcome to the default config file for the skin! 
+( if you want to change any of these variables instead copy this file too
+
+the config is broken down into a few main sections:
+	Colors:
+		pretty self explanitory, it has the main color definitions,
+		as well as the variables used in the main skin files.
+	Settings:
+		Has various settings used around the skin, including font(s),
+		visibilty settings for the "What's new" section + recents,
+		a place to add a custom library title.
+		and settings to change a few of the gradients to some fun alternates.
+
+	Extra definitions:
+		This is where you will find the values that you can change the other gradients too,
+		as well as some miscillanious hard-coded values, unless you're customizing the skin,
+		you probably wont ever even need to look at these!
+
+	"old stuff: will be deleted":
+		It's the first public beta, what can I say? These are vestigial values that are either 
+		used in the webkit file, or retained purely out of supersticion on my part, 
+		regardless; they are on the way out. 
+		Please do not reference any of these values for non-educational purposes! 
+
+*/
+
+:root { 
+
+/* #####################################
+/* ####################
+/* COLORS 
+
+	in order for a color to be compatable with the skin;
+		you have to put it in "r, g, b" format,
+			without the normal "rgba()" formating.
+
+	/*greys*/
+	--grey: 			30, 30, 30; 	/*#1e1e1e*/
+	--greyDarkish: 		28, 28, 28;		/*#262626*/
+	--greyLightish: 	38, 38, 38;		/*#3d3d3d*/
+	--greyLight: 		61, 61, 61;		
+	--greyLightest: 	234, 234, 234;
+	--greyDark: 		25, 25, 25;		/*#1b1b1b*/
+	--greyDarkest: 		22, 22, 22;		/*#161616*/
+	--white: 			255, 255, 255; 
+
+	/*reds*/
+	--red:				255, 0, 0;
+
+	/*oranges*/
+	--orange:			255, 102, 0; 
+
+	/*yellows*/
+	--yellow:			255, 255, 0;
+
+	/*greens*/
+	--green:			51, 255, 0; 
+
+	/*purples*/
+	--purple:			102, 36, 226; 
+
+	/*blues*/
+    --blue:					66, 177, 249;		/*0, 102, 255;*/
+    --blueLightish:			0, 0, 0;
+    --blueLight:			127, 174, 196;		/*#d7adff*/
+    --blueLightest:			97, 197, 237;
+    --darkishblue:			0, 0, 0;
+    --darkblue:				30, 37, 47;			/*#ab37a7*/
+    --darkestblue:			33, 41, 52;
+
+	/* Pinks */
+	--pink:					222, 123, 255;		/*#c381ff*/
+
+	--pinkLightish:			205, 151, 255;
+	--pinkLight:			215, 173, 255;		/*#d7adff*/
+	--pinkLightest:			252, 106, 247;
+	
+	--darkishPink:			170, 106, 207;		
+	--darkPink:				171, 55, 167;		/*#ab37a7*/
+	--darkestPink:			154, 70, 151;
+
+	--pinkWhiteish:			174, 159, 174;		/*#cbbcb*/
+	--pinkWhite:			203, 187, 203;		/*#cbbcb*/
+	--pinkWhiteest:			229, 221, 229;		
+
+	--pinkWhiteDark:		131, 103, 131;
+	--pinkWhiteDarkish:		148, 113, 148;
+
+	/* ATOM'S COLORS */
+	/*change a bunch of accent colors at once*/
+
+	/*static accents*/
+	--accent:		 			var(--pink);
+	--accentLightish:			var(--pinkLightish);
+	--accentLight:				var(--pinkLight);
+	--accentLightest: 			var(--pinkLightest); 
+	--accentDarkish:			var(--darkishPink);		
+	--accentDark:				var(--darkPink);	
+	--accentDarkest:			var(--darkestPink);	
+
+	/*static backgrounds*/
+	--backgroundLightish: 		var(--greyLightish); 
+	--backgroundLight: 			var(--greyLight);
+	--backgroundLightest: 		var(--greyLightest);
+	--background:				var(--grey);
+	--backgroundDarkish: 		var(--greyDarkish); 
+	--backgroundDark: 			var(--greyDark); 
+	--backgroundDarkest: 		var(--greyDarkest);
+
+	--textAccented:				var(--accent);
+	--textLightish:				var(--pinkWhiteish);
+	--textLight:				var(--pinkWhite);
+	--textLightest:				var(--pinkWhiteest);
+	--textDarkish:				var(--pinkWhiteDarkish);
+	--textDark:				    var(--pinkWhiteDark);
+
+	
+	/* some static steam color definitons*/
+	--ingame: #92be38;
+	--steamNearWhite: 			#ccc;
+	--steamIconWhite: 			#67707b;
+
+/* #####################################
+/* ####################
+/* Settings */
+
+	/* ####################
+	/* Global Settings */
+	--font:						"Motiva Sans",Arial,Helvetica,sans-serif;		/* changes font, must be enabled in the other CSS files (near the top)*/
+	--accentFilter: 			var(--filterBlueToPink);						/*turns blues pink, must only be used when nessicary*/
+	/* ####################
+	/* Library Settings */
+	--libraryText:				"Home";								/* changes the home text in the library*/
+	--transparentGameOpacity:	var(--opacity333);								/* changes how transparent the uninstalled games in the library are*/
+	--gameShine:				var(--accentGameShine);							/*chages highlight game tile hover, see below for other options)*/
+	--achievementGlow:			var(--accentAchievementGlow);					/*chages rare achievement glow, see below for other options)*/
+
+
+
+	/* ####################
+	/* Display Settings */
+	--WhatsNew: block; /* Set to "none" to hide the what's new section. */
+	--Recent: block; /* Set to [ none | block ] */
+	--highlightNegativeGames: none; /* Set to [ none | inline-block ] */
+
+
+/* #####################################
+/* ####################
+/* Extra definitons:
+
+		This section is for hard-coded values that aren't,
+		commonly referenced or meant to be changed.
+		you probably don't want to change any of these.
+
+	/* ########################
+	/* Game Shine Gradients: */
+		/*accent color*/
+		--accentGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--accent), var(--opacity85)) 12px, rgba(var(--accent), var(--opacity75)) 20%, transparent 60%, transparent 85%, rgba(var(--backgroundDarkest), var(--opacity8)) 100%);
+
+		/*rainbow*/
+		--rainbowPrideGameShine: linear-gradient( to bottom, transparent 9%, rgba(var(--red), var(--opacity75)) 19%, rgba(var(--orange), var(--opacity75)) 25%, rgba(var(--yellow), var(--opacity75)) 36%, rgba(var(--green), var(--opacity75)) 45%, rgba(var(--blue), var(--opacity75)) 54%, rgba(var(--purple), var(--opacity75)) 63%, transparent 100%);
+
+		/*trans pride*/
+		--transPrideGameShine: linear-gradient( to bottom, transparent 15%, rgba(var(--blue), var(--opacity75)) 22%, rgba(var(--pink), var(--opacity75)) 35%, rgba(var(--white), var(--opacity75)) 49%, rgba(var(--pink), var(--opacity75)) 68%, rgba(var(--blue), var(--opacity75)) 69%, transparent 100%);
+
+		/*bisexual pride*/
+		--bisexualPrideGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--darkerPink)) 40%, rgba(var(--Purple), var(--opacity75)) 60%, rgba(var(--Blue), var(--opacity75)) 100%);
+
+	/* ###############################
+	/* Achievement Shine Gradients: */
+	  /*accent*/
+	  --accentAchievementGlow: repeating-conic-gradient( rgba(var(--accent), 0.178) 0%, rgba(var(--accent), 0) 6%, rgba(var(--accent), 0.178) 10%, rgba(var(--accent)) 26%, rgba(var(--accent), 0.178) 35%, rgba(var(--accent)) 40%, rgba(var(--accent), 0.178) 60%, rgba(var(--accent)) 82%, rgba(var(--accent), 0.178) 100% );
+	  
+	  /*rainbow*/
+	  --rainbowPrideAchievementGlow: linear-gradient( to bottom, rgba(var(--red), var(--opacity2)) 0%, rgba(var(--red), var(--opacity2)) 2%, rgba(var(--red), var(--opacity666)) 5%, rgba(var(--red), var(--opacity2)) 8%, transparent 11%, rgba(var(--orange), var(--opacity2)) 13%, rgba(var(--orange), var(--opacity666)) 15%, rgba(var(--orange), var(--opacity2)) 18%, transparent 20%, rgba(var(--yellow), var(--opacity2)) 22%, rgba(var(--yellow), var(--opacity666)) 25%, rgba(var(--yellow), var(--opacity2)) 28%, transparent 30%, rgba(var(--green), var(--opacity2)) 32%, rgba(var(--green), var(--opacity666)) 35%, rgba(var(--green), var(--opacity2)) 38%, transparent 40%, rgba(var(--blue), var(--opacity2)) 42%, rgba(var(--blue), var(--opacity666)) 45%, rgba(var(--blue), var(--opacity2)) 48%, transparent 50%, rgba(var(--purple), var(--opacity2)) 52%, rgba(var(--purple), var(--opacity666)) 57%, rgba(var(--purple), var(--opacity2)) 62%, transparent 100% );
+	  
+	  /*trans pride*/
+	  --transPrideAchievementGlow: linear-gradient( to bottom, rgba(var(--blue), var(--opacity666)) 0%, rgba(var(--blue), var(--opacity2)) 10%, transparent 10%, rgba(var(--pink), var(--opacity666)) 13%, rgba(var(--pink), var(--opacity2)) 20%, transparent 20%, rgba(var(--white), var(--opacity666)) 23%, rgba(var(--white), var(--opacity2)) 40%, transparent 40%, rgba(var(--pink), var(--opacity666)) 43%, rgba(var(--pink), var(--opacity2)) 50%, transparent 50%, rgba(var(--blue), var(--opacity666)) 53%, rgba(var(--blue), var(--opacity2)) 60%, transparent 60% );
+
+	/*#############################
+	/* hardcoded opacity values*/
+	--opacity0:		0.0;
+	--opacity1:		0.1; 
+	--opacity2:		0.2; 
+	--opacity3:		0.3; 
+	--opacity333:	0.3; 
+	--opacity4:		0.4; 
+	--opacity5:		0.5; 
+	--opacity6:		0.6; 
+	--opacity666:	0.666; 
+	--opacity7:		0.7; 
+	--opacity75:	0.75; 
+	--opacity8:		0.8;
+	--opacity85:	0.85; 
+	--opacity9:		0.9; 
+	--opacity100:	1.0;  
+
+	--filterBlueToPink:		hue-rotate(79deg);
+	--filterBlueToPurple:	hue-rotate(0deg);
+	--filterBlueToBlue:		hue-rotate(0deg);
+	--filterBlueToRed:		hue-rotate(146deg);
+	--filterBlueToGreen:	hue-rotate(282deg);
+	--filterBlueToYellow:	hue-rotate(221deg);
+	--filterBlueToOrange:	hue-rotate(192deg);
+
+	
+
+/* #####################################
+/* ####################
+/* old stuff: will be deleted, 
+
+
+
+don't use any of this....
+
+
+
+
+
+...in fact forget you were even here at all. */
+
+	/*fixme*/
+
+	--black: #000000;
+	--black-ish: #2a3f5a00;
+	--realblack: #101010;
+	--blacker: #1c1c1c;
+	--darkergrey: #151515;
+	--bedarkgrey: #161616;
+	--begrey: #262627;
+	--thegrey: #181818;
+	--littlegrey: #282828;
+	--darkgreyLightlyTransparent: #1e1e1ed4;
+	--darkgreySlightlyTransparent: #1e1e1ebb;
+	--lightgrey: #020209;
+	--lightergrey: #353535;
+	--dakerwhite: #b8b6b4;
+	--trans: transparent;
+	--invisiblegrey: #3e3e3e3d;
+	--invisibleblack: #00000000;
+	--halfvisibleblack: #00000077;
+	
+	--lessTransparentPink: #c281ffc3;
+	--transparentPink: #c281ff7f;
+	--moreTransparentPink: #c281ff3d;
+	--transparenterAccentPink: #c281ff2c;
+	--transparentbrightPink: #fc6af7ff;
+	--transparentdarkPink: #ab37a7ff;
+	--transparentdarkerPink: rgba(154, 70, 151, 0.815);
+	--transparentaccyPink: #fc6af787;
+	--transparenterPink: #fc69f737;
+	--barelyVisiblePink: #fc6af71a;
+	--hotpink: #ff00ff; 
+
+	--airblue: #2e3340;
+	--gold: #ffcc6a;
+	--bronze: #695833;
+
+	--ingamegreen: #90ba3c; /* #90ba3c */
+	--darkgreen: #5c7e10;
+
+	--offlinegrey: #919191; /* #919191 */
+	--onlineblue: #5db2fe; /* #5db2fe */
+	--online: #57cbde;
+	--offline: #898989;
+
+	--darkblue: #0e5984;
+	--blu: #67c1f5;
+	--blue-ish: #7cbef8;
+	--blue-er: #a4d7f5;
+	--lightblue: #c4e4f2;
+
+	--brightpurple: #7d3cf5; 
+	--transpurple: #6624e2b3; 
+
+	--backgroundDarkTransparent:var(--halfvisibleblack);
+	--accentLessTransparent:	var(--lessTransparentPink);
+	--accentTransparent: 		var(--transparentPink);
+	--accentLightTransparentest:var(--transparenterAccentPink);
+	--accentLessTransparent:	var(--lessTransparentPink);
+	--accentMoreTransparent:	var(--transparenterPink);
+	--accentDarkTransparent: 	var(--transparentdarkPink);
+	--accentDarkerTransparent:	var(--transparentdarkerPink);
+}
+
+

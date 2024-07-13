@@ -1,9 +1,13 @@
+@import url('configDefaults.css');
 @import url('../config.css');
 *{  /*Uncomment if you want to change the font */
-/*     font-family: var(--font) !important; */
+    font-family: var(--font) !important;
 	box-shadow: none !important;
 }
 
+html,body{
+	background: rgb(var(--background)) !important;
+}
 /* fix menus at the top */
 .contextMenuItem,
 ._1UgM1Pm8SbTWX7_2f-crGt /* notif dropdown */

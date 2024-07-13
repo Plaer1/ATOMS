@@ -1,7 +1,8 @@
+@import url('configDefaults.css');
 @import url('../config.css');
 @import url('shiinaLib/webkit.css');
 @import url('scrollbars.css');
-/* @import url('webkitNegativeText.css'); */
+@import url('webkitNegativeText.css');
 
   /* custom element css:
   #################
@@ -11,7 +12,18 @@
   ###################################################################################### */
 /* set the font*/
 *{  /*Uncomment if you want to change the font */
-/*     font-family: var(--font) !important; */
+    font-family: var(--font) !important;
+}
+html,body{
+	background: rgb(var(--background)) !important;
+}
+
+
+/*scrollbar stuff*/
+div::-webkit-scrollbar-thumb:window-inactive {
+    background-clip: padding-box !important;
+    -webkit-box-shadow: none !important;
+    background: transparent !important;
 }
 
 /* make the icon for the ITAD integration nice */ 
@@ -538,4 +550,58 @@ div.filterselect_options {
 .faqctn div,
 #SaleSection_31960 .SaleSectionForCustomCSS .SaleTextCtn .Link {
 	color: rgb(var(--backgroundLightest)) !important;
+}
+
+
+/*######################################################
+/*negative game text highlight effects:
+*/
+.game_review_summary:not(.positive) {
+	font-weight: bold;
+	color: #fff;
+	position: relative;
+	display: var(--highlightNegativeGames);
+
+	text-transform: uppercase;
+	animation: glow 1.5s infinite alternate;
+}
+
+.game_review_summary:not(.positive)::before,
+.game_review_summary:not(.positive)::after {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: var(--highlightNegativeGames);
+
+	width: 100%;
+	height: 100%;
+	color: #ff4500;
+	z-index: -1;
+	filter: blur(10px);
+	opacity: 0.75;
+	animation: flicker 2s infinite alternate;
+}
+
+.game_review_summary:not(.positive)::after {
+	color: #ff8c00;
+	filter: blur(20px);
+	display: var(--highlightNegativeGames);
+
+	animation: flicker 2s infinite alternate-reverse;
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 1px #ff4500, 0 0 2px #ff4500, 0 0 3px #ff4500, 0 0 4px #ff4500, 0 0 5px #ff4500, 0 0 6px #ff4500, 0 0 7px #ff4500;
+	}
+	to {
+		text-shadow: 0 0 2px #ff8c00, 0 0 3px #ff8c00, 0 0 4px #ff8c00, 0 0 5px #ff8c00, 0 0 6px #ff8c00, 0 0 7px #ff8c00, 0 0 8px #ff8c00;
+	}
+}
+
+@keyframes flicker {
+	0% { opacity: 0.8; }
+	50% { opacity: 0.4; }
+	100% { opacity: 0.8; }
 }

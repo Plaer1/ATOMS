@@ -1,2 +1,3 @@
+@import url('configDefaults.css');
 @import url('../config.css');
-/* *{ font-family: var(--font) !important; } */
+*{ font-family: var(--font) !important; }

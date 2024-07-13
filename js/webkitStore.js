@@ -13,7 +13,7 @@ systemAccentColors();
 
 waitForElement('.game_page_background', function(element) {
 applyGrayscaleBackground('.game_page_background');
-});
+}, 69, 55555, 0);
 
 // Skip age gate - DO NOT FORGET TO SET YOUR REAL BIRTHDAY!
 waitForElement('.agegate_birthday_selector', function(element) {

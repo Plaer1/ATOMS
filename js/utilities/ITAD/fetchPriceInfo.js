@@ -1,8 +1,8 @@
 import { itadApiKey } from "../../../config.js";
 
-async function getPlain(appHubAppName) {
+async function getAppId(appHubAppName) {
   try {
-    const url = `https://api.isthereanydeal.com/v02/game/plain/?key=${itadApiKey}&title=${appHubAppName}`;
+    const url = `https://api.isthereanydeal.com/v02/game/lookup/?key=${itadApiKey}&title=${appHubAppName}`;
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -11,22 +11,23 @@ async function getPlain(appHubAppName) {
 
     const responseObj = await response.json();
 
-    if (responseObj.data && responseObj.data.plain) {
-      return responseObj.data.plain;
+    if (responseObj.data && responseObj.data.list && responseObj.data.list.length > 0) {
+      return responseObj.data.list[0].plain;
     } else {
-      throw new Error('No plain ID found for the provided game name');
+      throw new Error('No app ID found for the provided game name');
     }
   } catch (e) {
-    console.error("Error while fetching the plain ID: ", e);
+    console.error("Error while fetching the app ID: ", e);
     throw e;
   }
 }
 
-async function fetchCurrentLowest(appHubAppName) {
+async function fetchCurrentLowest(appHubAppName, bundle = false) {
   try {
-    const plain = await getPlain(appHubAppName);
+    const plain = await getAppId(appHubAppName);
     const country_code = getCountryCode();
-    const url = `https://api.isthereanydeal.com/v01/game/storelow/?key=${itadApiKey}&plains=${plain}&shops=steam,greenmangaming,amazonus,battlenet,epic,gog,humblestore,itchio,macgamestore,microsoft,newegg,origin,uplay,squenix,wingamestore&country=${country_code}`;
+    const bundleParam = bundle ? "&bundle=1" : "";
+    const url = `https://api.isthereanydeal.com/v01/game/storelow/?key=${itadApiKey}&plains=${plain}&shops=steam,greenmangaming,amazonus,battlenet,epic,gog,humblestore,itchio,macgamestore,microsoft,newegg,origin,uplay,squenix,wingamestore&country=${country_code}${bundleParam}`;
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -65,11 +66,12 @@ async function fetchCurrentLowest(appHubAppName) {
   }
 }
 
-async function fetchHistoricalLow(appHubAppName) {
+async function fetchHistoricalLow(appHubAppName, bundle = false) {
   try {
-    const plain = await getPlain(appHubAppName);
+    const plain = await getAppId(appHubAppName);
     const country_code = getCountryCode();
-    const url = `https://api.isthereanydeal.com/v01/game/lowest/?key=${itadApiKey}&plains=${plain}&country=${country_code}`;
+    const bundleParam = bundle ? "&bundle=1" : "";
+    const url = `https://api.isthereanydeal.com/v01/game/lowest/?key=${itadApiKey}&plains=${plain}&country=${country_code}${bundleParam}`;
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -102,11 +104,12 @@ async function fetchHistoricalLow(appHubAppName) {
   }
 }
 
-async function fetchSteamLow(appHubAppName) {
+async function fetchSteamLow(appHubAppName, bundle = false) {
   try {
-    const plain = await getPlain(appHubAppName);
+    const plain = await getAppId(appHubAppName);
     const country_code = getCountryCode();
-    const url = `https://api.isthereanydeal.com/v01/game/lowest/?key=${itadApiKey}&plains=${plain}&shops=steam&country=${country_code}`;
+    const bundleParam = bundle ? "&bundle=1" : "";
+    const url = `https://api.isthereanydeal.com/v01/game/lowest/?key=${itadApiKey}&plains=${plain}&shops=steam&country=${country_code}${bundleParam}`;
 
     const response = await fetch(url);
     if (!response.ok) {

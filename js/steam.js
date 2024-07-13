@@ -7,7 +7,9 @@ import transparentGames from './utilities/transparentGames.js';
 import { systemAccentColors } from './utilities/systemAccentColors.js';
 import launchGameKeyHandler from './utilities/launchGameKeyHandler.js';
 import { wideGameIcons } from './utilities/wideGameIcons.js';
-waitForElement('body', systemAccentColors);
+
+waitForElement('body', function(element) {
+systemAccentColors();
 
 
 if (document.title == "Steam") {
@@ -17,8 +19,7 @@ if (document.title == "Steam") {
 	waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', combineTopMenus);
 	waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
 	launchGameKeyHandler();
-
-
 }
+});
 //this needs visual improvement
 //waitForElement('._3vHkmRShhzwd67_MtEq8-n', wideGameIcons);

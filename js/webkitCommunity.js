@@ -6,7 +6,6 @@ import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
 
 
 waitForElement('body', function(element) {
-
 // Enable zoom
 zoomEnabler();
 
@@ -15,7 +14,8 @@ if (document.title.startsWith("Steam Community ::")) {
         removeProfileBrand();
     }
 }
-if (document.title.startsWith("Steam Community")) {
+
+if (document.title.toString() == 'Steam Community') {
 waitForElement('.apphub_background', function(element) {
 	applyGrayscaleBackground('.apphub_background');
 });

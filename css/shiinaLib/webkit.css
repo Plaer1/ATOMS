@@ -4,33 +4,6 @@
 ::selection {
     background: rgba(var(--accent)) !important;
 }
-/* Scrollbar */
-body::-webkit-scrollbar-thumb:window-inactive {
-    background-clip: padding-box !important;
-    -webkit-box-shadow: none !important;
-    background: transparent !important;
-
-}
-
-body::-webkit-scrollbar-thumb {
-    background-clip: padding-box !important;
-    -webkit-box-shadow: none !important;
-    background-color: var(--scrollbar) !important;
-    border: 5px solid rgba(var(--background)) !important;
-
-}
-
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: none !important;
-   /* background: rgba(var(--background)) !important;*/
-   background: transparent !important;
-}
-
-body::-webkit-scrollbar {
-    background-clip: padding-box !important;
-    border: 5px solid transparent !important;
-    background-color: transparent !important;
-}
 
 .DialogBody::-webkit-scrollbar {
     display: none !important;

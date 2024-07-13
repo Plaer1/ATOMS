@@ -39,6 +39,9 @@ This will be the app you use to install/manage steam skins.
 * Is there any deal integration:
 ![ATOMS ITAD](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamitad.png)
 
+* Supports System accent colors for all steam accents, even those pesky images:
+![ATOMS Accent Color Support](https://github.com/Plaer1/ATOMS-Media/blob/0f0e5cd2b1a03e19df5dbd775f25e02007ec1425/accentsAnimated.png)
+
 * Removed bottom menu and moved buttons to top right:
 ![ATOMS Bar Buttons](https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/steamTopRightBar.png)
 

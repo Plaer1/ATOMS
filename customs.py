@@ -1,57 +1,11 @@
 ﻿import os
 import sys
 import zipfile
+import re
 
 def process_file(file_path, mode):
     print("Processing file:", file_path)  # Console logging
 
-    # Read the file
-    with open(file_path, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-
-    # Process the lines
-    for i, line in enumerate(lines):
-        if 'font-family: var(--font) !important;' in line:
-            if mode == '-off' and not line.strip().startswith('/*'):
-                # Check to avoid double commenting
-                new_line = '/* ' + line.rstrip() + ' */\n'
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
-            elif mode == '-on' and line.strip().startswith('/*'):
-                # Check to only uncomment commented lines
-                new_line = line.replace('/* ', '').replace(' */', '')
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
-
-        if '--libraryText:' in line:
-            if mode == '-off':
-                # Check if the substring is present before attempting to find its index
-                if '--libraryText: ' in line and ';					/* changes the home text in the library*/' in line:
-                    start_index = line.index('--libraryText: ') + len('--libraryText: ')
-                    end_index = line.index(';					/* changes the home text in the library*/')
-                    new_line = line[:start_index] + '"Home"' + line[end_index:]
-                    print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                    lines[i] = new_line
-            elif mode == '-on':
-                new_line = line.replace('Home', '🎮🎮🕹️🕹️🖲️💽')
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
-
-        if "@import url('webkitNegativeText.css');" in line:
-            if mode == '-off' and not line.strip().startswith('/*'):
-                # Comment the import line
-                new_line = '/* ' + line.rstrip() + ' */\n'
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
-            elif mode == '-on' and line.strip().startswith('/*'):
-                # Uncomment the import line
-                new_line = line.replace('/* ', '').replace(' */', '')
-                print("Line edited:", line.strip(), "->", new_line.strip())  # Console logging
-                lines[i] = new_line
-
-    # Write the modified lines back to the file
-    with open(file_path, 'w', encoding='utf-8') as file:
-        file.writelines(lines)
 
 def process_css_files(mode):
     # Get the current directory path where the script is located

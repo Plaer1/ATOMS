@@ -13,6 +13,18 @@ you can find the variables in the /css/configDefaults.css file
 
 :root { 
 
+/* #####################################
+/* ####################
+/* Settings */
+
+	/* ####################
+	/* Global Settings */
+	--font: "Segoe UI";											 /*changes font*/
+	--accentFilter: var(--filterBlueToPink);						/*turns blues pink, must only be used when necessary*/
+	/* ####################
+	/* Library Settings */
+	--libraryText:				"🎮🎮🕹️🕹️🖲️💽";								/* changes the home text in the library*/
+	--highlightNegativeGames: inline-block; /* Set to [ none | inline-block ] */
 
 }
 

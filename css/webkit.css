@@ -77,7 +77,7 @@ polyline, circle, line{
 }
 
 /* New! */
-._1W_-xJeWEUqdqGET4AKvTM{
+._2_KY_e11FV0ftXR2_7TMmP{
     background: rgba(var(--accent), var(--opacity2)) !important;
 } 
 /*#################
@@ -258,30 +258,30 @@ align-items: center;
 /*check mark image*/
 .add_to_wishlist_area_success>a>span>img,
 .queue_btn_active>span>img,
-.ico16.arrow_next, /*next arrow*/
-.slider_right span, /* photo gallery next arrow*/
-.slider_left span, /* photo gallery previous arrow*/
-._1f-oL9JGjO2ogLCmXJGPqg, /*minimize broadcast arrow*/
-._mdbDguqqYWDuP8ZWsMT7, /*minimize broadcast arrow*/
-._2fD_xf6D7pxw5Wq6XJ_Fh8, /* broadcast setting gear*/
-.html5_video_overlay .autoplay_checkbox.checked, /*autoplay videos checkbox*/
-.html5_video_overlay .autoplay_checkbox.checked, /*play video button*/
-.ico16.reportv6, /*report game button*/
-img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], /*thumbs up vote in reviews*/
-img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], /*thumbs up vote in reviews*/
-img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], /* award ribbon in reviews*/
-img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], /*official steam thumbs up emojo*/
-img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], /*steam thumbs up icon*/
-.review_source, /*review sorce star*/
-.user_reviews_filter_menu .title, /*review container footer text /arrows/etc*/
-.itad_icon, /*is there any deal icon*/
-.vote_button_ctn  a:not(.btn_active) i, /*thumbs up on store page*/
-.review_box .vote_info .commentCount a, /* comment count and icon in review footer on store page*/
-.top_new_releases_banner_ctn, /*new releases bg color*/
-.tab_filter_control_row:not(.disabled).checked, /*checked boxes on the game sale page*/
-.ds_owned_flag, /*owned games indicatior*/
-.search_review_summary.positive, /* thumbs up */
-.range_input, /*slider color*/
+.ico16.arrow_next, 
+.slider_right span, 
+.slider_left span, 
+.ahz31bshwySKGB_tBKf14, 
+.L8sFYvKOUztrhXdjxy7mp, 
+._37ugZJhL-qCRkdeZBRju2h, 
+.html5_video_overlay .autoplay_checkbox.checked, 
+.html5_video_overlay .autoplay_checkbox.checked, 
+.ico16.reportv6, 
+img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], 
+img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], 
+img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], 
+img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], 
+img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], 
+.review_source, 
+.user_reviews_filter_menu .title, 
+.itad_icon, 
+.vote_button_ctn  a:not(.btn_active) i, 
+.review_box .vote_info .commentCount a, 
+.top_new_releases_banner_ctn, 
+.tab_filter_control_row:not(.disabled).checked, 
+.ds_owned_flag, 
+.search_review_summary.positive, 
+.range_input, 
 .popup_menu_subheader /*headers in the popup menus in the store*/
 
 {
@@ -332,7 +332,7 @@ div.early_access_banner {
     color: rgb(var(--textAccented)) !important;
 }
 /* broadcast on game store page*/
-._3cQe7z9j9qsVeoVmhO1pdZ{
+._3zXpFCyX2IiaD-MNF5KJFf{
 	background: rgb(var(--backgroundLightish)) !important;
 }
 /*more button on early access blurb*/
@@ -441,15 +441,15 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
     color: rgb(var(--textAccented)) !important;
 }
 /*steam deck compat main bg*/
-._1B2KFfSCeANfYXihoXz87_ {
+._2dGPTYWTKq3CirJwPXKw2b {
     background: rgba(var(--accent), 0.502) !important;
 }
 /*steam deck learn more button*/
-._1VhpnbFYLe10F8k2MVp3eU {
+._2gXzKgnqPNSUzBWEYvQ4OP {
 	background: rgb(var(--accent)) !important;
 }
 /*steam deck learn more button:hover*/
-._1VhpnbFYLe10F8k2MVp3eU:hover {
+._2gXzKgnqPNSUzBWEYvQ4OP:hover {
     background: rgb(var(--accentLightest)) !important;
 }
 /*background of genre specific/sale pages without images (so temporary sales should still have (some) theme)*/
@@ -530,18 +530,18 @@ div.filterselect_options {
 	background: rgb(var(--background)) !important;
 }
 /*background on steamdeck page*/
-.dmyDb0MK-1sWxXoU8v3X- {
+._2N8SepiLeBUusG1vbHCgiY {
 	background: rgb(var(--background)) !important;
 }
 /* subheaders on steamdeck page */
-#SaleSection_61022>._2NfLqUpH_h0Ba0jlv9M9ZE,
-#SaleSection_44860>._2NfLqUpH_h0Ba0jlv9M9ZE,
-#SaleSection_34032>._2NfLqUpH_h0Ba0jlv9M9ZE
+#SaleSection_61022>._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_44860>._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_34032>._1cOoCFwafBlSkwllIMf3XM
 {
 	background: rgb(var(--backgroundLight)) !important;
 }
-#SaleSection_34993>._2NfLqUpH_h0Ba0jlv9M9ZE,
-#SaleSection_13578>._2NfLqUpH_h0Ba0jlv9M9ZE,
+#SaleSection_34993>._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_13578>._1cOoCFwafBlSkwllIMf3XM,
 ._3isvN1K0OSelqFk6h2VmQq /*vr mode alert on store page*/
 {
 	background: rgb(var(--backgroundLightish)) !important;

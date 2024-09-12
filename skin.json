@@ -2,7 +2,7 @@
 	"author":"Plaer1",
 	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1",
+	"version":"1.1.1.1.1.1.1.1.1",
 	"github":{
 		"owner":"Plaer1",
 		"repo_name":"ATOMS"
@@ -18,6 +18,7 @@
 	],
 	"header_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsHeaderImage.png",
 	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
+	"Steam-WebKit": "css/webkit.css",
 	"Patches":[
 		{
 			"MatchRegexString":"https://.*.steampowered.com",

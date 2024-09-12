@@ -30,8 +30,8 @@ div::-webkit-scrollbar-thumb:window-inactive {
 .SVGIcon_Minimize>line,
 .SVGIcon_MagnifyingGlass path,
 .SVGIcon_PlusCircle line,
-._3nIwHFIw4nSXC_DUrzO_a6 ellipse,
-._3nIwHFIw4nSXC_DUrzO_a6 path
+._10OzYaCdn7cgVMec9ozEJG ellipse,
+._10OzYaCdn7cgVMec9ozEJG path
 {
   stroke: rgba(var(--accent)) !important;
 }
@@ -43,7 +43,7 @@ div::-webkit-scrollbar-thumb:window-inactive {
 .friendHead>circle,
 .plusCircle,
 .Bubble,
-.x623f5XW8KKftpfX7C_tg circle
+._2ovvDFSsxzUoYuqzJsxecQ circle
 {
   fill: rgba(var(--accent)) !important;
 }
@@ -57,8 +57,8 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 /*disable top gradient*/
 .statusHeaderGlow ellipse,
-._2-sgwZvgc-3h4gcUWbTNTh, /* disable friends header gradient */
-._2hL6ssOeMwczcGsrkJWupl, /*disable footer gradient*/
+._1osHa9KHOmdCDNrA232z4N, 
+._2OoTJwlWvzvAysWOOEQaXS, 
 .singleWindowFocusBar /* disable "focus" gradient*/
  {
     display: none !important;
@@ -122,7 +122,7 @@ background: radial-gradient(ellipse farthest-corner at 0% 50%, rgba(var(--accent
 /* Chat Windows
 
 /*tabs + tab seperator line*/
-.X2iywwN7fcdh9zXpXVsrk._1BNlZUYDbVr8VhCTmq7ksk, .chatHeader {
+._2XZq-_f6npaQdAgeRzKIkz.Yd-DsWkYiFiYwpci--Yk_, .chatHeader {
      background: rgba(var(--backgroundLightish)) !important; 
 }
 /*chat bg*/
@@ -134,7 +134,7 @@ background: radial-gradient(ellipse farthest-corner at 0% 50%, rgba(var(--accent
     background: rgba(var(--backgroundLightish)) !important;
 } 
 /*emoji picker in message*/
-._3nIwHFIw4nSXC_DUrzO_a6{
+._10OzYaCdn7cgVMec9ozEJG{
     border: none !important;
     background: rgba(var(--backgroundDarkish)) !important;
 }
@@ -147,7 +147,7 @@ html.client_chat_frame .chatWindow .chatEntry  {
     background: rgba(var(--backgroundDarkish)) !important;
 }
 /* text input area & buttons*/
-.pewyBQoFSgFWo_Ms99aRm, button, .DialogInput_Wrapper>input.DialogInput {
+._113iuw_HlE_qSgt9cGWCSv, button, .DialogInput_Wrapper>input.DialogInput {
     background: rgba(var(--backgroundDark)) !important;
 }
 /* file upload popup */
@@ -155,7 +155,7 @@ html.client_chat_frame .chatWindow .chatEntry  {
     background: rgba(var(--backgroundDarkish)) !important;
 }
 /* emoji picker background */
-.LQkrbbayZPY11qHm01t7F {
+.PP7LM0Ow1K5qkR8WElLpt {
     background: rgba(var(--backgroundDarkish)) !important;
 }
 .chatRoomGroupNavColumn, /* chat rooms left side */

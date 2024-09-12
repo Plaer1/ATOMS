@@ -7,21 +7,21 @@
     background: rgba(var(--backgroundDarkest)) !important;
 }
 
-._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, /*main bg*/
-._3TvBVwaH8eIBabTdki35oe, /* controller preview page*/
-._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc, /* Layouts page */
-._1sdvoquNUMKb-NNY0a_gjX, /*popup menu for various options*/
-._34EufgHrrmvt164EDrO1LB .ModalOverlayBackground, /* modal popup for various options */
+._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, 
+._3TvBVwaH8eIBabTdki35oe, 
+._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc, 
+._34o03-8cUc3fQX1u650c0L, 
+._34EufgHrrmvt164EDrO1LB .ModalOverlayBackground, 
 .APY6jDS50MNUPuX38IgC0 /* main controller settings bottom stripe */
  {
 background: rgba(var(--background)) !important;
 }
 
-._3RsRfCOW7Do0JNHcEs2nqX, /* quick settings pannel*/
-._20sN9G_C5kZ9GO_mVUuWTD, /* controller settings 1st menu top half bg*/
-.KFGEkx9yKpW3Mu7w_6vzn, /* non highlighted tabs in various menus*/
-._30VHlA4G1lPFjpUGGpt8iu>._3joNkY6kRyL-6RK1rKIrV2, /* background for various popup*/
-.IbaDJeXoUV46mwyWeP42O._3BeKk1O8jsZ3W8XtvhB-ci, /* steam input explanation popup*/
+._3RsRfCOW7Do0JNHcEs2nqX, 
+._20sN9G_C5kZ9GO_mVUuWTD, 
+.KFGEkx9yKpW3Mu7w_6vzn, 
+._3A5ujtARm6atH4phJ5i1i6>._16sYNwqxz6giarbVaRUl7R, 
+.IbaDJeXoUV46mwyWeP42O._3BeKk1O8jsZ3W8XtvhB-ci, 
 ._2luCNihqvaHXeE1nGg0AXj  /* background for tiles in the layouts menu*/
 {
 	border: none !important;
@@ -38,11 +38,11 @@ background: rgba(var(--background)) !important;
 }
 
 /* toggle color */
-._2JtC3JSLKaOtdpAVEACsG1::before {
+._2bl0iQ9xigbq4Zd1NI6NZl::before {
 	background: rgba(var(--accent)) !important;
 }
 /* hover on view layout button on main config page*/
-button._1kn7017HPxqS3NKx_wnI4e.DialogButton.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:enabled.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:active.Primary:hover, button._1kn7017HPxqS3NKx_wnI4e.DialogButton:enabled:active:hover.Primary:hover{
+button.cXzBZxhPBl7fZs9LODEnc.DialogButton.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:enabled.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:active.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:enabled:active:hover.Primary:hover{
     background: rgba(var(--accent)) !important;
 }
 

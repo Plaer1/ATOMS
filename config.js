@@ -13,7 +13,7 @@ export const month = "April";
 //day
 export const day = "20";
 
-export const filePathPrefix ="skins/ATOMS";
+export const filePathPrefix ="skins/ATOMS-main";
 
 // Millinneum only, makes the colors match system accent color.
 export const systemAccentsEnabled ="0";

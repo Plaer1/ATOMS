@@ -2,7 +2,7 @@
 	"author":"Plaer1",
 	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1.1",
+	"version":"1.1.1.1.1.1.1.1.1.1",
 	"github":{
 		"owner":"Plaer1",
 		"repo_name":"ATOMS"
@@ -19,6 +19,20 @@
 	"header_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsHeaderImage.png",
 	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
 	"Steam-WebKit": "css/webkit.css",
+    "Conditions": {
+        "Hide What's New": {
+            "description": "Hides the \"What's new\" section.",
+            "default": "Hide",
+            "values": {
+                "Show": {},
+                "Hide": {
+                    "TargetCss": {
+                        "affects": ["^Steam$"], "src": "css/utilities/hideWhatsNew.css"
+                    }
+                }
+            }
+        }
+    },
 	"Patches":[
 		{
 			"MatchRegexString":"https://.*.steampowered.com",

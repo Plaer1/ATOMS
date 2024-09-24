@@ -65,9 +65,14 @@ img[src="/images/defaultappimage.png"], /* award ribbon in reviews*/
 ._2BlTqJQonHkEpBSpiC1NEA, /*thumbs up bg color*/
 .bGfjajFo4DI-ULSQxw1KY, /* blue "post" button*/
 img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], /*steam thumbs up icon*/
-._2lVtDi3eSjGcLfXVsRgoUy /* bubble effect when you like posts on game pages */
+._2lVtDi3eSjGcLfXVsRgoUy, /* bubble effect when you like posts on game pages */
+._2lNdDLgjQdeBXmMlPO8lvq /* community load header in library game pages */
 {
 	filter: var(--accentFilter);
+}
+img[src^="data:image/png;base64"] /*missing game images in download menu*/
+{
+	filter: var(--accentFilter) !important;
 }
 
 /*##########################################
@@ -196,7 +201,8 @@ max-height: 30px !important;
 ._3yD46y5pd3zOGR7CzKs0mC.online,								
 ._3i0kopAostOz2IDi9HqmeN,										
 .qX4kNo6O0M-mYntdErKSJ,											
-.online .nOdcT-MoOaXGePXLyPe0H									/*online player text*/
+.online .nOdcT-MoOaXGePXLyPe0H,									/*online player text*/
+._1ujzuoxGhLunHZQqHAqRgg div									/* 'major update' text in library*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -608,6 +614,29 @@ div._2WaHZuAetbqENmqDthu3nl>svg.SVGIcon_Star_Unfilled>path,
 /*play next play button:hover*/
 ._54PuCatl_tYG836TOs4Mv ._3AjoLnMNKxYmNTGTJCLfgs._1_Bo2Ied5s2Od4YKYTOsau:not(._1aml4h4CSJbtrNbX4brUYs):hover {
     background: radial-gradient(circle farthest-corner at 50% 50%, rgba(var(--accentLight)) 0%, rgba(var(--accent)) 100%);
+}
+/*now available banner at top of library*/
+._2Ae5emb7JLG4NvS2OmutTx{
+	background: radial-gradient(100% 100% at 45% 45%, #864885 0%, #1a1a24 100%);
+}
+/*glow at bottom of now available banner*/
+._2Ae5emb7JLG4NvS2OmutTx ._2K0aVYjPsk-WFUDacCkX8L {
+background: transparent;
+}
+/*starbust on game in now available banner*/
+._2Ae5emb7JLG4NvS2OmutTx ._1moqKkq1K4nAp1XqDtnRdQ:before {
+	background: conic-gradient(from 90deg at 50% 50%, 
+	#ffc6fe, transparent, 
+	#ffc6fe, transparent, 
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe, transparent,
+	#ffc6fe);
 }
 /*#################
 /* game info popup on tile hover in library*/

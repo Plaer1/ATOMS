@@ -1,15 +1,11 @@
-import { bigWait, wait } from "../utility.js";
 import waitForElement from "../waitForElement.js";
 
 export default function rootMenuDropdown() {
-bigWait();
-bigWait();
+
 	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
-		bigWait();
-		bigWait();
+
 		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
-			bigWait();
-			bigWait();
+
 			// Select the existing menu
 			var menu = document.querySelector("._1Ky59qmywxOUtNcI1cgmkX"); // selecting the menu
 

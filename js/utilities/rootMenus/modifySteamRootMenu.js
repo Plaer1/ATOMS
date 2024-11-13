@@ -1,15 +1,10 @@
 import addSeperator from "./addSeperator.js";
 import addMenuItem from "./addMenuItem.js";
 import getTranslation from "../translate.js";
-import { bigWait, wait } from "../utility.js";
 import waitForElement from "../waitForElement.js";
 
 export default async function modifySteamRootMenu() {
-	bigWait();
-	bigWait();
 	try {
-		bigWait();
-		bigWait();
         const reloadSteamMenu = await getTranslation("reloadSteam", document.documentElement.lang);
 		const restartSteam = await getTranslation("restartSteam", document.documentElement.lang);
         

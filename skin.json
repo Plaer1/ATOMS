@@ -18,7 +18,8 @@
 	],
 	"header_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsHeaderImage.png",
 	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
-	"Steam-WebKit": "css/webkit.css",
+	"Steam-WebKit":"css/webkit.css",
+	"webkitJS":"js/webkit.js",
 	"Patches":[
 		{
 			"MatchRegexString":"https://.*.steampowered.com",

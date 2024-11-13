@@ -26,7 +26,6 @@ div::-webkit-scrollbar-thumb:window-inactive {
     background: transparent !important;
 }
 
-/* make the icon for the ITAD integration nice */ 
 /*TODO: 
 make this shit so that it just uses steam classes instead of doing this way*/
 
@@ -164,7 +163,9 @@ align-items: center;
 /* Start doing work on store below here*/
 
 .gutter_header,/*sidebar header text*/
-.dselect_container a.trigger /* name for the dropdown*/
+.dselect_container a.trigger, /* name for the dropdown*/
+.bb_h2, .bb_h3, /*various headers*/
+.persona.online a /*view wishlish*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -175,13 +176,21 @@ align-items: center;
 {
 	color: rgba(var(--textLightish)) !important;
 }
-/* deal text in main store*/
-.spotlight_body{
+
+.spotlight_body, 										/* deal text in main store*/
+.btn_darkblue_white_innerfade, 							/*a bunch of buttons*/
+.apphub_CardRating.rateUp, 								/*games with a thumbs up on community pages*/
+.apphub_UserReviewCardContent .review_award_aggregated	/*number of awards on community pages (at the bottom of posts)*/
+{
 	color: rgb(var(--textAccented)) !important;
+}
+.new_items_num, .new_items_text /*recently played/viewed items on the community home page*/
+{
+	color: rgb(var(--textDarkish)) !important;
 }
 /*sidebar recently viewed*/
 #home_gutter_recentlyviewed {
-    background: radial-gradient(circle at 0%, rgba(var(--accent),0) 20%, rgba(var(--accentDarkest),0.25) 100%);
+    background: radial-gradient(circle at 0%, rgba(var(--accent),0) 20%, rgba(var(--accentDarkest),0.25) 100%) !important;
 }
 .deep_dive_tag {
 	color: rgb(var(--textAccented)) !important;
@@ -196,9 +205,12 @@ align-items: center;
 	color: rgb(var(--textAccented)) !important;
 }
 /*most the buttons*/
-.btnv6_blue_hoverfade{
+html .btnv6_blue_hoverfade{
 	color: rgb(var(--textAccented)) !important;
-
+}
+/*que buttons when active*/
+.queue_btn_active{
+	color: rgb(var(--textAccented)) !important;
 }
 /*inactive tabs in the various subsections*/
 .home_tab:not(.active)>div{
@@ -272,32 +284,41 @@ img[src="https://community.akamai.steamstatic.com/public/shared/images/userrevie
 img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], 
 img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], 
 img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], 
+img[src="https://store.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"],
+img[src="https://cdn.cloudflare.steamstatic.com/error/bummer.png"],
 .review_source, 
 .user_reviews_filter_menu .title, 
-.itad_icon, 
 .vote_button_ctn  a:not(.btn_active) i, 
 .review_box .vote_info .commentCount a, 
 .top_new_releases_banner_ctn, 
 .tab_filter_control_row:not(.disabled).checked, 
 .ds_owned_flag, 
 .search_review_summary.positive, 
-.range_input, 
-.popup_menu_subheader /*headers in the popup menus in the store*/
-
+.range_input,
+._2gxv9cF-4n9wq4yxruOTNl._2o-5t6bgEJxfbWVSmxT88V, /*in library capsule on game page*/
+.game_page_autocollapse_readmore, /*readmore button on game page*/
+.btn_blue_steamui, /*many blue buttons on store page*/
+.ds_completetheset, /*complete your collection popup on store page*/
+.popup_menu_subheader, /*headers in the popup menus in the store*/
+.gradient, /*category gradients*/
+#modalContentTitleBar /*modal titlebars*/
 {
 	filter: var(--accentFilter);
 } 
+#modalContent.modal_frame {
+		border: 2px solid rgb(var(--accentDarkest)) !important;
+}
 /*game page backgrounds*/
 .game_page_background.game {
 	background-size: contain;
 }
 
 
-.queue_btn_menu > .queue_menu_arrow.queue_btn_active {
+html .queue_btn_menu > .queue_menu_arrow.queue_btn_active {
     background: rgba( var(--accent), 0.420 );
 }
 /*ignore menu background*/
-.queue_btn_menu > .queue_menu_arrow {
+html .queue_btn_menu > .queue_menu_arrow {
     background: rgba( var(--accent), 0.2);
 }
 
@@ -311,8 +332,10 @@ div.early_access_header .heading {
 div.early_access_header .heading {
     color: rgb(var(--textLight));
 }
-.bundle_label{
-	color: rgb(var(--textAccented));
+.bundle_label,
+.label /*various labels on the store page*/
+{
+	color: rgb(var(--textAccented)) !important;
 }
 /*early access banner border*/
 div.early_access_header {
@@ -355,7 +378,7 @@ div.early_access_banner {
 }
 /*official game tags text*/
 a.game_area_details_specs_ctn .label {
-    color: rgb(var(--textAccented));
+    color: rgb(var(--textAccented)) !important;
 }
 
 .game_area_details_specs_ctn .label, /*official game tags bg*/
@@ -373,19 +396,9 @@ a.game_area_details_specs_ctn .label {
 }
 /*check marks for compatablitiy chart*/
 .game_language_options td span {
-    color: rgb(var(--accent));
+    color: rgb(var(--accent)) !important;
 }
-.game_page_autocollapse_readmore, /*readmore button on game page*/
-.game_description_column .block .block_header .right a /* *all button*/
- {
-    background: rgba(var(--accent), 1) !important;
-    color: rgb(var(--textLight)) !important;
-}
-.game_description_column .block .block_header .right a:hover /* *all buttons on hover*/
- {
-    background: rgba(var(--accentDarkest), 1) !important;
-    color: rgb(var(--textLight)) !important;
-}
+
 .details_block a/*links in details*/
 {
     color: rgb(var(--textAccented)) !important;
@@ -421,8 +434,11 @@ option{
 option:hover{
 	background: rgb(var(--accentLight)) !important;
 }
-/*review footer h1 text*/
-div.bb_h1, .bb_wysiwyg h1 {
+
+div.bb_h1, .bb_wysiwyg h1, /*review footer h1 text*/
+.noReviewsYetTitle, /*header for when there are no reviews on a game page*/
+.persona.online>.profile_in_game_header /*header for profile in game when online*/
+ {
     color: rgb(var(--textAccented)) !important;
 }
 /* early access review warning */
@@ -458,7 +474,11 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
 }
 .btnv6_grey_black {
     color: rgb(var(--textAccented)) !important;
-    background: rgba(var(--accentDarkest), .2);
+    background: rgba(var(--accentDarkest), .2) ;
+}
+.btnv6_grey_black:hover {
+    color: rgb(var(--textLighest)) !important;
+    background: rgba(var(--accent), .8) !important;
 }
 .btnv6_grey_black.btn_active {
     color: rgb(var(--white)) !important;
@@ -467,6 +487,38 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
 .btnv6_grey_black:hover {
     color: rgb(var(--white)) !important;
     background: rgba(var(--accent), .5);
+}
+/*related games background disable*/
+.related_items_ctn {
+background: transparent !important;
+}
+
+/*related games follow + see all buttons*/
+.FollowButton,
+._1SnxJyZ5foWgNRCNLmKm6H,
+.game_description_column .block .block_header .right a  
+{
+	color: rgb(var(--textAccented)) !important;
+    background: rgba(var(--accentDarkest), .2) !important;
+}
+.FollowButton>div,
+._1SnxJyZ5foWgNRCNLmKm6H>span,
+.game_description_column .block .block_header .right a  
+{
+	color: rgb(var(--textAccented)) !important;
+}
+.FollowButton:hover,
+._1SnxJyZ5foWgNRCNLmKm6H:hover,
+.game_description_column .block .block_header .right a:hover 
+{
+	color: rgb(var(--textAccented)) !important;
+    background: rgba(var(--accent), .8) !important;
+}
+.FollowButton>div:hover,
+._1SnxJyZ5foWgNRCNLmKm6H>span:hover,
+.game_description_column .block .block_header .right a:hover 
+{
+	color: rgb(var(--textLighest)) !important;
 }
 .review_box.partial .view_more a {
     color: rgba(var(--textAccented));

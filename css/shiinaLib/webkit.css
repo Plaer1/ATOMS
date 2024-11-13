@@ -3174,10 +3174,6 @@ a.games_list_tab.first_tab {
 #tabcontent_inventory {
     background-color: rgba(var(--backgroundLightish)) !important;
 }
-/*inventory move up thing */
-body.migrated_profile_page #BG_bottom.maincontent {
-    margin-top: -119px !important;
-}
 #iteminfo0 .item_desc_content,
 #iteminfo1 .item_desc_content {
 

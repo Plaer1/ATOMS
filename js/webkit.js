@@ -1,7 +1,6 @@
 // main.js
 import handleQueueKeys from './utilities/queueKeyHandler.js';
 import { skipAgeGate, zoomEnabler } from './utilities/utility.js';
-import addPriceInfo from './utilities/ITAD/addPriceInfo.js';
 import waitForElement from './utilities/waitForElement.js';
 import addInfoButtons from './utilities/addInfoButtons.js';
 import { systemAccentColors, setHueRotateFromCSSVar } from './utilities/systemAccentColors.js';

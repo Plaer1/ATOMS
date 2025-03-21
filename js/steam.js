@@ -4,13 +4,10 @@ import waitForElement from './utilities/waitForElement.js';
 
 import rootMenuDropdown from './utilities/rootMenus/rootMenuDropown.js';
 import transparentGames from './utilities/transparentGames.js';
-import { systemAccentColors } from './utilities/systemAccentColors.js';
 import launchGameKeyHandler from './utilities/launchGameKeyHandler.js';
 import { wideGameIcons } from './utilities/wideGameIcons.js';
 
 waitForElement('body', function(element) {
-systemAccentColors();
-
 
 if (document.title == "Steam") {
 
@@ -18,7 +15,7 @@ if (document.title == "Steam") {
 	waitForElement('._1KrJ3sFAqPBN9mfpaNTU5F', moveButtons);
 	waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', combineTopMenus);
 	waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
-	launchGameKeyHandler();
+	//launchGameKeyHandler(); causes bugs w/ some menus will fix soon
 }
 });
 //this needs visual improvement

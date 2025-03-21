@@ -1,10 +1,8 @@
 import waitForElement from './utilities/waitForElement.js';
-import { bigWait } from './utilities/utility.js';
 import modifySteamRootMenu from './utilities/rootMenus/modifySteamRootMenu.js';
 
 if(document.title == "Steam Root Menu") {
-bigWait();
 waitForElement('#popup_target', function(element) {
-	 waitForElement('#popup_target > div > div > div:nth-child(11)', modifySteamRootMenu);
+	 waitForElement('._2jXHP0742MyApMUVUM8IFn._21GPYlKBCLsHQpTsHw_RL_', modifySteamRootMenu);
 });
 }

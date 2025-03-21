@@ -1,32 +1,31 @@
-import { systemAccentsEnabled} from "../../config.js";
-export function systemAccentColors() {
-  if (systemAccentsEnabled == 1) {
-	document.documentElement.style.setProperty('--accent',		 	'var(--SystemAccentColor-RGB)');
-	document.documentElement.style.setProperty('--accentLightish',	'var(--SystemAccentColorLight1-RGB)');
-	document.documentElement.style.setProperty('--accentLight',		'var(--SystemAccentColorLight2-RGB)');
-	document.documentElement.style.setProperty('--accentLightest', 	'var(--SystemAccentColorLight3-RGB)'); 
-	document.documentElement.style.setProperty('--accentDarkish',	'var(--SystemAccentColorDark1-RGB)');		
-	document.documentElement.style.setProperty('--accentDark',		'var(--SystemAccentColorDark2-RGB)');	
-	document.documentElement.style.setProperty('--accentDarkest',	'var(--SystemAccentColorDark3-RGB)');	
-	document.documentElement.style.setProperty('--accentDarkest',	'var(--SystemAccentColorDark3-RGB)');	
+import waitForElement from "./waitForElement.js";
 
-	document.documentElement.style.setProperty('--textLightish',	'var(--SystemAccentColorLight2-RGB)');
-	document.documentElement.style.setProperty('--textLight',		'var(--SystemAccentColorLight3-RGB)');
-	document.documentElement.style.setProperty('--textLightest', 	'var(--SystemAccentColorLight3-RGB)'); /*needs js? FIXME*/
-	document.documentElement.style.setProperty('--textDarkish',		'var(--SystemAccentColorDark1-RGB)');		
-	document.documentElement.style.setProperty('--textDark',		'var(--SystemAccentColorDark2-RGB)');
+function systemAccentColors() {
+    // Logging start of function
 
 
-	setHueRotateFromCSSVar('--SystemAccentColor-RGB');
-  }
-}
+    document.documentElement.style.setProperty('--accent', 'var(--SystemAccentColor-RGB)');
+    document.documentElement.style.setProperty('--accentLightish', 'var(--SystemAccentColorLight1-RGB)');
+    document.documentElement.style.setProperty('--accentLight', 'var(--SystemAccentColorLight2-RGB)');
+    document.documentElement.style.setProperty('--accentLightest', 'var(--SystemAccentColorLight3-RGB)');
+    document.documentElement.style.setProperty('--accentDarkish', 'var(--SystemAccentColorDark1-RGB)');
+    document.documentElement.style.setProperty('--accentDark', 'var(--SystemAccentColorDark2-RGB)');
+    document.documentElement.style.setProperty('--accentDarkest', 'var(--SystemAccentColorDark3-RGB)');
+    document.documentElement.style.setProperty('--textLightish', 'var(--SystemAccentColorLight2-RGB)');
+    document.documentElement.style.setProperty('--textLight', 'var(--SystemAccentColorLight3-RGB)');
+    document.documentElement.style.setProperty('--textLightest', 'var(--SystemAccentColorLight3-RGB)');
+    document.documentElement.style.setProperty('--textDarkish', 'var(--SystemAccentColorDark1-RGB)');
+    document.documentElement.style.setProperty('--textDark', 'var(--SystemAccentColorDark2-RGB)');
+    setHueRotateFromCSSVar('--SystemAccentColor-RGB');}
+
 function setHueRotateFromCSSVar(cssVarName) {
+    // Logging start of function
+
+
     // Read the CSS variable
     const cssVar = getComputedStyle(document.documentElement).getPropertyValue(cssVarName).trim();
-
     // Extract RGB values from the CSS variable
     const rgbValues = cssVar.match(/\d+/g).map(Number);
-
     // Convert RGB to HSL
     const rgbToHsl = (r, g, b) => {
         r /= 255;
@@ -48,24 +47,14 @@ function setHueRotateFromCSSVar(cssVarName) {
             h /= 6;
         }
         return [h * 360, s, l];
-    };
-
-    const targetColor = [35, 133, 189];
+    };    const targetColor = [35, 133, 189];
     const [targetHue] = rgbToHsl(...targetColor);
-    const [currentHue] = rgbToHsl(...rgbValues);
-
-    // Calculate the hue rotation
+    const [currentHue] = rgbToHsl(...rgbValues);    // Calculate the hue rotation
     let hueRotate = currentHue - targetHue;
     if (hueRotate < 0) {
         hueRotate += 360;
-    }
+    }    // Set the CSS variable for hue-rotate
+    document.documentElement.style.setProperty('--accentFilter', `hue-rotate(${hueRotate}deg)`);}
 
-    // Set the CSS variable
-    document.documentElement.style.setProperty('--accentFilter', `hue-rotate(${hueRotate}deg)`);
-}
-
-
-
-
-
-
+waitForElement('body', function(element) {    systemAccentColors();
+});

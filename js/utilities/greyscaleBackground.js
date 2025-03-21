@@ -27,8 +27,6 @@ export function applyGrayscaleBackground(selector) {
             }
         }
 
-        console.log(backgroundImage);
-
         // Apply the background image to the ::before pseudo-element using a style tag
         const style = document.createElement('style');
         style.innerHTML = `

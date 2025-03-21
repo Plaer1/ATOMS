@@ -24,12 +24,12 @@
 		{
 			"MatchRegexString":"https://.*.steampowered.com",
 			"TargetCss":"css/webkit.css",
-			"TargetJs":"js/webkitStore.js"
+			"TargetJs":"js/webkit.js"
 		},
 		{
 			"MatchRegexString":"https://steamcommunity.com",
 			"TargetCss":"css/webkit.css",
-			"TargetJs":"js/webkitCommunity.js"
+			"TargetJs":"js/webkit.js"
 		},
 		{
 			"MatchRegexString":"^Steam$",
@@ -101,5 +101,19 @@
 			"MatchRegexString":"Dev Tools",
 			"TargetCss":"css/menus.css"
 		}
-	]
+	],
+    "Conditions": {
+        "Use Custom Accent Color?": {
+            "default": "no",
+            "description": "Enables Use of System Accent Color from Mill' settings.",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetJs": {
+                        "affects": [".*"], "src": "js/utilities/systemAccentColors.js" 
+                    }
+                }
+            }
+        }
+    }
 }

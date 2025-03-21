@@ -119,6 +119,7 @@ the config is broken down into a few main sections:
 	--textLightish:				var(--pinkWhiteish);
 	--textLight:				var(--pinkWhite);
 	--textLightest:				var(--pinkWhiteest);
+	--textWhite:				var(--white);
 	--textDarkish:				var(--pinkWhiteDarkish);
 	--textDark:				    var(--pinkWhiteDark);
 
@@ -134,7 +135,7 @@ the config is broken down into a few main sections:
 
 	/* ####################
 	/* Global Settings */
-	--font:						"Motiva Sans",Arial,Helvetica,sans-serif;		/* changes font, must be enabled in the other CSS files (near the top)*/
+	--font:						"Motiva Sans",Arial,Helvetica,sans-serif;		/* changes font*/
 	--accentFilter: 			var(--filterBlueToPink);						/*turns blues pink, must only be used when nessicary*/
 	/* ####################
 	/* Library Settings */
@@ -220,8 +221,6 @@ the config is broken down into a few main sections:
 
 
 don't use any of this....
-
-
 
 
 

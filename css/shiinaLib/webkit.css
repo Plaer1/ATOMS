@@ -1207,10 +1207,6 @@ body.v6 div#global_header .content {
     color: var(--white) !important;
 }
 
-/* .apphub_background {
-    background: rgba(var(--background)) !important;
-}
- */
 .popup_block .popup_body {
     background: rgba(var(--backgroundDarkest)) !important;
 }
@@ -1963,10 +1959,6 @@ div#headerSearch.friend_activity_header_search {
     background: var(--thegrey) !important;
 }
 
-.home_area_spotlight {
-    background-image: none !important;
-}
-
 .spotlight_weeklong_subtitle {
     color: var(--white) !important;
 }
@@ -1994,12 +1986,6 @@ div#headerSearch.friend_activity_header_search {
     color: transparent !important;
 }
 
-.btnv6_blue_hoverfade {
-    text-decoration: none !important;
-    color: var(--blu) !important;
-    background: rgba(var(--backgroundLightish)) !important;
-
-}
 
 .explore_rightcol_box {
     background-color: rgba(255, 255, 255, .1) !important;

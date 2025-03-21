@@ -1,18 +1,12 @@
-// main.js
 import handleQueueKeys from './utilities/queueKeyHandler.js';
 import { skipAgeGate, zoomEnabler } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
-import addInfoButtons from './utilities/addInfoButtons.js';
-import { systemAccentColors, setHueRotateFromCSSVar } from './utilities/systemAccentColors.js';
 import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
-import { startITAD } from './utilities/ITAD/newITAD.js';
 import removeProfileBrand from './utilities/removeProfileBrand.js';
+import queBlacklist from './utilities/queBlacklist.js';
+import { queBlacklistEnabled } from '../config.js';
 
 waitForElement('body', function(element) {
-
-
-
-systemAccentColors();
 
 waitForElement('.game_page_background', function(element) {
 applyGrayscaleBackground('.game_page_background');
@@ -36,8 +30,10 @@ handleQueueKeys();
 
 // Check if button exists
 if (document.querySelector('.btn_addtocart') != null) {
-	addInfoButtons();
 	//startITAD();
+	if(queBlacklistEnabled){
+		queBlacklist();
+	}
 }
 
 
@@ -50,17 +46,15 @@ if (document.querySelector('.btn_addtocart') != null) {
 
 
 	
-if (document.title.startsWith("Steam Community ::")) {
+if (document.title.startsWith("Steam Community")) {
     if (document.querySelector('.profile_header_actions') && document.querySelector('.profile_header_actions').childElementCount == 1) {
         removeProfileBrand();
     }
+	waitForElement('.apphub_background', function(element) {
+		applyGrayscaleBackground('.apphub_background');
+	});
 }
 
-if (document.title.toString() == 'Steam Community') {
-waitForElement('.apphub_background', function(element) {
-	applyGrayscaleBackground('.apphub_background');
-});
-}
 function funnyText() {
 	// Define custom easing function
 	Math.easeInOutSine = (t, b, c, d) => 
@@ -104,21 +98,3 @@ function funnyText() {
 	  
 });
 
-waitForElement('body', function(element) {
-// Enable zoom
-zoomEnabler();
-
-if (document.title.startsWith("Steam Community ::")) {
-    if (document.querySelector('.profile_header_actions') && document.querySelector('.profile_header_actions').childElementCount == 1) {
-        removeProfileBrand();
-    }
-}
-
-if (document.title.toString() == 'Steam Community') {
-waitForElement('.apphub_background', function(element) {
-	applyGrayscaleBackground('.apphub_background');
-});
-}
-});
-
-setHueRotateFromCSSVar('--accent');

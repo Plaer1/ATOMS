@@ -71,7 +71,8 @@ polyline, circle, line{
 /* button colors
 
 /* click for details*/
-._3YohCYvZ6UbfgCXH2uhaOD {
+._3YohCYvZ6UbfgCXH2uhaOD
+{
     background: rgba(var(--accent)) !important;
 }
 
@@ -165,7 +166,10 @@ align-items: center;
 .gutter_header,/*sidebar header text*/
 .dselect_container a.trigger, /* name for the dropdown*/
 .bb_h2, .bb_h3, /*various headers*/
-.persona.online a /*view wishlish*/
+.persona.online a, /*view wishlish*/
+.all_languages, /*view all languages button*/
+.review_box.partial .view_more a, /*read more on game reviews*/
+.steamdb_stats_number /*steamdb extension stats number*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -178,9 +182,7 @@ align-items: center;
 }
 
 .spotlight_body, 										/* deal text in main store*/
-.btn_darkblue_white_innerfade, 							/*a bunch of buttons*/
-.apphub_CardRating.rateUp, 								/*games with a thumbs up on community pages*/
-.apphub_UserReviewCardContent .review_award_aggregated	/*number of awards on community pages (at the bottom of posts)*/
+.btn_darkblue_white_innerfade 							/*a bunch of buttons*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -204,8 +206,14 @@ align-items: center;
 .recently_updated_announcement_link{
 	color: rgb(var(--textAccented)) !important;
 }
-/*most the buttons*/
-html .btnv6_blue_hoverfade{
+
+.btnv6_blue_hoverfade {
+
+    background: rgba(var(--backgroundLightish)) !important;
+}
+
+.btnv6_blue_hoverfade>span 
+{
 	color: rgb(var(--textAccented)) !important;
 }
 /*que buttons when active*/
@@ -287,10 +295,11 @@ I REALLY NEED TO FIGURE OUT IF THIS IS HOW I'M GONNA HANDLE BUTTONS OR NOT
 .html5_video_overlay .autoplay_checkbox.checked, 
 .html5_video_overlay .autoplay_checkbox.checked, 
 .ico16.reportv6, 
-img[src="https://store.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], 
-img[src="https://community.akamai.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"], 
-img[src="https://community.akamai.steamstatic.com/public/shared/images//award_icon_blue.svg"], 
-img[src="https://community.akamai.steamstatic.com/economy/emoticon/steamthumbsup"], 
+img[src*=".steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], 
+img[src*=".steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"],
+.review_award_aggregated,
+img[src*=".steamstatic.com/economy/emoticon/steamthumbsup"],
+.apphub_CardRating.rateUp, 								/*thumbs and number of thumbs on games with a thumbs up on community pages*/
 img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], 
 img[src="https://store.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"],
 img[src="https://cdn.cloudflare.steamstatic.com/error/bummer.png"],
@@ -309,9 +318,23 @@ img[src="https://cdn.cloudflare.steamstatic.com/error/bummer.png"],
 .ds_completetheset, /*complete your collection popup on store page*/
 .popup_menu_subheader, /*headers in the popup menus in the store*/
 .gradient, /*category gradients*/
-#modalContentTitleBar /*modal titlebars*/
+#modalContentTitleBar /*modal titlebars*/,
+.itad-pricing, /*itad info (need to fix some broke colors later*/
+.itad_ico.svelte-1cf0mrd i.svelte-1cf0mrd, /*itad icon for augmented steam*/
+.steamdb_ico.svelte-1cf0mrd i.svelte-1cf0mrd, /*steamdb icon from same*/
+.apphub_CardBG.workshop, /*workshop card on community pages*/
+.review_histogram, /*review history chart on game pages, need to fix so it doesn't change the negative reviews colors*/
+.apphub_CardAnnouncementBG, /*app hub announcement icon*/
+.apphub_CardPinnedIcon, /*app hub pinned icon*/
+.apphub_AllContentText, /*app hub top glow /text*/
+.apphub_HubDivider, /*app hub top divider*/
+.apphub_HeaderBottomBG, /*app hub top divider glow*/
+.play_button, /*html5 play/pause button */
+.es_slider_toggle, /*html5 video expand button*/
+.cart_tab,/*thank you box on game checkout page*/
+.checkout_steam_rewards_banner /*rewards info on checkout page*/
 {
-	filter: var(--accentFilter);
+	filter: var(--accentFilter) !important;
 } 
 #modalContent.modal_frame {
 		border: 2px solid rgb(var(--accentDarkest)) !important;
@@ -330,33 +353,43 @@ html .queue_btn_menu > .queue_menu_arrow {
     background: rgba( var(--accent), 0.2);
 }
 
-
 /*early access banner*/
 div.early_access_header .heading {
-    background: linear-gradient(135deg, rgba(var(--accent),1) 0%,rgba(var(--accentDarkish),1) 100%);
+    background: linear-gradient(135deg, rgba(var(--accent),1) 0%,rgba(var(--accentDarkish),1) 100%) !important;
 }
-/*early access banner subtext */
 
-div.early_access_header .heading {
-    color: rgb(var(--textLight));
+/*wishlight highlight on game carrousel at top of main store page*/
+a.es_highlighted_wishlist {
+    background: rgba(var(--accent)) linear-gradient(135deg, rgba(0, 0, 0, 0.70) 10%, rgba(0, 0, 0, 0) 100%) !important;
 }
+div.es_highlighted_wishlist {
+    background: rgba(var(--accent)) linear-gradient(135deg, rgba(0, 0, 0, 0.70) 10%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+div.early_access_header .heading, 			/*early access banner subtext */
+span.svelte-1xun2sl 						/*augmented steam playing now addon subtext*/
+{
+    color: rgb(var(--textLight)) !important;
+}
+
 .bundle_label,
-.label /*various labels on the store page*/
+.as_stat.svelte-1xun2sl,					/*augmented steam playing now addon player count*/
+.label										/*various labels on the store page*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
 /*early access banner border*/
 div.early_access_header {
-    border: 1px solid rgb(var(--accent));
+    border: 1px solid rgb(var(--accent)) !important;
 }
 /*early access bug banner*/
 div.early_access_banner {
-    background: rgb(var(--backgroundDarkish));
+    background: rgb(var(--backgroundDarkish)) !important;
 }
 /*app tags*/
 .app_tag {
     color: rgb(var(--textAccented)) !important;
-    background: rgba( var(--accent), 0.2 );
+    background: rgba( var(--accent), 0.2 ) !important;
 }
 /*dev names*/
 #game_highlights a {
@@ -380,9 +413,13 @@ div.early_access_banner {
 .reason.info>a {
     color: rgb(var(--textAccented)) !important;
 }
-/*progress bar color in video player*/
-.html5_video_overlay .progress_bar{
-	background: rgb(var(--accentLight));
+
+.html5_video_overlay .progress_bar, /*progress bar color in video player*/
+.btnv6_lightblue_blue>span, /*light buttons*/
+.btnv6_lightblue_blue /*light buttons*/
+
+{
+	background: rgb(var(--accentLight)) !important;
 }
 /*official game tags text*/
 a.game_area_details_specs_ctn .label {
@@ -444,13 +481,14 @@ option:hover{
 }
 
 div.bb_h1, .bb_wysiwyg h1, /*review footer h1 text*/
+.faq_question,/*header on discovery que FAQ page*/
 .noReviewsYetTitle, /*header for when there are no reviews on a game page*/
 .persona.online>.profile_in_game_header /*header for profile in game when online*/
  {
     color: rgb(var(--textAccented)) !important;
 }
 /* early access review warning */
-.early_access_review {
+div.early_access_review {
     background: rgb(var(--accentDarkest));
     border: 1px solid rgb(var(--accentLight));
     color: rgb(var(--accentLight));
@@ -460,9 +498,16 @@ div.bb_h1, .bb_wysiwyg h1, /*review footer h1 text*/
     background: linear-gradient(135deg, rgba(var(--accentDarkest),0.4) 10%,rgba(var(--accentLightish),0.4) 100%);
 }
 /*view all achievements*/
-a.communitylink_achievement.communitylink_achivement_plusmore {
-    background: rgba( var(--accent), 0.2 );
+a.communitylink_achievement.communitylink_achivement_plusmore,
+a.btn_black:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active) /* show steamdb link on hover*/
+{
+    background: rgba( var(--accent), 0.2 ) !important;
     color: rgb(var(--textAccented)) !important;
+}
+a.btn_black:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover /* show steamdb link on hover*/
+{
+    background: rgba( var(--accent), 0.2 ) !important;
+    color: rgb(var(--textLighest)) !important;
 }
 /*steam deck compat main bg*/
 ._2dGPTYWTKq3CirJwPXKw2b {
@@ -480,7 +525,7 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
 .SaleBackground:not([style*='background-image']){
 	background: rgb(var(--background)) !important;
 }
-.btnv6_grey_black {
+a.btnv6_grey_black {
     color: rgb(var(--textAccented)) !important;
     background: rgba(var(--accentDarkest), .2) ;
 }
@@ -488,11 +533,11 @@ a.communitylink_achievement.communitylink_achivement_plusmore {
     color: rgb(var(--textLighest)) !important;
     background: rgba(var(--accent), .8) !important;
 }
-.btnv6_grey_black.btn_active {
+a.btnv6_grey_black.btn_active {
     color: rgb(var(--white)) !important;
     background: rgba(var(--accent), 0.4 );
 }
-.btnv6_grey_black:hover {
+a.btnv6_grey_black:hover {
     color: rgb(var(--white)) !important;
     background: rgba(var(--accent), .5);
 }
@@ -528,9 +573,6 @@ background: transparent !important;
 {
 	color: rgb(var(--textLighest)) !important;
 }
-.review_box.partial .view_more a {
-    color: rgba(var(--textAccented));
-}
 
 /*#########################################################
 /*#######################################
@@ -540,11 +582,7 @@ background: transparent !important;
 div.bb_h2, .bb_wysiwyg h2 {
     color: rgba(var(--textAccented)) !important;
 }
-/*award count number*/
-.review_award_count,
-.apphub_UserReviewCardContent .review_award_aggregated {
-	color: rgba(var(--textAccented)) !important;
-}
+
 /*username color for active users on */
 .apphub_Card.interactable:hover .apphub_CardContentAuthorName.online a
 {
@@ -616,7 +654,7 @@ div.filterselect_options {
 /*######################################################
 /*negative game text highlight effects:
 */
-.game_review_summary:not(.positive) {
+.game_review_summary:not(.positive):not(.not_enough_reviews) {
 	font-weight: bold;
 	color: #fff;
 	position: relative;
@@ -665,3 +703,9 @@ div.filterselect_options {
 	50% { opacity: 0.4; }
 	100% { opacity: 0.8; }
 }
+
+
+/*##################################################################
+/*##################################################################
+/*##################################################################
+/*augmented steam and/or SteamDB addon support*/

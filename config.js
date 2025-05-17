@@ -5,9 +5,6 @@ export const zoomInKey = "=";
 //Key to zoom out
 export const zoomOutKey = "-";
 
-//que blacklist feature (in early alpha):
-export const queBlacklistEnabled = true;
-
 /*birthday for age gate:
 /*year*/
 export const year = "1969";
@@ -19,8 +16,8 @@ export const day = "20";
 export const filePathPrefix ="skins/ATOMS-main";
 
 
-// Blocked popular tag keywords
+// Banned game tags 
 export const staticKeywords = [];
 
-// Blocked app name texts (already lowercased for comparison)
+// Banned game name strings:
 export const staticAppNames = [];

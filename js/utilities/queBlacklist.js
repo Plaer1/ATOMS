@@ -62,14 +62,16 @@ export default function queBlacklist() {
     const gameAreaDescriptionElement = document.querySelector(".game_area_description");
     console.log("Checking for .game_area_description element:", gameAreaDescriptionElement);
 
-    if (
-        gamePriceElement &&
-        gamePriceElement.textContent.toLowerCase().includes("free to play") &&
-        popularTagsElement &&
-        popularTagsElement.textContent.toLowerCase().includes("clicker") &&
-        gameAreaDescriptionElement &&
-        gameAreaDescriptionElement.textContent.toLowerCase().includes("drops")
-    ) {
+	if (
+		gamePriceElement &&
+		popularTagsElement &&
+		gameAreaDescriptionElement &&
+		document.querySelector(".item_store_items_block") &&
+		(
+			popularTagsElement.textContent.toLowerCase().includes("clicker") ||
+			popularTagsElement.textContent.toLowerCase().includes("idler")
+		)
+	) {
         console.log("Free To Play game with Clicker tag and 'drops' in description found. Calling handleIgnoreAndProceed.");
         handleIgnoreAndProceed();
     }
@@ -109,4 +111,9 @@ function handleIgnoreAndProceed() {
             nextInQueueBtn.click();
         }
     }
+}
+
+// Check if button exists
+if (document.querySelector('.btn_addtocart') != null) {
+		queBlacklist();
 }

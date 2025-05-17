@@ -1592,55 +1592,6 @@ div#headerSearch.friend_activity_header_search {
     min-height: 226px !important;
 }
 
-.playerAvatar.profile_header_size.in-game {
-    max-width: 40% !important;
-    float: left !important;
-    margin-right: 18px !important;
-    position: relative !important;
-    width: 166px !important;
-    height: 166px !important;
-
-    background: -webkit-linear-gradient(top, rgba(143, 185, 59, 1) 5%, rgba(110, 140, 49, 1) 95%) !important;
-    background: linear-gradient(to bottom, rgba(143, 185, 59, 1) 5%, rgba(110, 140, 49, 1) 95%) !important;
-    filter: none !important;
-}
-
-.playerAvatar.profile_header_size.online {
-    max-width: 40% !important;
-    float: left !important;
-    margin-right: 18px !important;
-    position: relative !important;
-    width: 166px !important;
-    height: 166px !important;
-
-    background-color: var(--online) !important;
-    background: -webkit-linear-gradient(top, rgba(83, 164, 196, 1) 5%, rgba(69, 128, 151, 1) 95%) !important;
-    background: linear-gradient(to bottom, rgba(83, 164, 196, 1) 5%, rgba(69, 128, 151, 1) 95%) !important;
-    filter: none !important;
-}
-
-.playerAvatar.profile_header_size.offline {
-    max-width: 40% !important;
-    float: left !important;
-    margin-right: 18px !important;
-    position: relative !important;
-    width: 166px !important;
-    height: 166px !important;
-
-    background: -webkit-linear-gradient(top, rgba(106, 106, 106, 1) 5%, rgba(85, 85, 85, 1) 95%) !important;
-    background: linear-gradient(to bottom, rgba(106, 106, 106, 1) 5%, rgba(85, 85, 85, 1) 95%) !important;
-    filter: none !important;
-}
-
-.responsive .profile_header .playerAvatar.profile_header_size {
-    max-width: 40% !important;
-    float: left !important;
-    margin-right: 18px !important;
-    position: relative !important;
-    width: 166px !important;
-    height: 166px !important;
-
-}
 
 .playerAvatar.profile_header_size .playerAvatarAutoSizeInner img {
     background: 0 0 !important;

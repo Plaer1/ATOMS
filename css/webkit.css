@@ -2,7 +2,7 @@
 @import url('../config.css');
 @import url('shiinaLib/webkit.css');
 @import url('scrollbars.css');
-@import url('webkitNegativeText.css');
+/*@import url('webkitNegativeText.css');
 
   /* custom element css:
   #################
@@ -17,7 +17,10 @@
 html,body{
 	background: rgb(var(--background)) !important;
 }
-
+.game_page_background,
+.apphub_background {
+	background: rgba(var(--background)) !important;
+}
 
 /*scrollbar stuff*/
 div::-webkit-scrollbar-thumb:window-inactive {

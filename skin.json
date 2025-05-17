@@ -37,6 +37,11 @@
 			"TargetJs":"js/steam.js"
 		},
 		{
+			"MatchRegexString":"^Sign in to Steam$",
+			"TargetCss":"css/library.css",
+			"TargetJs":"js/steam.js"
+		},
+		{
 			"MatchRegexString":".ModalDialogPopup",
 			"TargetCss":"css/library.css"
 		},
@@ -111,6 +116,54 @@
                 "yes": {
                     "TargetJs": {
                         "affects": [".*"], "src": "js/utilities/systemAccentColors.js" 
+                    }
+                }
+            }
+        },
+		"Dim uninstalled games?": {
+            "default": "yes",
+            "description": "Enables semi-transparent icons for uninstall games in the game-grid.",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetJs": {
+                        "affects": ["^Steam$"], "src": "js/utilities/transparentGames.js" 
+                    }
+                }
+            }
+        },
+		"Enable Que Via Keyboard?": {
+            "default": "yes",
+            "description": "Allows you to navigate the Steam Que on store pages Via the arrow keys.",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetJs": {
+                        "affects": ["^https://store\\.steampowered\\.com/.*"], "src": "js/utilities/queueKeyHandler.js" 
+                    }
+                }
+            }
+        },
+		"Enable Automatic Que Skipping?": {
+            "default": "yes",
+            "description": "Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetJs": {
+                        "affects": ["^https://store\\.steampowered\\.com/.*"], "src": "js/utilities/queBlacklist.js" 
+                    }
+                }
+            }
+        },
+		"Enable shaded game/community backgrounds?": {
+            "default": "yes",
+            "description": "Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetJs": {
+						"affects": ["^https://(store\\.steampowered\\.com|steamcommunity\\.com)/.*"], "src": "js/utilities/greyscaleBackground.js"
                     }
                 }
             }

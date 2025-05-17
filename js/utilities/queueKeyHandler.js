@@ -1,17 +1,9 @@
-import {
-	wait,
-	bigWait
-} from './utility.js';
-import waitForElement from './waitForElement.js';
-
 //queueKeyHandler.js
-export default function handleQueueKeys() {
+function handleQueueKeys() {
 	
 	// refreshes on que "error"
 	if (document.querySelector("#error_box") != null) {
 		funnyText();
-		wait();
-		bigWait();
 		location.reload();
 	}
 
@@ -138,4 +130,4 @@ function funnyText() {
 }
 
   
-  
+  handleQueueKeys();

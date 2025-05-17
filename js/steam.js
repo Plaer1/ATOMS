@@ -14,7 +14,7 @@ if (document.title == "Steam") {
 	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', rootMenuDropdown); //notme
 	waitForElement('._1KrJ3sFAqPBN9mfpaNTU5F', moveButtons);
 	waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', combineTopMenus);
-	waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
+	//waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
 	//launchGameKeyHandler(); causes bugs w/ some menus will fix soon
 }
 });

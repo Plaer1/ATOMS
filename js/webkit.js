@@ -1,16 +1,9 @@
-import handleQueueKeys from './utilities/queueKeyHandler.js';
 import { skipAgeGate, zoomEnabler } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
-import { applyGrayscaleBackground } from './utilities/greyscaleBackground.js';
 import removeProfileBrand from './utilities/removeProfileBrand.js';
-import queBlacklist from './utilities/queBlacklist.js';
-import { queBlacklistEnabled } from '../config.js';
-
 waitForElement('body', function(element) {
 
-waitForElement('.game_page_background', function(element) {
-applyGrayscaleBackground('.game_page_background');
-}, 69, 55555, 0);
+
 
 // Skip age gate - DO NOT FORGET TO SET YOUR REAL BIRTHDAY!
 waitForElement('.agegate_birthday_selector', function(element) {
@@ -24,17 +17,6 @@ zoomEnabler();
 
 // everything below here is optional or in beta
 
-// Handle queue keys
-handleQueueKeys();
-
-
-// Check if button exists
-if (document.querySelector('.btn_addtocart') != null) {
-	//startITAD();
-	if(queBlacklistEnabled){
-		queBlacklist();
-	}
-}
 
 
 	// makes the text on the loading element fun
@@ -50,9 +32,6 @@ if (document.title.startsWith("Steam Community")) {
     if (document.querySelector('.profile_header_actions') && document.querySelector('.profile_header_actions').childElementCount == 1) {
         removeProfileBrand();
     }
-	waitForElement('.apphub_background', function(element) {
-		applyGrayscaleBackground('.apphub_background');
-	});
 }
 
 function funnyText() {

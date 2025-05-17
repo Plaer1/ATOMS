@@ -1,5 +1,5 @@
+import waitForElement from "./waitForElement.js";
 export default function transparentGames() {
-
     // Handle DOM changes
     const handleMutations = (mutationsList) => {
         mutationsList.forEach((mutation) => {
@@ -72,3 +72,4 @@ if (targetDiv) {
 }
 
 }
+waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);

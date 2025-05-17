@@ -1,8 +1,6 @@
 import waitForElement from "./waitForElement.js";
 
-export function applyGrayscaleBackground(selector) {
-
-    // Get the element
+function applyGrayscaleBackground(selector) {
     const element = document.querySelector(selector);
     if (!element) {
         console.error(`No element found with selector: ${selector}`);
@@ -10,24 +8,17 @@ export function applyGrayscaleBackground(selector) {
     }
 
     waitForElement(selector, function(element) {
+        // Fetching the background-image directly from the element's style attribute
+        let backgroundImage = element.style.backgroundImage;
 
-        // Get the computed styles from the element
-        const computedStyle = getComputedStyle(element);
-        let backgroundImage = computedStyle.backgroundImage;
-        const backgroundSize = computedStyle.backgroundSize;
-        const backgroundPosition = computedStyle.backgroundPosition;
-        const backgroundRepeat = computedStyle.backgroundRepeat;
-
-        // Check if background property contains a URL
-        if (backgroundImage === 'none') {
-            const background = computedStyle.background;
-            const urlMatch = background.match(/url\((.*?)\)/);
-            if (urlMatch) {
-                backgroundImage = `url(${urlMatch[1]})`;
-            }
+        if (!backgroundImage || backgroundImage === 'none' || backgroundImage === '') {
+            console.warn(`No valid background-image found for ${selector}`);
+            return;
         }
 
-        // Apply the background image to the ::before pseudo-element using a style tag
+        const computedStyle = getComputedStyle(element);
+        const backgroundPosition = computedStyle.backgroundPosition;
+
         const style = document.createElement('style');
         style.innerHTML = `
             ${selector}::before {
@@ -37,22 +28,32 @@ export function applyGrayscaleBackground(selector) {
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 56.19vw;
+                height: -webkit-fill-available; /* Fill the space of the parent element */
                 background-image: ${backgroundImage} !important;
-                background-size: ${backgroundSize};
+                background-size: contain; /* Adjust image size to fit within the element */
                 background-position: ${backgroundPosition};
-                background-repeat: ${backgroundRepeat};
+                background-repeat: no-repeat; /* Ensuring the background doesn't repeat */
                 filter: grayscale(100%) brightness(0.77);
-                z-index: -1; /* Ensure the background stays behind the content */
-                opacity: 1; /* Ensure it's fully visible */
+                z-index: -1;
+                opacity: 1;
             }
             ${selector} {
                 position: relative;
                 background: rgba(var(--background)) !important;
-                overflow: hidden; /* Ensure content doesn't spill out */
-                z-index: 0; /* Ensure it stays above the ::before element */
+                overflow: hidden;
+                z-index: 0;
             }
         `;
         document.head.appendChild(style);
     });
+}
+
+if (document.title.startsWith("Steam Community")) {
+    waitForElement('.apphub_background', function(element) {
+        applyGrayscaleBackground('.apphub_background');
+    });
+} else {
+    waitForElement('.game_page_background', function(element) {
+        applyGrayscaleBackground('.game_page_background');
+    }, 69, 55555, 0);
 }

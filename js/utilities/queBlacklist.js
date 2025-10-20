@@ -1,119 +1,73 @@
 import { staticAppNames, staticKeywords } from "../../config.js";
+
 export default function queBlacklist() {
-    console.log("Starting queBlacklist function");
+  const qs  = (s, r = document) => r.querySelector(s);
+  const qsa = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const visible = (el) => !!el && getComputedStyle(el).display !== "none";
+  const lower = (s) => (s || "").toLowerCase();
 
-    // Blocked popular tag keywords
-    const keywords = staticKeywords; // moved texts to array
+  const bannedTags = staticKeywords.map(lower);     // tag blacklist
+  const bannedApps = staticAppNames;                // already lowercased
 
-    // Blocked app name texts (already lowercased for comparison)
-    const appNames = staticAppNames;
+  // 1) Unconditional TAG blacklist
+  const tagBlock = () => {
+    const el = qs(".popular_tags");
+    if (!el) return false;
+    // check anchors first
+    const hitAnchor = qsa("a", el).some(a => bannedTags.some(t => lower(a.textContent).includes(t)));
+    if (hitAnchor) return true;
+    // fallback: whole block text
+    return bannedTags.some(t => lower(el.textContent).includes(t));
+  };
 
-    // Check if .popular_tags element exists
-    const popularTagsElement = document.querySelector(".popular_tags");
-    console.log("Checking for .popular_tags element:", popularTagsElement);
+  if (tagBlock()) {
+    handleIgnoreAndProceed();
+    return;
+  }
 
-    if (popularTagsElement && popularTagsElement.style.display !== "none") {
-        const anchorElements = popularTagsElement.querySelectorAll("a");
-        console.log("Found anchor elements in .popular_tags:", anchorElements);
+  // 2) App name blacklist
+  const appNameEl = qs(".apphub_AppName");
+  if (appNameEl && bannedApps.some(n => lower(appNameEl.textContent).includes(n))) {
+    handleIgnoreAndProceed();
+    return;
+  }
 
-        anchorElements.forEach(anchor => {
-            console.log("Checking anchor text content:", anchor.textContent);
-            // Check if any keyword in the array is present in the anchor text
-            if (
-                anchor.style.display !== "none" &&
-                keywords.some(key => anchor.textContent.includes(key))
-            ) {
-                console.log("Match found in anchor text. Calling handleIgnoreAndProceed.");
-                handleIgnoreAndProceed();
-            }
-        });
+  // 3) Optional heuristics (keep, but not required)
+  // Free-to-play with store overlay
+  const gamePriceEl = qs(".game_purchase_price");
+  const storeOverlayEl = qs(".item_store_overlay_link");
+  if (gamePriceEl && lower(gamePriceEl.textContent).includes("free to play") && storeOverlayEl) {
+    handleIgnoreAndProceed();
+    return;
+  }
+
+  // Watch for late-loading tags and re-check once they appear
+  const tagContainer = qs(".popular_tags") || document.body;
+  const obs = new MutationObserver(() => {
+    if (tagBlock()) {
+      obs.disconnect();
+      handleIgnoreAndProceed();
     }
-
-    // Check if .apphub_AppName element exists
-    const appNameElement = document.querySelector(".apphub_AppName");
-    console.log("Checking for .apphub_AppName element:", appNameElement);
-
-    // Use .some() to see if appNameElement's text contains any blocked app name
-    if (
-        appNameElement &&
-        appNames.some(name => appNameElement.textContent.toLowerCase().includes(name))
-    ) {
-        console.log("Match found in .apphub_AppName text. Calling handleIgnoreAndProceed.");
-        handleIgnoreAndProceed();
-    }
-
-    // Check if .game_purchase_price element exists
-    const gamePriceElement = document.querySelector(".game_purchase_price");
-    console.log("Checking for .game_purchase_price element:", gamePriceElement);
-
-    const storeOverlayElement = document.querySelector(".item_store_overlay_link");
-    console.log("Checking for .item_store_overlay_link element:", storeOverlayElement);
-
-    if (
-        gamePriceElement &&
-        gamePriceElement.textContent.toLowerCase().includes("free to play") &&
-        storeOverlayElement
-    ) {
-        console.log("Free To Play game with store overlay link found. Calling handleIgnoreAndProceed.");
-        handleIgnoreAndProceed();
-    }
-
-    // New logic block: Free To Play, popular tag contains "Clicker", and description contains "drops"
-    const gameAreaDescriptionElement = document.querySelector(".game_area_description");
-    console.log("Checking for .game_area_description element:", gameAreaDescriptionElement);
-
-	if (
-		gamePriceElement &&
-		popularTagsElement &&
-		gameAreaDescriptionElement &&
-		document.querySelector(".item_store_items_block") &&
-		(
-			popularTagsElement.textContent.toLowerCase().includes("clicker") ||
-			popularTagsElement.textContent.toLowerCase().includes("idler")
-		)
-	) {
-        console.log("Free To Play game with Clicker tag and 'drops' in description found. Calling handleIgnoreAndProceed.");
-        handleIgnoreAndProceed();
-    }
-
-    // New logic block: Check if .dev_row contains an element with text "Quantum Quiver Games"
-    const devRowElement = document.querySelector(".dev_row");
-    console.log("Checking for .dev_row element:", devRowElement);
-
-    if (
-        devRowElement &&
-        devRowElement.textContent.toLowerCase().includes("quantum quiver games")
-    ) {
-        console.log("Developer Quantum Quiver Games found. Calling handleIgnoreAndProceed.");
-        handleIgnoreAndProceed();
-    }
+  });
+  obs.observe(tagContainer, { childList: true, subtree: true });
 }
 
 function handleIgnoreAndProceed() {
-    console.log("Executing handleIgnoreAndProceed function");
+  const qs = (s, r = document) => r.querySelector(s);
+  const visible = (el) => !!el && getComputedStyle(el).display !== "none";
 
-    // Get the ignore button
-    const ignoreButton = document.querySelector(
-        "#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium"
-    );
-    console.log("Checking for ignore button:", ignoreButton);
+  // Try both inactive/active ignore buttons
+  const ignoreBtn =
+    qs("#ignoreBtn .queue_control_button.queue_btn_ignore .btnv6_blue_hoverfade.btn_medium") ||
+    qs("#ignoreBtn .queue_control_button.queue_btn_ignore .btn_medium");
 
-    if (ignoreButton && ignoreButton.style.display !== "none") {
-        console.log("Ignore button is available. Clicking ignore button.");
-        ignoreButton.click();
+  if (visible(ignoreBtn)) ignoreBtn.click();
 
-        // Proceed by clicking the Next in Queue button
-        const nextInQueueBtn = document.querySelector(".btn_next_in_queue");
-        console.log("Checking for Next in Queue button:", nextInQueueBtn);
-
-        if (nextInQueueBtn) {
-            console.log("Clicking Next in Queue button.");
-            nextInQueueBtn.click();
-        }
-    }
+  const nextBtn = qs(".btn_next_in_queue");
+  if (nextBtn) nextBtn.click();
 }
 
-// Check if button exists
-if (document.querySelector('.btn_addtocart') != null) {
-		queBlacklist();
+// Only run where it makes sense
+if (document.querySelector(".btn_addtocart")) {
+  queBlacklist();
 }

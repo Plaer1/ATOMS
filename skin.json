@@ -2,7 +2,7 @@
 	"author":"Plaer1",
 	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1.1.11",
+	"version":"1.1.1.1.1.1.1.1.1.111",
 	"github":{
 		"owner":"Plaer1",
 		"repo_name":"ATOMS"
@@ -107,66 +107,91 @@
 			"TargetCss":"css/menus.css"
 		}
 	],
-    "Conditions": {
-        "Use Custom Accent Color?": {
-            "default": "no",
-            "description": "Enables Use of System Accent Color from Mill' settings.",
-            "values": {
-                "no": {},
-                "yes": {
-                    "TargetJs": {
-                        "affects": [".*"], "src": "js/utilities/systemAccentColors.js" 
-                    }
-                }
-            }
-        },
-		"Dim uninstalled games?": {
-            "default": "yes",
-            "description": "Enables semi-transparent icons for uninstall games in the game-grid.",
-            "values": {
-                "no": {},
-                "yes": {
-                    "TargetJs": {
-                        "affects": ["^Steam$"], "src": "js/utilities/transparentGames.js" 
-                    }
-                }
-            }
-        },
-		"Enable Que Via Keyboard?": {
-            "default": "yes",
-            "description": "Allows you to navigate the Steam Que on store pages Via the arrow keys.",
-            "values": {
-                "no": {},
-                "yes": {
-                    "TargetJs": {
-                        "affects": ["^https://store\\.steampowered\\.com/.*"], "src": "js/utilities/queueKeyHandler.js" 
-                    }
-                }
-            }
-        },
-		"Enable Automatic Que Skipping?": {
-            "default": "yes",
-            "description": "Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
-            "values": {
-                "no": {},
-                "yes": {
-                    "TargetJs": {
-                        "affects": ["^https://store\\.steampowered\\.com/.*"], "src": "js/utilities/queBlacklist.js" 
-                    }
-                }
-            }
-        },
-		"Enable shaded game/community backgrounds?": {
-            "default": "yes",
-            "description": "Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
-            "values": {
-                "no": {},
-                "yes": {
-                    "TargetJs": {
-						"affects": ["^https://(store\\.steampowered\\.com|steamcommunity\\.com)/.*"], "src": "js/utilities/greyscaleBackground.js"
-                    }
-                }
-            }
-        }
-    }
+	"Conditions":{
+		"Use Custom Accent Color?":{
+			"default":"no",
+			"description":"Enables Use of System Accent Color from Mill' settings.",
+			"values":{
+				"no":{
+					
+				},
+				"yes":{
+					"TargetJs":{
+						"affects":[
+							".*"
+						],
+						"src":"js/utilities/systemAccentColors.js"
+					}
+				}
+			}
+		},
+		"Dim uninstalled games?":{
+			"default":"yes",
+			"description":"Enables semi-transparent icons for uninstall games in the game-grid.",
+			"values":{
+				"no":{
+					
+				},
+				"yes":{
+					"TargetJs":{
+						"affects":[
+							"^Steam$"
+						],
+						"src":"js/utilities/transparentGames.js"
+					}
+				}
+			}
+		},
+		"Enable Que Via Keyboard?":{
+			"default":"yes",
+			"description":"Allows you to navigate the Steam Que on store pages Via the arrow keys.",
+			"values":{
+				"no":{
+					
+				},
+				"yes":{
+					"TargetJs":{
+						"affects":[
+							"^https://store\\.steampowered\\.com/.*"
+						],
+						"src":"js/utilities/queueKeyHandler.js"
+					}
+				}
+			}
+		},
+		"Enable Automatic Que Skipping?":{
+			"default":"no",
+			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
+			"values":{
+				"no":{
+					
+				},
+				"yes":{
+					"TargetJs":{
+						"affects":[
+							"^https://store\\.steampowered\\.com/.*"
+						],
+						"src":"js/utilities/queBlacklist.js"
+					}
+				}
+			}
+		},
+		"Enable shaded game/community backgrounds?":{
+			"default":"yes",
+			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
+			"values":{
+				"no":{
+					
+				},
+				"yes":{
+					"TargetJs":{
+						"affects":[
+							"^https://(store\\.steampowered\\.com|steamcommunity\\.com)/.*"
+						],
+						"src":"js/utilities/greyscaleBackground.js"
+					}
+				}
+			}
+		}
+	}
 }

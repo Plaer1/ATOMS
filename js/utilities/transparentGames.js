@@ -1,75 +1,80 @@
 import waitForElement from "./waitForElement.js";
+
 export default function transparentGames() {
-    // Handle DOM changes
-    const handleMutations = (mutationsList) => {
-        mutationsList.forEach((mutation) => {
-            if (mutation.type === 'childList') {
-                mutation.addedNodes.forEach((node) => {
-                    if (node instanceof Element && node.matches('._1pwP4eeP1zQD7PEgmsep0W')) {
-                        const uninstalledChild = node.querySelector('.mA39Hqv8LacDppegb_Q_Z');
-                        if (uninstalledChild) {
-                            // Navigate to the target element
-                            const targetElement = uninstalledChild.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.nextElementSibling;
-                            if (targetElement) {
-								targetElement.style.cssText = 'opacity: var(--transparentGameOpacity) !important'; // Using !important to ensure override
-                            }
-                        }
-                    }
-                });
-            }
-        });
-    };
+    const TILE_SEL = '._1pwP4eeP1zQD7PEgmsep0W';            // game tile/card
+    const UNINSTALLED_BADGE_SEL = '.mA39Hqv8LacDppegb_Q_Z';   // "Not installed" indicator
+    const LIB_CONTAINER_SEL = '._2Z9gJ6Pd7eZn-kfODcXJuR';     // library container root
 
-// Select the specific div to observe
-let targetDiv = document.querySelector('._2Z9gJ6Pd7eZn-kfODcXJuR');
+    function applyOpacity(tile) {
+        try {
+            if (!(tile instanceof Element)) return;
+            const uninstalled = tile.querySelector(UNINSTALLED_BADGE_SEL);
+            if (!uninstalled) return;
 
-// Function to start observing
-const startObserving = (targetDiv) => {
-    const observer = new MutationObserver(handleMutations);
-    const observerOptions = {
-        childList: true,
-        subtree: true,
-    };
-    observer.observe(targetDiv, observerOptions);
-    
-    // New observer to detect unloading
-    const unloadObserver = new MutationObserver(handleUnload);
-    const unloadObserverOptions = {
-        childList: true,
-        subtree: true,
-    };
-    unloadObserver.observe(document.body, unloadObserverOptions);
-    
-    function handleUnload(mutations) {
-        for (const mutation of mutations) {
-            if (!document.body.contains(targetDiv)) {
-				
-				const checkInterval = setInterval(() => {
-					targetDiv = document.querySelector('._2Z9gJ6Pd7eZn-kfODcXJuR');
-					if (targetDiv) {
-						startObserving(targetDiv);
-						clearInterval(checkInterval);
-					}
-				}, 321);
-                unloadObserver.disconnect(); // stop observing after detection
-                break;
+            const targetElement =
+                tile.querySelector('[style*="background-image"]') ||
+                tile.querySelector('img') ||
+                (uninstalled.parentElement &&
+                 uninstalled.parentElement.parentElement &&
+                 uninstalled.parentElement.parentElement.parentElement &&
+                 uninstalled.parentElement.parentElement.parentElement.parentElement &&
+                 uninstalled.parentElement.parentElement.parentElement.parentElement.parentElement &&
+                 uninstalled.parentElement.parentElement.parentElement.parentElement.parentElement
+                    .firstElementChild?.firstElementChild?.nextElementSibling) ||
+                tile;
+
+            if (targetElement) {
+                targetElement.style.cssText = 'opacity: var(--transparentGameOpacity) !important';
             }
+        } catch {
+            // ignore failures
         }
     }
-};
 
-// Check if targetDiv exists and observe
-if (targetDiv) {
-    startObserving(targetDiv);
-} else {
-    const checkInterval = setInterval(() => {
-        targetDiv = document.querySelector('._2Z9gJ6Pd7eZn-kfODcXJuR');
-        if (targetDiv) {
-            startObserving(targetDiv);
-            clearInterval(checkInterval);
-        }
-    }, 222); // check every 222ms
+    function scan(root = document) {
+        const tiles = root.querySelectorAll(TILE_SEL);
+        tiles.forEach(applyOpacity);
+    }
+
+    function start() {
+        scan(document);
+
+        const observer = new MutationObserver((mutations) => {
+            for (const m of mutations) {
+                if (m.type === 'childList') {
+                    for (const node of m.addedNodes) {
+                        if (!(node instanceof Element)) continue;
+                        if (node.matches(TILE_SEL)) {
+                            applyOpacity(node);
+                        }
+                        const subtreeTiles = node.querySelectorAll?.(TILE_SEL);
+                        if (subtreeTiles && subtreeTiles.length) {
+                            subtreeTiles.forEach(applyOpacity);
+                        }
+                    }
+                } else if (m.type === 'attributes') {
+                    const t = m.target;
+                    if (t instanceof Element && t.matches(TILE_SEL)) {
+                        applyOpacity(t);
+                    }
+                }
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    }
+
+    const libNow = document.querySelector(LIB_CONTAINER_SEL);
+    if (libNow) {
+        start();
+    } else {
+        waitForElement(LIB_CONTAINER_SEL, start);
+    }
 }
 
-}
 waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);

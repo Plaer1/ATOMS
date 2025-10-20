@@ -1,133 +1,126 @@
-//queueKeyHandler.js
+// queueKeyHandler.js
 function handleQueueKeys() {
-	
-	// refreshes on que "error"
-	if (document.querySelector("#error_box") != null) {
-		funnyText();
-		location.reload();
-	}
+  const qs = (s) => document.querySelector(s);
+  const visible = (el) => !!el && getComputedStyle(el).display !== "none";
+  const clickIf = (sel) => { const el = qs(sel); if (el) el.click(); return !!el; };
 
-	// refreshes on que if you end up on the page between refreshes somehow
-	if (document.querySelector(".discovery_queue_static") != null) {
-		if (document.querySelector(".discovery_queue_static").style.display == "block") {
-			document.querySelector(".discovery_queue_overlay").click();
-		}
-	}
-
-	document.addEventListener('keydown', function (e) {
-
-		switch (e.keyCode) {
-
-			//left
-			case 37:
-
-				if (document.querySelector("#add_to_wishlist_area").style.display == "none") {
-					document.querySelector("#add_to_wishlist_area_success > a > span").click();
-				} else {
-					document.querySelector("#add_to_wishlist_area > a > span").click();
-				}
-
-				break;
-
-				//up
-			case 38:
-				if (document.querySelector("#queueBtnFollow > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").style.display != "none") {
-					// click to follow
-					document.querySelector("#queueBtnFollow > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").click();
-				} else {
-					//Click to UNfollow
-					document.querySelector("#queueBtnFollow > div.btnv6_blue_hoverfade.btn_medium.queue_btn_active").click();
-				}
-
-				break;
-
-				//right
-			case 39:
-				//if in que, go next
-				if (document.querySelector(".queue_sub_text") != null) {
-
-					document.querySelector(".btn_next_in_queue").click();
-					break;
-				}
-				//if on a game page that isn't in the que, start que.   TEST ME
-				if (document.querySelector("[data-tooltip-text='View and customize your personal Discovery Queue.']") != null) {
-
-					window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
-					break;
-				}
-				//if you aren't in the que, hop in bb.
-				if (document.querySelector(".home_page_content") != null || document.querySelector(".SaleBackgroundCtn") != null) {
+  // error page -> animate then reload
+  const err = qs("#error_box");
+  if (err) {
+    funnyText();
+    location.reload();
+  }
 
 
-					window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
-					break;
-				}
-				//if at the end, restart que
-				if (document.querySelector(".finish_queue_text") != null) {
 
+  document.addEventListener("keydown", function (e) {
+    if (!e.ctrlKey) return; // require Ctrl
 
-					document.querySelector("#nextInDiscoveryQueue > div.btn_next_in_queue.btn_next_in_queue_trigger > div").click();
-					break;
-				}
+    switch (e.keyCode) {
+      // ←
+      case 37: {
+        const wishArea = qs("#add_to_wishlist_area");
+        if (wishArea && !visible(wishArea)) {
+          clickIf("#add_to_wishlist_area_success > a > span");
+        } else {
+          clickIf("#add_to_wishlist_area > a > span");
+        }
+        break;
+      }
 
-				//if at the que page with empty que, start another que
-				if (document.querySelector("#refresh_queue_btn").style.display != "none") {
+      // ↑  (Follow / Unfollow)
+      case 38: {
+        const followInactive = qs("#queueBtnFollow .queue_btn_inactive");
+        const followActive   = qs("#queueBtnFollow .queue_btn_active");
+        if (visible(followInactive)) {
+          followInactive.click();
+        } else if (visible(followActive)) {
+          followActive.click();
+        }
+        break;
+      }
 
-					document.querySelector("#refresh_queue_btn").click();
-					window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
-					break;
-				}
-				break;
+      // →  (Next / enter queue / refresh)
+      case 39: {
+		// if stuck on static queue page, click overlay
+  		const staticQ = qs(".discovery_queue_static");
+  		if (visible(staticQ)) clickIf(".discovery_queue_overlay");
+		
+        if (qs(".queue_sub_text")) { // in queue
+          clickIf(".btn_next_in_queue");
+          break;
+        }
 
-				//down
-			case 40:
-				//if a game
-				if (document.querySelector("#game_area_purchase > div.game_area_bubble.game_area_dlc_bubble") == null) {
-					if (document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").style.display != "none") {
-						document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").click();
-					} else {
-						document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_active").click();
-					}
-				}
-				//if DLC
-				if (document.querySelector("#game_area_purchase > div.game_area_bubble.game_area_dlc_bubble") != null) {
-					if (document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").style.display != "none") {
-						document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_inactive").click();
-					} else {
-						document.querySelector("#ignoreBtn > div.queue_control_button.queue_btn_ignore > div.btnv6_blue_hoverfade.btn_medium.queue_btn_active").click();
-					}
-				}
-				break;
-		}
-	});
-};
+        // game page but not in queue -> open queue
+        if (qs("[data-tooltip-text='View and customize your personal Discovery Queue.']")) {
+          window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
+          break;
+        }
 
+        // home or sale page -> open queue
+        if (qs(".home_page_content") || qs(".SaleBackgroundCtn")) {
+          window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
+          break;
+        }
 
-function funnyText() {
-	Math.easeInOutSine = (t, b, c, d) =>
-		-c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-	const
-		easing = Math.easeInOutSine,
-	  target = document.querySelector('.pageheader'),
-		bbox = target.getBoundingClientRect(),
-		left = bbox.left,
-	  width = bbox.width,
-	  height = 100;
-	target.innerHTML = target.innerText.split('').map(
-		(char) => `<span>${char}</span>`
-	).join('');
-	Array.prototype.forEach.call(target.children, (el) => {
-	  const 
-			bbox = el.getBoundingClientRect(),
-		w = bbox.width,
-		l = bbox.left - left,
-		offset = easing(l, 0, height, width),
-		skew = offset - easing(w + l, 0, height, width),
-		angle = Math.atan(skew/w);
-	  el.style.transform = `translateY(${-offset}px) skewY(${angle}rad)`;
-	});
-	target.style.paddingTop = `${height}px`;	
+        // end of queue -> restart
+        if (qs(".finish_queue_text")) {
+          // click the restart button container if present
+          if (!clickIf("#nextInDiscoveryQueue .btn_next_in_queue_trigger") ) {
+            clickIf("#nextInDiscoveryQueue > div.btn_next_in_queue.btn_next_in_queue_trigger > div");
+          }
+          break;
+        }
+
+        // queue page with empty queue -> refresh and open new
+        const refreshBtn = qs("#refresh_queue_btn");
+        if (visible(refreshBtn)) {
+          refreshBtn.click();
+          window.location.href = "https://store.steampowered.com/explore/next/0?snr=1_5_9__12";
+          break;
+        }
+        break;
+      }
+
+      // ↓  (Ignore / Unignore)
+      case 40: {
+        // treat game and DLC the same: toggle ignore by state
+        const ignoreRoot     = qs("#ignoreBtn");
+        const ignoreInactive = ignoreRoot && ignoreRoot.querySelector(".queue_btn_inactive");
+        const ignoreActive   = ignoreRoot && ignoreRoot.querySelector(".queue_btn_active");
+
+        if (visible(ignoreInactive)) {
+          ignoreInactive.click();
+        } else if (visible(ignoreActive)) {
+          ignoreActive.click();
+        }
+        break;
+      }
+    }
+  });
 }
 
-  
-  handleQueueKeys();
+function funnyText() {
+  Math.easeInOutSine = (t, b, c, d) => -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+  const easing = Math.easeInOutSine;
+  const target = document.querySelector('.pageheader');
+  if (!target) return;
+  const bbox = target.getBoundingClientRect();
+  const left = bbox.left;
+  const width = bbox.width;
+  const height = 100;
+
+  target.innerHTML = target.innerText.split('').map((char) => `<span>${char}</span>`).join('');
+  Array.prototype.forEach.call(target.children, (el) => {
+    const bb = el.getBoundingClientRect();
+    const w = bb.width;
+    const l = bb.left - left;
+    const offset = easing(l, 0, height, width);
+    const skew = offset - easing(w + l, 0, height, width);
+    const angle = Math.atan(skew / w);
+    el.style.transform = `translateY(${-offset}px) skewY(${angle}rad)`;
+  });
+  target.style.paddingTop = `${height}px`;
+}
+
+handleQueueKeys();

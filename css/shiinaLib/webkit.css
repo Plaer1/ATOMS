@@ -15,10 +15,7 @@ html {
     background: rgba(var(--background)) !important;
 }
 
-div.bb_code,
-.bb_wysiwyg pre,
-blockquote.bb_blockquote,
-.bb_wysiwyg blockquote {
+div.bb_code, .bb_wysiwyg pre, blockquote.bb_blockquote, .bb_wysiwyg blockquote {
 
     background: rgba(var(--background)) !important;
     border: 0px !important;
@@ -104,20 +101,6 @@ blockquote.bb_blockquote,
     background: transparent !important;
 }
 
-.btnv6_white_transparent>span {
-
-    color: var(--blue) !important;
-    background: rgba(var(--background)) !important;
-    border: 1px solid rgba(var(--background)) !important;
-}
-
-.btnv6_white_transparent>span:hover {
-
-    color: var(--black) !important;
-    background: var(--blue) !important; /*fixme*/
-    border: 1px solid var(--blue) !important;
-}
-
 .home_broadcast_more_ctn_stretch_bg {
     background: transparent !important;
 }
@@ -150,8 +133,7 @@ blockquote.bb_blockquote,
 }
 
 
-.browse_tabs a.selected,
-.browse_tabs a:hover {
+.browse_tabs a.selected, .browse_tabs a:hover {
     background-color: rgba(var(--background)) !important;
 
 }
@@ -196,6 +178,12 @@ body.v6 .page_content.browse_reviews {
 .daily_deal .dailydeal_desc {
     font-size: 11px !important;
     color: rgb(var(--textAccented)) !important;
+}
+
+.home_discounts_ctn div.see_more_link:hover /*see more link color background*/
+{
+	color: rgb(var(--accent)) !important;
+	background: rgb(var(--accent)) !important;
 }
 
 .dailydeal_countdown.ttip {
@@ -246,30 +234,19 @@ body.recommendgame #review_create {
     background: var(--bedarkgrey) !important;
 }
 
-body.v6.summer2018_home .gutter_header a:hover .home_page_gutter_giftcard {
-    background: #30343f00 !important;
-}
-
-body.v6.summer2018_home .home_page_gutter_giftcard {
-    background: #1c202a00 !important;
-}
 
 .FeaturedBlock.First {
     background: rgba(var(--background)) !important;
 }
-
+/*
 .home_page_body_ctn {
     background-color: rgba(var(--background)) !important;
-}
-
-body.v6.summer2018_home .home_page_body_ctn {
-    background: rgba(var(--background)) !important;
 }
 
 .responsive_page_content {
     background: rgba(var(--background)) !important;
 }
-
+*/
 .compact .wishlist_row .capsule img {
     width: 162px !important;
     height: 78px !important;
@@ -346,27 +323,21 @@ div#global_actions .user_avatar {
 
 }
 
-body.v6 #global_header,
-body.v6 #global_header .content,
-body.v6 .supernav_content {
+body.v6 #global_header, body.v6 #global_header .content, body.v6 .supernav_content {
     background: var(--bedarkgrey) !important;
 }
 
-.global_header_toggle_button.green,
-.global_header_toggle_button.has_notifications {
+.global_header_toggle_button.green, .global_header_toggle_button.has_notifications {
     background-color: rgba(var(--backgroundDarkest)) !important;
     transition: background .6s !important;
 }
 
-.global_header_toggle_button.green,
-.global_header_toggle_button.has_notifications:hover {
+.global_header_toggle_button.green, .global_header_toggle_button.has_notifications:hover {
     background-color: var(--darkgreen) !important;
     transition: background .6s !important;
 }
 
-.header_installsteam_btn_gray .header_installsteam_btn_content,
-.header_installsteam_btn_gray .header_installsteam_btn_leftcap,
-.header_installsteam_btn_gray .header_installsteam_btn_rightcap {
+.header_installsteam_btn_gray .header_installsteam_btn_content, .header_installsteam_btn_gray .header_installsteam_btn_leftcap, .header_installsteam_btn_gray .header_installsteam_btn_rightcap {
     background-color: rgba(var(--backgroundDarkest)) !important;
     color: var(--white) !important;
 }
@@ -403,9 +374,7 @@ body.v6 .supernav_content {
     background: var(--realblack) !important;
 }
 
-.home_discounts_ctn .see_more_link,
-.home_category_games_ctn .see_more_link,
-.home_category_ctn .see_more_link {
+.home_discounts_ctn .see_more_link, .home_category_games_ctn .see_more_link, .home_category_ctn .see_more_link {
     bottom: -5px !important;
     background: rgba(var(--background)) !important;
 
@@ -413,9 +382,7 @@ body.v6 .supernav_content {
     color: var(--blue) !important;
 }
 
-.home_category_games_ctn .see_more_link:hover,
-.home_discounts_ctn .see_more_link:hover,
-.home_category_ctn .see_more_link:hover {
+.home_category_games_ctn .see_more_link:hover, .home_discounts_ctn .see_more_link:hover, .home_category_ctn .see_more_link:hover {
     bottom: -5px !important;
     background: var(--blue) !important;
 
@@ -433,8 +400,7 @@ body.v6 .supernav_content {
     left: 2px !important;
 }
 
-#store_nav_area .store_nav_bg,
-.home_page_body_ctn.has_takeover #store_nav_area .store_nav_bg {
+#store_nav_area .store_nav_bg, .home_page_body_ctn.has_takeover #store_nav_area .store_nav_bg {
     background: rgb(var(--backgroundLightish)) !important;
 
 }
@@ -477,50 +443,29 @@ input::-webkit-input-placeholder {
     color: var(--white) !important;
 }
 
-.store_nav .tab.focus,
-.store_nav .tab.focus>span,
-.store_nav .tab:hover,
-.store_nav .tab:hover>span {
+.store_nav .tab.focus, .store_nav .tab.focus > span, .store_nav .tab:hover, .store_nav .tab:hover > span {
     background: rgba(var(--backgroundDarkest)) !important;
     color: var(--darkwhite) !important;
 
 }
 
-body.v6 #footer_nav .popup_block_new .popup_body,
-body.v6 .store_nav .popup_block_new .popup_body {
+body.v6 #footer_nav .popup_block_new .popup_body, body.v6 .store_nav .popup_block_new .popup_body {
     background: var(--lightergrey) !important;
 
 }
 
-.creator .responsive_page_template_content .popup_menu .popup_menu_item,
-.curator .responsive_page_template_content .popup_menu .popup_menu_item,
-.footer_content .popup_menu .popup_menu_item,
-.search_area .popup_body .match,
-.search_area .popup_body .match .match_name,
-.store_nav .popup_menu .popup_menu_item {
+.creator .responsive_page_template_content .popup_menu .popup_menu_item, .curator .responsive_page_template_content .popup_menu .popup_menu_item, .footer_content .popup_menu .popup_menu_item, .search_area .popup_body .match, .search_area .popup_body .match .match_name, .store_nav .popup_menu .popup_menu_item {
     color: var(--dakerwhite) !important;
 
 }
 
-.creator .popup_menu .popup_menu_item.focus,
-.creator .popup_menu .popup_menu_item:hover,
-.curator .popup_menu .popup_menu_item.focus,
-.curator .popup_menu .popup_menu_item:hover,
-.footer_content .popup_menu .popup_menu_item.focus,
-.footer_content .popup_menu .popup_menu_item:hover,
-.search_area .popup_body .match:hover,
-.search_area .popup_body .match:hover .match_name,
-.store_nav .popup_menu .popup_menu_item.focus,
-.store_nav .popup_menu .popup_menu_item:hover {
+.creator .popup_menu .popup_menu_item.focus, .creator .popup_menu .popup_menu_item:hover, .curator .popup_menu .popup_menu_item.focus, .curator .popup_menu .popup_menu_item:hover, .footer_content .popup_menu .popup_menu_item.focus, .footer_content .popup_menu .popup_menu_item:hover, .search_area .popup_body .match:hover, .search_area .popup_body .match:hover .match_name, .store_nav .popup_menu .popup_menu_item.focus, .store_nav .popup_menu .popup_menu_item:hover {
     color: var(--white) !important;
     background-color: var(--background-ish) !important;
 
 }
 
-.store_nav .tab.focus,
-.store_nav .tab.focus>span,
-.store_nav .tab:hover,
-.store_nav .tab:hover>span {
+.store_nav .tab.focus, .store_nav .tab.focus > span, .store_nav .tab:hover, .store_nav .tab:hover > span {
     text-shadow: none !important;
 
 }
@@ -557,8 +502,7 @@ body.v6 .store_nav .popup_block_new .popup_body {
 
 }
 
-.game_hover .hover_arrow_left,
-.game_hover .hover_arrow_right {
+.game_hover .hover_arrow_left, .game_hover .hover_arrow_right {
     background: 0 0 !important;
 
 }
@@ -642,18 +586,6 @@ body.v6 .store_nav .popup_block_new .popup_body {
 
 }
 
-.arrow.left {
-    background: var(--bedarkgrey) !important;
-
-
-}
-
-.arrow.right {
-    background: var(--bedarkgrey) !important;
-
-
-}
-
 .store_capsule .discount_block.discount_block_large .discount_prices {
     background: rgba(var(--backgroundDark)) !important;
 
@@ -663,8 +595,7 @@ body.v6 .store_nav .popup_block_new .popup_body {
     background: var(--black) !important;
 }
 
-.hover_details_block,
-.hover_details_block_full {
+.hover_details_block, .hover_details_block_full {
     background-color: rgba(var(--background)) !important;
 }
 
@@ -896,8 +827,7 @@ img.member_tile {
 
 }
 
-.hardware_ctn.double .hardware_content .left,
-.hardware_ctn.double .hardware_content .right {
+.hardware_ctn.double .hardware_content .left, .hardware_ctn.double .hardware_content .right {
     display: none !important;
 }
 
@@ -951,8 +881,7 @@ body.v6 .home_rightcol .tab_preview h2 {
 
 }
 
-.home_marketing_message,
-.home_marketing_message:hover {
+.home_marketing_message, .home_marketing_message:hover {
     background: rgba(var(--background)) !important;
 }
 
@@ -982,9 +911,7 @@ body.v6 .home_rightcol .tab_preview h2 {
     background: rgba(0, 0, 0, 0) !important;
 }
 
-.header_installsteam_btn_green .header_installsteam_btn_content,
-.header_installsteam_btn_green .header_installsteam_btn_leftcap,
-.header_installsteam_btn_green .header_installsteam_btn_rightcap {
+.header_installsteam_btn_green .header_installsteam_btn_content, .header_installsteam_btn_green .header_installsteam_btn_leftcap, .header_installsteam_btn_green .header_installsteam_btn_rightcap {
     background-color: rgba(var(--backgroundDarkest)) !important;
     color: var(--white) !important;
 }
@@ -1076,10 +1003,10 @@ body.v6.newonsteam .newonsteam_headercaps>a {
 
     border: 1px solid rgba(30, 30, 31, .52) !important;
 }
-
+/*
 body.v6 {
     background-color: var(--bedarkgrey) !important;
-}
+}*/
 .steam_curator_recommended_game_names {
     max-width: 367px !important;
 }
@@ -1113,10 +1040,7 @@ body.v6 div#footer_spacer {
     background: var(--bedarkgrey) !important;
 }
 
-body.v6 div#footer,
-body.v6 div#global_header,
-body.v6 div#main,
-body.v6 div.page_area {
+body.v6 div#footer, body.v6 div#global_header, body.v6 div#main, body.v6 div.page_area {
     background: rgba(var(--background)) !important;
 }
 
@@ -1144,16 +1068,13 @@ body.v6 div#global_header .content {
     background: var(--bedarkgrey) !important;
 }
 
-.apphub_responsive_tab .responsive_tab_control .responsive_tab_control_inner,
-.apphub_sectionTab.active>span {
+.apphub_responsive_tab .responsive_tab_control .responsive_tab_control_inner, .apphub_sectionTab.active > span {
 
     background: rgba(var(--background)) !important;
     color: var(--white) !important;
 }
 
-.apphub_responsive_tab .responsive_tab_control,
-.apphub_sectionTab.active,
-.apphub_sectionTab.active:hover {
+.apphub_responsive_tab .responsive_tab_control, .apphub_sectionTab.active, .apphub_sectionTab.active:hover {
     background: 0 0 !important;
 }
 
@@ -1269,14 +1190,6 @@ input.community_home_search_players_input {
     transform: translate(-50%) !important;
 }
 
-.modal {
-    max-height: calc(100% - 100px) !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-}
-
 .mediaTop .mediaSidebar {
     background-color: rgba(var(--backgroundLightish)) !important;
     height: -webkit-fill-available !important;
@@ -1330,8 +1243,7 @@ body.flat_page:not(.iframe) {
     background: 0 0 !important;
 }
 
-.sectionTab,
-a.sectionTab {
+.sectionTab, a.sectionTab {
     background-color: rgba(0, 0, 0, 0) !important;
 }
 
@@ -1518,8 +1430,7 @@ div#headerSearch.friend_activity_header_search {
     min-width: 0 !important;
 }
 
-.blotter_appselect div.option,
-.blotter_appselect_options div.option {
+.blotter_appselect div.option, .blotter_appselect_options div.option {
     padding-right: 7px !important;
 
     cursor: pointer !important;
@@ -1824,8 +1735,7 @@ div#headerSearch.friend_activity_header_search {
     background: 0 0 !important;
 }
 
-.friends_search_text_box,
-.groups_search_text_box {
+.friends_search_text_box, .groups_search_text_box {
 
     background: 0 0 !important;
     background-color: rgba(var(--backgroundDarkest)) !important;
@@ -1855,8 +1765,7 @@ div#headerSearch.friend_activity_header_search {
     background: rgba(var(--backgroundLightish)) !important;
 }
 
-.profile_friends.title_bar,
-.profile_groups.title_bar {
+.profile_friends.title_bar, .profile_groups.title_bar {
     margin-top: 4px !important;
 
 }
@@ -1867,15 +1776,13 @@ div#headerSearch.friend_activity_header_search {
     border-bottom: 0 !important;
 }
 
-.friends_search_text_box,
-.groups_search_text_box {
+.friends_search_text_box, .groups_search_text_box {
     background-color: rgba(var(--background)) !important;
 
     border: 0 !important;
 }
 
-.profile_friends.title_bar,
-.profile_groups.title_bar {
+.profile_friends.title_bar, .profile_groups.title_bar {
     background-color: rgba(255, 255, 255, .1) !important;
 }
 
@@ -1976,10 +1883,6 @@ body.v6 .discount_block {
 .sale_capsule_image_hover {
     border: 1px solid rgba(var(--backgroundDarkest)) !important;
 
-}
-
-.home_discounts_ctn {
-    background: rgba(var(--background)) !important;
 }
 
 .home_discounts_ctn .home_discount_line {
@@ -2100,11 +2003,6 @@ body.v6 .wishlist_header h2 {
     color: var(--white) !important;
 }
 
-.btn_medium>span,
-input.btn_medium {
-    padding: 0 15px !important;
-    line-height: 30px !important;
-}
 
 #rightContents .box {
 
@@ -2122,8 +2020,7 @@ input.btn_medium {
     background: rgba(0, 0, 0, .2) !important;
 }
 
-a.activetrigger,
-a.trigger {
+a.activetrigger, a.trigger {
 
     background: 0 0 !important;
     background-color: var(--black) !important;
@@ -2151,8 +2048,7 @@ a.trigger {
 }
 
 
-.favoritegame_showcase .game_info_stats,
-.recent_game .game_info_stats {
+.favoritegame_showcase .game_info_stats, .recent_game .game_info_stats {
     background-color: transparent !important;
 
     border-top: 0 !important;
@@ -2192,8 +2088,7 @@ a.trigger {
     border-radius: 4px !important;
 }
 
-.commentthread_header,
-.profile_leftcol_header {
+.commentthread_header, .profile_leftcol_header {
     border-bottom: 0 !important;
 
     background-color: transparent !important;
@@ -2218,8 +2113,7 @@ a.trigger {
     background-color: var(--littlegrey) !important;
 }
 
-.profile_comment_area .commentthread_header,
-.profile_leftcol_header {
+.profile_comment_area .commentthread_header, .profile_leftcol_header {
     background-color: transparent !important;
 }
 
@@ -2240,8 +2134,7 @@ a.trigger {
     margin-bottom: -2px !important;
 }
 
-.commentthread_footer,
-.commentthread_header {
+.commentthread_footer, .commentthread_header {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 }
@@ -2267,15 +2160,12 @@ a.trigger {
     color: var(--white) !important;
 }
 
-input[type=number],
-input[type=password],
-input[type=text],
-select {
+input[type="number"], input[type="password"], input[type="text"], select {
     border: 2px solid transparent !important;
 
 }
 
-#search_players_form input[type=submit] {
+#search_players_form input[type="submit"] {
     margin-top: 5px !important;
     margin-left: 5px !important;
 }
@@ -2284,8 +2174,7 @@ body.flat_page {
     background: rgba(var(--background)) !important;
 }
 
-body.flat_page #footer_spacer,
-body.headerless_page #footer_spacer {
+body.flat_page #footer_spacer, body.headerless_page #footer_spacer {
 
     background: rgba(var(--background)) !important;
 }
@@ -2315,8 +2204,7 @@ body.headerless_page #footer_spacer {
     height: 36px !important;
 }
 
-.game_purchase_discount .bundle_base_discount,
-.game_purchase_discount .discount_pct {
+.game_purchase_discount .bundle_base_discount, .game_purchase_discount .discount_pct {
 
     height: 36px !important;
     line-height: 32px !important;
@@ -2347,8 +2235,7 @@ img.game_header_image_full {
     margin-left: -5px !important;
 }
 
-#review_create h1,
-.reviewDate {
+#review_create h1, .reviewDate {
     border-top: 0 !important;
 }
 
@@ -2388,8 +2275,7 @@ img.game_header_image_full {
 
 }
 
-.game_description_column h2,
-.recommendation_bodytext h2 {
+.game_description_column h2, .recommendation_bodytext h2 {
     background-image: none !important;
 }
 
@@ -2428,8 +2314,7 @@ img.game_header_image_full {
 
 }
 
-.game_description_column h2,
-.recommendation_bodytext h2 {
+.game_description_column h2, .recommendation_bodytext h2 {
     background-image: none !important;
 }
 
@@ -2564,9 +2449,7 @@ body.v6 #footer .rule {
 
 }
 
-.highlight_ctn .slider .handle,
-.highlight_ctn .slider_ctn .slider_left,
-.highlight_ctn .slider_ctn .slider_right {
+.highlight_ctn .slider .handle, .highlight_ctn .slider_ctn .slider_left, .highlight_ctn .slider_ctn .slider_right {
     background-color: rgba(0, 0, 0, .4) !important;
 
 }
@@ -2708,16 +2591,13 @@ div.early_access_announcements .post .more:hover {
 
 }
 
-.enable_review_comments input,
-.review_received_comp input {
+.enable_review_comments input, .review_received_comp input {
     vertical-align: text-top;
 
     background: var(--littlegrey) !important;
 }
 
-.friend_activity .friend_block_avatar,
-.friend_block_holder .friend_block_avatar,
-.playerAvatar {
+.friend_activity .friend_block_avatar, .friend_block_holder .friend_block_avatar, .playerAvatar {
 
     padding: 0 !important;
 }
@@ -2756,8 +2636,7 @@ div.early_access_announcements .post .more:hover {
     margin-right: 4px !important;
 }
 
-.commentthread_footer,
-.commentthread_header {
+.commentthread_footer, .commentthread_header {
     padding-bottom: 15px !important;
     padding-top: 10px !important;
 
@@ -2897,16 +2776,12 @@ a.readmore_link {
     background: var(--darkblue) !important;
 }
 
-.pagebtn,
-a.pagebtn {
+.pagebtn, a.pagebtn {
     background-color: rgba(var(--background)) !important;
 }
 
 
-.commentthread_comment_edit_textarea_ctn,
-.gray_bevel,
-input.gray_bevel,
-textarea.gray_bevel {
+.commentthread_comment_edit_textarea_ctn, .gray_bevel, input.gray_bevel, textarea.gray_bevel {
     border: 0 !important;
 
 }
@@ -2924,8 +2799,7 @@ textarea.gray_bevel {
 
 }
 
-.btn_grey_black.btn_active,
-btn_grey_black.active {
+.btn_grey_black.btn_active, btn_grey_black.active {
     text-decoration: none !important;
     color: var(--white) !important;
 
@@ -2954,8 +2828,7 @@ btn_grey_black.active {
 
 }
 
-.btn_addtocart .btn_addtocart_left,
-.btn_addtocart .btn_addtocart_right {
+.btn_addtocart .btn_addtocart_left, .btn_addtocart .btn_addtocart_right {
     background: 0 0 !important;
 }
 
@@ -3072,8 +2945,7 @@ btn_grey_black.active {
 
 }
 
-.games_list_tab,
-a.games_list_tab {
+.games_list_tab, a.games_list_tab {
     padding: 0 12px !important;
 
     border-top: 0 !important;
@@ -3085,8 +2957,7 @@ a.games_list_tab {
     background-repeat: no-repeat
 }
 
-.games_list_tab.first_tab,
-a.games_list_tab.first_tab {
+.games_list_tab.first_tab, a.games_list_tab.first_tab {
 
     margin-left: 1px !important;
 }
@@ -3111,8 +2982,7 @@ a.games_list_tab.first_tab {
 #tabcontent_inventory {
     background-color: rgba(var(--backgroundLightish)) !important;
 }
-#iteminfo0 .item_desc_content,
-#iteminfo1 .item_desc_content {
+#iteminfo0 .item_desc_content, #iteminfo1 .item_desc_content {
 
 
     background-color: var(--thegrey) !important;
@@ -3130,8 +3000,7 @@ a.games_list_tab.first_tab {
     background-image: none !important;
 }
 
-.market_dialog_contents .item,
-.trade_item_box .item {
+.market_dialog_contents .item, .trade_item_box .item {
     background-color: rgba(0, 0, 0, 0) !important;
 
 }
@@ -3232,8 +3101,7 @@ a.games_list_tab.first_tab {
     margin-left: 50px !important;
 }
 
-#ig_bottom .sidebar .detailPanel,
-#ig_bottom .sidebar .panel {
+#ig_bottom .sidebar .detailPanel, #ig_bottom .sidebar .panel {
     background: rgba(var(--background)) !important;
 
 }
@@ -3337,8 +3205,7 @@ a.games_list_tab.first_tab {
     padding: 0 10px !important;
 }
 
-.profile_small_header_texture>h1,
-h2 {
+.profile_small_header_texture > h1, h2 {
     padding-left: -40px !important;
 }
 
@@ -3396,8 +3263,7 @@ h2.pageheader {
     font-size: 18px !important;
 }
 
-.tabOff,
-.tabOn {
+.tabOff, .tabOn {
     background: rgba(var(--background)) !important;
 
 }
@@ -3408,14 +3274,6 @@ h2.pageheader {
     margin: 0 40px 0 10px !important;
 }
 
-#modalContentFrameContainer {
-    height: 100% !important;
-    overflow: scroll !important;
-}
-
-#modalContentFrameContainer .modalContent_iFrame {
-    height: 900% !important;
-}
 
 .profile_leftcol_header>h2 {
     padding-left: 0 !important;
@@ -3430,8 +3288,7 @@ h2.pageheader {
 }
 
 
-.favoritegame_showcase .game_info_stats,
-.recent_game .game_info_stats {
+.favoritegame_showcase .game_info_stats, .recent_game .game_info_stats {
     padding: 10px 0 10px !important;
 }
 
@@ -3439,25 +3296,16 @@ h2.pageheader {
     float: right !important;
 }
 
-.sale_page_background {
-    background-color: rgba(var(--background)) !important;
-}
 
 body.v6.winter_sale_home h2.winter {
     margin-left: -40px !important;
 }
 
-.shadow_bottom,
-.shadow_left,
-.shadow_right,
-.shadow_top {
+.shadow_bottom, .shadow_left, .shadow_right, .shadow_top {
     display: none !important;
 }
 
-.shadow_bl,
-.shadow_br,
-.shadow_ul,
-.shadow_ur {
+.shadow_bl, .shadow_br, .shadow_ul, .shadow_ur {
     display: none !important;
 }
 
@@ -3648,227 +3496,3 @@ div.profile_page.has_profile_background {
 
 
 
-
-
-
-
-
-/* STUFF I ADDED:
-
-/*###########################################################
-/*###########################################################
-/*modal popup(s) settings */
-
-/*background of popup (content) */
-._2ZgLvT82YJj60ipYm334jn, ._2vlF5KjDw2loCDFMY4RvKe{
-	background: rgba(var(--background)) !important;
-  }
-  /*remove border from main box
-  .lwprNSgEnKfVSHIzsgbFi {
-	border: 0 !important;
-  }
-  /*side-buttons*/
-  .bIoyqcxSbys_LNwXBL-qT {
-   background: var(--littlegrey) !important;
-   border: 0 !important; 
-  }
-  /*header*/
-  ._35gM9i287FT5Vx0nL7vX6o{
-	background: rgba(var(--backgroundDarkest)) !important;
-  }
-  /*header activity text color*/
-  ._30JUMWVZpKjo5yyNMLHj2N{
-	color: rgba(var(--accent)) !important;
-  }
-  /*links*/
-  ._3v0cwU9svPlYyRjL6HO1ZC a:not(.LinkButton){
-	color: rgba(var(--accent)) !important;
-  }
-  /*footer */
-  ._3BVe_okecnI7b_bHj5SS42{
-	background-image: none !important;
-	background: rgba(var(--backgroundDark)) !important;
-  }
-  /*button containers*/
-  ._1uhQYKdgwmtsVDpLxrmOc4,._3tXYJmiDltr-fLKAH0O_yp,.cLK_FdqhScxUTzHU6WVEN{
-	background: rgba(var(--backgroundDark)) !important;
-  }
-  
-  /*button backgrounds*/
-  ._3P0Tm2XKLVG_I9wjP3H-Zs, ._3P0Tm2XKLVG_I9wjP3H-Zs._3p1Hj4MxioFD7iM63Z3s6T {
-	background: var(--littlegrey) !important;
-  }
-  
-  /*thumb color*/
-  ._1g-EnGAwBxXdVKtEBcdIK_{
-	fill: rgba(var(--accent)) !important;
-  }
-  /*thumb text color*/
-  ._2dVe4z8QrljeVvM0UzTTJ2 {
-	color: rgba(var(--accent)) !important;
-  }
-  /*comment bubble color*/
-  ._1GFRKatJ8pNhUDi-MwuD9D>svg {
-	fill: rgba(var(--accent)) !important;
-  }
-  /*comments number font color*/
-  ._1GFRKatJ8pNhUDi-MwuD9D {
-	color: rgba(var(--accent)) !important;
-  }
-  /*sides of modal (not the content) */
-  /*change blur in background */
-  ._37MAYpIjl0IDA1xVhhsuX8>div:not(._2WEP32t2FdvHSRBiOZug83):not(._24sm_rs0RtItOALHFVIKms):not(._19eb8NMS53lqZR33su0kTr):not(.iJ6kMinIXkRkY49NT2sOx):not(._2SoWN3laHiRo1XbmPyTyPF) {
-	backdrop-filter: blur(0px) brightness(0.65) saturate(0.7);
-  }
-  /* darken overlay on backgroudtn to compensate for missing blur */
-  ._37MAYpIjl0IDA1xVhhsuX8>div {
-	background: var(--semi-transparentblack);
-  }
-  ._3QVsc21O3y-P2jJiD5t6-s._11Gq_4A3cMXdDfUnoeM14v{/* dot on the controller page*/ 
-	  background: rgba(var(--accent)) !important;
-  }
-  
-  /*#############################
-  /*  modals popup*/
-  ._1Lfu7heMNRsXXo1Yfzsp17, ._2vlF5KjDw2loCDFMY4RvKe, ._3wtPUBfilFITcl1s4u6A7T {
-	background: rgba(var(--backgroundLightish));
-  }
-  /* various buttons*/
-  button.DialogButton.Primary, /*accented button*/
-  .gkgG-dWgjpwS_aqlcMNTM /* selected drive for install game modal */
-  {
-	transition-property: opacity,background,color,box-shadow,text-decoration;
-	transition-duration: .2s;
-	background: rgba(var(--accent)) !important;
-	color: black !important;
-  }
-   /*accented button, but disabled*/
-  button.DialogButton.Primary.Disabled{
-	text-decoration: line-through !important;
-	color: rgba(var(--backgroundDarkest)) !important;
-  }
-  
-  
-  /*comment menu border*/
-  ._39nnaT_CLE0m_WXVIrAwaG {
-	background: var(--bedarkgrey);
-  }
-  
-  /*check boxes on install popup*/
-  stop {
-	stop-color: rgba(var(--accent));
-  }
-  
-  /*############################
-  /* steam award popup */
-  
-  /*text accents*/
-  .j46gbjgwR947a_ZyFUQav,
-  .V7W5cNHTPUuSS-4yBUDaN,
-  ._26lUCOjXyPSIUFyyIijjTT,
-  .LnM57J5-ZUcH1tTk6ONqn
-  {
-	color: rgba(var(--accent)) !important;
-  }
-  
-  ._1mfQu39T7gxcr0KSHso6_A {
-	background: rgba(var(--background)) !important;
-  }
-
-/*news page*/
-._2S38QJpullKFgRrAAbwXKF {
-    background: rgba(var(--backgroundDark)) !important;
-}
-._2S38QJpullKFgRrAAbwXKF.iSooR069LClRU-HVpVl- {
-    background: rgba(var(--background)) !important;
-} 
-._1zB7WSbTnA4EyKjG50NcsY{
-	background-image: none !important;
-}
-._3FLuichWmfQCc26hfk8ZxE.T4JRYAs4b4GvlFPcnWDme._2a-qTV-J0Z1Tvv4xRevGxU._2AMvDu5oCwDoIuYmxxkvs-,
-._1DLtrlf4UuAlYReDnWN2R_{
-	background: rgba(var(--backgroundDark)) !important;
-}
-.a0iPyOQq-F_qNEq2ShaGw{
-	background: rgba(var(--backgroundLightish)) !important;
-}
-
-
-/*###########################################################
-/*###########################################################
-/* points shop*/
-
-/* header bg color*/
-._3M7bfuSoa6JGmxA1QmgvE- {
-    background: rgba(var(--background)) !important;
-}
-/* steam logo blue ring fix
-(NEED TO ACTUALLY REDO THIS WHOLE THING WHEN I DO ALL THE WEBKIT PAGES NICER)*/
-#points_shop_root > div > div._3M7bfuSoa6JGmxA1QmgvE- > div > div > svg > circle:nth-child(3){
-	fill: transparent !important;
-}
-/* your balance text*/
-._1DA621MdnSeE97mDV9Xo6N{
-	color: rgba(var(--accent)) !important;
-}
-/*bg gradient*/
-._3uAuM7D5wUQg-5M21NGJc5 {
-    background: radial-gradient(63.94% 1024px at 50% 200px, rgba(var(--accentDark)) 0%, rgba(var(--background)) 100%) !important;
-}
-/*image color cucking*/
-._1TX8MTfNTg-C5c8w44F6aZ, ._3YNnWUgHCZcVvmfX9qpOQ
-{
-	filter: grayscale(100%) !important;
-}
-/* fix bg image for "all game profiles" and "items from games you play"
-this should be an actual image later
-*/
-#points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > 
-div:nth-child(5) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
-{
-	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
-}
-
-#points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > 
-div:nth-child(15) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
-{
-	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
-}
-._3nHerBg5ELmarLbN--Gmpp, 
-._2MFEYjLdT-bfsz3n1hkGnf {
-    background: none !important;
-}
-/*
-
-/* sidebar bg*/
-._1B_k-wp3lqSLARvY8-5-EX ._1Y8hK5A-ASv-Y5SGGb5Em5.Panel.Focusable,._1B_k-wp3lqSLARvY8-5-EX {
-    background: rgba(var(--background)) !important;
-}
-
-
-/* steam news page
-
-/* header bg*/
-._27-NnvpvTeoXCQvQ6B0_ly {
-    background: rgba(var(--backgroundDark)) !important;
-}
-/* links on main page*/
-body.v6 h2 a {
-    color: rgba(var(--accent)) !important;
-}
-/* links on main page*/
-body.v6 h2 a:hover {
-    color: rgba(var(--textLightest)) !important;
-}
-a:hover {
-    color: rgba(var(--textLightest)) !important;
-}
-
-.btnv6_white_transparent>span:hover {
-    color: rgba(var(--accent)) !important;
-    background: rgba(var(--backgroundLightish)) !important;
-}
-/*various headers
-.apphub_AppName {
-    color: rgba(var(--accent)) !important;
-}

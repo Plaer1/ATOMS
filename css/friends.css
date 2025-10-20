@@ -24,26 +24,12 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 /*all the pages*/
 /*icon stroke*/
-.SVGIcon_X_Line>line,
-.SVGIcon_Maximize>line, 
-.SVGIcon_Maximize rect,
-.SVGIcon_Minimize>line,
-.SVGIcon_MagnifyingGlass path,
-.SVGIcon_PlusCircle line,
-._10OzYaCdn7cgVMec9ozEJG ellipse,
-._10OzYaCdn7cgVMec9ozEJG path
+.SVGIcon_X_Line > line, .SVGIcon_Maximize > line, .SVGIcon_Maximize rect, .SVGIcon_Minimize > line, .SVGIcon_MagnifyingGlass path, .SVGIcon_PlusCircle line, ._10OzYaCdn7cgVMec9ozEJG ellipse, ._10OzYaCdn7cgVMec9ozEJG path
 {
   stroke: rgba(var(--accent)) !important;
 }
 /*icon fill*/
-.SVGIcon_MagnifyingGlass path,
-.friendArm,
-.friendBody,
-.friendBodyFull,
-.friendHead>circle,
-.plusCircle,
-.Bubble,
-._2ovvDFSsxzUoYuqzJsxecQ circle
+.SVGIcon_MagnifyingGlass path, .friendArm, .friendBody, .friendBodyFull, .friendHead > circle, .plusCircle, .Bubble, ._2ovvDFSsxzUoYuqzJsxecQ circle
 {
   fill: rgba(var(--accent)) !important;
 }
@@ -56,10 +42,7 @@ div::-webkit-scrollbar-thumb:window-inactive {
 	background: transparent !important;
 }
 /*disable top gradient*/
-.statusHeaderGlow ellipse,
-._1osHa9KHOmdCDNrA232z4N, 
-._2OoTJwlWvzvAysWOOEQaXS, 
-.singleWindowFocusBar /* disable "focus" gradient*/
+.statusHeaderGlow ellipse, ._1osHa9KHOmdCDNrA232z4N, ._2OoTJwlWvzvAysWOOEQaXS, .singleWindowFocusBar /* disable "focus" gradient*/
  {
     display: none !important;
 }
@@ -158,8 +141,7 @@ html.client_chat_frame .chatWindow .chatEntry  {
 .PP7LM0Ow1K5qkR8WElLpt {
     background: rgba(var(--backgroundDarkish)) !important;
 }
-.chatRoomGroupNavColumn, /* chat rooms left side */
-.MemberListColumn {
+.chatRoomGroupNavColumn, .MemberListColumn {
 	background: rgba(var(--backgroundDarkish)) !important;
 }
 /* highlight for active channel in group chat */

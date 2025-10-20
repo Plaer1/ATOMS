@@ -9,15 +9,18 @@ html,body{
 	background: rgb(var(--background)) !important;
 }
 /* fix menus at the top */
-.contextMenuItem,
-._1UgM1Pm8SbTWX7_2f-crGt /* notif dropdown */
+.contextMenuItem, ._1UgM1Pm8SbTWX7_2f-crGt /* notif dropdown */
  {
   background: rgba(var(--background)) !important;
 }
 
 /* notifications dropdown button backgrounds */
-._2caCrhFIrYqRuguK-cB6be, 
-._1oERP7bVictkby2hP4BBva
+._2caCrhFIrYqRuguK-cB6be, ._1oERP7bVictkby2hP4BBva
 {
 	background: rgba(var(--backgroundLight)) !important;
 } 
+._11phBiBefcVQdzrnrezkKa, /*account name in account settings dropdown*/
+._2jphjrSifC6orDT4g_7Wd /*wallet balance in account settings dropdown*/
+{
+	color: rgb(var(--textAccented)) !important;
+}

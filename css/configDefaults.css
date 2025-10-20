@@ -43,89 +43,105 @@ the config is broken down into a few main sections:
 			without the normal "rgba()" formating.
 
 	/*greys*/
-	--grey: 			30, 30, 30; 	/*#1e1e1e*/
-	--greyDarkish: 		28, 28, 28;		/*#262626*/
-	--greyLightish: 	38, 38, 38;		/*#3d3d3d*/
-	--greyLight: 		61, 61, 61;		
-	--greyLightest: 	234, 234, 234;
-	--greyDark: 		25, 25, 25;		/*#1b1b1b*/
-	--greyDarkest: 		22, 22, 22;		/*#161616*/
-	--white: 			255, 255, 255; 
+	--grey: 						30, 30, 30; 	/*#1e1e1e*/
+	--greyDarkish: 					28, 28, 28;		/*#262626*/
+	--greyLightish: 				38, 38, 38;		/*#3d3d3d*/
+	--greyLight: 					61, 61, 61;		
+	--greyLightest: 				234, 234, 234;
+	--greyDark: 					25, 25, 25;		/*#1b1b1b*/
+	--greyDarkest: 					22, 22, 22;		/*#161616*/
+	--white: 						255, 255, 255; 
 
 	/*reds*/
-	--red:				255, 0, 0;
+	--red:							255, 0, 0;
 
 	/*oranges*/
-	--orange:			255, 102, 0; 
+	--orange:						255, 102, 0; 
 
 	/*yellows*/
-	--yellow:			255, 255, 0;
+	--yellow:						255, 255, 0;
 
 	/*greens*/
-	--green:			51, 255, 0; 
+	--green:						51, 255, 0; 
 
 	/*purples*/
-	--purple:			102, 36, 226; 
+	--purple:						102, 36, 226; 
 
 	/*blues*/
-    --blue:					66, 177, 249;		/*0, 102, 255;*/
-    --blueLightish:			0, 0, 0;
-    --blueLight:			127, 174, 196;		/*#d7adff*/
-    --blueLightest:			97, 197, 237;
-    --darkishblue:			0, 0, 0;
-    --darkblue:				30, 37, 47;			/*#ab37a7*/
-    --darkestblue:			33, 41, 52;
+    --blue:							66, 177, 249;		/*0, 102, 255;*/
+    --blueLightish:					0, 0, 0;
+    --blueLight:					127, 174, 196;		/*#d7adff*/
+    --blueLightest:					97, 197, 237;
+    --darkishblue:					0, 0, 0;
+    --darkblue:						30, 37, 47;			/*#ab37a7*/
+    --darkestblue:					33, 41, 52;
 
 	/* Pinks */
-	--pink:					222, 123, 255;		/*#c381ff*/
+	--pink:							222, 123, 255;		/*#c381ff*/
 
-	--pinkLightish:			205, 151, 255;
-	--pinkLight:			215, 173, 255;		/*#d7adff*/
-	--pinkLightest:			252, 106, 247;
+	--pinkLightish:					205, 151, 255;
+	--pinkLight:					215, 173, 255;		/*#d7adff*/
+	--pinkLightest:					252, 106, 247;
 	
-	--darkishPink:			170, 106, 207;		
-	--darkPink:				171, 55, 167;		/*#ab37a7*/
-	--darkestPink:			104, 54, 104;
+	--darkishPink:					170, 106, 207;		
+	--darkPink:						171, 55, 167;		/*#ab37a7*/
+	--darkestPink:					104, 54, 104;
 
-	--pinkWhiteish:			174, 159, 174;		/*#cbbcb*/
-	--pinkWhite:			203, 187, 203;		/*#cbbcb*/
-	--pinkWhiteest:			229, 221, 229;		
+	--pinkWhiteish:					174, 159, 174;		/*#cbbcb*/
+	--pinkWhite:					203, 187, 203;		/*#cbbcb*/
+	--pinkWhiteest:					229, 221, 229;		
 
-	--pinkWhiteDark:		131, 103, 131;
-	--pinkWhiteDarkish:		188, 113, 188;
+	--pinkWhiteDark:				131, 103, 131;
+	--pinkWhiteDarkish:				188, 113, 188;
+
+	/* Transparent Pinks*/
+	--transparentPink:				194, 129, 255, 0.498;	/*#c281ff7f*/
+	--lessTransparentPink:			194, 129, 255, 0.765;	/*#c281ffc3*/
+	--transparenterAccentPink:		194, 129, 255, 0.173;	/*#c281ff2c*/
+	--transparenterPink:			252, 105, 247, 0.216;	/*#fc69f737*/
+	--transparentdarkPink:			#ab37a7ff;				/*#ab37a7ff*/ /*fixme*/
+	--transparentdarkerPink:		154, 70, 151, 0.816;	/*#9a4697d0*/
 
 	/* ATOM'S COLORS */
 	/*change a bunch of accent colors at once*/
 
-	/*static accents*/
-	--accent:		 			var(--pink);
-	--accentLightish:			var(--pinkLightish);
-	--accentLight:				var(--pinkLight);
-	--accentLightest: 			var(--pinkLightest); 
-	--accentDarkish:			var(--darkishPink);		
-	--accentDark:				var(--darkPink);	
-	--accentDarkest:			var(--darkestPink);	
+	/* accents*/
+	--accent:		 				var(--pink);
+	--accentLightish:				var(--pinkLightish);
+	--accentLight:					var(--pinkLight);
+	--accentLightest: 				var(--pinkLightest); 
+	--accentDarkish:				var(--darkishPink);		
+	--accentDark:					var(--darkPink);	
+	--accentDarkest:				var(--darkestPink);	
 
-	/*static backgrounds*/
-	--backgroundLightish: 		var(--greyLightish); 
-	--backgroundLight: 			var(--greyLight);
-	--backgroundLightest: 		var(--greyLightest);
-	--background:				var(--grey);
-	--backgroundDarkish: 		var(--greyDarkish); 
-	--backgroundDark: 			var(--greyDark); 
-	--backgroundDarkest: 		var(--greyDarkest);
+	/*transparent accents*/
+	--accentTransparent: 			var(--transparentPink);
+	--accentLightTransparentest:	var(--transparenterAccentPink);
+	--accentLessTransparent:		var(--lessTransparentPink);
+	--accentMoreTransparent:		var(--transparenterPink);
+	--accentDarkTransparent: 		var(--transparentdarkPink);
+	--accentDarkerTransparent:		var(--transparentdarkerPink);
 
-	--textAccented:				var(--accent);
-	--textLightish:				var(--pinkWhiteish);
-	--textLight:				var(--pinkWhite);
-	--textLightest:				var(--pinkWhiteest);
-	--textWhite:				var(--white);
-	--textDarkish:				var(--pinkWhiteDarkish);
-	--textDark:				    var(--pinkWhiteDark);
+	/* backgrounds*/
+	--backgroundLightish: 			var(--greyLightish); 
+	--backgroundLight: 				var(--greyLight);
+	--backgroundLightest: 			var(--greyLightest);
+	--background:					var(--grey);
+	--backgroundDarkish: 			var(--greyDarkish); 
+	--backgroundDark: 				var(--greyDark); 
+	--backgroundDarkest: 			var(--greyDarkest);
+
+	--textAccented:					var(--accent);
+	--textLightish:					var(--pinkWhiteish);
+	--textLight:					var(--pinkWhite);
+	--textLightest:					var(--pinkWhiteest);
+	--textWhite:					var(--white);
+	--textDarkish:					var(--pinkWhiteDarkish);
+	--textDark:				    	var(--pinkWhiteDark);
 
 	
 	/* some static steam color definitons*/
-	--ingame: #92be38;
+	--ingame:						#92be38;
 	--steamNearWhite: 			#ccc;
 	--steamIconWhite: 			#67707b;
 
@@ -136,7 +152,8 @@ the config is broken down into a few main sections:
 	/* ####################
 	/* Global Settings */
 	--font:						"Motiva Sans",Arial,Helvetica,sans-serif;		/* changes font*/
-	--accentFilter: 			var(--filterBlueToPink);						/*turns blues pink, must only be used when nessicary*/
+	--accentFilter: 			hue-rotate(79deg);								/*turns blues pink, must only be used when nessicary*/
+
 	/* ####################
 	/* Library Settings */
 	--libraryText:				"Home";											/* changes the home text in the library*/
@@ -192,7 +209,7 @@ the config is broken down into a few main sections:
 	--opacity1:		0.1; 
 	--opacity2:		0.2; 
 	--opacity3:		0.3; 
-	--opacity333:	0.3; 
+	--opacity333:	0.333; 
 	--opacity4:		0.4; 
 	--opacity5:		0.5; 
 	--opacity6:		0.6; 
@@ -203,14 +220,6 @@ the config is broken down into a few main sections:
 	--opacity85:	0.85; 
 	--opacity9:		0.9; 
 	--opacity100:	1.0;  
-
-	--filterBlueToPink:		hue-rotate(79deg);
-	--filterBlueToPurple:	hue-rotate(0deg);
-	--filterBlueToBlue:		hue-rotate(0deg);
-	--filterBlueToRed:		hue-rotate(146deg);
-	--filterBlueToGreen:	hue-rotate(282deg);
-	--filterBlueToYellow:	hue-rotate(221deg);
-	--filterBlueToOrange:	hue-rotate(192deg);
 
 	
 
@@ -247,15 +256,9 @@ don't use any of this....
 	--invisibleblack: #00000000;
 	--halfvisibleblack: #00000077;
 	
-	--lessTransparentPink: #c281ffc3;
-	--transparentPink: #c281ff7f;
 	--moreTransparentPink: #c281ff3d;
-	--transparenterAccentPink: #c281ff2c;
 	--transparentbrightPink: #fc6af7ff;
-	--transparentdarkPink: #ab37a7ff;
-	--transparentdarkerPink: rgba(154, 70, 151, 0.815);
 	--transparentaccyPink: #fc6af787;
-	--transparenterPink: #fc69f737;
 	--barelyVisiblePink: #fc6af71a;
 	--hotpink: #ff00ff; 
 
@@ -281,13 +284,7 @@ don't use any of this....
 	--transpurple: #6624e2b3; 
 
 	--backgroundDarkTransparent:var(--halfvisibleblack);
-	--accentLessTransparent:	var(--lessTransparentPink);
-	--accentTransparent: 		var(--transparentPink);
-	--accentLightTransparentest:var(--transparenterAccentPink);
-	--accentLessTransparent:	var(--lessTransparentPink);
-	--accentMoreTransparent:	var(--transparenterPink);
-	--accentDarkTransparent: 	var(--transparentdarkPink);
-	--accentDarkerTransparent:	var(--transparentdarkerPink);
+
 }
 
 

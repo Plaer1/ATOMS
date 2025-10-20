@@ -14,14 +14,25 @@
 *{  /*Uncomment if you want to change the font */
     font-family: var(--font) !important;
 }
-html,body{
+body.seasonal_sale .home_tab_bg_ctn{
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0) 10%, rgba(36, 17, 41, 0.35) 65%, rgba(62, 23, 61, 0.5) 95%, rgba(87, 40, 98, 0.5) 100%);
+}
+body.seasonal_sale .home_tab_button.active{
+	background: rgba(87, 40, 98, 0.5) !important;
+}
+body:not(.seasonal_sale):not(.sale_page_background),
+._3aht--c1L66YvvpY-Il67f /*main column background on news/app pages*/
+{
 	background: rgb(var(--background)) !important;
 }
 .game_page_background,
 .apphub_background {
 	background: rgba(var(--background)) !important;
 }
-
+._2Ptras-ZC31rwdT6pD-t0a /*farthest back bacground on news/app pages */
+{
+	background: rgb(var(--backgroundDarkish)) !important;
+}
 /*scrollbar stuff*/
 div::-webkit-scrollbar-thumb:window-inactive {
     background-clip: padding-box !important;
@@ -32,7 +43,8 @@ div::-webkit-scrollbar-thumb:window-inactive {
 /*TODO: 
 make this shit so that it just uses steam classes instead of doing this way*/
 
-.game_area_purchase_not_refundable, .game_area_purchase_custom_cart_credit {
+.game_area_purchase_not_refundable,
+.game_area_purchase_custom_cart_credit {
     padding-top: 0 !important;
 }
 
@@ -43,10 +55,23 @@ make this shit so that it just uses steam classes instead of doing this way*/
 /*#############################################################################
 /*#############################################################################
 /*#############################################################################
+/* New Top bar
+
+/* opaque background for top bar*/
+
+	
+
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
+/*#############################################################################
 /* Update news popup (internal content)
 
 /* bg for main area and arrow area */
-.O7VJKyPtoS7TXCr6mrwCr, ._1N7O3VXbkpN2z55HsSDZsi{
+.O7VJKyPtoS7TXCr6mrwCr,
+._1N7O3VXbkpN2z55HsSDZsi{
     background: rgba(var(--background)) !important;
 }
 
@@ -54,18 +79,28 @@ make this shit so that it just uses steam classes instead of doing this way*/
 /* icon colors
 
 /*icon stroke*/
-polyline, circle, line{
+/*fixme,
+dirty,
+breaks things*/
+polyline,
+circle,
+line
+{
   stroke: rgba(var(--accent)) !important;
 }
 
 /*icon fill transparent light*/
-._3ZyZUkBq73dLvZ6zKdM9PQ path, ._3ZyZUkBq73dLvZ6zKdM9PQ path           /* left right arrows when they are not clickable*/
+._3ZyZUkBq73dLvZ6zKdM9PQ path,
+._3ZyZUkBq73dLvZ6zKdM9PQ path           /* left right arrows when they are not clickable*/
 {
-  fill: rgba(var(--accent), var(--opacity3)) !important;
+  fill: rgba(var(--accent), 
+  var(--opacity3)) !important;
 }
 
 /*icon fill full color*/
-._3ZyZUkBq73dLvZ6zKdM9PQ.cwA5j4AsP5OB7WjWuOlFv path                    /* left right arrows when they are clickable*/
+._3ZyZUkBq73dLvZ6zKdM9PQ.cwA5j4AsP5OB7WjWuOlFv path,
+svg.Sf3urgalDvD2sZqNjEV9i path,
+.QQy4BCjcpjCfAvTKAqBq3 > svg /*comment bubble on news/app pages*/
 {
   fill: rgba(var(--accent)) !important;
 }
@@ -74,21 +109,39 @@ polyline, circle, line{
 /* button colors
 
 /* click for details*/
-._3YohCYvZ6UbfgCXH2uhaOD
+._3YohCYvZ6UbfgCXH2uhaOD,
+._1Yo-ZsBr-KbVMyAMXEYszd,
+._1ECtb6W4gvvCrevAbzsKq_ ._3jXeonOfw-RB-1PDdJqSUx ._1vPyDoJDpPKIAmF1YMCtY0, /*big blue buttons in store dropdown*/
+._3gaaE-cRfFWJdZcC8XMi0x /*underline for when browse is highlighted on the new steam bar*/
 {
     background: rgba(var(--accent)) !important;
 }
 
+.-bDCBiZsIWB-_6IzGxbhz._2SVHFh60yRjQbYRg6t2mcK ._15eaL848WovXjJ0POHaD9D,/*new gradient for top brows menu in store*/
+ .-bDCBiZsIWB-_6IzGxbhz.JWPtoi9esADBpUUkODq1z ._15eaL848WovXjJ0POHaD9D:nth-child(1), /*new gradient for top brows menu in store???*/
+.h2B3SGR_w4RWdrnsRZEcD ._19o1GB7ysfrWKLYpqZ6aXu._2IyR9WyPwYb15ILBjPvLR9, /*light transparency when new dropdown is open*/
+._3CCxBBbZTQS6eTjcQD5W-D ._23ZVj5bpOrPKV-d5CWG7lu:nth-child(2), /*docking station hardware link BG in store dropdown*/
+._2eh4iDod50HkFNh5C0fVW6 ._3ezyMaw8mNCokAmQuZDbj1, /*bar fill for watched video progress*/
+._1PSb462Tg4S8M046QIk4PM /*explore my que button in new top menu*/ 
+{
+		filter: var(--accentFilter) !important;
+
+   /* background: linear-gradient(180deg,
+rgba(97, 34, 200, 0.29) -5%, #0a81c3c4 100%);*/
+}
+
 /* New! */
 ._2_KY_e11FV0ftXR2_7TMmP{
-    background: rgba(var(--accent), var(--opacity2)) !important;
+    background: rgba(var(--accent),
+var(--opacity2)) !important;
 } 
 /*#################
-/* status colors
+/* status colors*/
 
-/*online color*/
-.online>.friendBlockContent {
-    color: rgba(var(--accent));
+
+.online > .friendBlockContent,
+button._175B12uOwmeGBNcSaQFe-Z._2IyR9WyPwYb15ILBjPvLR9 /*brows and the down arrow on the new store bar*/ {
+    color: rgba(var(--accent)) !important;
 }
 
 /*#################
@@ -97,7 +150,7 @@ polyline, circle, line{
 /*unselected boxes*/
 .ZQrtMhZB1tpkd2bgBXyIF
 {
-    background: var(--accentMoreTransparent) !important;
+    background: rgba(var(--accentMoreTransparent)) !important;
 }
 
 /* highlighted box*/
@@ -126,7 +179,8 @@ polyline, circle, line{
 	display:inline-block !important;
 	transform-origin:left;
 }
-.Bar{
+.Bar,
+.profile_customization_header{
 	background: rgba(var(--accent)) !important;
 
 }
@@ -136,16 +190,16 @@ polyline, circle, line{
 align-items: center;
 }
 /*fixes for the extra info buttons on the store page*/
-.steamdbInfoButton>a>svg,
-.pcgamingwikiInfoButton>a>svg
+.steamdbInfoButton > a > svg,
+.pcgamingwikiInfoButton > a > svg
 {
 	height: 26px;
     width: 26px;
 }
 /*makes external info icons pretty on hover*/
-.steamdbInfoButton>a>svg>polygon:hover,
-.steamdbInfoButton>a>svg>path:hover,
-.pcgamingwikiInfoButton>a>svg>path:hover
+.steamdbInfoButton > a > svg > polygon:hover,
+.steamdbInfoButton > a > svg > path:hover,
+.pcgamingwikiInfoButton > a > svg > path:hover
 {
 	fill: rgba(var(--white)) !important;
 
@@ -166,40 +220,57 @@ align-items: center;
 /*#############################################################################
 /* Start doing work on store below here*/
 
-.gutter_header,/*sidebar header text*/
-.dselect_container a.trigger, /* name for the dropdown*/
-.bb_h2, .bb_h3, /*various headers*/
-.persona.online a, /*view wishlish*/
-.all_languages, /*view all languages button*/
-.review_box.partial .view_more a, /*read more on game reviews*/
-.steamdb_stats_number /*steamdb extension stats number*/
+.gutter_header,
+.dselect_container a.trigger,
+.bb_h2,
+.bb_h3,
+.persona.online a,
+.all_languages,
+.review_box.partial .view_more a,
+.steamdb_stats_number,
+._16dREqlIrGflPfbNtLGdJh,
+._2ilpH-HpvuSm6s5MWX5bA- .JYQgsMzgbFLgarphirEoQ ._3M92hj6aELzceURcKR7WFu ._2iEkqauHWZiCAOo0cWqnPP,
+._25N0xPcslHWWCQovL3Ycpk,
+._2u9RZJXJSDg3e-J_EX1exE,
+.KId8dCUFbYh_bz-jozERD,
+.spotlight_body,
+._1PuyX9P-ZPobFUE_2scw0_, /* some link text in store dropdown*/
+.btn_darkblue_white_innerfade							/*a bunch of buttons*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
-.gutter_item, /*sidebar category text*/
-.tab_filter_control_row:not(.checked) span.tab_filter_control, /*sidebar in game search page*/
-.search_result_row .col.search_released, /* middle column */
-.searchbar .label
+._2ilpH-HpvuSm6s5MWX5bA- .JYQgsMzgbFLgarphirEoQ ._3M92hj6aELzceURcKR7WFu.Efo_8muMPNLjjSbObMuDq /*border color on selection for award page*/
+{
+	border-color: rgb(var(--accent)) !important;
+}
+.gutter_item,
+.tab_filter_control_row:not(.checked) span.tab_filter_control,
+.search_result_row .col.search_released,
+.searchbar .label,
+._1E3Anhs34BXsWWWqH4RNPL ._1LkWXJVxWYdKiKf2Mxq3zs._2D0ZNOuC3rrY9bf_BY1msw /*regular update in events hub*/
 {
 	color: rgba(var(--textLightish)) !important;
 }
 
-.spotlight_body, 										/* deal text in main store*/
-.btn_darkblue_white_innerfade 							/*a bunch of buttons*/
-{
-	color: rgb(var(--textAccented)) !important;
-}
-.new_items_num, .new_items_text /*recently played/viewed items on the community home page*/
+.new_items_num,
+.new_items_text /*recently played/viewed items on the community home page*/
 {
 	color: rgb(var(--textDarkish)) !important;
 }
-/*sidebar recently viewed*/
-#home_gutter_recentlyviewed {
+
+#home_gutter_recentlyviewed /*sidebar recently viewed*/
+
+{
     background: radial-gradient(circle at 0%, rgba(var(--accent),0) 20%, rgba(var(--accentDarkest),0.25) 100%) !important;
+}
+div._3notzMjxQtogi11XHZMYXI /*wishlist button on sale/non-game store pages*/
+{
+    background: radial-gradient(ellipse at top right, rgb(var(--accent)), rgb(var(--accentDarkish)));
 }
 .deep_dive_tag {
 	color: rgb(var(--textAccented)) !important;
-    background: rgba(var(--accent), 0.169 ) !important;
+    background: rgba(var(--accent),
+0.169 ) !important;
 }
 /* recently updated text*/
 .recently_updated_desc{
@@ -237,17 +308,18 @@ align-items: center;
 	color: rgb(var(--textLight)) !important;
 }
 /*line through price on discounts*/
-.discount_original_price:before {
-    border-bottom: 1.5px solid rgba(var(--accentDarkest), 0.42);
+.discount_original_price::before {
+    border-bottom: 1.5px solid rgba(var(--accentDarkest),
+0.42);
 }
 
-.more_content_title>span, /*show more games text at bottom of scroll*/
-.more_content, /*highlighted text at bottom of main store page*/
-.more_content>a /*highlighted random game text at bottom of main store page*/
-
+.more_content_title > span,
+.more_content,
+.more_content > a /*highlighted random game text at bottom of main store page*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
+
 .more_content>a:hover /*highlighted random game text at bottom of main store page*/
 {
 	color: rgb(var(--textLightest)) !important;
@@ -264,13 +336,23 @@ align-items: center;
 
 I REALLY NEED TO FIGURE OUT IF THIS IS HOW I'M GONNA HANDLE BUTTONS OR NOT
 
-/*blue button, add to lib, bundle info, etc
+/*blue button,
+add to lib,
+bundle info,
+etc
 .btn_blue_steamui>span {
-    background: linear-gradient( to right, rgb(var(--accent)) 5%, rgb(var(--accentDarkish)) 60%);
+    background: linear-gradient( to right,
+rgb(var(--accent)) 5%,
+rgb(var(--accentDarkish)) 60%);
 }*/
-/*blue button, add to lib, bundle info, etc:hover
+/*blue button,
+add to lib,
+bundle info,
+etc:hover
 .btn_blue_steamui:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover > span {
-    background: linear-gradient( to right, rgb(var(--accent)) 5%, rgb(var(--accentLight)) 60%);
+    background: linear-gradient( to right,
+rgb(var(--accent)) 5%,
+rgb(var(--accentLight)) 60%);
 }*/
 
 
@@ -280,65 +362,98 @@ I REALLY NEED TO FIGURE OUT IF THIS IS HOW I'M GONNA HANDLE BUTTONS OR NOT
 }
 
 /*.game_review_summary:not(.positive) {
-	text-shadow: 0px -1px 2px #fff, 0px -2px 4px #FF3, 0px -4px 8px #C33 !important;
+	text-shadow: 0px -1px 2px #fff,
+0px -2px 4px #FF3,
+0px -4px 8px #C33 !important;
 }
 /*que menu button arrow*/
 .queue_menu_arrow>span>img{
 	filter: var(--accentFilter);
 }
 /*check mark image*/
-.add_to_wishlist_area_success>a>span>img,
-.queue_btn_active>span>img,
-.ico16.arrow_next, 
-.slider_right span, 
-.slider_left span, 
-.ahz31bshwySKGB_tBKf14, 
-.L8sFYvKOUztrhXdjxy7mp, 
-._37ugZJhL-qCRkdeZBRju2h, 
-.html5_video_overlay .autoplay_checkbox.checked, 
-.html5_video_overlay .autoplay_checkbox.checked, 
-.ico16.reportv6, 
-img[src*=".steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"], 
+.add_to_wishlist_area_success > a > span > img,
+.queue_btn_active > span > img,
+.ico16.arrow_next,
+.slider_right span,
+.slider_left span,
+.ahz31bshwySKGB_tBKf14,
+.L8sFYvKOUztrhXdjxy7mp,
+._37ugZJhL-qCRkdeZBRju2h,
+.html5_video_overlay .autoplay_checkbox.checked,
+.html5_video_overlay .autoplay_checkbox.checked,
+.ico16.reportv6,
+img[src*=".steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"],
+img[src*="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/593110/header.jpg?t=1646874726"], /*steam news icon on events page*/ 
 img[src*=".steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png?v=1"],
+div._17G2yhjdc_ZmGlMv-L-S05[style*="https://clan.akamai.steamstatic.com/images/27766192/ef80685d3d1463ad5eb569f0825815db7822c1ee.png"],
 .review_award_aggregated,
 img[src*=".steamstatic.com/economy/emoticon/steamthumbsup"],
-.apphub_CardRating.rateUp, 								/*thumbs and number of thumbs on games with a thumbs up on community pages*/
-img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], 
+.apphub_CardRating.rateUp,
+img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"],
 img[src="https://store.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp_v6.png"],
+img[src="https://shared.akamai.steamstatic.com//store_item_assets/steam/apps/593110/header.jpg?t=1646874726"],
 img[src="https://cdn.cloudflare.steamstatic.com/error/bummer.png"],
-.review_source, 
-.user_reviews_filter_menu .title, 
-.vote_button_ctn  a:not(.btn_active) i, 
-.review_box .vote_info .commentCount a, 
-.top_new_releases_banner_ctn, 
-.tab_filter_control_row:not(.disabled).checked, 
-.ds_owned_flag, 
-.search_review_summary.positive, 
+img[src="https://clan.akamai.steamstatic.com/images/27766192/a22d1efc3831fcdfa020dfdc70ac208557f6f8a6_400x225.png"],
+img[src="https://clan.akamai.steamstatic.com/images/27766192/c557e87651aa9becba1be13fb0eb2a9e13d50a98_400x225.jpg"],
+img[src*="https://store.akamai.steamstatic.com/public/images/applications/store/steam_spinner.png"],
+div.thumb>img[src*="https://store.fastly.steamstatic.com/public/shared/images/userreviews/icon_thumbsUp.png"], /*positive thumb on game page*/
+.v9uRg57bwOaPsvAnkXESO > div.WishlistButton,
+.review_source,
+.user_reviews_filter_menu .title,
+.vote_button_ctn a:not(.btn_active) i,
+.review_box .vote_info .commentCount a,
+.top_new_releases_banner_ctn,
+.tab_filter_control_row:not(.disabled).checked,
+.ds_owned_flag,
+.search_review_summary.positive,
 .range_input,
-._2gxv9cF-4n9wq4yxruOTNl._2o-5t6bgEJxfbWVSmxT88V, /*in library capsule on game page*/
-.game_page_autocollapse_readmore, /*readmore button on game page*/
-.btn_blue_steamui, /*many blue buttons on store page*/
-.ds_completetheset, /*complete your collection popup on store page*/
-.popup_menu_subheader, /*headers in the popup menus in the store*/
-.gradient, /*category gradients*/
-#modalContentTitleBar /*modal titlebars*/,
-.itad-pricing, /*itad info (need to fix some broke colors later*/
-.itad_ico.svelte-1cf0mrd i.svelte-1cf0mrd, /*itad icon for augmented steam*/
-.steamdb_ico.svelte-1cf0mrd i.svelte-1cf0mrd, /*steamdb icon from same*/
-.apphub_CardBG.workshop, /*workshop card on community pages*/
-.review_histogram, /*review history chart on game pages, need to fix so it doesn't change the negative reviews colors*/
-.apphub_CardAnnouncementBG, /*app hub announcement icon*/
-.apphub_CardPinnedIcon, /*app hub pinned icon*/
-.apphub_AllContentText, /*app hub top glow /text*/
-.apphub_HubDivider, /*app hub top divider*/
-.apphub_HeaderBottomBG, /*app hub top divider glow*/
-.play_button, /*html5 play/pause button */
-.es_slider_toggle, /*html5 video expand button*/
-.cart_tab,/*thank you box on game checkout page*/
-.checkout_steam_rewards_banner /*rewards info on checkout page*/
+._2gxv9cF-4n9wq4yxruOTNl._2o-5t6bgEJxfbWVSmxT88V,
+.game_page_autocollapse_readmore,
+.btn_blue_steamui,
+.ds_completetheset,
+.popup_menu_subheader,
+.gradient,
+#modalContentTitleBar,
+.itad-pricing,
+.itad_ico.svelte-1cf0mrd i.svelte-1cf0mrd,
+.steamdb_ico.svelte-1cf0mrd i.svelte-1cf0mrd,
+.apphub_CardBG.workshop,
+.review_histogram,
+.apphub_CardAnnouncementBG,
+.apphub_CardPinnedIcon,
+.apphub_AllContentText,
+.apphub_HubDivider,
+.apphub_HeaderBottomBG,
+.play_button,
+.es_slider_toggle,
+.cart_tab,
+.checkout_steam_rewards_banner,
+span.es_overlay.svelte-52sejw
 {
 	filter: var(--accentFilter) !important;
 } 
+div.MvLJDXjfbme8Uw3OERaCb > .CapsuleImageCtn>img._2eQ4mkpf4IzUp1e9NnM2Wr[src="https://shared.akamai.steamstatic.com//store_item_assets/steam/apps/593110/header.jpg?t=1646874726"]/* fix blur on sub-header image for steam update news on the steam blog pages in the events view*/
+{
+	filter: blur(60px) var(--accentFilter) !important;
+}
+div._3RHFoIvdUHn0fp8G8M258k[style*="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/593110/header.jpg?t=1646874726"] /*steam news hub image*/
+{
+	filter: blur(42px) brightness(40%) var(--accentFilter) !important;
+} 
+
+._2pPj9UWoWM6h318uBN0-8X[style*="https://clan.akamai.steamstatic.com/images/27766192/a22d1efc3831fcdfa020dfdc70ac208557f6f8a6_400x225.png"],
+._2pPj9UWoWM6h318uBN0-8X[style*="https://clan.akamai.steamstatic.com/images/27766192/c557e87651aa9becba1be13fb0eb2a9e13d50a98_400x225.jpg"] /*accessability settings beta img in the sneaky places*/
+{
+	filter: var(--accentFilter) blur(10px);
+}
+._3aht--c1L66YvvpY-Il67f .stsss-bTNuazY8FYtvTOX[style*="https://clan.akamai.steamstatic.com/images/27766192/ef80685d3d1463ad5eb569f0825815db7822c1ee.png"]/* steam header image clone in the dialoge box that pops up*/
+ {
+    position: absolute;
+    z-index: 0;
+    filter: blur(32px) saturate(0.9) var(--accentFilter);
+    opacity: .2;
+    left: 0;
+}
 #modalContent.modal_frame {
 		border: 2px solid rgb(var(--accentDarkest)) !important;
 }
@@ -346,39 +461,64 @@ img[src="https://cdn.cloudflare.steamstatic.com/error/bummer.png"],
 .game_page_background.game {
 	background-size: contain;
 }
+._2zTu0OPJoqo1BXb1J9pDJ2 /*remove weird blur from news pages*/
+{
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	background-image: none !important;
+}
 
 
 html .queue_btn_menu > .queue_menu_arrow.queue_btn_active {
-    background: rgba( var(--accent), 0.420 );
+    background: rgba( var(--accent),
+0.420 );
 }
 /*ignore menu background*/
 html .queue_btn_menu > .queue_menu_arrow {
-    background: rgba( var(--accent), 0.2);
+    background: rgba( var(--accent),
+0.2);
 }
 
 /*early access banner*/
 div.early_access_header .heading {
-    background: linear-gradient(135deg, rgba(var(--accent),1) 0%,rgba(var(--accentDarkish),1) 100%) !important;
+    background: linear-gradient(135deg,
+rgba(var(--accent),1) 0%,rgba(var(--accentDarkish),1) 100%) !important;
 }
 
 /*wishlight highlight on game carrousel at top of main store page*/
 a.es_highlighted_wishlist {
-    background: rgba(var(--accent)) linear-gradient(135deg, rgba(0, 0, 0, 0.70) 10%, rgba(0, 0, 0, 0) 100%) !important;
+    background: rgba(var(--accent)) linear-gradient(135deg,
+rgba(0,
+0,
+0,
+0.70) 10%,
+rgba(0,
+0,
+0,
+0) 100%) !important;
 }
 div.es_highlighted_wishlist {
-    background: rgba(var(--accent)) linear-gradient(135deg, rgba(0, 0, 0, 0.70) 10%, rgba(0, 0, 0, 0) 100%) !important;
+    background: rgba(var(--accent)) linear-gradient(135deg,
+rgba(0,
+0,
+0,
+0.70) 10%,
+rgba(0,
+0,
+0,
+0) 100%) !important;
 }
 
-div.early_access_header .heading, 			/*early access banner subtext */
+div.early_access_header .heading,
 span.svelte-1xun2sl 						/*augmented steam playing now addon subtext*/
 {
     color: rgb(var(--textLight)) !important;
 }
 
 .bundle_label,
-.as_stat.svelte-1xun2sl,					/*augmented steam playing now addon player count*/
+.as_stat.svelte-1xun2sl,
+.reviewDate, /*date reviewed on store page*/
 .label										/*various labels on the store page*/
-{
+{ 
 	color: rgb(var(--textAccented)) !important;
 }
 /*early access banner border*/
@@ -392,19 +532,23 @@ div.early_access_banner {
 /*app tags*/
 .app_tag {
     color: rgb(var(--textAccented)) !important;
-    background: rgba( var(--accent), 0.2 ) !important;
+    background: rgba( var(--accent),
+0.2 ) !important;
 }
 /*dev names*/
 #game_highlights a {
     color: rgb(var(--textAccented)) !important;
 }
-/* broadcast on game store page*/
-._3zXpFCyX2IiaD-MNF5KJFf{
+
+._3zXpFCyX2IiaD-MNF5KJFf,
+._16jZ3HEbtaJTl80pQINN2Y /*new top bar background*/
+{
 	background: rgb(var(--backgroundLightish)) !important;
 }
 /*more button on early access blurb*/
 .morebutton {
-    background: linear-gradient(to right, rgba(var(--accentDarkest),0) 0%,rgba(var(--accentDarkest),1) 15%,rgba(var(--accentDarkest),1) 100%) !important;
+    background: linear-gradient(to right,
+rgba(var(--accentDarkest),0) 0%,rgba(var(--accentDarkest),1) 15%,rgba(var(--accentDarkest),1) 100%) !important;
     color: rgb(var(--textAccented)) !important;
 }
 /*deal subtext*/
@@ -412,13 +556,26 @@ div.early_access_banner {
 	color: rgb(var(--textAccented)) !important;
 }
 /*reason links on store page*/
-.reason.for>a,
-.reason.info>a {
+.reason.for > a,
+.reason.info > a {
     color: rgb(var(--textAccented)) !important;
 }
+div.A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton),
+div.QQy4BCjcpjCfAvTKAqBq3,
+div._3csl-MPe-hKuT8hQpOqEG5, /*comment count on news/app pages*/
+._38m8DGDKcTxyFKbuvEpMIx, /*controller support text*/
+span.ny6hWVK6ii05H200KRhds, /*accasibility features text*/
+._1MwNf8slOG9lOvAeOshmuu._1ruRSreC31IK4kUGUcSRDK div._2hPZwxDYhaY3SllhjeFqb_, /*news type on game store pages*/
+div.BVtL0_ttO-7ESEyO67g3w, /*headers in points shop sidebar*/
+._3U5MYaJE0i8UYZ_pUzyNk7 ._1n4vpyqKJYF8lc1kW9fr8-.kJoC7bJXT-uU6GorEljio div._11O61s8Pr7CrLbKxzm9VMK, /*sidebar selected text in events hub*/
+._3U5MYaJE0i8UYZ_pUzyNk7 ._1n4vpyqKJYF8lc1kW9fr8-.kJoC7bJXT-uU6GorEljio div._3_CIMpiaZYsgSD9rEIImZh, /*sidebar selected text in events hub*/
+._1E3Anhs34BXsWWWqH4RNPL div._2xdhMrjKEposPfgPK9UPe- /*event time text in events hub*/
+{
+	color: rgb(var(--textAccented));
+}
 
-.html5_video_overlay .progress_bar, /*progress bar color in video player*/
-.btnv6_lightblue_blue>span, /*light buttons*/
+.html5_video_overlay .progress_bar,
+.btnv6_lightblue_blue > span,
 .btnv6_lightblue_blue /*light buttons*/
 
 {
@@ -429,21 +586,24 @@ a.game_area_details_specs_ctn .label {
     color: rgb(var(--textAccented)) !important;
 }
 
-.game_area_details_specs_ctn .label, /*official game tags bg*/
-._38m8DGDKcTxyFKbuvEpMIx /*controller support text bg*/
+.game_area_details_specs_ctn .label,
+._38m8DGDKcTxyFKbuvEpMIx, /*controller support text bg*/
+._3sRe2CGQBgablPBz9Bc9c2 /*accasibility features bg*/
  {
-    background: rgba(var(--accent), 0.1 ) !important;
+    background: rgba(var(--accent), var(--opacity1) ) !important;
+}
+div._2fynndXXlBKZiRaoG9GuDP /*check out the full game?*/ /*fixme*/
+{
+    background: rgba(var(--accent), var(--opacity333) ) !important;
 }
 /*controller support icon background*/
-._28V2e4qcBKMUfwPNxuJevO{
+._28V2e4qcBKMUfwPNxuJevO
+{
 	background: rgb(var(--backgroundDarkish)) !important;
 }
-/*controller support blue text to pink*/
-._38m8DGDKcTxyFKbuvEpMIx {
-	color: rgb(var(--textAccented));
-}
 /*check marks for compatablitiy chart*/
-.game_language_options td span {
+.game_language_options td span
+{
     color: rgb(var(--accent)) !important;
 }
 
@@ -451,13 +611,20 @@ a.game_area_details_specs_ctn .label {
 {
     color: rgb(var(--textAccented)) !important;
 }
-/*review container*/
-#review_histograms_container {
+#review_histograms_container,
+.Wk21cv1qcYBOF2PSAOfb- /*footer for news/apps pages*/
+ {
     background: rgb(var(--backgroundDark)) !important;
 }
+.Wk21cv1qcYBOF2PSAOfb- /*remove gaudy border from footer for news/apps pages*/
+{
+border-top: none !important;
+}
 /*top right of review container*/
-#review_histogram_recent_section {
-    background: rgba( var(--accent), 0.2 );
+#review_histogram_recent_sectiob
+ {
+    background: rgba( var(--accent),
+0.2 );
 }
 /*review contanier footer*/
 .user_reviews_filter_options.flyout{
@@ -475,7 +642,9 @@ a.game_area_details_specs_ctn .label {
     background: rgb(var(--accentDarkish));
 }
 /*review contanier footer "display as" dropdown text*/
-option{
+option,
+.dlc_highlight_reason /*dlc reccomended popup on store page*/ 
+{
 	color: rgb(var(--textLightest)) !important;
 }
 /*review contanier footer "display as" dropdown text*/
@@ -483,10 +652,11 @@ option:hover{
 	background: rgb(var(--accentLight)) !important;
 }
 
-div.bb_h1, .bb_wysiwyg h1, /*review footer h1 text*/
-.faq_question,/*header on discovery que FAQ page*/
-.noReviewsYetTitle, /*header for when there are no reviews on a game page*/
-.persona.online>.profile_in_game_header /*header for profile in game when online*/
+div.bb_h1,
+.bb_wysiwyg h1,
+.faq_question,
+.noReviewsYetTitle,
+.persona.online > .profile_in_game_header /*header for profile in game when online*/
  {
     color: rgb(var(--textAccented)) !important;
 }
@@ -498,51 +668,90 @@ div.early_access_review {
 }
 /*coming soon background*/
 .game_area_comingsoon {
-    background: linear-gradient(135deg, rgba(var(--accentDarkest),0.4) 10%,rgba(var(--accentLightish),0.4) 100%);
+    background: linear-gradient(135deg,
+rgba(var(--accentDarkest),0.4) 10%,rgba(var(--accentLightish),0.4) 100%);
 }
 /*view all achievements*/
 a.communitylink_achievement.communitylink_achivement_plusmore,
 a.btn_black:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active) /* show steamdb link on hover*/
 {
-    background: rgba( var(--accent), 0.2 ) !important;
+    background: rgba( var(--accent),
+0.2 ) !important;
     color: rgb(var(--textAccented)) !important;
 }
 a.btn_black:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover /* show steamdb link on hover*/
 {
-    background: rgba( var(--accent), 0.2 ) !important;
+    background: rgba( var(--accent),
+0.2 ) !important;
     color: rgb(var(--textLighest)) !important;
 }
 /*steam deck compat main bg*/
 ._2dGPTYWTKq3CirJwPXKw2b {
-    background: rgba(var(--accent), 0.502) !important;
+    background: rgba(var(--accent),
+0.502) !important;
 }
 /*steam deck learn more button*/
-._2gXzKgnqPNSUzBWEYvQ4OP {
+._2gXzKgnqPNSUzBWEYvQ4OP,
+.dlc_highlight_reason, /*dlc reccomended popup on store page*/
+a._175B12uOwmeGBNcSaQFe-Z.qqQDu9j0LIoK-w06-JxB5 /*games in cart in top right of store pages*/
+ {
 	background: rgb(var(--accent)) !important;
 }
 /*steam deck learn more button:hover*/
 ._2gXzKgnqPNSUzBWEYvQ4OP:hover {
     background: rgb(var(--accentLightest)) !important;
 }
+.game_area_dlc_row.even:hover, .game_area_dlc_row.odd:hover{
+	    background: rgb(var(--accentLightish)) !important;
+
+}
 /*background of genre specific/sale pages without images (so temporary sales should still have (some) theme)*/
-.SaleBackground:not([style*='background-image']){
+.SaleBackground:not([style*="background-image"]){
 	background: rgb(var(--background)) !important;
 }
-a.btnv6_grey_black {
+a.btnv6_grey_black,
+._1UkrDgMhl-oqKXXt9KXc4N ._2ovPL35Q1O7gq-DbxmP4cs a._2oz62CVNbwTn7KrUUwRdRw  /*same button in store dropdown menu*/
+{
     color: rgb(var(--textAccented)) !important;
-    background: rgba(var(--accentDarkest), .2) ;
+    background: rgba(var(--accentDarkest),
+.2) ;
 }
-.btnv6_grey_black:hover {
+.btnv6_grey_black:hover,
+._1UkrDgMhl-oqKXXt9KXc4N ._2ovPL35Q1O7gq-DbxmP4cs a._2oz62CVNbwTn7KrUUwRdRw:hover  /*same button in store dropdown menu*/
+ {
     color: rgb(var(--textLighest)) !important;
-    background: rgba(var(--accent), .8) !important;
+    background: rgba(var(--accent),
+.8) !important;
 }
-a.btnv6_grey_black.btn_active {
+.home_pagecontent_ctn.featured_special_deals div.ctn_background, /*special sale deals*/
+.home_pagecontent_ctn.hero_parent_ctn div.ctn_background,
+div.home_discount_games_ctn, /*discounted games carton on home page*/
+div.item_background_overflow_ctn, /*container around some things on main store page*/
+a.tab_row_item, /*container around items in some rows*/
+div.home_content_item_info>div.home_smallcap_title, /*this was originally a gradient, but it's on top of another gradient FIXME*/
+div.home_content.single /*home containers for reccomended games*/
+{
+	background: rgba(var(--accentMoreTransparent));
+}
+a.tab_row_item:hover /*container around items in some rows*/
+{
+	background: rgba(var(--accentLightTransparentest));
+}
+span.tab_item_tag {
+	background: rgba(var(--accentDarkerTransparent));
+}
+
+a.btnv6_grey_black.btn_active,
+._2oz62CVNbwTn7KrUUwRdRw.btn_active  /*same button in store dropdown menu*/
+ {
     color: rgb(var(--white)) !important;
-    background: rgba(var(--accent), 0.4 );
+    background: rgba(var(--accent),
+0.4 );
 }
 a.btnv6_grey_black:hover {
     color: rgb(var(--white)) !important;
-    background: rgba(var(--accent), .5);
+    background: rgba(var(--accent),
+.5);
 }
 /*related games background disable*/
 .related_items_ctn {
@@ -555,10 +764,11 @@ background: transparent !important;
 .game_description_column .block .block_header .right a  
 {
 	color: rgb(var(--textAccented)) !important;
-    background: rgba(var(--accentDarkest), .2) !important;
+    background: rgba(var(--accentDarkest),
+.2) !important;
 }
-.FollowButton>div,
-._1SnxJyZ5foWgNRCNLmKm6H>span,
+.FollowButton > div,
+._1SnxJyZ5foWgNRCNLmKm6H > span,
 .game_description_column .block .block_header .right a  
 {
 	color: rgb(var(--textAccented)) !important;
@@ -568,21 +778,45 @@ background: transparent !important;
 .game_description_column .block .block_header .right a:hover 
 {
 	color: rgb(var(--textAccented)) !important;
-    background: rgba(var(--accent), .8) !important;
+    background: rgba(var(--accent),
+.8) !important;
 }
-.FollowButton>div:hover,
-._1SnxJyZ5foWgNRCNLmKm6H>span:hover,
+.FollowButton > div:hover,
+._1SnxJyZ5foWgNRCNLmKm6H > span:hover,
 .game_description_column .block .block_header .right a:hover 
 {
 	color: rgb(var(--textLighest)) !important;
 }
-
-/*#########################################################
-/*#######################################
-/*####################
-/* actual review page
-/*h2 text*/
-div.bb_h2, .bb_wysiwyg h2 {
+div.summary_rule /*divider between reviews and game page*/
+{
+	background-color: rgba(var(--accentTransparent));
+}
+div.review_summary_ctn /* overall reviews container in the divider between reviews and game page*/
+{
+	background: radial-gradient(83.77% 83.75% at 50.23% 16.25%, rgb(var(--accentDarkest)) 0%,rgba(var(--accentTransparent)) 100%);
+}
+._3U5MYaJE0i8UYZ_pUzyNk7 div._1n4vpyqKJYF8lc1kW9fr8-.kJoC7bJXT-uU6GorEljio /*highlighted tab in sidebar on events page*/
+{
+    border-right: 4px solid rgb(var(--accent));
+    background: linear-gradient(30deg, rgba(var(--accent), 0.2) 0%, rgba(var(--accent), 0.1) 100%);
+}
+._1E3Anhs34BXsWWWqH4RNPL div._3xvUZtQ1j-pu-l2xy-lFAq 
+{
+	background: rgba(var(--backgroundLight), var(--opacity666));
+}
+._3xvUZtQ1j-pu-l2xy-lFAq:hover
+{
+	background: rgba(var(--backgroundLight), var(--opacity9)) !important;
+}
+a._1MwNf8slOG9lOvAeOshmuu._1ruRSreC31IK4kUGUcSRDK /*gradient on news on game pages*/
+{
+	background: radial-gradient(156.1% 79.95% at 10.31% 0%, rgba(var(--accentDark), var(--opacity333)) 0%, rgb(var(--accentDarkest)) 100%);
+}
+div.bb_h2, /*h2 text on game reviews page*/
+h2.bb_tag, /*h2 text on store page*/
+.bb_wysiwyg h2,
+.review_developer_response_exists_date /*developer response in reviews*/
+{
     color: rgba(var(--textAccented)) !important;
 }
 
@@ -593,7 +827,8 @@ div.bb_h2, .bb_wysiwyg h2 {
 }
 /* dropdown  on reviews page*/
 div.filterselect {
-	background: rgba( var(--accent), 0.2 );
+	background: rgba( var(--accent),
+0.2 );
     color: rgba(var(--textAccented)) !important;
 }
 /* expanded dropdown  on reviews page*/
@@ -601,23 +836,31 @@ div.filterselect {
 div.filterselect_options {
     background-color: rgb(var(--accent));
 }
-.apphub_SectionFilterLabel, /*show text at top of reviews page*/
-#footerText>a /*footer text*/
+.apphub_SectionFilterLabel,
+#footerText > a /*footer text*/
 {
     color: rgba(var(--textDarkish)) !important;
 }
 /*copyright text in footer*/
-#footerText>div.copyIcon, #footerText>span.copyright{
+#footerText>div.copyIcon,
+#footerText>span.copyright{
 	color: rgba(var(--textDark)) !important;
 }
 
 /*outlivne for online users*/
-.playerAvatar.online img, .friend_status_online .friend_block_avatar img, .appHubIconHolder.online img, .avatar_block_status_online img {
-    background: linear-gradient( to bottom, rgb(var(--accentLightish)) 5%, rgb(var(--accent)) 95%);
+.playerAvatar.online img,
+.friend_status_online .friend_block_avatar img,
+.appHubIconHolder.online img,
+.avatar_block_status_online img {
+    background: linear-gradient( to bottom,
+rgb(var(--accentLightish)) 5%,
+rgb(var(--accent)) 95%);
 }
 /*outlivne for online users*/
 .appHubIconHolder.online{
-    background: linear-gradient( to bottom, rgb(var(--accentLightish)) 5%, rgb(var(--accent)) 95%);
+    background: linear-gradient( to bottom,
+rgb(var(--accentLightish)) 5%,
+rgb(var(--accent)) 95%);
 }
 /* spotlight widget*/
 #widget{
@@ -627,22 +870,31 @@ div.filterselect_options {
     background: rgb(var(--backgroundLightish))	!important;
 }
 /*login page background*/
-.login_client_waitforauth{
+.login_client_waitforauth
+{
 	background: rgb(var(--background)) !important;
 }
-/*background on steamdeck page*/
-._2N8SepiLeBUusG1vbHCgiY {
-	background: rgb(var(--background)) !important;
+._1e3WbBz7-mqMKmK8HnpzFF ._3yqpPRFLwr6ETVDgLGT37s .r3Dia2Yw2X-goqFn-_UPT div._3FpvGiwJqnukNOcrsKd_sN /*background on events pages*/
+{
+	background: rgb(var(--background));
+}
+._1e3WbBz7-mqMKmK8HnpzFF ._3yqpPRFLwr6ETVDgLGT37s .r3Dia2Yw2X-goqFn-_UPT div._3FpvGiwJqnukNOcrsKd_sN._1U2BW9tpHKOVi_TG0XvjT /*darker "highlights" on events pages*/
+{
+ background: rgb(var(--backgroundDark));
+}
+div._15YLDKm80opUF5Tivo7UK- /*sidebar on events pages*/
+{
+	background: rgb(var(--backgroundLightish));
 }
 /* subheaders on steamdeck page */
-#SaleSection_61022>._1cOoCFwafBlSkwllIMf3XM,
-#SaleSection_44860>._1cOoCFwafBlSkwllIMf3XM,
-#SaleSection_34032>._1cOoCFwafBlSkwllIMf3XM
+#SaleSection_61022 > ._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_44860 > ._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_34032 > ._1cOoCFwafBlSkwllIMf3XM
 {
 	background: rgb(var(--backgroundLight)) !important;
 }
-#SaleSection_34993>._1cOoCFwafBlSkwllIMf3XM,
-#SaleSection_13578>._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_34993 > ._1cOoCFwafBlSkwllIMf3XM,
+#SaleSection_13578 > ._1cOoCFwafBlSkwllIMf3XM,
 ._3isvN1K0OSelqFk6h2VmQq /*vr mode alert on store page*/
 {
 	background: rgb(var(--backgroundLightish)) !important;
@@ -694,10 +946,22 @@ div.filterselect_options {
 
 @keyframes glow {
 	from {
-		text-shadow: 0 0 1px #ff4500, 0 0 2px #ff4500, 0 0 3px #ff4500, 0 0 4px #ff4500, 0 0 5px #ff4500, 0 0 6px #ff4500, 0 0 7px #ff4500;
+		text-shadow: 0 0 1px #ff4500,
+0 0 2px #ff4500,
+0 0 3px #ff4500,
+0 0 4px #ff4500,
+0 0 5px #ff4500,
+0 0 6px #ff4500,
+0 0 7px #ff4500;
 	}
 	to {
-		text-shadow: 0 0 2px #ff8c00, 0 0 3px #ff8c00, 0 0 4px #ff8c00, 0 0 5px #ff8c00, 0 0 6px #ff8c00, 0 0 7px #ff8c00, 0 0 8px #ff8c00;
+		text-shadow: 0 0 2px #ff8c00,
+0 0 3px #ff8c00,
+0 0 4px #ff8c00,
+0 0 5px #ff8c00,
+0 0 6px #ff8c00,
+0 0 7px #ff8c00,
+0 0 8px #ff8c00;
 	}
 }
 
@@ -712,3 +976,222 @@ div.filterselect_options {
 /*##################################################################
 /*##################################################################
 /*augmented steam and/or SteamDB addon support*/
+
+
+
+
+
+
+/* STUFF I ADDED:
+
+/*###########################################################
+/*###########################################################
+/*modal popup(s) settings */
+
+/*background of popup (content) */
+._2ZgLvT82YJj60ipYm334jn, ._2vlF5KjDw2loCDFMY4RvKe{
+	background: rgba(var(--background)) !important;
+  }
+  /*remove border from main box
+  .lwprNSgEnKfVSHIzsgbFi {
+	border: 0 !important;
+  }
+  /*side-buttons*/
+  .bIoyqcxSbys_LNwXBL-qT {
+   background: var(--littlegrey) !important;
+   border: 0 !important; 
+  }
+  /*header*/
+  ._35gM9i287FT5Vx0nL7vX6o{
+	background: rgba(var(--backgroundDarkest)) !important;
+  }
+  /*header activity text color*/
+  ._30JUMWVZpKjo5yyNMLHj2N{
+	color: rgba(var(--accent)) !important;
+  }
+  /*links*/
+  ._3v0cwU9svPlYyRjL6HO1ZC a:not(.LinkButton){
+	color: rgba(var(--accent)) !important;
+  }
+  /*footer */
+  ._3BVe_okecnI7b_bHj5SS42{
+	background-image: none !important;
+	background: rgba(var(--backgroundDark)) !important;
+  }
+  /*button containers*/
+  ._1uhQYKdgwmtsVDpLxrmOc4,._3tXYJmiDltr-fLKAH0O_yp,.cLK_FdqhScxUTzHU6WVEN{
+	background: rgba(var(--backgroundDark)) !important;
+  }
+  
+  /*button backgrounds*/
+  ._3P0Tm2XKLVG_I9wjP3H-Zs, ._3P0Tm2XKLVG_I9wjP3H-Zs._3p1Hj4MxioFD7iM63Z3s6T {
+	background: var(--littlegrey) !important;
+  }
+
+  ._2dVe4z8QrljeVvM0UzTTJ2,			/*thumb text color*/
+  ._1GFRKatJ8pNhUDi-MwuD9D,			/*comments number font color*/
+  ._1GFRKatJ8pNhUDi-MwuD9D>svg,		/*comment bubble color*/
+  ._1g-EnGAwBxXdVKtEBcdIK_,			/*thumb color*/
+.vPo2jxLA9iAVrt49Ic3c1._1YjsRp8XbwoXVWYYvWD7iv svg.SVGIcon_Bell, /*bell icon in events hub*/
+._1E3Anhs34BXsWWWqH4RNPL .ysX-kDvwrjduqk2LGUkUg svg._2se4HtRbAckWOfTCGHox0X /*thumbs up filled in events hub*/
+  {
+	fill: rgba(var(--accent)) !important;
+  }
+
+  /*sides of modal (not the content) */
+  /*change blur in background */
+  ._37MAYpIjl0IDA1xVhhsuX8>div:not(._2WEP32t2FdvHSRBiOZug83):not(._24sm_rs0RtItOALHFVIKms):not(._19eb8NMS53lqZR33su0kTr):not(.iJ6kMinIXkRkY49NT2sOx):not(._2SoWN3laHiRo1XbmPyTyPF) {
+	backdrop-filter: blur(0px) brightness(0.65) saturate(0.7);
+  }
+  /* darken overlay on backgroudtn to compensate for missing blur */
+  ._37MAYpIjl0IDA1xVhhsuX8>div {
+	background: var(--semi-transparentblack);
+  }
+  ._3QVsc21O3y-P2jJiD5t6-s._11Gq_4A3cMXdDfUnoeM14v{/* dot on the controller page*/ 
+	  background: rgba(var(--accent)) !important;
+  }
+  
+  /*#############################
+  /*  modals popup*/
+  ._1Lfu7heMNRsXXo1Yfzsp17, ._2vlF5KjDw2loCDFMY4RvKe, ._3wtPUBfilFITcl1s4u6A7T {
+	background: rgba(var(--backgroundLightish));
+  }
+  /* various buttons*/
+  button.DialogButton.Primary, .gkgG-dWgjpwS_aqlcMNTM /* selected drive for install game modal */
+  {
+	transition-property: opacity,background,color,box-shadow,text-decoration;
+	transition-duration: .2s;
+	background: rgba(var(--accent)) !important;
+	color: black !important;
+  }
+   /*accented button, but disabled*/
+  button.DialogButton.Primary.Disabled{
+	text-decoration: line-through !important;
+	color: rgba(var(--backgroundDarkest)) !important;
+  }
+  
+  
+  /*comment menu border*/
+  ._39nnaT_CLE0m_WXVIrAwaG {
+	background: var(--bedarkgrey);
+  }
+  
+  /*check boxes on install popup*/
+  stop {
+	stop-color: rgba(var(--accent));
+  }
+  
+  /*############################
+  /* steam award popup */
+  
+  /*text accents*/
+  .j46gbjgwR947a_ZyFUQav, .V7W5cNHTPUuSS-4yBUDaN, ._26lUCOjXyPSIUFyyIijjTT, .LnM57J5-ZUcH1tTk6ONqn
+  {
+	color: rgba(var(--accent)) !important;
+  }
+  
+  ._1mfQu39T7gxcr0KSHso6_A {
+	background: rgba(var(--background)) !important;
+  }
+
+/*news page*/
+._2S38QJpullKFgRrAAbwXKF {
+    background: rgba(var(--backgroundDark)) !important;
+}
+._2S38QJpullKFgRrAAbwXKF.iSooR069LClRU-HVpVl- {
+    background: rgba(var(--background)) !important;
+} 
+._1zB7WSbTnA4EyKjG50NcsY{
+	background-image: none !important;
+}
+._3FLuichWmfQCc26hfk8ZxE.T4JRYAs4b4GvlFPcnWDme._2a-qTV-J0Z1Tvv4xRevGxU._2AMvDu5oCwDoIuYmxxkvs-, ._1DLtrlf4UuAlYReDnWN2R_{
+	background: rgba(var(--backgroundDark)) !important;
+}
+.a0iPyOQq-F_qNEq2ShaGw{
+	background: rgba(var(--backgroundLightish)) !important;
+}
+
+
+/*###########################################################
+/*###########################################################
+/* points shop*/
+
+/* header bg color*/
+._3M7bfuSoa6JGmxA1QmgvE- {
+    background: rgba(var(--background)) !important;
+}
+/* steam logo blue ring fix
+(NEED TO ACTUALLY REDO THIS WHOLE THING WHEN I DO ALL THE WEBKIT PAGES NICER)*/
+#points_shop_root > div > div._3M7bfuSoa6JGmxA1QmgvE- > div > div > svg > circle:nth-child(3){
+	fill: transparent !important;
+}
+/* your balance text*/
+._1DA621MdnSeE97mDV9Xo6N{
+	color: rgba(var(--accent)) !important;
+}
+/*bg gradient*/
+._3uAuM7D5wUQg-5M21NGJc5 {
+    background: radial-gradient(63.94% 1024px at 50% 200px, rgba(var(--accentDark)) 0%, rgba(var(--background)) 100%) !important;
+}
+/*image color cucking*/
+._1TX8MTfNTg-C5c8w44F6aZ, ._3YNnWUgHCZcVvmfX9qpOQ
+{
+	filter: grayscale(100%) !important;
+}
+/* fix bg image for "all game profiles" and "items from games you play"
+this should be an actual image later
+*/
+#points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > div:nth-child(5) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
+{
+	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
+}
+
+#points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > div:nth-child(15) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
+{
+	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
+}
+._3nHerBg5ELmarLbN--Gmpp, ._2MFEYjLdT-bfsz3n1hkGnf {
+    background: none !important;
+}
+/*
+
+/* sidebar bg*/
+._1B_k-wp3lqSLARvY8-5-EX ._1Y8hK5A-ASv-Y5SGGb5Em5.Panel.Focusable,._1B_k-wp3lqSLARvY8-5-EX {
+    background: rgba(var(--background)) !important;
+}
+
+
+/* steam news page
+
+/* header bg*/
+._27-NnvpvTeoXCQvQ6B0_ly {
+    background: rgba(var(--backgroundDark)) !important;
+}
+/* links on main page*/
+body.v6 h2 a {
+    color: rgba(var(--accent)) !important;
+}
+/* links on main page*/
+body.v6 h2 a:hover {
+    color: rgba(var(--textLightest)) !important;
+}
+a:hover {
+    color: rgba(var(--textLightest)) !important;
+}
+
+/*various headers
+.apphub_AppName {
+    color: rgba(var(--accent)) !important;
+}*/
+
+
+.arrow.left, /*left arrow in game carousell*/
+.arrow.right /*right arrow in game carousell*/
+{
+    background: rgb(var(--background)) !important;
+}
+.jY9l4aHTdQLHeTWfPonTr, /*gradient blur background on shopping cart page*/
+._2HG7VOroS8aHSg-W3fPyTt /*same as above*/
+{
+	background: radial-gradient(45% 45% at 50% 28%, rgba(var(--accentMoreTransparent)) 0%, rgba(0, 0, 0, 0.1) 100%) !important;
+}

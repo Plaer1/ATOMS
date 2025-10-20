@@ -30,7 +30,7 @@
         "uk": "Перезавантажте Steam",
         "vn": "Tải lại Steam"
     },
-	"restartSteam": {
+    "restartSteam": {
         "bg": "Рестартирайте Steam",
         "zh-cn": "重新启动Steam",
         "zh-tw": "重新啟動Steam",
@@ -60,5 +60,36 @@
         "tr": "Steam'i yeniden başlatın",
         "uk": "Перезапустіть Steam",
         "vn": "Khởi động lại Steam"
+    },
+    "downloadAll": {
+        "bg": "Да добавя ли всички изтегляния в опашката?",
+        "zh-cn": "将所有下载添加到队列中吗？",
+        "zh-tw": "要將所有下載新增至佇列嗎？",
+        "cs": "Přidat všechna stahování do fronty?",
+        "da": "Vil du tilføje alle downloads til køen?",
+        "nl": "Alle downloads aan de wachtrij toevoegen?",
+        "en": "Add all downloads to queue?",
+        "fi": "Lisätäänkö kaikki lataukset jonoon?",
+        "fr": "Ajouter tous les téléchargements à la file d’attente ?",
+		"de": "Alle Downloads zur Warteschlange hinzufügen?",
+        "el": "Να προστεθούν όλες οι λήψεις στην ουρά;",
+        "hu": "Hozzáadjam az összes letöltést a sorhoz?",
+        "id": "Tambahkan semua unduhan ke antrean?",
+        "it": "Aggiungere tutti i download alla coda?",
+        "ja": "すべてのダウンロードをキューに追加しますか？",
+        "ko": "모든 다운로드를 대기열에 추가할까요?",
+        "no": "Legge til alle nedlastinger i køen?",
+        "pl": "Dodać wszystkie pobrania do kolejki?",
+        "pt": "Adicionar todos os downloads à fila?",
+        "pt-br": "Adicionar todos os downloads à fila?",
+        "ro": "Adăugați toate descărcările în coadă?",
+        "ru": "Добавить все загрузки в очередь?",
+        "es": "¿Agregar todas las descargas a la cola?",
+        "es-419": "¿Agregar todas las descargas a la cola?",
+        "sv": "Lägga till alla nedladdningar i kön?",
+        "th": "เพิ่มการดาวน์โหลดทั้งหมดไปยังคิวหรือไม่?",
+        "tr": "Tüm indirmeleri kuyruğa ekleyeyim mi?",
+        "uk": "Додати всі завантаження до черги?",
+        "vn": "Thêm tất cả các tải xuống vào hàng đợi không?"
     }
 }

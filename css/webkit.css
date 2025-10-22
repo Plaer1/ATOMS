@@ -267,6 +267,10 @@ div._3notzMjxQtogi11XHZMYXI /*wishlist button on sale/non-game store pages*/
 {
     background: radial-gradient(ellipse at top right, rgb(var(--accent)), rgb(var(--accentDarkish)));
 }
+div.KSZ9hmL_XbHI_tlSUQylO /*sidebar on top sellers page*/
+{
+background: linear-gradient(180deg, rgb(var(--backgroundLightish)) 50%, #0e101400 100%);	
+}
 .deep_dive_tag {
 	color: rgb(var(--textAccented)) !important;
     background: rgba(var(--accent),
@@ -874,7 +878,8 @@ rgb(var(--accent)) 95%);
 {
 	background: rgb(var(--background)) !important;
 }
-._1e3WbBz7-mqMKmK8HnpzFF ._3yqpPRFLwr6ETVDgLGT37s .r3Dia2Yw2X-goqFn-_UPT div._3FpvGiwJqnukNOcrsKd_sN /*background on events pages*/
+._1e3WbBz7-mqMKmK8HnpzFF ._3yqpPRFLwr6ETVDgLGT37s .r3Dia2Yw2X-goqFn-_UPT div._3FpvGiwJqnukNOcrsKd_sN, /*background on events pages*/
+body._2aYDMWWN9bAVaHmPfFHXWA div.responsive_page_frame /*background on top sellers page*/
 {
 	background: rgb(var(--background));
 }
@@ -889,7 +894,9 @@ div._15YLDKm80opUF5Tivo7UK- /*sidebar on events pages*/
 /* subheaders on steamdeck page */
 #SaleSection_61022 > ._1cOoCFwafBlSkwllIMf3XM,
 #SaleSection_44860 > ._1cOoCFwafBlSkwllIMf3XM,
-#SaleSection_34032 > ._1cOoCFwafBlSkwllIMf3XM
+#SaleSection_34032 > ._1cOoCFwafBlSkwllIMf3XM,
+._3kEWJGuSEOp09T1ZND24zk, /*highlighted tab on sidebar for charts page*/
+.KSZ9hmL_XbHI_tlSUQylO ._2X7eT07iC6SQRu_uj4Web3 .Lj-O1sumeRPMtyePxydGf a:hover /*hovered tab on sidebar for charts page*/
 {
 	background: rgb(var(--backgroundLight)) !important;
 }
@@ -1137,6 +1144,14 @@ div._15YLDKm80opUF5Tivo7UK- /*sidebar on events pages*/
 ._1TX8MTfNTg-C5c8w44F6aZ, ._3YNnWUgHCZcVvmfX9qpOQ
 {
 	filter: grayscale(100%) !important;
+}
+.game_background_lighten /*blue bloom on game pages*/
+{
+    filter: grayscale(100%) brightness(0.51);
+}
+._39YkypnuGbVjgQOa7CR5Uw /*banner on top sellers page*/
+{
+	mask: radial-gradient(51.31% 143.89% at 49.99% -21.75%, #000000 0%, #000000 52.6%, rgba(0, 0, 0, 0.18) 83.33%, rgba(0, 0, 0, 0) 95.31%);
 }
 /* fix bg image for "all game profiles" and "items from games you play"
 this should be an actual image later

@@ -6,6 +6,7 @@ export default function rootMenuDropdown() {
 
 		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
 
+			waitForElement('._3cykd-VfN_xBxf3Qxriccm', function(element) {
 			// Select the existing menu
 			var menu = document.querySelector("._1Ky59qmywxOUtNcI1cgmkX"); // selecting the menu
 
@@ -14,9 +15,8 @@ export default function rootMenuDropdown() {
 			rootMenuWrapperDiv.setAttribute("class", "rootMenuWrapperDiv");
 			rootMenuWrapperDiv.style.backgroundColor = 'none'; // Setting the background color
 			rootMenuWrapperDiv.style.minWidth = '0px';
-			rootMenuWrapperDiv.style.height = '30px';
-			rootMenuWrapperDiv.style.marginTop = '6px';
-			rootMenuWrapperDiv.style.borderRadius = '6px';
+			rootMenuWrapperDiv.style.borderRadius = '2px';
+            rootMenuWrapperDiv.style.marginBottom = '3px';
 			rootMenuWrapperDiv.style.display = 'flex';
 			rootMenuWrapperDiv.style.zIndex = '2';
 
@@ -24,21 +24,18 @@ export default function rootMenuDropdown() {
 			var rootToggleButtonWrapperDiv = document.createElement('div');
 			rootToggleButtonWrapperDiv.setAttribute("class", "rootToggleButtonWrapperDiv");
 			rootToggleButtonWrapperDiv.style.backgroundColor = 'none'; // Setting the background color
-			rootToggleButtonWrapperDiv.style.minWidth = '30px';
-			rootToggleButtonWrapperDiv.style.minHeight = '30px';
-			rootToggleButtonWrapperDiv.style.height = '30px';
-			rootToggleButtonWrapperDiv.style.marginTop = '6px';
-			rootToggleButtonWrapperDiv.style.borderRadius = '6px';
+            rootToggleButtonWrapperDiv.style.padding = '6px';
+            rootToggleButtonWrapperDiv.style.marginBottom = '3px';
+            rootToggleButtonWrapperDiv.style.marginRight = '8px';
+			rootToggleButtonWrapperDiv.style.borderRadius = '2px';
 			rootToggleButtonWrapperDiv.style.display = 'flex';
 			rootToggleButtonWrapperDiv.style.zIndex = '2';
 
 			// Create SVG Button
 			var buttonSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 			buttonSVG.setAttribute("id", "toggleButton");
-			buttonSVG.setAttribute("width", "22");
-			buttonSVG.setAttribute("height", "22");
-			buttonSVG.style.marginLeft = "4px";
-			buttonSVG.style.marginTop = "4px";
+			buttonSVG.setAttribute("width", "18");
+			buttonSVG.setAttribute("height", "18");
 			buttonSVG.style.webkitAppRegion = "no-drag"; // -webkit-app-region style
 
 			var target = document.querySelector("._39oUCO1OuizVPwcnnv88no"); // selecting the target of the menu
@@ -52,8 +49,8 @@ export default function rootMenuDropdown() {
 			// Create SVG Logo
 			var logoSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 			logoSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-			logoSVG.setAttribute("width", "22");
-			logoSVG.setAttribute("height", "22");
+			logoSVG.setAttribute("width", "18");
+			logoSVG.setAttribute("height", "18");
 			logoSVG.setAttribute("viewBox", "0 0 256 259");
 			logoSVG.innerHTML = `
 				<g>
@@ -63,58 +60,58 @@ export default function rootMenuDropdown() {
 			buttonSVG.appendChild(logoSVG);
 
 			// Insert the wrapper div (with SVG) as the first child after the menu
-			rootMenuWrapperDiv.appendChild(menu);
+                rootMenuWrapperDiv.appendChild(menu);
 
 
-				// Start with the menu hidden
-				menu.style.display = "none";
-				menu.style.backgroundColor = 'rgba(var(--backgroundLightish))';
-				
-				// Button click event
-				buttonSVG.addEventListener("click", function () {
-					
-					if (menu.style.display != "flex") {
-						menu.style.display = "flex"; // Show menu
-						logoSVG.querySelector("#logoPath").setAttribute("fill", "rgba(var(--accent))");
-						if (
-						menu.getBoundingClientRect().right > document.querySelector('.ip-YZhijAMZcuRoXBGiye').getBoundingClientRect().left + 5 
-						||
-						menu.getBoundingClientRect().right > document.querySelector('._2EQ7ghgqIdjKv9jsQC0Zq9').getBoundingClientRect().left + 5
-						) {
-								rootMenuWrapperDiv.style.marginTop = "42px";
-								rootMenuWrapperDiv.style.marginLeft = "-30px";
-								rootToggleButtonWrapperDiv.style.height = "60px";
+                // Start with the menu hidden
+                menu.style.display = "none";
+                menu.style.backgroundColor = 'rgba(var(--backgroundLightish))';
 
-						}
-						else{
-								rootMenuWrapperDiv.style.marginLeft = "0px";
-								rootMenuWrapperDiv.style.marginTop = "6px";
-								rootToggleButtonWrapperDiv.style.height = "30px";
-						}
-					} else {
-						menu.style.display = "none"; // Hide menu
-						document.querySelector(".rootToggleButtonWrapperDiv").setAttribute("height", "30px");
-						logoSVG.querySelector("#logoPath").setAttribute("fill", "var(--steamIconWhite)");
-						if (window.innerWidth >= 1551) {
-							rootMenuWrapperDiv.style.marginLeft = "0px";
-							rootMenuWrapperDiv.style.marginTop = "6px";
-							rootToggleButtonWrapperDiv.style.height = "30px";
-						}
-						if (window.innerWidth < 1551) {
-							rootMenuWrapperDiv.style.marginLeft = "0px";
-							if (rootToggleButtonWrapperDiv.style.height === "60px") {
-								rootToggleButtonWrapperDiv.style.height = "30px";
-							}
-						}
-					}
-				});
+                // Button click event
+                buttonSVG.addEventListener("click", function () {
 
-				var target = document.querySelector("._39oUCO1OuizVPwcnnv88no"); // selecting the target of the menu
-				if (target.firstChild){
-				
-					target.insertBefore(rootMenuWrapperDiv, target.firstChild.nextSibling); // inserting the menu after the first child of the target
-				
-				}  
-			});
-	});
+                    if (menu.style.display != "flex") {
+                        menu.style.display = "flex"; // Show menu
+                        logoSVG.querySelector("#logoPath").setAttribute("fill", "rgba(var(--accent))");
+                        if (
+                            menu.getBoundingClientRect().right > document.querySelector('.ip-YZhijAMZcuRoXBGiye').getBoundingClientRect().left + 5 
+                            ||
+                            menu.getBoundingClientRect().right > document.querySelector('._2EQ7ghgqIdjKv9jsQC0Zq9').getBoundingClientRect().left + 5
+                        ) {
+                            rootMenuWrapperDiv.style.marginRight = "8px";
+
+                        }
+                        else{
+                            rootMenuWrapperDiv.style.marginRight = "0px";
+                        }
+                    } else {
+                        menu.style.display = "none"; // Hide menu
+                        logoSVG.querySelector("#logoPath").setAttribute("fill", "var(--steamIconWhite)");
+                        if (window.innerWidth >= 1551) {
+                            rootMenuWrapperDiv.style.marginRight = "0px";
+                        }
+                        if (window.innerWidth < 1551) {
+                            rootMenuWrapperDiv.style.marginRight = "0px";
+                        }
+                    }
+                });
+
+                var target = document.querySelector("._39oUCO1OuizVPwcnnv88no"); // selecting the target of the menu
+                if (target.firstChild){
+
+                    target.insertBefore(rootMenuWrapperDiv, target.firstChild.nextSibling); // inserting the menu after the first child of the target
+
+                }  
+
+                let rootToggleButtonElement = document.querySelector('.rootToggleButtonWrapperDiv');
+                let rootMenuWrapperElement = document.querySelector('.rootMenuWrapperDiv');
+
+                let newsNotificationProfileWrapperElement = document.querySelector('._3cykd-VfN_xBxf3Qxriccm');
+
+                let profileElement = newsNotificationProfileWrapperElement.children[2];
+                newsNotificationProfileWrapperElement.insertBefore(rootToggleButtonElement, profileElement)
+                newsNotificationProfileWrapperElement.insertBefore(rootMenuWrapperElement, profileElement)
+            });
+        });
+    });
 }

@@ -256,7 +256,7 @@ div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid 
 /* root menu */
 ._3s0lkohH8wU2do0K1il28Y {
 	margin-top: 0px !important;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
 	min-width: 242px !important;
     height: 30px !important;
 	z-index: 3 !important;
@@ -264,7 +264,7 @@ div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid 
 /*root menu toggle button bg*/
 .rootToggleButtonWrapperDiv{
 	background: rgba(var(--backgroundLightish)) !important;
-    border-radius: 6px !important;
+    border-radius: 2px !important;
 }
 /* top bar button formatting*/
 ._2Szzh5sKyGgnLUR870zbDE,

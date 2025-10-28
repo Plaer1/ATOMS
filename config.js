@@ -13,7 +13,7 @@ export const month = "April";
 //day
 export const day = "20";
 
-export const filePathPrefix ="skins/ATOMS-main";
+export const filePathPrefix ="skins/ATOMS";
 
 
 // Banned game tags 

@@ -77,4 +77,7 @@ export default function transparentGames() {
     }
 }
 
-waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
+
+	if (document.getElementById("millennium-injected")) {
+		waitForElement('._3Sb2o_mQ30IDRh0C72QUUu', transparentGames);
+	}

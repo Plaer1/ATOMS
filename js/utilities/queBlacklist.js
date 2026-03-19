@@ -1,4 +1,4 @@
-import { staticAppNames, staticKeywords } from "../../config.js";
+import { staticAppNames, staticKeywords } from "./runtimeConfig.js";
 
 export default function queBlacklist() {
   const qs  = (s, r = document) => r.querySelector(s);

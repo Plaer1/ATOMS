@@ -6,10 +6,10 @@ function decodeHtmlEntities(str) {
     if (!str) return str;
     const out = str
         .replace(/&quot;/g, '"')
-        .replace(/&amp;/g, '&')
+        .replace(/&amp;/g, "&")
         .replace(/&#39;/g, "'")
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>');
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">");
     console.log("[grayscale][decodeHtmlEntities] output:", out);
     return out;
 }
@@ -45,7 +45,9 @@ function extractBackgroundImage(el) {
 
     // 1) Inline style property
     console.log("[grayscale][extract] el.style.cssText:", el.style && el.style.cssText);
-    let bgInline = el.style && (el.style.backgroundImage || el.style.getPropertyValue?.("background-image"));
+    let bgInline =
+        el.style &&
+        (el.style.backgroundImage || el.style.getPropertyValue?.("background-image"));
     console.log("[grayscale][extract] el.style.backgroundImage:", bgInline);
     if (bgInline && bgInline !== "none") {
         bgInline = decodeHtmlEntities(bgInline);
@@ -78,11 +80,7 @@ function extractBackgroundImage(el) {
 
 /* ========= Appliers ========= */
 function applyViewportBackdrop(bgImage, opts = {}) {
-    const {
-        position = "center top",
-        size = "cover",
-        repeat = "no-repeat",
-    } = opts;
+    const { position = "center top", size = "cover", repeat = "no-repeat" } = opts;
 
     console.log("[grayscale][applyViewport] img:", bgImage, "opts:", opts);
 
@@ -145,7 +143,7 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
     const bgPos = `${posX} ${posY}`;
     console.log("[grayscale][applyEl] background-position:", { bgPosRaw, posX, posY, bgPos });
 
-    const bgSize   = cs.backgroundSize || "auto";
+    const bgSize = cs.backgroundSize || "auto";
     const bgRepeat = forceNoRepeat ? "no-repeat" : (cs.backgroundRepeat || "no-repeat");
     console.log("[grayscale][applyEl] size/repeat:", { bgSize, bgRepeat });
 
@@ -197,7 +195,7 @@ function pollCartForBackground({
 
     // ensure we can nuke the original background robustly
     const ensureCartBackgroundClearedRule = () => {
-        if (document.querySelector('style[data-grayscale-clear-cart]')) return;
+        if (document.querySelector("style[data-grayscale-clear-cart]")) return;
         const s = document.createElement("style");
         s.setAttribute("data-grayscale-clear-cart", "1");
         s.textContent = `
@@ -226,7 +224,12 @@ function pollCartForBackground({
         const elapsed = Math.round(performance.now() - t0);
 
         const el = document.querySelector(selector);
-        console.log(`[grayscale][cart][poll] attempt ${attempts}, elapsed ${elapsed}ms, node:`, el, "cssText:", el?.style?.cssText);
+        console.log(
+            `[grayscale][cart][poll] attempt ${attempts}, elapsed ${elapsed}ms, node:`,
+            el,
+            "cssText:",
+            el?.style?.cssText
+        );
 
         if (!el) {
             if (elapsed >= maxMs) {
@@ -262,47 +265,77 @@ function pollCartForBackground({
 
     console.log("[grayscale][cart][poll] start:", { selector, intervalMs, maxMs });
     tick();
-    return () => { if (timerId) clearTimeout(timerId); };
+    return () => {
+        if (timerId) clearTimeout(timerId);
+    };
 }
 
-/* ========= Routing ========= */
-console.log("[grayscale][route] title:", document.title, "url:", location.href);
+/* ========= Runner (export default) ========= */
+export default function runGrayscaleScript() {
+    console.log("[grayscale][run] title:", document.title, "url:", location.href);
 
-if (document.title.startsWith("Steam Community")) {
-    console.log("[grayscale][route] Steam Community");
-    waitForElement(".apphub_background", function (el) {
-        console.log("[grayscale][route] .apphub_background ready. el:", el);
-        applyGrayscaleBackgroundToEl(el, ".apphub_background", { forceNoRepeat: true, forceCenterX: true });
-    });
-} else if (document.title === "Shopping Cart") {
-    console.log("[grayscale][route] Shopping Cart");
-    const CART_SEL = ".FaiD8bJRAZ-HoNo0VvLOO";
-    console.log("[grayscale][route] cart selector:", CART_SEL);
+    if (location.href.startsWith("https://steamcommunity.com")) {
+        console.log("[grayscale][route] Steam Community");
+        let communityApplied = false;
 
-    waitForElement(CART_SEL, function () {
-        console.log("[grayscale][route] cart element observed; begin polling and paint to body, then clear original");
-        pollCartForBackground({ selector: CART_SEL, intervalMs: 33, maxMs: 10000 });
-    });
-} else if (document.title.startsWith("Welcome to Steam") && document.body.classList.contains("seasonal_sale")) {
-    console.log("[grayscale][route] Welcome to Steam + seasonal_sale");
-    waitForElement("body", function (el) {
-        console.log("[grayscale][route] body ready (seasonal). el:", el);
-        const img = extractBackgroundImage(el);
-        if (img) applyViewportBackdrop(img);
-    });
-} else if (location.href.startsWith("https://store.steampowered.com/app/")) {
-    console.log("[grayscale][route] app page");
-    waitForElement(".game_page_background", function (el) {
-        console.log("[grayscale][route] .game_page_background ready. el:", el);
-        applyGrayscaleBackgroundToEl(el, ".game_page_background", { forceNoRepeat: true, forceCenterX: true });
-    }, 69, 55555, 0);
-} else if (location.href.startsWith("https://store.steampowered.com/sale/special_deals")) {
-    console.log("[grayscale][route] special deals sale page");
-    waitForElement("body", function (el) {
-        console.log("[grayscale][route] body ready (special deals). el:", el);
-        const img = extractBackgroundImage(el);
-        if (img) applyViewportBackdrop(img);
-    });
-} else {
+        waitForElement(
+            ".apphub_background",
+            function (el) {
+                if (communityApplied) return;
+                communityApplied = true;
+                console.log("[grayscale][route] .apphub_background ready. el:", el);
+                applyGrayscaleBackgroundToEl(el, ".apphub_background", {
+                    forceNoRepeat: true,
+                    forceCenterX: true,
+                });
+            },
+            69,
+            2000
+        );
+
+        setTimeout(() => {
+            if (communityApplied || !document.body) return;
+            console.log("[grayscale][route] community fallback to body background");
+            const img = extractBackgroundImage(document.body);
+            if (img) {
+                communityApplied = true;
+                applyViewportBackdrop(img);
+            }
+        }, 2000);
+        return;
+    }
+
+    if (document.title === "Shopping Cart") {
+        console.log("[grayscale][route] Shopping Cart");
+        const CART_SEL = ".FaiD8bJRAZ-HoNo0VvLOO";
+        console.log("[grayscale][route] cart selector:", CART_SEL);
+
+        waitForElement(CART_SEL, function () {
+            console.log("[grayscale][route] cart element observed; begin polling and paint to body, then clear original");
+            pollCartForBackground({ selector: CART_SEL, intervalMs: 33, maxMs: 10000 });
+        });
+        return;
+    }
+
+    if (document.title.startsWith("Welcome to Steam") && document.body.classList.contains("seasonal_sale")) {
+        console.log("[grayscale][route] Welcome to Steam + seasonal_sale");
+        waitForElement("body", function (el) {
+            console.log("[grayscale][route] body ready (seasonal). el:", el);
+            const img = extractBackgroundImage(el);
+            if (img) applyViewportBackdrop(img);
+        });
+        return;
+    }
+
+    if (location.href.startsWith("https://store.steampowered.com/sale/special_deals")) {
+        console.log("[grayscale][route] special deals sale page");
+        waitForElement("body", function (el) {
+            console.log("[grayscale][route] body ready (special deals). el:", el);
+            const img = extractBackgroundImage(el);
+            if (img) applyViewportBackdrop(img);
+        });
+        return;
+    }
+
     console.log("[grayscale][route] no matching route");
 }

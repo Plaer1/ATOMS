@@ -2,7 +2,7 @@
 	"author":"Plaer1",
 	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1.1.111",
+	"version":"1.1.1.1.1.1.1.1.1.1111",
 	"github":{
 		"owner":"Plaer1",
 		"repo_name":"ATOMS"
@@ -22,13 +22,13 @@
 	"webkitJS":"js/webkit.js",
 	"Patches":[
 		{
-			"MatchRegexString":"https://.*.steampowered.com",
-			"TargetCss":"css/webkit.css",
+			"MatchRegexString":"^https://.*\\.steampowered\\.com(?:/.*)?$",
+			"TargetCss":"webkit.css",
 			"TargetJs":"js/webkit.js"
 		},
 		{
-			"MatchRegexString":"https://steamcommunity.com",
-			"TargetCss":"css/webkit.css",
+			"MatchRegexString":"^https://steamcommunity\\.com(?:/.*)?$",
+			"TargetCss":"webkit.css",
 			"TargetJs":"js/webkit.js"
 		},
 		{
@@ -87,7 +87,7 @@
 			"TargetCss":"css/bigpicture.css"
 		},
 		{
-			"MatchRegexString":" Controller Layout$",
+			"MatchRegexString":"^Controller Layout$",
 			"TargetCss":"css/controller.css"
 		},
 		{
@@ -161,7 +161,7 @@
 		},
 		"Enable Automatic Que Skipping?":{
 			"default":"no",
-			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
+			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js'; see 'js/configDefaults.js' for the full list)",
 			"values":{
 				"no":{
 					
@@ -172,23 +172,6 @@
 							"^https://store\\.steampowered\\.com/.*"
 						],
 						"src":"js/utilities/queBlacklist.js"
-					}
-				}
-			}
-		},
-		"Enable shaded game/community backgrounds?":{
-			"default":"yes",
-			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js')",
-			"values":{
-				"no":{
-					
-				},
-				"yes":{
-					"TargetJs":{
-						"affects":[
-							"^https://(store\\.steampowered\\.com|steamcommunity\\.com)/.*"
-						],
-						"src":"js/utilities/greyscaleBackground.js"
 					}
 				}
 			}

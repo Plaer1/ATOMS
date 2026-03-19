@@ -1,4 +1,4 @@
-import { day, month, year, zoomInKey, zoomOutKey } from "../../config.js";
+import { day, month, year, zoomInKey, zoomOutKey } from "./runtimeConfig.js";
 // Wait for 80ms
 function wait() {
   return new Promise(resolve => setTimeout(resolve, 80));
@@ -47,4 +47,3 @@ function zoomEnabler() {
   
 
 export { wait, bigWait, skipAgeGate, zoomEnabler };
-

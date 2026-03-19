@@ -54,7 +54,8 @@ the config is broken down into a few main sections:
 
 	/*reds*/
 	--red:							255, 0, 0;
-
+	--steamThumbRed:				224, 99, 99;
+	
 	/*oranges*/
 	--orange:						255, 102, 0; 
 
@@ -63,6 +64,7 @@ the config is broken down into a few main sections:
 
 	/*greens*/
 	--green:						51, 255, 0; 
+	--steamGreen:					194, 255, 179;
 
 	/*purples*/
 	--purple:						102, 36, 226; 
@@ -139,7 +141,6 @@ the config is broken down into a few main sections:
 	--textDarkish:					var(--pinkWhiteDarkish);
 	--textDark:				    	var(--pinkWhiteDark);
 
-	
 	/* some static steam color definitons*/
 	--ingame:						#92be38;
 	--steamNearWhite: 			#ccc;
@@ -206,7 +207,8 @@ the config is broken down into a few main sections:
 	/*#############################
 	/* hardcoded opacity values*/
 	--opacity0:		0.0;
-	--opacity1:		0.1; 
+	--opacity1:		0.1;
+	--opacity15:	0.15; 
 	--opacity2:		0.2; 
 	--opacity3:		0.3; 
 	--opacity333:	0.333; 

@@ -1,23 +1,8 @@
+/*
+Put only the JS settings you want to change in this file.
+See ./js/configDefaults.js for the full list of available settings.
 
-/*zoom in/out keys:		-must be 1 char
-/*Key to zoom in*/
+Examples:
 export const zoomInKey = "=";
-//Key to zoom out
-export const zoomOutKey = "-";
-
-/*birthday for age gate:
-/*year*/
-export const year = "1969";
-//month
-export const month = "April";
-//day
-export const day = "20";
-
-export const filePathPrefix ="skins/ATOMS-main";
-
-
-// Banned game tags 
-export const staticKeywords = [];
-
-// Banned game name strings:
-export const staticAppNames = [];
+export const staticKeywords = ["Hidden Object"];
+*/

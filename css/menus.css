@@ -19,8 +19,7 @@ html,body{
 {
 	background: rgba(var(--backgroundLight)) !important;
 } 
-._11phBiBefcVQdzrnrezkKa, /*account name in account settings dropdown*/
-._2jphjrSifC6orDT4g_7Wd /*wallet balance in account settings dropdown*/
+._11phBiBefcVQdzrnrezkKa, ._2jphjrSifC6orDT4g_7Wd /*wallet balance in account settings dropdown*/
 {
 	color: rgb(var(--textAccented)) !important;
 }

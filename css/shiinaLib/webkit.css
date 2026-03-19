@@ -209,12 +209,6 @@ body.recommendgame #review_create {
     padding: 16px !important;
 }
 
-#review_create .input_box {
-    border: 1px solid var(--black) !important;
-
-    background-color: #222b3500 !important;
-}
-
 #footerText {
     padding-bottom: 26px !important;
 }
@@ -2230,8 +2224,6 @@ body.flat_page #footer_spacer, body.headerless_page #footer_spacer {
 }
 
 img.game_header_image_full {
-
-    width: 324px !important;
     margin-left: -5px !important;
 }
 
@@ -2290,8 +2282,6 @@ img.game_header_image_full {
 
 #review_create .input_box {
     border: 0 !important;
-
-    background-color: #2b2b2b !important;
 }
 
 .review_controls {
@@ -2358,12 +2348,6 @@ body.v6 #footer .rule {
     border-right: 0 !important;
 }
 
-.queue_controls_description {
-    color: var(--gold) !important;
-    background: 0 0 !important;
-    margin-top: -28px !important;
-}
-
 .btn_next_in_queue .next_in_queue_content {
     padding: 25px 15% 0 28% !important;
 }
@@ -2376,17 +2360,6 @@ body.v6 #footer .rule {
     margin-bottom: -10px !important;
     margin-right: -15px !important;
     margin-top: -35px !important;
-
-}
-
-.btn_next_in_queue {
-    background: 0 0 !important;
-    background-color: var(--bronze) !important;
-    width: 230px !important;
-    height: 80px !important;
-    margin-bottom: -10px !important;
-    margin-right: -15px !important;
-    margin-top: 20px !important;
 
 }
 
@@ -3392,10 +3365,6 @@ div.profile_page.has_profile_background {
 .referring_curator_ctn {
     margin-top: -20px !important;
     margin-bottom: 0px !important;
-}
-
-.queue_overflow_ctn {
-    margin-top: -20px !important;
 }
 
 /* This is the part for the Group page Banner */

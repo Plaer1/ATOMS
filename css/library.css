@@ -64,16 +64,7 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 
 /*make blue stuff accented*/
-img[src="/images/defaultappimage.png"],
-.gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno,
-._2BlTqJQonHkEpBSpiC1NEA,
-.bGfjajFo4DI-ULSQxw1KY,
-img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"],
-._2lVtDi3eSjGcLfXVsRgoUy,
-._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C,
-._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA,
-img[src="/images/steam_spinner.png"], /*loading spinner*/
-._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
+img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, ._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA, img[src="/images/steam_spinner.png"], ._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
 {
 	filter: var(--accentFilter);
 }
@@ -84,49 +75,7 @@ img[src^="data:image/png;base64"] /*missing game images in download menu*/
 
 /*##########################################
 /* Various backgrounds */
-html,
-._27m9Qbg4ShilOgwvYZWV8l,
-._3JV6-V6z0SKmNu6TlI1Bdr,
-._2sNr7PFYcJZWNkEMCDVVPR,
-._23zCI_59RJTWRvY-_YCFb9,
-.u1xD3KJEgksF_J_5TLZzO,
-.DialogContent_InnerWidth,
-.DialogContent._DialogLayout,
-.DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-,
-._1mfQu39T7gxcr0KSHso6_A,
-._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat,
-._32mHvRSmD7AVK9OIOPlaFu,
-._2ilpH-HpvuSm6s5MWX5bA-,
-.LclHwcOfHFpwObYMD1HLa,
-.OhSdLYuggDtBcWjYP0j_9,
-._1_cYNJSvS6IXs9vLTEYjy5,
-._2r4TK4BAuU-J4FuF_O7v_5,
-._31ptFGGMZrSQc5BCX1e5lm,
-._3-V8vjmrwuJM6Ws3tsjFJj > div,
-._2PF_m-I5yte3WnQhpcz8RC,
-._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper,
-._3pSPluBgf0NeR1kkCLWMhR,
-._2FxbHJzYoH024ko7zqcJOf,
-.DesktopUI .DialogMenuPosition > ._30wJO3MC4x-I1OWpy1TAeE._DialogInputContainer,
-._1LJqx_qFOC8199RBQO5kU8,
-._3Sb2o_mQ30IDRh0C72QUUu,
-.GTdO0X-5EOwChz3fc2iLU,
-._2SdqX9SccD_TtDat-bNo5-,
-._2JKpGzeAiwmBdY73bfRXz-,
-._2gSXCB6PbOlMxslr8hm6dm,
-._2Nq6ov7A1hGcHXVOXNt_OE,
-._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw,
-._3f3VJUtyLXUf_JDFE-BaQ6,
-._37mmOlZM_8n5yJAG5CHiW7,
-._1ENHEsrSLcTRtPQFl1F-wL._1DvwQt0JN-Ogp_4tVZdkzX,
-._1xLWmfPlWGV47FujycPN_c,
-._3Mbhnlk1Go2j8yCdjthzc7.IbePLaw-vSvhG1GTenYFg._2KB3yVOsiRCK9qK6mwKl9c,
-.RGNMWtyj73_-WdhflrmuY ._2CmrnGY-Amtd83ScJkFvx2,
-.Rp8QOGJ2DypeDniMnRBhr,
-._27qasW5wLU4h4nUgawpo1q,
-.QsvsRVwbsApgKt1MhM0fz,
-.FullModalOverlay,
-._3mz8wQ6Q44B8P7pzPP4Iyw /*more library backgrounds*/
+html, ._27m9Qbg4ShilOgwvYZWV8l, ._3JV6-V6z0SKmNu6TlI1Bdr, ._2sNr7PFYcJZWNkEMCDVVPR, ._23zCI_59RJTWRvY-_YCFb9, .u1xD3KJEgksF_J_5TLZzO, .DialogContent_InnerWidth, .DialogContent._DialogLayout, .DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-, ._1mfQu39T7gxcr0KSHso6_A, ._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, ._32mHvRSmD7AVK9OIOPlaFu, ._2ilpH-HpvuSm6s5MWX5bA-, .LclHwcOfHFpwObYMD1HLa, .OhSdLYuggDtBcWjYP0j_9, ._1_cYNJSvS6IXs9vLTEYjy5, ._2r4TK4BAuU-J4FuF_O7v_5, ._31ptFGGMZrSQc5BCX1e5lm, ._3-V8vjmrwuJM6Ws3tsjFJj > div, ._2PF_m-I5yte3WnQhpcz8RC, ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper, ._3pSPluBgf0NeR1kkCLWMhR, ._2FxbHJzYoH024ko7zqcJOf, .DesktopUI .DialogMenuPosition > ._30wJO3MC4x-I1OWpy1TAeE._DialogInputContainer, ._1LJqx_qFOC8199RBQO5kU8, ._3Sb2o_mQ30IDRh0C72QUUu, .GTdO0X-5EOwChz3fc2iLU, ._2SdqX9SccD_TtDat-bNo5-, ._2JKpGzeAiwmBdY73bfRXz-, ._2gSXCB6PbOlMxslr8hm6dm, ._2Nq6ov7A1hGcHXVOXNt_OE, ._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw, ._3f3VJUtyLXUf_JDFE-BaQ6, ._37mmOlZM_8n5yJAG5CHiW7, ._1ENHEsrSLcTRtPQFl1F-wL._1DvwQt0JN-Ogp_4tVZdkzX, ._1xLWmfPlWGV47FujycPN_c, ._3Mbhnlk1Go2j8yCdjthzc7.IbePLaw-vSvhG1GTenYFg._2KB3yVOsiRCK9qK6mwKl9c, .RGNMWtyj73_-WdhflrmuY ._2CmrnGY-Amtd83ScJkFvx2, .Rp8QOGJ2DypeDniMnRBhr, ._27qasW5wLU4h4nUgawpo1q, .QsvsRVwbsApgKt1MhM0fz, .FullModalOverlay, ._3mz8wQ6Q44B8P7pzPP4Iyw /*more library backgrounds*/
 
 {
 	&:not(.fullheight.ModalDialogPopup):not(._1UJDmU3N-pkv7oTJ_Zf9nK) {
@@ -135,19 +84,12 @@ html,
 
 /*############################
 /*lightish backgrounds*/
-.Oo5JPcEk_erKEYAzYp2nY.Panel,
-._1Lfu7heMNRsXXo1Yfzsp17,
-._2ilpH-HpvuSm6s5MWX5bA-,
-._3wtPUBfilFITcl1s4u6A7T,
-._1ml4SNc3LIyBDHIf8ekVSw, /*background for some button containers in settings*/
-.wgbDI6To-SKawn9wQwVaw				/* post-game-summary */
+.Oo5JPcEk_erKEYAzYp2nY.Panel, ._1Lfu7heMNRsXXo1Yfzsp17, ._2ilpH-HpvuSm6s5MWX5bA-, ._3wtPUBfilFITcl1s4u6A7T, ._1ml4SNc3LIyBDHIf8ekVSw, .wgbDI6To-SKawn9wQwVaw				/* post-game-summary */
 {
 background: rgba(var(--backgroundLightish));
 }
 
-.HijmccPB1BKyhOwhX1EVl, /*button backgrounds in main steam settings*/
-._7EGqd8bdiXJBd2fj5Hh8r:hover, /*hover effect on some buttons in recording menu in*/
-._2Dptk9e7W_k4zYB5wfRTcp .Qeg4qAFIMLaYd3mHOBndS /*unfilled mic test bar in settings*/
+.HijmccPB1BKyhOwhX1EVl, ._7EGqd8bdiXJBd2fj5Hh8r:hover, ._2Dptk9e7W_k4zYB5wfRTcp .Qeg4qAFIMLaYd3mHOBndS /*unfilled mic test bar in settings*/
 {
     background-color: rgba(var(--accentLightTransparentest));
     text-shadow: none;
@@ -158,9 +100,7 @@ background: rgba(var(--backgroundLightish));
 
 
 /*top bar height(s)*/
-._39oUCO1OuizVPwcnnv88no,
-._3Z7VQ1IMk4E3HsHvrkLNgo,
-._3Z3ohQ8-1NKnCZkbS6fvy {
+._39oUCO1OuizVPwcnnv88no, ._3Z7VQ1IMk4E3HsHvrkLNgo, ._3Z3ohQ8-1NKnCZkbS6fvy {
   min-height: 40px !important;
 }
 ._1f9_BgoyE1cjqyeKD8dh9u .YzIcpcz4oFx-nndxro5jE .hXJt8CFzzitOG3moJEGg- /*fix for titlebar in some popups*/
@@ -176,14 +116,12 @@ background: rgba(var(--backgroundLightish));
   min-height: 24px !important;
 }
 /* back forward buttons*/
-._25lBLzuVeYAUG279up4xP8._1LYTHQzcI1u6tcxbbcc5V3,
-._25lBLzuVeYAUG279up4xP8._2cO0HdvLEGAdhosLekWsmo /* forward */
+._25lBLzuVeYAUG279up4xP8._1LYTHQzcI1u6tcxbbcc5V3, ._25lBLzuVeYAUG279up4xP8._2cO0HdvLEGAdhosLekWsmo /* forward */
 {
   padding-top: 3px !important;
 }
 /*top bar text-dropdowns fix*/
-._2Lu3d-5qLmW4i19ysTt2jT,
-._3yD46y5pd3zOGR7CzKs0mC /*account container top right*/ {
+._2Lu3d-5qLmW4i19ysTt2jT, ._3yD46y5pd3zOGR7CzKs0mC /*account container top right*/ {
 max-height: 30px !important;
   height: 30px !important;
 }
@@ -215,40 +153,7 @@ max-height: 30px !important;
 }
 /*############################################################
 /*text accents*/
-._1Ve4VFO2EEkeNZdel_Asky a,
-._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL,
-._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R,
-.ErrorBoundary > h1,
-.ErrorBoundary > h1 a,
-._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-,
-._2rjVTGz8aLvqOdz5v2gq5C,
-._2mZ8LlvoUiyeEUtIWuTri,
-._16dREqlIrGflPfbNtLGdJh,
-._2iEkqauHWZiCAOo0cWqnPP,
-._2u9RZJXJSDg3e-J_EX1exE,
-.KId8dCUFbYh_bz-jozERD,
-.QQy4BCjcpjCfAvTKAqBq3,
-._3csl-MPe-hKuT8hQpOqEG5,
-.Udzrpqr8534T5DvVZveNP,
-.A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton),
-._3kXEpnxa2qb5znYMSbKT0p,
-._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM > svg > path,
-._2ns4wnmgr4XBzARpwn2NZ1,
-._23Pup1qLf91kwjALd-jFGc,
-._2g3Gley034M1ZGhcq005s,
-._1vIlyxb5BAwKPUkOfO94qZ,
-._2hfibYuzyMOQ0sj2egsHh0,
-._3yD46y5pd3zOGR7CzKs0mC.online,
-._3i0kopAostOz2IDi9HqmeN,
-.H4JE-8OU0E7AeMZY3bEeM,
-.BRmrC-jnwpXqye4oYB21C button.DialogButton,
-.qX4kNo6O0M-mYntdErKSJ,
-.UJn_t5bdfyjDFBCTAl2bL, /*recording info in Recordings & Screenshots dialogue*/
-.online .nOdcT-MoOaXGePXLyPe0H,
-.hXJt8CFzzitOG3moJEGg-, /*title in recordings and screenshots dialogue*/
-._1ujzuoxGhLunHZQqHAqRgg>div,									/* 'major update' text in library*/
-._1dg8hJMsAYISbeQUxcCJcv div._1YqJbKvmcYmfIDhCmNIQ5q, /*coming soon text on game page in library view*/
-div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid icon in library view*/
+._1Ve4VFO2EEkeNZdel_Asky a, ._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL, ._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R, .ErrorBoundary > h1, .ErrorBoundary > h1 a, ._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-, ._2rjVTGz8aLvqOdz5v2gq5C, ._2mZ8LlvoUiyeEUtIWuTri, ._16dREqlIrGflPfbNtLGdJh, ._2iEkqauHWZiCAOo0cWqnPP, ._2u9RZJXJSDg3e-J_EX1exE, .KId8dCUFbYh_bz-jozERD, .QQy4BCjcpjCfAvTKAqBq3, ._3csl-MPe-hKuT8hQpOqEG5, .Udzrpqr8534T5DvVZveNP, .A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton), ._3kXEpnxa2qb5znYMSbKT0p, ._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM > svg > path, ._2ns4wnmgr4XBzARpwn2NZ1, ._23Pup1qLf91kwjALd-jFGc, ._2g3Gley034M1ZGhcq005s, ._1vIlyxb5BAwKPUkOfO94qZ, ._2hfibYuzyMOQ0sj2egsHh0, ._3yD46y5pd3zOGR7CzKs0mC.online, ._3i0kopAostOz2IDi9HqmeN, .H4JE-8OU0E7AeMZY3bEeM, .BRmrC-jnwpXqye4oYB21C button.DialogButton, .qX4kNo6O0M-mYntdErKSJ, .UJn_t5bdfyjDFBCTAl2bL, .online .nOdcT-MoOaXGePXLyPe0H, .hXJt8CFzzitOG3moJEGg-, ._1ujzuoxGhLunHZQqHAqRgg > div, ._1dg8hJMsAYISbeQUxcCJcv div._1YqJbKvmcYmfIDhCmNIQ5q, div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid icon in library view*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -267,9 +172,7 @@ div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid 
     border-radius: 6px !important;
 }
 /* top bar button formatting*/
-._2Szzh5sKyGgnLUR870zbDE,
-._1TdaAqMFadi0UTqilrkelR,
-._2EQ7ghgqIdjKv9jsQC0Zq9
+._2Szzh5sKyGgnLUR870zbDE, ._1TdaAqMFadi0UTqilrkelR, ._2EQ7ghgqIdjKv9jsQC0Zq9
 {
 	padding: 0 0 0 0 !important;
 	height: 30px !important;
@@ -280,8 +183,7 @@ div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid 
 	flex-direction: row-reverse !important;
 }
 /* Base styles for the elements */
-._2VtAqT03BpBsVdmxwptn9D,
-._2EQ7ghgqIdjKv9jsQC0Zq9 {
+._2VtAqT03BpBsVdmxwptn9D, ._2EQ7ghgqIdjKv9jsQC0Zq9 {
 	/* Apply transition to width changes */
 	transition: max-width 0.2s ease-in-out,
 min-width 0.5s ease-in-out,
@@ -300,8 +202,7 @@ width 0.5s ease-in-out !important;
 /*1963*/
 	@media (max-width: 1919px) {
 		/*downloads fix:*/
-		._2VtAqT03BpBsVdmxwptn9D,
-._1sCy-pm412Smb0wJx0W-4 {
+		._2VtAqT03BpBsVdmxwptn9D, ._1sCy-pm412Smb0wJx0W-4 {
 			max-width: 16vw !important;
 			min-width: 2vw !important;
 		}
@@ -321,16 +222,14 @@ width 0.5s ease-in-out !important;
 				display: none !important;
 			}
 		/*downloads fix:*/
-		._2VtAqT03BpBsVdmxwptn9D,
-._1sCy-pm412Smb0wJx0W-4 {
+		._2VtAqT03BpBsVdmxwptn9D, ._1sCy-pm412Smb0wJx0W-4 {
 			max-width: 11vw !important;
 			min-width: 2vw !important;
 		}
 
 		@media (max-width: 1401px) {
 			/* Base styles for the elements */
-				._2VtAqT03BpBsVdmxwptn9D,
-._2EQ7ghgqIdjKv9jsQC0Zq9 {
+				._2VtAqT03BpBsVdmxwptn9D, ._2EQ7ghgqIdjKv9jsQC0Zq9 {
 					/* Apply transition to width changes */
 					transition: max-width 0.1s ease-in-out,
 min-width 0.2s ease-in-out !important;
@@ -341,8 +240,7 @@ min-width 0.2s ease-in-out !important;
 			}
 			@media (max-width: 1324px) {
 				/* Base styles for the elements */
-					._2VtAqT03BpBsVdmxwptn9D,
-._2EQ7ghgqIdjKv9jsQC0Zq9 {
+					._2VtAqT03BpBsVdmxwptn9D, ._2EQ7ghgqIdjKv9jsQC0Zq9 {
 						/* Apply transition to width changes */
 						transition: max-width 0.1s ease-in-out,
 min-width 0.2s ease-in-out !important;
@@ -362,26 +260,7 @@ min-width 0.2s ease-in-out !important;
 /* top bar buttons BGs,
 size,
 etc */
-._2EQ7ghgqIdjKv9jsQC0Zq9,
-._1TdaAqMFadi0UTqilrkelR,
-._3qhGkQ5qLVNQQ-J2-uPoHt,
-._3yD46y5pd3zOGR7CzKs0mC,
-._5wILZhsLODVwGfcJ0hKmJ,
-._3LLH_F43MTu6UtG4Z3kudv,
-._1vG-vFfwpDeNStVbyo1Qy6.P46KVvNDqOUONCIHBwKgU,
-._2OwqXw1nhBL430bsYTeEr-,
-.DialogButton._DialogLayout.Secondary.Focusable,
-._3ebCJiEl-ybizhZ4avcFw5,
-._1VNuYHM6BPBOJspC6zPf5r.IbePLaw-vSvhG1GTenYFg,
-._2lNdDLgjQdeBXmMlPO8lvq .cvw8DHMUBKuZs5DeLJOQ2,
-._316Uo4SBrQ_beBdSYn2HNO,
-._3qDWQGB0rtwM3qpXTb11Q-,
-._1-H7tKj_QcGHLUbx5wVsGg,
-._1JlC29Ic6L-QvL-39X_d-X,
-._1HZy7BvOZuPT8feUwadL4W,
-.NEMXhMlqXOCJwfgWlHXhT,
-._2sYIghGVXJr6tsQVvcryy8,
-._2Q95p8Q2cZFieeOi06-FS9 															/* show all collections button*/
+._2EQ7ghgqIdjKv9jsQC0Zq9, ._1TdaAqMFadi0UTqilrkelR, ._3qhGkQ5qLVNQQ-J2-uPoHt, ._3yD46y5pd3zOGR7CzKs0mC, ._5wILZhsLODVwGfcJ0hKmJ, ._3LLH_F43MTu6UtG4Z3kudv, ._1vG-vFfwpDeNStVbyo1Qy6.P46KVvNDqOUONCIHBwKgU, ._2OwqXw1nhBL430bsYTeEr-, .DialogButton._DialogLayout.Secondary.Focusable, ._3ebCJiEl-ybizhZ4avcFw5, ._1VNuYHM6BPBOJspC6zPf5r.IbePLaw-vSvhG1GTenYFg, ._2lNdDLgjQdeBXmMlPO8lvq .cvw8DHMUBKuZs5DeLJOQ2, ._316Uo4SBrQ_beBdSYn2HNO, ._3qDWQGB0rtwM3qpXTb11Q-, ._1-H7tKj_QcGHLUbx5wVsGg, ._1JlC29Ic6L-QvL-39X_d-X, ._1HZy7BvOZuPT8feUwadL4W, .NEMXhMlqXOCJwfgWlHXhT, ._2sYIghGVXJr6tsQVvcryy8, ._2Q95p8Q2cZFieeOi06-FS9 															/* show all collections button*/
 {
 	background: rgb(var(--backgroundLightish)) !important;
 }
@@ -458,8 +337,7 @@ etc */
 	height: 24px !important;
 }
 
-._1TdaAqMFadi0UTqilrkelR > ._1KrJ3sFAqPBN9mfpaNTU5F,
-.ip-YZhijAMZcuRoXBGiye > ._1KrJ3sFAqPBN9mfpaNTU5F    /* downloads icon */
+._1TdaAqMFadi0UTqilrkelR > ._1KrJ3sFAqPBN9mfpaNTU5F, .ip-YZhijAMZcuRoXBGiye > ._1KrJ3sFAqPBN9mfpaNTU5F    /* downloads icon */
 {
 	width: 20px !important;
 	height: 20px !important;
@@ -481,19 +359,7 @@ etc */
 }
 
 
-._3Z7VQ1IMk4E3HsHvrkLNgo,
-._2LyGIHuQ8SFKb5T262YUvg,
-._3m0MnUo45wjLOfNLpZ-3KH,
-._3T1iFy2maYycwqgFuzERyf,
-._1E_SL1bTibeQ3PQRBZoS_-,
-._1E_SL1bTibeQ3PQRBZoS_-::before,
-._3z2NYCkFizMu4fMvWTIBUG .L_ehQkR9HaVr2cdS1P1lc,
-._3QRf-tp5VddAF00vWY5Gn8,
-._31ptFGGMZrSQc5BCX1e5lm,
-._38t1mljBjmJfqjpVzMT1CG,
-._1ul9ZRBfhF0vyj-hrit6nU,
-#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div.DialogToggleField._DialogInputContainer._DialogLayout,
-#popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div:nth-child(5)												/* what's new hidden game counter box*/
+._3Z7VQ1IMk4E3HsHvrkLNgo, ._2LyGIHuQ8SFKb5T262YUvg, ._3m0MnUo45wjLOfNLpZ-3KH, ._3T1iFy2maYycwqgFuzERyf, ._1E_SL1bTibeQ3PQRBZoS_-, ._1E_SL1bTibeQ3PQRBZoS_-::before, ._3z2NYCkFizMu4fMvWTIBUG .L_ehQkR9HaVr2cdS1P1lc, ._3QRf-tp5VddAF00vWY5Gn8, ._31ptFGGMZrSQc5BCX1e5lm, ._38t1mljBjmJfqjpVzMT1CG, ._1ul9ZRBfhF0vyj-hrit6nU, #popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div.DialogToggleField._DialogInputContainer._DialogLayout, #popup_target > div > div.ModalPosition._2JKpGzeAiwmBdY73bfRXz- > div > div._1I-uT20jYsj5wUT4VIGjW8 > form > div:nth-child(5)												/* what's new hidden game counter box*/
 {
 	background: rgb(var(--backgroundDarkest)) !important;
 }
@@ -509,13 +375,7 @@ rgba(var(--accent)) 70%,
 rgba(var(--accent)) 100%) !important;
 }
 
-._3OhUxFVlQYr9W5ThxstR8k,
-._3wJnTtcTLEp0R7eQj_mK8Y,
-._2CmrnGY-Amtd83ScJkFvx2,
-._2foCkpRXhqq0UGVE50BWqj,
-svg.GG9wVQz6PLlhGHlJyZh4E,
-._3_IUVzR9tpG_JKEjhwXEAb,
-._3cX_vEKsN9S9EmR0O5w1Ol		/* get rid of strange blurred images on major update notes*/
+._3OhUxFVlQYr9W5ThxstR8k, ._3wJnTtcTLEp0R7eQj_mK8Y, ._2CmrnGY-Amtd83ScJkFvx2, ._2foCkpRXhqq0UGVE50BWqj, svg.GG9wVQz6PLlhGHlJyZh4E, ._3_IUVzR9tpG_JKEjhwXEAb, ._3cX_vEKsN9S9EmR0O5w1Ol		/* get rid of strange blurred images on major update notes*/
 {
 	display: none !important;
 }
@@ -537,33 +397,20 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 /*###########################################################
 /*main library page:*/
 
-._1S6CCCQlcTTAAHh3LMTLh1,
-.ErrorBoundary,
-._1ABCOz8DSrl-YJdh1xD-m0,
-._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c,
-._3KDkLoCR8OM8xfdQysKn9t,
-._2EOPVRm0FFn4LjXaGZ0Xh9,
-._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause),
-.PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
+._1S6CCCQlcTTAAHh3LMTLh1, .ErrorBoundary, ._1ABCOz8DSrl-YJdh1xD-m0, ._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c, ._3KDkLoCR8OM8xfdQysKn9t, ._2EOPVRm0FFn4LjXaGZ0Xh9, ._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause), .PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
 {
 		background: rgb(var(--backgroundDarkish)) !important;
 }
 
 /* context menu hover bg*/
-._18z-3vkWndCBO5WJgFldRK,
-._1n7Wloe5jZ6fSuvV18NNWI:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
+._18z-3vkWndCBO5WJgFldRK, ._1n7Wloe5jZ6fSuvV18NNWI:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
 	background: rgb(var(--accent)) !important;
 	border-color:rgb(var(--accent)) !important; 
 	color: rgb(var(--backgroundLightest)) !important;
 }
 
 /* context menu install/update button bg */
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop
 {
 	background: linear-gradient(-45deg,
 rgba(var(--accentLight)) 0%,
@@ -576,12 +423,7 @@ background:	radial-gradient(circle at 0% 20%, rgba(var(--accentLightish), 0.15) 
 }
 
 /* context menu install/update button bg:hover */
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel:hover,
-.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop:hover
+.DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Install:hover, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Update:hover, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Play:hover, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Pause:hover, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Cancel:hover, .DesktopUI .Z5iAXBkRFGnwpXsO8ANTl.Stop:hover
 {
 	background: linear-gradient(-45deg,
 rgba(var(--accentLightest)) 0%,
@@ -605,8 +447,7 @@ SEE IF I CAN OVERLOAD?*/
   background: rgba(var(--background)) !important;
 }
 /*what's new background update (news?)*/
-.B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5:hover ._3Rb_j3lgHaVVIud4Gla7_m,
-.gpfocus>.B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5 ._3Rb_j3lgHaVVIud4Gla7_m {
+.B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5:hover ._3Rb_j3lgHaVVIud4Gla7_m, .gpfocus > .B-vCdL38RiJlhfSRgZv78._278jFDApipeB4kFsi44_F5 ._3Rb_j3lgHaVVIud4Gla7_m {
 background: rgba(var(--accent),
 var(--opacity333)) !important;
 }
@@ -622,40 +463,13 @@ background: rgba(var(--accentDark)) !important;
 /* icon colors
 
 /*icon stroke*/
-.SVGIcon_Minimize line,
-.SVGIcon_Restore rect,
-.SVGIcon_Restore line,
-.SVGIcon_Restore polyline,
-.SVGIcon_Maximize rect,
-.SVGIcon_Maximize line,
-.SVGIcon_X_Line line,
-.SVGIcon_SketchArrowTopLeft path,
-._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq circle,
-._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq polyline,
-._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob._2WaHZuAetbqENmqDthu3nl svg path, /* heart outline*/
-._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path			/*make sort by date/playable accented when active */
+.SVGIcon_Minimize line, .SVGIcon_Restore rect, .SVGIcon_Restore line, .SVGIcon_Restore polyline, .SVGIcon_Maximize rect, .SVGIcon_Maximize line, .SVGIcon_X_Line line, .SVGIcon_SketchArrowTopLeft path, ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq circle, ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq polyline, ._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob._2WaHZuAetbqENmqDthu3nl svg path, ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path			/*make sort by date/playable accented when active */
 {
   stroke: rgb(var(--accent)) !important;
 }
 
 /*icon fill*/
-.SVGIcon_ReadyToPlay path,
-div._1tIg-QIrwMNtCm7NcYADyi.k-QNT9kzOEOvG0U_kGmwr > svg > path,
-._34YgMAbrVXVMMfXvsZAU9_ > path,
-._1PTQ2mq0eTaG8ifW8juu81 > path,
-._2AVfXlAuHy0YQ4h1B3Kk2R._2gr2M1hKDYXcLNwR7k05oF > path,
-._1Iw5xoXQXfmRjgjWTKbm_G > svg > g > path,
-._1Iw5xoXQXfmRjgjWTKbm_G defs > clipPath > path,
-._1Iw5xoXQXfmRjgjWTKbm_G > svg path,
-[direction="left"] > path,
-._1BXjK5v8XI_SEhGola5ftn > svg path .DialogDropDown_Arrow polygon,
-.Sf3urgalDvD2sZqNjEV9i,
-.QQy4BCjcpjCfAvTKAqBq3 > svg ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path,
-._1kCN0pAntrcGCSmcc-vYdk path,
-.online > svg.SVGIcon_MobilePhone > path,
-.SVGIcon_ChatBubble > g > path,
-._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob._2WaHZuAetbqENmqDthu3nl svg path, /*heart fill*/
-.DialogDropDown_Arrow .SVGIcon_DownArrowContextMenu /*down arrows like in settings*/
+.SVGIcon_ReadyToPlay path, div._1tIg-QIrwMNtCm7NcYADyi.k-QNT9kzOEOvG0U_kGmwr > svg > path, ._34YgMAbrVXVMMfXvsZAU9_ > path, ._1PTQ2mq0eTaG8ifW8juu81 > path, ._2AVfXlAuHy0YQ4h1B3Kk2R._2gr2M1hKDYXcLNwR7k05oF > path, ._1Iw5xoXQXfmRjgjWTKbm_G > svg > g > path, ._1Iw5xoXQXfmRjgjWTKbm_G defs > clipPath > path, ._1Iw5xoXQXfmRjgjWTKbm_G > svg path, [direction="left"] > path, ._1BXjK5v8XI_SEhGola5ftn > svg path .DialogDropDown_Arrow polygon, .Sf3urgalDvD2sZqNjEV9i, .QQy4BCjcpjCfAvTKAqBq3 > svg ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq path, ._1kCN0pAntrcGCSmcc-vYdk path, .online > svg.SVGIcon_MobilePhone > path, .SVGIcon_ChatBubble > g > path, ._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob._2WaHZuAetbqENmqDthu3nl svg path, .DialogDropDown_Arrow .SVGIcon_DownArrowContextMenu /*down arrows like in settings*/
 {
   fill: rgb(var(--accent)) !important;
 }
@@ -675,8 +489,7 @@ svg.kEODDe6M5cuHWuPlcQexX /*steamdeck compatable*/
 {
 	color: rgb(var(--accent));
 }
-._2iJsgdTIX9Tj23rWnB7Q-c, /*update footer*/
-span._2gxv9cF-4n9wq4yxruOTNl._2o-5t6bgEJxfbWVSmxT88V /*in library in game update news in library view modals*/
+._2iJsgdTIX9Tj23rWnB7Q-c, span._2gxv9cF-4n9wq4yxruOTNl._2o-5t6bgEJxfbWVSmxT88V /*in library in game update news in library view modals*/
 {
 	background-color: rgba(var(--accent));
 }
@@ -778,31 +591,7 @@ note: you may need to adjust the size for best clarity.*/
   font-size:150% !important;
 }
 
-._9sPoVBFyE_vE87mnZJ5aB,
-._36Dp_CLuZbFCm7KDc9tbCv,
-._26Gmfe09NRsnF7eprTZYdY,
-._5ZEYSTRBHDswDtriduXW0,
-._1e6tjguQEHdYIehM9aRmO5,
-._3Kelh1-_v6xHfRjF68n7NB,
-._16xC0mtOWoLbvSQbmo_ycv,
-._3ctGqQID5-8adtd7HlZ3YM,
-._38FqIwZQKW6BlRyzN66pi6,
-._1UXC2lGcmNTGepRJTwtuH0 ._31ptFGGMZrSQc5BCX1e5lm,
-._3fLo166MlaNqP8r8tTyRz,
-body > div.PP7LM0Ow1K5qkR8WElLpt.EDl_mzaY3WxkgmYVD8W4d.visible._1S6CCCQlcTTAAHh3LMTLh1,
-._2sGn0cBsD44TjnUIh-lx9d,
-._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K,
-._1ZS_xta5HMXzR8JgxDH6n7,
-._20QAC4WMXm8qFE8waUT5oo,
-._1ijTaXJJA5YWl_fW2IxcaT,
-._1fbRpYO_BFDlMdFLsQMGVE,
-._3x1HklzyDs4TEjACrRO2tB,
-.Z6wLCsR5it0hjFblgrb6,
-._2KA0p5xYePYygXUbjjsPzA,
-._1RfxlV1H3JsSs-aRaXVJQt,
-._2kwFFHckg8jvnwJfg9-la8,
-.mKmrOjr9bGjKAolgp9NoD,
-.IIJeieZ-ZPRfIULY7uSDG.Panel /*steam deck compatability pannel in info tab*/
+._9sPoVBFyE_vE87mnZJ5aB, ._36Dp_CLuZbFCm7KDc9tbCv, ._26Gmfe09NRsnF7eprTZYdY, ._5ZEYSTRBHDswDtriduXW0, ._1e6tjguQEHdYIehM9aRmO5, ._3Kelh1-_v6xHfRjF68n7NB, ._16xC0mtOWoLbvSQbmo_ycv, ._3ctGqQID5-8adtd7HlZ3YM, ._38FqIwZQKW6BlRyzN66pi6, ._1UXC2lGcmNTGepRJTwtuH0 ._31ptFGGMZrSQc5BCX1e5lm, ._3fLo166MlaNqP8r8tTyRz, body > div.PP7LM0Ow1K5qkR8WElLpt.EDl_mzaY3WxkgmYVD8W4d.visible._1S6CCCQlcTTAAHh3LMTLh1, ._2sGn0cBsD44TjnUIh-lx9d, ._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K, ._1ZS_xta5HMXzR8JgxDH6n7, ._20QAC4WMXm8qFE8waUT5oo, ._1ijTaXJJA5YWl_fW2IxcaT, ._1fbRpYO_BFDlMdFLsQMGVE, ._3x1HklzyDs4TEjACrRO2tB, .Z6wLCsR5it0hjFblgrb6, ._2KA0p5xYePYygXUbjjsPzA, ._1RfxlV1H3JsSs-aRaXVJQt, ._2kwFFHckg8jvnwJfg9-la8, .mKmrOjr9bGjKAolgp9NoD, .IIJeieZ-ZPRfIULY7uSDG.Panel /*steam deck compatability pannel in info tab*/
 
 {
 	  background: rgb(var(--backgroundDark)) !important;
@@ -833,8 +622,7 @@ body > div.PP7LM0Ow1K5qkR8WElLpt.EDl_mzaY3WxkgmYVD8W4d.visible._1S6CCCQlcTTAAHh3
 var(--opacity5)) !important;
 }
 /* highlight game list games on hover */
-._2-O4ZG0KrnSrzISHBKctFQ:hover,
-._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj /* games w/ too short names*/
+._2-O4ZG0KrnSrzISHBKctFQ:hover, ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj /* games w/ too short names*/
  {
   background: rgba(var(--accent),
 var(--opacity333)) !important;
@@ -845,27 +633,20 @@ var(--opacity333)) !important;
 	background: rgba(var(--accent),
 var(--opacity666)) !important;
 }																				
-._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ:hover,
-._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj,
-._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ :hover,
-._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ:hover,
-._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj,
-._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ :hover /*currently selected game background hovered*/
+._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ:hover, ._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj, ._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ :hover, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ:hover, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ :hover /*currently selected game background hovered*/
 {
 	background: rgba(var(--accent),
 var(--opacity8)) !important;
 	color: rgba(var(--textWhite));
 }	
-._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp,
-._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp /*games with updates on the sidebar and long names*/
+._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp /*games with updates on the sidebar and long names*/
  {
     background: rgba(var(--accent),
 var(--opacity333)) !important;
     color: rgba(var(--textLightest)) !important;
  }
 
- ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9._5YTBr7WwIfzVU_3nUtAph,
-._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._5YTBr7WwIfzVU_3nUtAph /* color for currently selected (installed) game*/
+ ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9._5YTBr7WwIfzVU_3nUtAph, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._5YTBr7WwIfzVU_3nUtAph, ._1LJqx_qFOC8199RBQO5kU8._1KR40mXc7Z4Dss99aBDbyN
   {
 
 	color: rgba(var(--textLightest));
@@ -879,14 +660,12 @@ var(--opacity333)) !important;
 
 /*collections button squares hover/collections page squares */
 
-.nC-pL16iUnIRcaj1UVnwq ._2tyaVs9BpqcW068aaOrO56:hover,
-._3pSPluBgf0NeR1kkCLWMhR.eNLOx4LVceeMwRvTVWh3 ._2tyaVs9BpqcW068aaOrO56 {
+.nC-pL16iUnIRcaj1UVnwq ._2tyaVs9BpqcW068aaOrO56:hover, ._3pSPluBgf0NeR1kkCLWMhR.eNLOx4LVceeMwRvTVWh3 ._2tyaVs9BpqcW068aaOrO56 {
   background: rgba(var(--accentLightest)) !important;
 }
 
 /*make sort by date/playable grey when inactive */
-._3mzKdQXht__YHo6PX1LmB6 circle,._3mzKdQXht__YHo6PX1LmB6 polyline,
-._3mzKdQXht__YHo6PX1LmB6 path {
+._3mzKdQXht__YHo6PX1LmB6 circle, ._3mzKdQXht__YHo6PX1LmB6 polyline, ._3mzKdQXht__YHo6PX1LmB6 path {
   stroke: var(--almostWhiteSteam) !important;
 }
 /* part of above item*/
@@ -916,11 +695,7 @@ rgba(var(--accent)) 55%,
 rgba(var(--accentLightest)) 100%) !important;
 }
 /* triangle in the play button*/
-.playTriangle,
-.SVGIcon_FlatArrow > polygon,
-.SVGIcon_Download > path,
-.SVGIcon_Download > svg > path,
-:not(._1Pb6PMh_3L5p5NzuUz0Pp9) > ._2AzIX5kl9k6JnxLfR5H4kX svg /* update icon*/
+.playTriangle, .SVGIcon_FlatArrow > polygon, .SVGIcon_Download > path, .SVGIcon_Download > svg > path, :not(._1Pb6PMh_3L5p5NzuUz0Pp9) > ._2AzIX5kl9k6JnxLfR5H4kX svg /* update icon*/
 {
 	fill: rgba(var(--backgroundLightest)) !important;
 }
@@ -982,8 +757,7 @@ rgba(var(--accentLightest)) 100%) !important;
 /* buttons,
 button icons,
 text color */
-._1kCN0pAntrcGCSmcc-vYdk,
-._35_OgqfHHZfSzTYfv367K6 /* yes / no button */
+._1kCN0pAntrcGCSmcc-vYdk, ._35_OgqfHHZfSzTYfv367K6 /* yes / no button */
 {
 	color: rgba(var(--accent));
 	background-color: rgba(var(--backgroundLightish));
@@ -994,8 +768,7 @@ text color */
 	padding: 0px !important;
 }
 /* do you reccomend this game to other players */
-._3LE-6w1ItIAB4CKJFCa3Od,
-._2SAb6geDpe6toA1GaP0GjH._1E_ENwpaym7n3ke0XFpczv {
+._3LE-6w1ItIAB4CKJFCa3Od, ._2SAb6geDpe6toA1GaP0GjH._1E_ENwpaym7n3ke0XFpczv {
 	background: var(--almostWhiteSteam);
 }
 
@@ -1030,15 +803,14 @@ have you changed your mind?)*/
   border-color: rgba(var(--accent)) !important;
 }
 /*link color*/
-._1O62-3Y03GsnA0709QyJ_O,
-.DialogBody a {
+._1O62-3Y03GsnA0709QyJ_O, .DialogBody a {
   color: rgba(var(--accentDark)) !important;
 }
 .DialogBody a:hover {
 	color: rgba(var(--accentLight)) !important;
   }
 
-.update-item-type /* mil update item type icon*/
+.update-item-type, .N8aJrSpxQ6II4CY_aFdYI /*new to library notification above game tiles in library view*/
 {
 	background: rgba(var(--accent)) !important;
 }
@@ -1141,8 +913,7 @@ rgba(var(--accentLightest)) /*accent color but lighter*/ 100%) !important;
 
 
 /* download graph bar color */
-g.gpPxCvNVctmdxo8yfyEAJ,
-g rect:nth-child(1){
+g.gpPxCvNVctmdxo8yfyEAJ, g rect:nth-child(1){
   color: rgba(var(--accent),
 var(--opacity333)) !important;
 }
@@ -1183,8 +954,7 @@ var(--opacity5)) !important;
 /*#############################
 /*  modals popup*/
 /* various buttons*/
-button.DialogButton.Primary,
-.gkgG-dWgjpwS_aqlcMNTM /* selected drive for install game modal */
+button.DialogButton.Primary, .gkgG-dWgjpwS_aqlcMNTM /* selected drive for install game modal */
 {
   transition-property: opacity,background,color,box-shadow,text-decoration;
   transition-duration: .2s;
@@ -1199,11 +969,7 @@ button.DialogButton.Primary.Disabled{
 	text-decoration: line-through !important;
 }
 
-.Oo5JPcEk_erKEYAzYp2nY.Panel:hover,
-._gDkIgrqhJq-FtbuR9wJi,
-._2lgHVJbZwxb10Md7bZ6USU,
-._1tTuIhabs4uQQmR2udzw_P,
-._2wBK7MqJSrj6QCxf3357yL				/*headers in the game overview page*/
+.Oo5JPcEk_erKEYAzYp2nY.Panel:hover, ._gDkIgrqhJq-FtbuR9wJi, ._2lgHVJbZwxb10Md7bZ6USU, ._1tTuIhabs4uQQmR2udzw_P, ._2wBK7MqJSrj6QCxf3357yL				/*headers in the game overview page*/
 {
 	background: rgba(var(--backgroundLight)) !important;
 }
@@ -1248,8 +1014,7 @@ rgba(var(--accentLightest)) 100%) !important;
 /* settings 
 
 /* slider color */
-._2_vG6TwMW2XtyLlTEaODH9,
-._2_vG6TwMW2XtyLlTEaODH9::before {
+._2_vG6TwMW2XtyLlTEaODH9, ._2_vG6TwMW2XtyLlTEaODH9::before {
   --left-track-color: rgba(var(--accent));
 }
 
@@ -1286,13 +1051,7 @@ rgba(var(--accentLightest)) 100%) !important;
 }
 
 /*header when you scroll down in the achievements menu*/
-._3IBLc81yyL08OJ7rfKtF00._31ZleDJpmmVr6YwR5VLHiu ._2JobstxtZVYF3078DblN2M::before,
-._2JobstxtZVYF3078DblN2M._1jNhbFODJy7sNdcnEeZkz4::before,
-.C9tvuqqEXGcrkcAtHrQ_R,
-.TitleBar.title-area,
-._3z2NYCkFizMu4fMvWTIBUG,
-._2heIyaBp5LdaF76WpjYU4R,
-._3wNylaCAUJ8XtRM6mu2C0k /*achievements title bar*/
+._3IBLc81yyL08OJ7rfKtF00._31ZleDJpmmVr6YwR5VLHiu ._2JobstxtZVYF3078DblN2M::before, ._2JobstxtZVYF3078DblN2M._1jNhbFODJy7sNdcnEeZkz4::before, .C9tvuqqEXGcrkcAtHrQ_R, .TitleBar.title-area, ._3z2NYCkFizMu4fMvWTIBUG, ._2heIyaBp5LdaF76WpjYU4R, ._3wNylaCAUJ8XtRM6mu2C0k /*achievements title bar*/
  {
     box-shadow: none !important;
     background: rgba(var(--backgroundDarkest)) !important;
@@ -1318,4 +1077,11 @@ rgba(var(--accentLightest)) 100%) !important;
 }
 .C9tvuqqEXGcrkcAtHrQ_R.OverlayTimeline {
 	background: none !important;
+}
+
+  /*compatability for the extendium plugin on millineum*/
+  .extensions-bar-container .extension-button .update-dot {
+
+    background: rgb(var(--accent)) !important;
+    border: 1px solid rgba(var(--accent), var(--opacity7)) !important;
 }

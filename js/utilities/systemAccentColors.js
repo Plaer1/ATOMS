@@ -1,4 +1,5 @@
 const BASE_ACCENT_RGB = [35, 133, 189];
+const BASE_YOUTUBE_RED_RGB = [255, 0, 51];
 const SYSTEM_ACCENT_VARIABLES = {
     accent: ["--SystemAccentColorAccent-RGB", "--SystemAccentColor-RGB"],
     accentLightish: ["--SystemAccentColorAccentLight1-RGB", "--SystemAccentColorLight1-RGB"],
@@ -121,15 +122,29 @@ function applyAccentFilter(rgbValues) {
     document.documentElement.style.setProperty("--accentFilter", `hue-rotate(${hueRotate}deg)`);
 }
 
-function applySystemAccentColors() {
-    applyAccentReferences();
+function applyYouTubeRedFilter(rgbValues) {
+    const [sourceHue] = rgbToHsl(...BASE_YOUTUBE_RED_RGB);
+    const [targetHue] = rgbToHsl(...rgbValues);
+    let hueRotate = targetHue - sourceHue;
 
+    if (hueRotate < 0) {
+        hueRotate += 360;
+    }
+
+    document.documentElement.style.setProperty("--youtubeRedFilter", `hue-rotate(${hueRotate}deg)`);
+}
+
+function applySystemAccentColors() {
     const accentData = readSystemAccentRgb();
     if (!accentData) {
+        // Some macOS/Linux builds expose no Millennium system-color vars.
+        // Keep the configured palette instead of replacing it with invalid vars.
         return;
     }
 
+    applyAccentReferences();
     applyAccentFilter(accentData.values);
+    applyYouTubeRedFilter(accentData.values);
 }
 
 applySystemAccentColors();

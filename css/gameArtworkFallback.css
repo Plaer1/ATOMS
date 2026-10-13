@@ -1,0 +1,12 @@
+/* iilq6i / 1y079gs: all game-tile backings are neutral theme surfaces.
+ * Do not grayscale or hue-rotate real game artwork. The exact embedded
+ * no-art SVG is only a blue backing; hide its pixels but keep its native box
+ * and the game's title. No-art classes also occur on legitimate artwork. */
+._1R9r2OBCxAmtuUVrgBEUBw {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+}
+
+._1R9r2OBCxAmtuUVrgBEUBw > img._24_AuLm54JVe1Zc0AApCDR[src="data:image/svg+xml;base64,PHN2ZwogIHdpZHRoPSIxMDAiCiAgaGVpZ2h0PSIxMDAiCiAgdmlld0JveD0iMCAwIDEwMCAxMDAiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgo+CiAgPGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPgogICAgPGRpdgogICAgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIKICAgICAgc3R5bGU9IgogICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAgIGhlaWdodDogMTAwJTsKICAgICAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSAxMTQuMjg2JSAxMTEuMzc3JSBhdCA1MCUgMTIuOTY3JSwgIzE4NEU3QiAwJSwgIzAwMTQyNyA3NC41MTkyJSk7CiAgICAgICIKICAgID48L2Rpdj4KICA8L2ZvcmVpZ25PYmplY3Q+Cjwvc3ZnPg=="] {
+	visibility: hidden !important;
+}

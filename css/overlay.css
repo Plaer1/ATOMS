@@ -21,8 +21,9 @@ div.RGNMWtyj73_-WdhflrmuY._3WJCt_OkjPA6npxOtguSt5 > div._3xRRJfD2xy95i9NhJxLTp0.
 html,body{
 	background: rgb(var(--background)) !important;
 }
+*/
 
-/* Uncomment if you to test stuff 
+/* Uncomment if you want to test stuff
 *:hover{
 	background: pink !important;
 }
@@ -60,13 +61,35 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 
 /*make blue stuff accented*/
-img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._2lNdDLgjQdeBXmMlPO8lvq, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, ._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA, img[src="/images/steam_spinner.png"] /*loading spinner*/
+img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._2lNdDLgjQdeBXmMlPO8lvq, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, img[src="/images/steam_spinner.png"] /*loading spinner*/
 {
 	filter: var(--accentFilter);
 }
 img[src^="data:image/png;base64"] /*missing game images in download menu*/
 {
 	filter: var(--accentFilter) !important;
+}
+
+/* Download strip: grey CSS track, pink ::after fill. */
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA {
+	filter: none !important;
+	background: rgb(var(--backgroundLight)) !important;
+}
+
+._1xCcFYWIrJ7W8WRDmGvR3y {
+	color: rgb(var(--accent)) !important;
+}
+
+/* Match the Library's CSS-only download fill in overlay surfaces. */
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA::after {
+	background: rgb(var(--accent)) !important;
+}
+
+._3pXasCUulX4jjqO79s4q_F._2MkHZqf7MrgW3f8qGHiI8Z {
+	background-image: linear-gradient(to right,
+		rgba(0, 0, 0, 0) 10%,
+		rgba(var(--accent), .325) 50%,
+		rgba(0, 0, 0, 0) 90%) !important;
 }
 
 /*##########################################

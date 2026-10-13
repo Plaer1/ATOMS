@@ -1,0 +1,14 @@
+/*
+ * The in-game overlay needs the game to remain visible behind its panels.
+ * Import the normal Library theme, then clear only the full-screen document
+ * root that Steam uses for the SP Overlay target.
+ */
+@import url('library.css');
+
+html,
+body,
+#popup_target,
+#popup_target > ._1mfQu39T7gxcr0KSHso6_A {
+    background: transparent !important;
+    background-image: none !important;
+}

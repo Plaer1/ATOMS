@@ -1,3 +1,680 @@
 @import url('configDefaults.css');
 @import url('../config.css');
+@import url('gameArtworkFallback.css');
+
+/* Approved image pass: only Steam's built-in startup media. Keep the
+ * native gutter blur; custom startup movies and game videos are untouched. */
+.j78ibJaZ9aRJEMt_g81_F video[src$="/movies/bigpicture_startup.webm"]:not(._2VUyPtEOlkX8X1EiyplQ70),
+.j78ibJaZ9aRJEMt_g81_F img[src$="/images/deck_boot_transition.png"] {
+	filter: var(--accentFilter) !important;
+}
+
+.j78ibJaZ9aRJEMt_g81_F video._2VUyPtEOlkX8X1EiyplQ70[src$="/movies/bigpicture_startup.webm"] {
+	filter: blur(16px) var(--accentFilter) !important;
+}
+
+/* 1dib4j2: this exact selected animated profile background, not avatars. */
+video._1unGUzWBAzU8UfM1FU2pRB[src*="67ba564c389fedacb721d1782e34f6c58b847dae.webm"] {
+	filter: var(--accentFilter) !important;
+}
 *{ font-family: var(--font) !important; }
+
+/*
+ * Big Picture baseline
+ *
+ * These are CSS-only root/chrome surfaces captured from the live client. Keep
+ * background artwork out of this block: image-backed panels are handled only
+ * after an explicit review.
+ */
+html,
+body,
+.BasicUI.GamepadMode {
+	background-color: rgb(var(--background)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+/* CSS-only Big Picture/overlay roots found by the live audit.  These sit
+ * behind the visible chrome, so use the normal background tiers to prevent
+ * Steam's blue-black surface from flashing through while panes mount. */
+#GamepadUI_Full_Root {
+	background-color: rgb(var(--background)) !important;
+	background-image: radial-gradient(155.42% 100% at 0% 0%,
+		rgb(var(--backgroundDarkest)) 0%,
+		rgb(var(--backgroundDarkest)) 0%,
+		rgb(var(--background)) 100%) !important;
+}
+
+/* Other full-viewport Big Picture shells share Steam's blue-black radial.
+ * Keep their original depth but express it entirely with ATOMS backgrounds. */
+._2FqpD91Xarb7f0uIOuXFOR._1anH6MdqtFW4a9cvoZsjzI._15Ymb1OOfFUP4fAvwoG7Mc._2msTK3-o4cp9CtotjGbijT,
+._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc._2aDc-8kXeKmdb8nqdYitwZ,
+.ZBBhezbBR4VJYysmVhF3_ {
+	background-color: rgb(var(--background)) !important;
+	background-image: radial-gradient(155.42% 100% at 0% 0%,
+		rgb(var(--backgroundDarkest)) 0%,
+		rgb(var(--backgroundDarkest)) 0%,
+		rgb(var(--background)) 100%) !important;
+}
+
+/* Home's plain "View more" tile has no artwork of its own.  Keep it a
+ * neutral navigation surface so it belongs to the page instead of carrying
+ * Steam's unrelated charcoal gradient. */
+._3YYQ98HSj-wh5uljwl12bW ._3bvCHoWj4rDdZr3mnKlXaf {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	background-image: linear-gradient(313deg,
+		rgba(var(--backgroundDarkest), .92),
+		rgba(var(--backgroundLightish), .78)) !important;
+}
+
+/* Game Info has a plain, image-free action row and text-only tabs.  Steam
+ * renders both in slate/white by default, so retain their states with ATOMS'
+ * neutral surface and accent elevations. */
+.BasicUI.GamepadMode .DY4_wSF8h9T5o46hO5I9V {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	border-color: rgba(var(--backgroundLightest), .42) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+.BasicUI.GamepadMode .DY4_wSF8h9T5o46hO5I9V:hover,
+.BasicUI.GamepadMode .DY4_wSF8h9T5o46hO5I9V.gpfocus,
+.BasicUI.GamepadMode .DY4_wSF8h9T5o46hO5I9V:focus {
+	background-color: rgb(var(--accentDarkish)) !important;
+	border-color: rgb(var(--accentLight)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.BasicUI.GamepadMode ._3eEbSktrstBdLk0dVpnKVI {
+	color: rgb(var(--textLight)) !important;
+}
+
+.BasicUI.GamepadMode ._3eEbSktrstBdLk0dVpnKVI:hover:not(._3Gp1bACHx__POxmy6Gd3kG),
+.BasicUI.GamepadMode ._3eEbSktrstBdLk0dVpnKVI.gpfocus:not(._3Gp1bACHx__POxmy6Gd3kG) {
+	background-color: rgba(var(--accent), .62) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.BasicUI.GamepadMode ._3eEbSktrstBdLk0dVpnKVI._3Gp1bACHx__POxmy6Gd3kG {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	border-color: rgb(var(--backgroundLight)) !important;
+	color: rgb(var(--textLightest)) !important;
+	box-shadow: 0 3px 6px rgba(var(--backgroundDarkest), .42) !important;
+}
+
+._3lDczhulqraStjCitLYJ1K._2l416KfEtI4CL0mCUEmOBw._3FmxxjyWNHU1PrBGnBe6tm {
+	background-image: radial-gradient(100% 100% at 45% 35%,
+		rgb(var(--backgroundLightish)) 0%,
+		rgb(var(--backgroundDarkest)) 100%) !important;
+}
+
+#header,
+#QuickAccess-Menu,
+#MainNavMenuContainer > div._23IDiI-F_FxXotrgpY71r8.Panel,
+div.j78ibJaZ9aRJEMt_g81_F._3aJvw7qkqAwI1IzmT-em6q {
+	background-color: rgb(var(--background)) !important;
+}
+
+#quickaccess_tab_0 {
+	background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Persistent Big Picture footer chrome was vanilla black with a grey edge. */
+#Footer {
+	background-color: rgba(var(--backgroundDarkest), .92) !important;
+	border-color: rgba(var(--backgroundLightish), .82) !important;
+}
+
+/* Full-screen Big Picture modal scrim: retain the dimming, lose vanilla black. */
+
+._3rsrz7BYWjqGBhzcpn-Auo.N9sQLZ3HK0hCd9vbZif0o._2NQoFicPv3MZKwGD6pJj-f,
+.ModalOverlayContent.ModalOverlayBackground {
+	background-color: rgba(var(--backgroundDarkest), .72) !important;
+}
+
+/* Repeated CSS-only cards and collection shelves. */
+.NEMXhMlqXOCJwfgWlHXhT,
+.KLo2nZeTMZykCUGVlKsab,
+.QCKBqF2k_sRLcXJ5qQIEl {
+	background-color: rgba(var(--backgroundLight), .18) !important;
+}
+
+.QCKBqF2k_sRLcXJ5qQIEl {
+	color: rgb(var(--textLightish)) !important;
+}
+
+._1xrOZmz8owkTdWRU_2DoXl._1GCZAht_W2I3Elndk5cU0- {
+	background-color: rgba(var(--backgroundLightish), .82) !important;
+}
+
+._2-kDc3UDR-GN6V1lBpSupb {
+	color: rgb(var(--textDarkish)) !important;
+	border-color: rgba(var(--backgroundLight), .6) !important;
+}
+
+._31ptFGGMZrSQc5BCX1e5lm._2G5B7o_YoI__u11--EFjal._3KfxIwlXEvum7FCD_AM2_t {
+	background-color: rgba(var(--backgroundLight), .2) !important;
+}
+
+._9EHg918wH6CQCQlD5PWOO,
+._2aM-JaSHDzBfbg9FF6PrXq,
+._3H9W-9RwwfJktXPkc6EWjR {
+	color: rgb(var(--textLightish)) !important;
+}
+
+/* Recommended's blue container and header were a pure CSS fill/gradient. */
+._3PAP1PfUymQrLEveRsxQxP.aKZCakHw7WVaUN3j36Nh {
+	background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+._3PAP1PfUymQrLEveRsxQxP ._2-tz2hqtOXPPtMnVPHNSdx {
+	background-image: linear-gradient(77deg,
+		rgba(var(--accentDarkest), .48) 0%,
+		rgb(var(--backgroundLightish)) 52%,
+		rgba(var(--backgroundLightish), 0) 72%) !important;
+}
+
+/* CSS-only blue edge lighting on Big Picture panels. */
+._39Zk32AvV5cr6g-83IVRVS.UVeN0kaD3zv1feMj_mMw5 {
+	background-image: linear-gradient(to right,
+		rgba(var(--accent), 0) 0%,
+		rgba(var(--accent), .5) 18px,
+		rgb(var(--accentDarkish)) 50%,
+		rgba(var(--accent), .506) 100%) !important;
+	border-image-source: linear-gradient(to right,
+		rgb(var(--accent)) 0%,
+		rgba(var(--accent), .5) 18px,
+		rgb(var(--accentDarkish)) 50%,
+		rgba(var(--accent), .506) 100%) !important;
+}
+
+._3oMUSjOFNB0E9LWcL2sE7 {
+	background-image: linear-gradient(to right,
+		rgba(var(--accent), 0) 0%,
+		rgba(var(--accent), .25) 18px,
+		rgb(var(--accent)) 18px,
+		rgb(var(--accent)) 22px) !important;
+}
+
+/* Big Picture achievement glow selected in the live audit. */
+._1Z2eJs9-zNTKcWKy4M-oDE {
+	background-image: var(--achievementGlow) !important;
+}
+
+/* Live-audit note: give the nested pink price/control treatment two distinct
+ * accent elevations and a visible edge instead of one merged pink slab. */
+._2E-mSsWtptcnk088TudSSj {
+	background-color: rgb(var(--accentDarkest)) !important;
+	outline: 1px solid rgba(var(--accentLight), .82) !important;
+	outline-offset: -1px !important;
+}
+
+._2E-mSsWtptcnk088TudSSj > ._2_KY_e11FV0ftXR2_7TMmP {
+	background-color: rgb(var(--accent)) !important;
+}
+
+/* The saved accent-background note also catches Steam's moving blue sheen. */
+._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX::after {
+	background-image: linear-gradient(75deg,
+		rgba(var(--accent), 0) 33%,
+		rgb(var(--accentLightest)) 50%,
+		rgba(var(--accent), 0) 66%) !important;
+}
+
+/* Live-audit notes: keep What's New hero art, but let it settle naturally
+ * into the ATOMS page surface instead of ending against Steam's blue-black.
+ * This is the explicitly approved image treatment for the selected hero. */
+._1X4dtbZ_AMX_DXT-SGiK01._TabContentsScroll {
+	background-color: rgb(var(--background)) !important;
+}
+
+img._24_AuLm54JVe1Zc0AApCDR._3d_bT685lnWotXxgzKW6am.yDr03475kalWBTwAE-Rnw._3Mp8R2wnoCl6ko0HAX8IHE {
+	filter: grayscale(100%) brightness(.5) !important;
+	-webkit-mask-image: linear-gradient(to bottom,
+		#000 0%,
+		#000 48%,
+		rgba(0, 0, 0, .88) 62%,
+		rgba(0, 0, 0, .36) 82%,
+		transparent 100%) !important;
+	mask-image: linear-gradient(to bottom,
+		#000 0%,
+		#000 48%,
+		rgba(0, 0, 0, .88) 62%,
+		rgba(0, 0, 0, .36) 82%,
+		transparent 100%) !important;
+}
+
+/* Give the last part of the hero a soft depth-of-field falloff before the
+ * mask reaches the page background.  The overlay is visual-only, so cards
+ * and controls remain fully interactive. */
+._1R9r2OBCxAmtuUVrgBEUBw._1SRoxsfD-XkekIXfr0ofs3 {
+	overflow: hidden !important;
+	isolation: isolate;
+}
+
+._1R9r2OBCxAmtuUVrgBEUBw._1SRoxsfD-XkekIXfr0ofs3::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 55%;
+	z-index: 2;
+	pointer-events: none;
+	background-color: rgba(var(--background), .01);
+	-webkit-backdrop-filter: blur(18px);
+	backdrop-filter: blur(18px);
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .18) 35%, #000 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .18) 35%, #000 100%);
+}
+
+/* ATOMS_AUTO_FLAT_BLUE_BEGIN */
+/* Generated from flat, CSS-only Steam-blue audit matches. */
+
+/* flat Steam blue: rgb(109, 207, 246) */
+a._2g3Gley034M1ZGhcq005s.Focusable {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(0, 0, 238) */
+a._2m8YEKXvKa2bcFNjqXdJu7 {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(26, 159, 255) */
+a.CiFk6OuYAQSbv_DGXoBSX.Focusable {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(56, 100, 131) */
+div._1DaxYFphX9KPH-YWeuNTvO {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* flat Steam blue: rgb(124, 196, 255) */
+div._1J21tLst5SEhBPkVRT53UV._28ZR8gHitOrJaSLxcIAl2p {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(58, 155, 237) */
+div._2_KY_e11FV0ftXR2_7TMmP {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* flat Steam blue: rgb(26, 159, 255) */
+div._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX.Focusable {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* flat Steam blue: rgb(79, 149, 189) */
+div.fyHnacqM-lF0eryq8p9s9 {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* flat Steam blue: rgb(76, 180, 255) */
+div.nOdcT-MoOaXGePXLyPe0H {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* 197uefn: Steam's playing-state class is `ingame`, not `in-game`.
+ * Preserve green names even if the friend also has the online class. */
+.BasicUI :is(.ingame, .in-game) .nOdcT-MoOaXGePXLyPe0H {
+	color: rgb(var(--steamGreen)) !important;
+}
+
+/* flat Steam blue: rgb(102, 192, 244) */
+div.XwgGstGDpIVOjAfg3pK1e._2Mc-wW0wAsgehC46aTwBVa {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(26, 159, 255) */
+h6._3A_c3YHYd4YIjA8Y-olnPl._1f0dZzzkepidbFYKDYcvUS {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(95, 163, 211) */
+h6._3A_c3YHYd4YIjA8Y-olnPl._1f0dZzzkepidbFYKDYcvUS._16alyvCWvtDwRsTAUJsXCx {
+	color: rgb(var(--textAccented)) !important;
+}
+
+/* flat Steam blue: rgb(40, 156, 255) */
+span.Udzrpqr8534T5DvVZveNP {
+	color: rgb(var(--textAccented)) !important;
+}
+/* ATOMS_AUTO_FLAT_BLUE_END */
+
+/* Saved Alt-click corrections.  This block deliberately follows the generated
+ * flat-blue rules: these components were visually reviewed and are exceptions
+ * to the otherwise-safe blue-to-accent mapping. */
+
+/* Big Picture's uninstalled tiles must never inherit the Library-only dimmer. */
+.BasicUI.GamepadMode ._3vHkmRShhzwd67_MtEq8-n [style*="opacity"] {
+	opacity: 1 !important;
+}
+
+/* Steam also marks already-owned/uninstalled recommendation tiles at .3
+ * opacity in Gamepad Mode.  Keep that dim treatment in the desktop Library
+ * only, where the setting is meant to apply. */
+.BasicUI.GamepadMode ._2UbdjE3lzBeA7rEFyWPEdm {
+	opacity: 1 !important;
+}
+
+/* The small bright-pink items live on this darker native-blue parent in Steam.
+ * Keep the same elevation relationship with a dark accent panel and edge. */
+.fXdhjvKWFQqnjxUzju3jk {
+	background-color: rgb(var(--accentDarkest)) !important;
+	border-color: rgb(var(--accentDarkest)) !important;
+}
+
+/* "New to Library" controller badge: it uses a currentColor SVG on a native
+ * blue-black chip, so recolor the chip rather than touching the SVG artwork. */
+._2GRcKrPZsMSF6glMPRMZei ._1TaKfLOhWBYEPtvv-WJv0n {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+/* This right-side review/detail column is a regular background surface, not
+ * an accent treatment.  Preserve its bottom mask while replacing the slate. */
+._1xJSMubUWBlahkrtb4IFTc._2aeAhZ2Y99YIR2-zD6l27U {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	background-image: linear-gradient(to bottom,
+		rgb(var(--backgroundLightish)) 0%,
+		rgb(var(--backgroundDarkish)) 100%) !important;
+}
+
+._3TkhdqIi1gqwMzexQDS8Ab {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	background-image: none !important;
+}
+
+/* This was a false-positive blue surface in the auto writer: it is the
+ * ordinary lower strip of a library card, not an accent button. */
+div._3-GyQfKnKaWozIRLOw4BjY {
+	background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Annotation batch 4: native status colors, dialogs and Big Picture menus.
+ * Color-only changes; retain Steam's geometry, artwork and input behavior. */
+._38sNQt6oEVaeO9D-gI_Lhl {
+	background-color: rgb(var(--green)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+._38sNQt6oEVaeO9D-gI_Lhl._15VplG8ZhNCYs8IUwaufpO:not(.mHKj-UeGQdjT9lC0rOGdq) {
+	background-color: rgba(var(--green), 0.2) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+/* Recolor the CSS online strip, not the avatar or its decorative frame. */
+#header_profile .avatarHolder.online .avatarStatus {
+	background-color: rgb(var(--accent)) !important;
+}
+
+#header_profile:is(:hover, .gpfocus) {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+#MainNavMenuContainer ._3xZ3ZujYllkNRr5UdDfNmz {
+	color: rgb(var(--textLight)) !important;
+}
+
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_:is(:hover, .gpfocus) ._3xZ3ZujYllkNRr5UdDfNmz {
+	background-color: rgb(var(--backgroundLight)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+#MainNavMenuContainer ._1uLVHdiiCg78BRnhqLxUID {
+	background-color: rgb(var(--accent)) !important;
+}
+
+/* Modal sheets and the taller scrollable dialog variant. */
+._3A5ujtARm6atH4phJ5i1i6 > ._16sYNwqxz6giarbVaRUl7R,
+._21qvBvPytuUH_A5_jX87K5 {
+	background-color: rgb(var(--background)) !important;
+	border-color: rgb(var(--backgroundLight)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) :is(.DialogHeader, .DialogSubHeader, .DialogControlsSectionHeader) {
+	color: rgb(var(--textLightest)) !important;
+	border-color: rgb(var(--backgroundLight)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) .DialogBodyText {
+	color: rgb(var(--textLight)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton:not(.GreenPlay):not(.Destructive),
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) ._DialogInputContainer {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLightest)) !important;
+	border-color: rgb(var(--backgroundLight)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton:not(.GreenPlay):not(.Destructive):is(:hover, .gpfocus, :active),
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) ._DialogInputContainer:is(:hover, .gpfocus, .Active) {
+	background-color: rgb(var(--backgroundLight)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton.Primary:not(.GreenPlay):not(.Destructive) {
+	background-color: rgb(var(--accentDarkest)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton.Primary:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, .gpfocus, :active) {
+	background-color: rgb(var(--accent)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+/* Disabled is last so keyboard focus cannot make it look actionable. */
+:is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton:not(.GreenPlay):not(.Destructive):is(:disabled, .Disabled) {
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textLightish)) !important;
+}
+
+.BasicUIContextMenu :is(.tid_OE5NJWCCVJQP1PfRc, ._2LigNhjmULtkRCXW5237ai),
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L.menuChecked {
+	color: rgb(var(--accent)) !important;
+}
+
+/* Keep green play and red destructive states; neutral/download actions
+ * use the accent, including Steam's dedicated controller-focus class. */
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):not(:is(._213PVSQTmHdo8SK-jkU-m_, .Stream, .Connect, .Launch, .PlayMusic, .Play, .Resume, .BorrowApp, ._1HXm3O7vOzyuTFDaKPNUxy, .Stop, .Cancel)):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL, .OQmT6NKuekm5HuXQnkl2a) {
+	background-color: rgb(var(--accent)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):is(._213PVSQTmHdo8SK-jkU-m_, .Stream, .Connect, .Launch, .PlayMusic, .Play, .Resume, .BorrowApp):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL) {
+	background-color: rgb(var(--green)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):is(._1HXm3O7vOzyuTFDaKPNUxy, .Stop, .Cancel):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL) {
+	background-color: rgb(var(--red)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+.BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L.disabled {
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	color: rgba(var(--textLight), 0.4) !important;
+}
+
+/* Compatibility-filter sheet (the long "all vanilla colors" annotation). */
+._21qvBvPytuUH_A5_jX87K5 .O7cW3FbZwmFjlnkBXHSAc {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+._21qvBvPytuUH_A5_jX87K5 .O7cW3FbZwmFjlnkBXHSAc:is(:hover, .gpfocus) {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+._21qvBvPytuUH_A5_jX87K5 :is(._1Fjvh-xtvO3Po31DV9mEz, ._1yY7hnEbXeceoSB8Sub09x) {
+	color: rgb(var(--textLight)) !important;
+}
+
+._21qvBvPytuUH_A5_jX87K5 ._6J6XVDtXd6mSzS5-QxxYl {
+	color: rgb(var(--textLightest)) !important;
+}
+
+._21qvBvPytuUH_A5_jX87K5 ._10D3YZA1PCzTRlBpDUg_Tb {
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	box-shadow: inset 0 0 0 1px rgb(var(--backgroundLight)) !important;
+}
+
+._21qvBvPytuUH_A5_jX87K5 ._2wFsakmtWPcbhLMPqVG19h ._10D3YZA1PCzTRlBpDUg_Tb {
+	background-color: rgb(var(--textLightest)) !important;
+	box-shadow: inset 0 0 0 4px rgb(var(--accent)) !important;
+}
+
+/* Detached menus occupy only part of a BrowserView. Don't paint over the
+ * transparent strips above/below their visible chrome. */
+html:has(#browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)),
+body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
+	background-color: transparent !important;
+}
+
+/* d3h5dd / k7nryb: portrait and square collection-card backplates.
+ * The selected overlay is transparent; Steam's slate is on the separate
+ * GreyBackground layer beneath the capsule. Retain every artwork layer. */
+.BasicUI .WYgDg9NyCcMIVuMyZ_NBC > ._2E7G8grj_-tgxXbTXs1t2E {
+	background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* puf55b: Soundtrack's Play button sits outside DialogContent, so its
+ * independent Primary hover/focus colors need their own scoped override. */
+.BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary {
+	background-color: rgb(var(--accentDarkest)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:not(:disabled):not(.Disabled):hover {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+.BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:not(:disabled):not(.Disabled):is(.gpfocus, :active) {
+	background-color: rgb(var(--accent)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+.BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:is(:disabled, .Disabled) {
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textLightish)) !important;
+}
+
+/* 1afozv7 / ga49xr: What's New's unread dot and the blue online label. */
+.BasicUI [id$="WhatsNew"] .dMeP6nQOzmGaNM8EMLiSk {
+	background-color: rgb(var(--accent)) !important;
+}
+
+.BasicUI ._2_b6LXxlIy7eEuPc0QGvOE ._1Xl958eTmxy8PqRiG5qMN3.PyrxQAzTPltF7zR7liLwc {
+	color: rgb(var(--accent)) !important;
+}
+
+/* z6zeot: What's New's text-only update-type label. */
+.BasicUI .B1DxY2t9t_oR_fXgqs7Dj h6._3A_c3YHYd4YIjA8Y-olnPl._1CHMXiWOqnIysQxRkfNncU {
+	color: rgb(var(--accent)) !important;
+}
+
+/* 1j5ox48: online persona text only; in-game/offline states and avatars stay native. */
+.BasicUI ._2neyMP841w6Hpbx1y_-nOs.online:not(.in-game) ._1cB0qtF0paHWWyj1XNcnbG {
+	color: rgb(var(--accent)) !important;
+}
+
+/* 1tj78wd / iq1z28 / kpfgc9 / 1yie0d5: Settings' actual surfaces,
+ * including the field pills around buttons, not just the buttons themselves. */
+.BasicUI .DialogContent._3mgb-3_dHk3POEOVOh0Dvp {
+	background-color: rgb(var(--background)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+.BasicUI .PageListColumn,
+.BasicUI .PageListColumn .gNwozyl1BAcDyyhUKvx1Y {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	background-image: none !important;
+}
+
+.BasicUI .DialogContent .eKmEXJCm_lgme24Fp_HWt {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLight)) !important;
+	border-color: rgb(var(--backgroundLight)) !important;
+}
+
+.BasicUI .DialogContent .eKmEXJCm_lgme24Fp_HWt:not(.aIeh3X5T2M074RLW1qn6_):is(:hover, .gpfocus, .gpfocuswithin) {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.BasicUI .eKmEXJCm_lgme24Fp_HWt :is(._3jMlJm4PQCA8SfNlUR99Fo, .KGS2r2ext4jvDYa-MAFLD) {
+	color: rgb(var(--textLightest)) !important;
+}
+
+.BasicUI .eKmEXJCm_lgme24Fp_HWt ._1W1to_azoBRG95oNAFpf9Q {
+	color: rgb(var(--textLightish)) !important;
+}
+
+.BasicUI .eKmEXJCm_lgme24Fp_HWt.aIeh3X5T2M074RLW1qn6_ {
+	color: rgba(var(--textLight), .5) !important;
+}
+
+/* gbp1zs: selected navigation is a flat, lighter grey; focus keeps a pink peg. */
+.BasicUI .PageListColumn ._2mL2HfT5AkDXRi1YBnRWKa {
+	color: rgb(var(--textLight)) !important;
+}
+
+.BasicUI .PageListColumn ._2mL2HfT5AkDXRi1YBnRWKa:is(._1ELdDY5kb5jxjXe-FpWBo5, :focus, .gpfocus) {
+	background-color: rgb(var(--backgroundLight)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.BasicUI .PageListColumn ._2mL2HfT5AkDXRi1YBnRWKa:is(:focus, .gpfocus) {
+	border-left-color: rgb(var(--accent)) !important;
+}
+
+/* ct4mot: retain Steam's toggle geometry and on/off/disabled transitions. */
+.BasicUI ._9Ql-oVe_j8E-vsDdyVdWo ._2bl0iQ9xigbq4Zd1NI6NZl {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.BasicUI ._9Ql-oVe_j8E-vsDdyVdWo ._2bl0iQ9xigbq4Zd1NI6NZl::before {
+	background-color: rgb(var(--accent)) !important;
+}
+
+/* sueuol / za00bc: Games usage segment and its matching legend swatch. */
+.BasicUI :is(.wEM7Q5RG3mzmns1x1Zjux, ._2jcmNE7U-Ujkk6nmPxvC1r)._22KCiI1IJ7Op5fP8OZtqa- {
+	background-color: rgb(var(--accent)) !important;
+}
+
+/* vxq0gr: selected radio is still a gradient, now expressed in theme colors. */
+.BasicUI .HijmccPB1BKyhOwhX1EVl._3-_jME_xsuvgT3Dvq4bw_q:not(._3hmGW9wIxNIoPPu1aS7rFm) {
+	background-color: rgb(var(--accent)) !important;
+	background-image: radial-gradient(rgba(var(--accent), .733), rgb(var(--accent))) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+	border-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* wt020n: recolor only the check's two stops, not unrelated SVGs or its paths. */
+.BasicUI .DialogCheckbox.Active .SVGIcon_DialogCheck linearGradient stop:first-child {
+	stop-color: rgb(var(--accent)) !important;
+}
+
+.BasicUI .DialogCheckbox.Active .SVGIcon_DialogCheck linearGradient stop:last-child {
+	stop-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* 1j5ewll: color the slider's filled track, never its transparent outer box.
+ * Native notches, white handle, range gradients and disabled states survive. */
+.BasicUI .SliderControl ._2_vG6TwMW2XtyLlTEaODH9 {
+	--left-track-color: rgb(var(--accent)) !important;
+	background-color: rgb(var(--backgroundLight)) !important;
+}

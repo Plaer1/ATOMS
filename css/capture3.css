@@ -1,0 +1,270 @@
+/*
+ * Capture 3 — reviewed CSS-only surfaces.
+ *
+ * These rules map the user's Alt-click notes to the exact live selectors.
+ * Images and video stay out of this file: their deliberate exceptions live in
+ * mediaSelections.css, so normal game art never inherits a global filter.
+ */
+
+/* Keep transparent Store/client roots from flashing Valve's blue canvas. */
+html,
+body {
+    background-color: rgb(var(--background)) !important;
+}
+
+/* Community Market's current React shell: neutral panels and chart chrome. */
+div._0Yp9qPJ4rvQ-._-1PRvvg35hk-.SxMdVrGe9aY-.pXN5O3YW9VE-,
+div.qQUo7p9Yflo-._8JrgJ7Yp4GE-.ehjQMAdlrkI-.Lv9Zktkdcxg-,
+div.BPTxiJF58z0-._1WHxiF6PoO0-._-1PRvvg35hk-.SxMdVrGe9aY- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+div.Oju0VmCZMsM-._6a7OqoYm0ek-.P5l1h4VfEfg-._0Yp9qPJ4rvQ- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+}
+
+div.kuTJDaZGbhc-.TsJuUJvIPNE-.P5l1h4VfEfg-._6ogph74EeuE- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+div.kuTJDaZGbhc-.TsJuUJvIPNE-.P5l1h4VfEfg-._6ogph74EeuE- svg [stroke] {
+    stroke: rgb(var(--accent)) !important;
+}
+
+/* Discovery Queue's translucent legacy card was reading as almost white. */
+.explore_rightcol_box {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+    border-color: rgba(var(--accentDarkish), .52) !important;
+}
+
+/* Personal Calendar: deliberately separate nearby neutral elevations. */
+a.cO0trRuLfzA-.lyUq2mbGYf4-.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+}
+
+a.cO0trRuLfzA-.lyUq2mbGYf4-.Focusable:hover {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+button.EYF1OQwj3TE-.dF8HGBmYIK8-.NmzlVu-XMK4-.Focusable {
+    color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+    background-color: rgba(var(--accent), .12) !important;
+}
+
+button.EYF1OQwj3TE-.dF8HGBmYIK8-.NmzlVu-XMK4-.Focusable svg,
+button.EYF1OQwj3TE-.dF8HGBmYIK8-.NmzlVu-XMK4-.Focusable svg * {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+.ag682w7MuHY-.Panel {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+.NCPaSb4YV1I-.Panel {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+}
+
+#footer {
+    color: rgb(var(--textLightish)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    background-image: none !important;
+    border-top-color: rgba(var(--accentDarkish), .42) !important;
+}
+
+/* Hardware Recycling's table header and related legal panel. */
+#legal_box {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+#legal_box table thead,
+#legal_box table th {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* Free Demos: all of these are CSS surfaces, not capsule artwork. */
+div.DialogCheckbox_Container._DialogLayout._1sEIT3Bh71g9JRzpjKvlIo.Panel {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+._3FAid_cwwxW8-9Sp6pSPqS.WishlistButton > svg,
+._3FAid_cwwxW8-9Sp6pSPqS.WishlistButton > svg polygon,
+._3FAid_cwwxW8-9Sp6pSPqS.WishlistButton > svg path {
+    color: rgb(var(--textLightest)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+div._3MxPBWjpjU_Gm8SIgi5g8A {
+    color: rgb(var(--textAccented)) !important;
+}
+
+div._2wlqOo3XXW1wCAxwfudaL8:not(._2StYOVdV9beNEHqNB_UQuQ),
+div._1cOoCFwafBlSkwllIMf3XM._39HWXhhjsbML7K9sme9ItV.SaleSectionForCustomCSS.Panel {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--background)) !important;
+    background-image: none !important;
+}
+
+div._3ANIAZhTtXLvORlbv-Du-N {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+    border-color: rgba(var(--accentDarkish), .64) !important;
+}
+
+/* Interactive Recommender and Gift Cards had native blue washes. */
+div.GaOdHiAbhqo- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--background)) !important;
+}
+
+div.GaOdHiAbhqo- a,
+div.GaOdHiAbhqo- button {
+    color: rgb(var(--textAccented)) !important;
+}
+
+div.giftcard_home_cont.giftcard_home_cont_digital {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(to right bottom,
+        rgb(var(--backgroundLightish)),
+        rgb(var(--backgroundDarkest))) !important;
+}
+
+/* Upcoming Releases: the route script greyscales the native background art.
+ * These rules only theme the surrounding card and tab chrome. */
+div.game_page_background.game {
+    background-color: rgb(var(--background)) !important;
+}
+
+div.comingsoon_headercaps.comingsoon_capsules.bucket_contents {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgba(var(--accentDarkish), .46) !important;
+}
+
+#tab_preview_container {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgba(var(--accentDarkish), .64) !important;
+}
+
+a.tab_item.app_impression_tracked.focus,
+.tab_item.focus::after {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(90deg,
+        rgb(var(--accentDarkish)),
+        rgba(var(--accent), .56)) !important;
+}
+
+a.tab_item.app_impression_tracked.focus .tab_item_name,
+a.tab_item.app_impression_tracked.focus .tab_item_details {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Hardware sale text needed contrast; the panel below it is shared chrome. */
+div._3gb3JeV_1IMaIeODzBSrP3.SaleTextCtn {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgba(var(--backgroundDarkest), .86) !important;
+}
+
+div.XRxbVx8hEC64irIt5ETl6.H_vE_5qGWaDCAgxbzcWbG.Panel {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(180deg,
+        rgb(var(--accent)),
+        rgb(var(--accentDarkish))) !important;
+}
+
+/* Community Recommendations' controls/list were carrying the default slate. */
+#ReviewControls,
+#reviewed_apps {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgba(var(--accentDarkish), .52) !important;
+}
+
+#ReviewControls :is(select, input, button) {
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Steam desktop client surfaces selected in Capture 3. */
+div._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq.Focusable {
+    color: rgb(var(--accent)) !important;
+}
+
+div._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq.Focusable svg *,
+div.Mj5HqvDXedpotuga04XmY svg * {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+div._3vHkmRShhzwd67_MtEq8-n.Ma65KR7z4XhZl4vJvxf4D.Panel {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(135deg,
+        rgb(var(--accentDarkish)),
+        rgba(var(--accent), .72)) !important;
+}
+
+div._3uOErrMLSNVM7v6C3zKSJh,
+div._2tDv0EeJIdDmZLyfUE63t1,
+div._5uvIN6jXDXzzck59F-nhv {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+}
+
+div._2gv3EsHSu5dMQyMqaz-W9t {
+    outline: 1px solid rgba(var(--accentDarkish), .5) !important;
+    outline-offset: -1px !important;
+}
+
+div.l0pbvMApUzYaf32F51pIO {
+    color: rgb(var(--textLightish)) !important;
+}
+
+div._1GfHtX6GRZ_5BukahmkQp4 {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+
+div.Mj5HqvDXedpotuga04XmY {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+
+/* The Community footer opt-in control selected as a generic span. */
+#footer .responsive_optin_link .btnv6_grey_black {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: linear-gradient(to bottom,
+        rgb(var(--backgroundLightish)),
+        rgb(var(--backgroundDarkish))) !important;
+}
+
+#footer .responsive_optin_link .btnv6_grey_black > span {
+    color: rgb(var(--textLightest)) !important;
+}

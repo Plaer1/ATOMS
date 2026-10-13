@@ -1,5 +1,27 @@
 import waitForElement from "./waitForElement.js";
 
+/* s0fjuu / 8c9hvn: these native layers contain only background artwork.
+ * Keeping the image on its own layer preserves responsive sizing, masks and
+ * gradients, without filtering the text or rebuilding a full-page backdrop.
+ * CSS also catches later React mounts, so no polling or DOM observer is needed.
+ */
+export function installApprovedStoreBackdrops() {
+    const style = document.querySelector('style[data-grayscale-bg="approved-store-art"]')
+        || document.createElement('style');
+    style.dataset.grayscaleBg = 'approved-store-art';
+    style.dataset.atomsVisualEffect = 'grayscale-background';
+    style.textContent = `
+        a[href*="/personalcalendar/"] .-U8O2frQ6tI- > .-NaokOc2Odw-:empty,
+        a[href*="/personalcalendar/"] ._1hrnAqRA57mMuhK3gjPSLu > ._2TQdMr4X39QLH39Z0_airS:empty,
+        .SaleBackground > ._2StYOVdV9beNEHqNB_UQuQ._2wlqOo3XXW1wCAxwfudaL8:empty {
+            filter: grayscale(100%) brightness(0.77) !important;
+            background-color: rgb(var(--background)) !important;
+        }
+    `;
+    if (!style.isConnected) document.head.appendChild(style);
+    window.__atomsThemeToggleV1?.sync();
+}
+
 /* ========= Utils ========= */
 function decodeHtmlEntities(str) {
     console.log("[grayscale][decodeHtmlEntities] input:", str);
@@ -86,6 +108,7 @@ function applyViewportBackdrop(bgImage, opts = {}) {
 
     const style = document.createElement("style");
     style.setAttribute("data-grayscale-bg", "body-viewport");
+    style.setAttribute("data-atoms-visual-effect", "grayscale-background");
 
     style.innerHTML = `
         body::before {
@@ -147,8 +170,7 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
     const bgRepeat = forceNoRepeat ? "no-repeat" : (cs.backgroundRepeat || "no-repeat");
     console.log("[grayscale][applyEl] size/repeat:", { bgSize, bgRepeat });
 
-    const prevPos = el.style.position || "";
-    if (!prevPos) {
+    if (cs.position === "static") {
         el.style.position = "relative";
         console.log("[grayscale][applyEl] set el.style.position=relative");
     }
@@ -158,6 +180,7 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
     el.setAttribute("data-grayscale-anchor", anchorId);
 
     style.setAttribute("data-grayscale-bg", selectorHint);
+    style.setAttribute("data-atoms-visual-effect", "grayscale-background");
     style.innerHTML = `
         [data-grayscale-anchor="${anchorId}"]::before {
             content: "";
@@ -273,6 +296,26 @@ function pollCartForBackground({
 /* ========= Runner (export default) ========= */
 export default function runGrayscaleScript() {
     console.log("[grayscale][run] title:", document.title, "url:", location.href);
+
+    if (document.title.startsWith("Upcoming Releases")) {
+        console.log("[grayscale][route] Upcoming Releases");
+        let upcomingApplied = false;
+
+        waitForElement(
+            "div.game_page_background.game",
+            function (el) {
+                if (upcomingApplied) return;
+                upcomingApplied = true;
+                applyGrayscaleBackgroundToEl(el, "div.game_page_background.game", {
+                    forceNoRepeat: true,
+                    forceCenterX: true,
+                });
+            },
+            100,
+            5000
+        );
+        return;
+    }
 
     if (location.href.startsWith("https://steamcommunity.com")) {
         console.log("[grayscale][route] Steam Community");

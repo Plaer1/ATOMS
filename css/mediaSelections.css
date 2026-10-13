@@ -1,0 +1,93 @@
+/*
+ * Capture 2.0 — explicit, persistent Alt-click media selections.
+ *
+ * These are deliberately scoped to the exact source asset selected in Steam,
+ * rather than broad image/video selectors. `--accentFilter` is the same live
+ * preview applied by the capture picker.
+ */
+
+/* Preserve the explicit toast selection, superseded by the user's request
+ * for transparent highlights. Never tint the whole card/thumbnail. */
+:root ._1OOQPJx0nCNP9ME9toCmV7._2oeq2krreQD6wfDR7WIVT4 {
+	filter: none !important;
+}
+
+/* Selected images and SVG/emoticon assets. */
+:root img[src*="0df991e80be809a2c6afc79cd6e9fe94.avif"],
+:root img[src*="2f38b9c211a1eb565b90d821a2b463dbaa2c31c9_medium.jpg"],
+:root img[src*="298986f1fd8c39a5cb6359eb1f90b6ae8b5ba6e5.jpg"],
+:root img[src*="c0c6fdf39e856ae07551fc6014f153ea.avif"],
+:root img[src*="2b24270bb705bd5db51263f6b00e16a9.avif"],
+:root img[src*="4d84e2b7c9d106cc1cb7bb2ae8f9885d.avif"],
+:root img[src*="e300ac077631ac47c68d427445febc3e.avif"],
+:root img[src*="781522a27e1af214faf038ab79d789a5.avif"],
+:root img[src*="0a4558375f3baab3bbd965aa294b8adf.avif"],
+:root img[src*="daba8bc39284ce59c1c57558d0c3c2b4.avif"],
+:root img[src*="f62242c14e7f409211d1c82f17ba2694.avif"],
+:root img[src*="award_icon_blue.svg"],
+:root img[src*="/economy/emoticon/steamsad"],
+:root img[src*="/economy/emoticon/steamthis"],
+:root img[src*="1d0167575d746dadea7706685c0f3c01c8aeb6d8.jpg"],
+:root img[src*="07c8144ef8eb4b0522e7a64429f8f187ff01ee25.jpg"],
+:root img[src*="RgGbIK_Xaakl8PcQ2KQKK0i_2YIC7wZf7gTzKvLti-4wttL6ECYQfWnVrvtPO17Cg21bxebO3U9ipAtKlE8ALp2SM7UutkmcY-3rbAFrfmCr9IVa1exd-LgmamZSD8fMR4MhlA"],
+:root img[src*="icon_rate.png"] {
+	filter: var(--accentFilter) !important;
+}
+
+/* Capture 3 explicitly left this Free Demos capsule at native colours. */
+:root img[src*="6c461481d107604f36d6045853e1f77f17db222c/capsule_616x353.jpg"] {
+	filter: none !important;
+}
+
+/*
+ * Selected store videos. Steam uses both <video src> and nested <source>
+ * depending on the capsule, so cover both render paths for each exact asset.
+ */
+:root video[src*="8d8da0aabee7012eb746a50facf19273.webm"],
+:root video:has(source[src*="8d8da0aabee7012eb746a50facf19273.webm"]),
+:root video[src*="7ea20922c968a43ad82b06fdfd0b8f03.webm"],
+:root video:has(source[src*="7ea20922c968a43ad82b06fdfd0b8f03.webm"]),
+:root video[src*="f3f90f329870658293d420476116f550.webm"],
+:root video:has(source[src*="f3f90f329870658293d420476116f550.webm"]),
+:root video[src*="ab0ed462f1605c13f55fb41e15d00d1a.webm"],
+:root video:has(source[src*="ab0ed462f1605c13f55fb41e15d00d1a.webm"]),
+:root video[src*="a9717b1e05a39ae1aea7bd84f295b64b.webm"],
+:root video:has(source[src*="a9717b1e05a39ae1aea7bd84f295b64b.webm"]),
+:root video[src*="c1681913cdc2a50471c14a7587acf701.webm"],
+:root video:has(source[src*="c1681913cdc2a50471c14a7587acf701.webm"]),
+:root video[src*="a8c63769d594d1d193f4cc3c3d432eaf.webm"],
+:root video:has(source[src*="a8c63769d594d1d193f4cc3c3d432eaf.webm"]),
+:root video[src*="81cacaa2b1aa398a9c9c756ef2f6d397.webm"],
+:root video:has(source[src*="81cacaa2b1aa398a9c9c756ef2f6d397.webm"]),
+:root video[src*="2a974e5918143381548424b0353aee08.webm"],
+:root video:has(source[src*="2a974e5918143381548424b0353aee08.webm"]),
+:root video[src*="66b311bc8270cdddd30485d0f0ac5fc0.webm"],
+:root video:has(source[src*="66b311bc8270cdddd30485d0f0ac5fc0.webm"]),
+:root video[src*="ff1e8d1fdd73c23ade6225f044e41ad6.webm"],
+:root video:has(source[src*="ff1e8d1fdd73c23ade6225f044e41ad6.webm"]),
+:root video[src*="ebda2072ea1711fff9204dda7cd4152d.webm"],
+:root video:has(source[src*="ebda2072ea1711fff9204dda7cd4152d.webm"]) {
+	filter: var(--accentFilter) !important;
+}
+/* kgo3aq: approved forum search-button GIF, 2026-10-13. */
+img.discussionSearchTextSubmitImg[src*="searchbox_workshop_submit.gif"] {
+	filter: var(--accentFilter) !important;
+}
+
+/* Approved 2026-10-13: lm9k5x / 1drwibq / 1oxrqas / 1ltdnor /
+ * 1srxmlt / 12f6nt. Include normal and highlighted variants of these six
+ * selected Guide icons, without filtering their card or text. */
+img.guide_category_icon:is(
+	[src*="/guides/categories/strategy_GameplayBasics"],
+	[src*="/guides/categories/strategy_Multiplayer"],
+	[src*="/guides/categories/strategy_Walkthrough"],
+	[src*="/guides/categories/strategy_Coop"],
+	[src*="/guides/categories/strategy_Secrets"],
+	[src*="/guides/categories/strategy_Weapons"]),
+/* 1b1ckwc: the selected topic envelope and its read-state variant. */
+.forum_topic_icon img[src*="/skin_1/forum_icon_Unread.png"],
+.forum_topic_icon img[src*="/skin_1/forum_icon_Read.png"],
+/* xiln2k: Guides use the same approved submit GIF as forum search. */
+img.searchTextSubmitImg[src*="searchbox_workshop_submit.gif"] {
+	filter: var(--accentFilter) !important;
+}

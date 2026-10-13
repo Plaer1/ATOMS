@@ -2,7 +2,7 @@
 	"author":"Plaer1",
 	"name":"ATOMS",
 	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1.1.1111",
+	"version":"1.1.1.1.1.1.1.1.1.1112",
 	"github":{
 		"owner":"Plaer1",
 		"repo_name":"ATOMS"
@@ -23,13 +23,17 @@
 	"Patches":[
 		{
 			"MatchRegexString":"^https://.*\\.steampowered\\.com(?:/.*)?$",
-			"TargetCss":"webkit.css",
+			"TargetCss":"css/webkit.css",
 			"TargetJs":"js/webkit.js"
 		},
 		{
 			"MatchRegexString":"^https://steamcommunity\\.com(?:/.*)?$",
-			"TargetCss":"webkit.css",
+			"TargetCss":"css/webkit.css",
 			"TargetJs":"js/webkit.js"
+		},
+		{
+			"MatchRegexString":"^https://(?:www\\.)?(?:youtube\\.com|youtube-nocookie\\.com)/embed(?:/.*)?$",
+			"TargetCss":"css/youtube.css"
 		},
 		{
 			"MatchRegexString":"^Steam$",
@@ -59,7 +63,8 @@
 		},
 		{
 			"MatchRegexString":"^SP Overlay:",
-			"TargetCss":"css/library.css"
+			"TargetCss":"css/inGameOverlay.css",
+			"TargetJs":"js/inGameOverlay.js"
 		},
 		{
 			"MatchRegexString":"Menu$",
@@ -84,7 +89,8 @@
 		},
 		{
 			"MatchRegexString":"^Steam Big Picture Mode$",
-			"TargetCss":"css/bigpicture.css"
+			"TargetCss":"css/bigpicture.css",
+			"TargetJs":"js/bigpicture.js"
 		},
 		{
 			"MatchRegexString":"^Controller Layout$",
@@ -108,12 +114,26 @@
 		}
 	],
 	"Conditions":{
+		"Show floating theme toggle?":{
+			"tab":"General",
+			"default":"no",
+			"description":"Show the optional ATOMS on/off comparison button. Turning this option off restores the theme and removes the button.",
+			"values":{
+				"no":{
+					"TargetJs":{"affects":[".*"],"src":"js/themeToggleOff.js"}
+				},
+				"yes":{
+					"TargetJs":{"affects":[".*"],"src":"js/themeToggle.js"}
+				}
+			}
+		},
 		"Use Custom Accent Color?":{
+			"tab":"General",
 			"default":"no",
 			"description":"Enables Use of System Accent Color from Mill' settings.",
 			"values":{
 				"no":{
-					
+
 				},
 				"yes":{
 					"TargetJs":{
@@ -126,11 +146,12 @@
 			}
 		},
 		"Dim uninstalled games?":{
+			"tab":"General",
 			"default":"yes",
 			"description":"Enables semi-transparent icons for uninstall games in the game-grid.",
 			"values":{
 				"no":{
-					
+
 				},
 				"yes":{
 					"TargetJs":{
@@ -143,11 +164,12 @@
 			}
 		},
 		"Enable Que Via Keyboard?":{
+			"tab":"General",
 			"default":"yes",
 			"description":"Allows you to navigate the Steam Que on store pages Via the arrow keys.",
 			"values":{
 				"no":{
-					
+
 				},
 				"yes":{
 					"TargetJs":{
@@ -160,11 +182,12 @@
 			}
 		},
 		"Enable Automatic Que Skipping?":{
+			"tab":"General",
 			"default":"no",
 			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js'; see 'js/configDefaults.js' for the full list)",
 			"values":{
 				"no":{
-					
+
 				},
 				"yes":{
 					"TargetJs":{

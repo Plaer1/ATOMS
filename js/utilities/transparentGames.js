@@ -1,6 +1,14 @@
 import waitForElement from "./waitForElement.js";
 
 export default function transparentGames() {
+    // Millennium can briefly expose the Big Picture renderer with the same
+    // title pattern as the desktop client.  This feature is intentionally a
+    // desktop Library treatment only; never attach its opacity observer to
+    // Gamepad Mode.
+    if (document.body?.classList.contains('GamepadMode') || document.querySelector('.BasicUI.GamepadMode')) {
+        return;
+    }
+
     const TILE_SEL = '._1pwP4eeP1zQD7PEgmsep0W';            // game tile/card
     const UNINSTALLED_BADGE_SEL = '.mA39Hqv8LacDppegb_Q_Z';   // "Not installed" indicator
     const LIB_CONTAINER_SEL = '._2Z9gJ6Pd7eZn-kfODcXJuR';     // library container root

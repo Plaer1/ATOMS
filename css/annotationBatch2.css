@@ -1,0 +1,391 @@
+/* Saved annotation follow-ups, 2026-10-12. IDs refer to the original notes. */
+
+/* x6ktad / 17zqhdu: Guide list/category chrome stays neutral; preview
+ * artwork and the category's separate raster icons are not recolored here. */
+html body a.workshopItemCollection,
+html body a.guide_home_category_selection {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+html body a.workshopItemCollection:is(:hover, :focus-visible, .gpfocus),
+html body a.guide_home_category_selection:is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* 3aqtu0 / inv0zo: modern Workshop tabs and rating SVGs. Filled/unfilled
+ * stars keep their native fill/stroke geometry and inherit only the accent. */
+html body .UzmBdjUEGaQ-.Ldik1p0iuKE- {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+html body .MF-NOtRcYFc- .Frzkb5XE-n8-,
+html body .MF-NOtRcYFc- .Frzkb5XE-n8- :is(.SVGIcon_Star_Filled, .SVGIcon_Star_Unfilled) {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1qb9qid / 1umfz1t: list and featured card details, below the artwork. */
+html body .MF-NOtRcYFc- {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* 5e5320: revised note says pink, not blue. Scope the numeric column only. */
+html body #sharedfiles_content_ctn .stats_table td:first-child {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1q306lu: Workshop's download panel chrome, not Store purchase panels. */
+html body #sharedfiles_content_ctn .game_area_purchase_game {
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+html body #sharedfiles_content_ctn .game_area_purchase_game h1,
+html body #sharedfiles_content_ctn .game_area_purchase_game h1 > span {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1qpvp4: readable favorite notification without a translucent blue wash. */
+html body #JustFavorited {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLightest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+html body #JustFavorited a {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1llhx9a / 18rqzn3: pink hover backing; the approved sprite is isolated
+ * below so the text and background are not hue-rotated with the icon. */
+html body :is(#FavoriteItemBtn, #AddToCollectionBtn):is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--accentDarkish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* 1llhx9a: retain all four native sprite states and the original button
+ * geometry. An alpha mask makes both the star and checkmark the exact accent,
+ * including the green checkmark, without recoloring any adjacent content. */
+html body #FavoriteItemBtn.general_btn.favorite {
+    position: relative;
+    background-image: none !important;
+}
+
+html body #FavoriteItemBtn.general_btn.favorite::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 24px;
+    height: 30px;
+    pointer-events: none;
+    background-color: rgb(var(--accent));
+    -webkit-mask-image: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/ico_fav_tiled.png?v=1");
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/ico_fav_tiled.png?v=1");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+
+html body #FavoriteItemBtn.general_btn.favorite:is(:hover, :focus-visible, .gpfocus)::before {
+    -webkit-mask-position: 0 -30px;
+    mask-position: 0 -30px;
+}
+
+html body #FavoriteItemBtn.general_btn.favorite.toggled::before {
+    -webkit-mask-position: 0 -60px;
+    mask-position: 0 -60px;
+}
+
+html body #FavoriteItemBtn.general_btn.favorite.toggled:is(:hover, :focus-visible, .gpfocus)::before {
+    -webkit-mask-position: 0 -90px;
+    mask-position: 0 -90px;
+}
+
+/* 2tf2jx: the legacy online-avatar rule also painted the transparent frame
+ * image, making its centre opaque and covering the profile picture beneath.
+ * Remove only that CSS backing; retain the avatar and frame's native pixels. */
+html body .playerAvatar .profile_avatar_frame img {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* 5knx5m: migrated Community notification pages need a neutral canvas
+ * behind the React content as well. This shell is not profile artwork. */
+html:has(body.migrated_profile_page),
+html body.migrated_profile_page,
+html body.migrated_profile_page > .responsive_page_frame,
+html body.migrated_profile_page .responsive_page_content {
+    background-color: rgb(var(--background)) !important;
+    background-image: none !important;
+}
+
+/* 10uoegw: the selected Guides information graphic, not its title. */
+html body .guideInfo {
+    position: relative;
+    isolation: isolate;
+    background-image: none !important;
+}
+
+html body .guideInfo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/Guides_moreinfo.png");
+    background-repeat: no-repeat;
+    filter: var(--accentFilter);
+}
+
+/* xiln2k / wh1zl5: flat search controls replace the two-piece blue bitmap.
+ * Keep native height and input handlers; the submit image remains clickable.
+ * Its neutral backing stays neutral under its separately approved filter. */
+html body :is(.searchTextContainer, .discussionSearchTextContainer) {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 296px;
+    height: 46px !important;
+    background-image: none !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border: 1px solid rgb(var(--backgroundLight)) !important;
+    border-radius: 3px;
+}
+
+html body .discussionSearchTextContainer::before {
+    content: none !important;
+    background-image: none !important;
+}
+
+html body :is(.searchTextContainer, .discussionSearchTextContainer):is(:hover, :focus-within) {
+    border-color: rgb(var(--accent)) !important;
+}
+
+html body :is(.searchTextContainer, .discussionSearchTextContainer) > :is(input.searchText, input.discussionSearchText) {
+    position: absolute !important;
+    top: 13px !important;
+    left: 12px !important;
+    padding: 0 !important;
+    width: calc(100% - 66px) !important;
+    max-width: none !important;
+    background: transparent !important;
+    color: rgb(var(--textLightest)) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+html body :is(input.searchText, input.discussionSearchText)::placeholder,
+html body input.searchText.defaultText {
+    color: rgb(var(--textLightish)) !important;
+}
+
+html body :is(.searchTextContainer, .discussionSearchTextContainer) > :is(.searchTextSubmitImg, .discussionSearchTextSubmitImg) {
+    box-sizing: content-box;
+    top: 4px !important;
+    right: 4px !important;
+    left: auto !important;
+    width: 23px !important;
+    height: 18px !important;
+    padding: 8px !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+    border-radius: 2px;
+}
+
+/* se1xg2: the menu panel beneath the selected transparent scroll container. */
+html body.v6 .h2B3SGR_w4RWdrnsRZEcD ._16jZ3HEbtaJTl80pQINN2Y {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--background)) !important;
+}
+
+/* The menu's two illustrated links have independent coloured CSS washes. */
+html body.v6 .oeCR-_-EhS8CaxEaFAqDZ ._15eaL848WovXjJ0POHaD9D {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+
+/* 15pwcna: the same lower click-to-dismiss overlay in the SSR Store shell. */
+html body .v3B63V0zBTo- > .rGuH1gD4ryg-.NmzlVu-XMK4- {
+    background: transparent !important;
+    filter: none !important;
+}
+
+/* 1euiz: Calendar's header should match the flat page canvas. */
+html body .WCG-2-OYepA-.Panel {
+    background: rgb(var(--background)) !important;
+}
+
+/* 1i00ro2: the note explicitly requests blue wishlist text. */
+html body .dbXwRg0gpXw-.WishlistButtonText {
+    color: rgb(var(--blue)) !important;
+}
+
+/* bl704s / xrrita / zkcfr: Community announcement/forum chrome. */
+html body a.dynamiclink_box.clanannouncement {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+html body a.dynamiclink_box.clanannouncement .dynamiclink_name {
+    color: rgb(var(--accent)) !important;
+    border-color: rgba(var(--accent), .6) !important;
+}
+
+html body .forum_paging_summary {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* b1jkn3: the award ribbon's native colors were explicitly requested. */
+html body .review_award_aggregated {
+    filter: none !important;
+    color: rgb(var(--accent)) !important;
+}
+
+/* bjlp52: neutral vote-button chrome with an accent hover. */
+html body #VoteUpBtn:not(.btn_active):is(:hover, :focus-visible),
+html body #VoteUpBtn:not(.btn_active):is(:hover, :focus-visible) > span {
+    background-color: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* s0fjuu: translucent neutral shading lets the approved artwork show again. */
+html body .awopm9AseKk-,
+html body ._2-rKQdmSx7Khacm27tXK0K {
+    background-color: transparent !important;
+    background-image: linear-gradient(270deg,
+        rgba(var(--backgroundLightish), .57) 37.15%,
+        rgb(var(--backgroundDarkish)) 81.31%) !important;
+}
+
+/* 13mgo59: Calendar's blue call-to-action. */
+html body .d30iSoA-0mw- {
+    color: rgb(var(--backgroundDarkest)) !important;
+    background: linear-gradient(90deg,
+        rgb(var(--accent)), rgb(var(--accentDarkish))) !important;
+}
+
+html body .d30iSoA-0mw- .-XHE0JGw-tw- {
+    color: rgb(var(--backgroundDarkest)) !important;
+}
+
+html body .d30iSoA-0mw- svg {
+    fill: rgb(var(--backgroundDarkest)) !important;
+}
+
+/* out31e: the selected row contains tag pills, not a full-width colour bar. */
+html body .GRmUHltqGK4- .HIS-lBmeobo- {
+    color: rgb(var(--accent)) !important;
+    background: rgba(var(--accent), .12) !important;
+}
+
+html body .GRmUHltqGK4- .HIS-lBmeobo-:is(:hover, .gpfocus) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--accentDarkest)) !important;
+}
+
+html body ._0BeVbyJgjX8- > a.b0nTNEz4-gE- {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1cxwa3u: Popular Tags' CSS panel. */
+html body ._3b26-ybbQJNqGukiWkIUp8._2HcSSRyk_Jzd3Iq7xSC6En {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+
+/* 925kjp: badge card-drop count. */
+html body .badge_title_stats_drops > .progress_info_bold {
+    color: rgb(var(--accent)) !important;
+}
+
+/* rw40vl: badge actions, including the inner span's independent hover fill. */
+html body .badge_card_to_collect_links > .btn_grey_grey,
+html body .badge_friendwithgamecard_actions > .btn_grey_grey {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body :is(.badge_card_to_collect_links, .badge_friendwithgamecard_actions)
+    > .btn_grey_grey > span {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+html body :is(.badge_card_to_collect_links, .badge_friendwithgamecard_actions)
+    > .btn_grey_grey:is(:hover, :focus-visible) {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body :is(.badge_card_to_collect_links, .badge_friendwithgamecard_actions)
+    > .btn_grey_grey:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):is(:hover, :focus-visible),
+html body :is(.badge_card_to_collect_links, .badge_friendwithgamecard_actions)
+    > .btn_grey_grey:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):is(:hover, :focus-visible) > span {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* na6uw: online friend text; avatar artwork keeps its original pixels. */
+html body .badge_friendwithgamecard {
+    color: rgb(var(--textLightish)) !important;
+}
+
+html body .badge_friendwithgamecard > a.persona.online {
+    color: rgb(var(--accent)) !important;
+}
+
+/* 1t8ib2x: small '+N More' carousel label. Native dimensions are retained. */
+html body.v6 .tqaXEuWN2wV5_8lmSkMng > a._1wt5Ne6MrJfPVdFz5fGlop {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* 16u3shx: native 3px underline, without the skin's active-tab wash. */
+html body.v6 .home_tabs_row_ctn > .home_tab_button,
+html body.v6 .home_tabs_row_ctn > .home_tab_button > .tab_content {
+    background: transparent !important;
+}
+
+html body.v6 .home_tabs_row_ctn > .home_tab_button.active {
+    border-bottom: 3px solid rgb(var(--accent)) !important;
+}
+
+/* z0nvlk / 17ehuvk follow-up: match the lighter selected-row connector. */
+html body.v6 .home_rightcol .tab_preview {
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+html body.v6 .home_rightcol .tab_preview_details {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+
+html body.v6 .home_rightcol .tab_preview :is(.tab_title, h2) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* The same --green collision from 19aysxl also affects these list rows. */
+html body.v6 .home_tabs_columns .discount_pct {
+    background: #a1cd44 !important;
+    color: #000 !important;
+}
+
+html body.v6 .home_tabs_columns .discount_final_price {
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body.v6 .home_tabs_columns .discount_original_price {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* 1qdnzv7: the blue hover belongs to the button's CSS backing, not its PNG.
+ * Keep Steam's normal/hover glyph images, dimensions and positioning intact. */
+html body.v6 .ds_options:is(:hover, :focus-within) > div {
+    background-color: rgb(var(--accentDarkest)) !important;
+}

@@ -1,0 +1,39 @@
+@import url('configDefaults.css');
+@import url('../config.css');
+
+/* Only detached Big Picture menu surfaces. This sheet is seeded in
+ * SharedJSContext for Steam's native CSS copier; desktop popups are unaffected. */
+#MainNavMenuContainer > ._23IDiI-F_FxXotrgpY71r8,
+#QuickAccess-Menu,
+#QuickAccess-NA ._1RRDRb-2_pgEiWZfAWaRN1 {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Do not fade from a pre-theme blue backing while the menu slides in. */
+#MainNavMenuContainer > ._23IDiI-F_FxXotrgpY71r8 {
+    transition-property: width, transform !important;
+}
+
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_ {
+    color: rgb(var(--textLight)) !important;
+}
+
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_:is(._10bq5BppQ3fcLqTNXms8yA, .gpfocus, :hover) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+#MainNavMenuContainer ._1uLVHdiiCg78BRnhqLxUID {
+    background-color: rgb(var(--accent)) !important;
+}
+
+#QuickAccess-NA #quickaccess_tab_0 {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Keep the BrowserView's unused strips transparent, not an opaque rectangle. */
+html:has(#browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)),
+body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
+    background-color: transparent !important;
+}

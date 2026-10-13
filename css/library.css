@@ -1,6 +1,264 @@
 @import url('configDefaults.css');
 @import url('../config.css');
 @import url('scrollbars.css');
+@import url('mediaSelections.css');
+@import url('gameArtworkFallback.css');
+@import url('capture3.css');
+
+/* 1ux2dkw: Millennium's theme description uses a blue-tinted native grey. */
+.MillenniumWindow_MainSteamWindow .MillenniumThemes_Description {
+	color: rgba(var(--greyLightest), .65) !important;
+}
+
+/* ds00or: current native Library featured-item heading. */
+._1W34WpqfvufNgueNdZozwC ._3DyemX0QGhW2mipZQwVfnS ._1jkfJdGTyndLlXdB9WkfL3 {
+	color: rgb(var(--accent)) !important;
+}
+
+/* 57gqfy: keep the Library card's reaction controls visible, preserving
+ * their native placement and 26px hitboxes. Neutral backing, coloured glyph. */
+._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4 {
+	opacity: 1 !important;
+	transform: scale(1) !important;
+	background-color: rgb(var(--backgroundLightish)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4 .Mj5HqvDXedpotuga04XmY {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	color: rgb(var(--accent)) !important;
+}
+
+._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4:is(:hover, :focus-within),
+._3lh8aaHNMcFvupuNhQDfFt .Mj5HqvDXedpotuga04XmY:is(:hover, :focus-visible) {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+._3lh8aaHNMcFvupuNhQDfFt .Mj5HqvDXedpotuga04XmY svg path[fill="#2A83CF"] {
+	fill: rgb(var(--accent)) !important;
+}
+
+/* v65j3r / d8r3ko / 1kaix38: current Settings field/button rows. */
+.MillenniumWindow_Settings .DialogContent_InnerWidth,
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt {
+	color: rgb(var(--textLight)) !important;
+	border-color: rgb(var(--backgroundLightish)) !important;
+}
+
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt._16vVnDqpbNs-zIH-EdV6Vz {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+}
+
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt:not(.aIeh3X5T2M074RLW1qn6_):is(:hover, .gpfocus, .gpfocuswithin) {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt :is(._3jMlJm4PQCA8SfNlUR99Fo, .KGS2r2ext4jvDYa-MAFLD) {
+	color: rgb(var(--textLightest)) !important;
+}
+
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt ._1W1to_azoBRG95oNAFpf9Q {
+	color: rgb(var(--textLightish)) !important;
+}
+
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt.aIeh3X5T2M074RLW1qn6_ :is(._3jMlJm4PQCA8SfNlUR99Fo, ._1W1to_azoBRG95oNAFpf9Q) {
+	color: rgba(var(--textLight), .5) !important;
+}
+
+/* yhbfe1 / fu4hnb / 1la3j1s: native Library sale widgets do not load webkit.css. */
+.v9uRg57bwOaPsvAnkXESO > .WishlistButton {
+	filter: none !important;
+	background-color: rgb(var(--accentDarkest)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.v9uRg57bwOaPsvAnkXESO > .WishlistButton .WishlistButtonText {
+	color: inherit !important;
+}
+
+.v9uRg57bwOaPsvAnkXESO > .WishlistButton :is(svg, svg path) {
+	fill: currentColor !important;
+	color: inherit !important;
+}
+
+.v9uRg57bwOaPsvAnkXESO > .WishlistButton:is(:hover, .gpfocus) {
+	background-color: rgb(var(--accentDarkish)) !important;
+}
+
+.StoreSalePriceWidgetContainer > ._2_KY_e11FV0ftXR2_7TMmP {
+	background-color: rgb(var(--accentDarkest)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+/* 1hcgn8i: the full achievement sheet and individual row surfaces. */
+._1UXC2lGcmNTGepRJTwtuH0._2kMZ9dNT_LVROmPbKzcCHo {
+	background-color: rgb(var(--background)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+._1UXC2lGcmNTGepRJTwtuH0 ._2Kmn7fJOkLT4KyWl467a9M {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+._1UXC2lGcmNTGepRJTwtuH0 ._17dhGq-FsL8xZBes7dOOlN {
+	color: rgb(var(--textLightest)) !important;
+}
+
+._1UXC2lGcmNTGepRJTwtuH0 :is(._1WP2YDDWrL5LPHoS04AKx8, .VQbek1VTyOX04qHmTsssW, ._2fFW2raBfeDt3WOPB-aQAq) {
+	color: rgb(var(--textLightish)) !important;
+}
+
+._1UXC2lGcmNTGepRJTwtuH0 ._2R7YmAl504ZKKGFZJbu9Q1 {
+	background-color: rgba(var(--backgroundLight), .2) !important;
+}
+
+/* 1ewmnro: Game Recording introduction, including its icon circles. */
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs {
+	background-color: rgb(var(--background)) !important;
+	background-image: radial-gradient(rgb(var(--backgroundLightish)), rgb(var(--background))) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs ._3hZw8LtSmDa2ToD2GgJea4 {
+	color: rgb(var(--accent)) !important;
+}
+
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs ._35OPW6SSVNT98PMn5YpdWe {
+	background-color: rgb(var(--accentDarkest)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs ._35OPW6SSVNT98PMn5YpdWe ._5cxOx9Q0JsyfyMd6Q3Rqf {
+	color: inherit !important;
+}
+
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs ._1pAbz17S-TpVy4rtNcwjlr ._35OPW6SSVNT98PMn5YpdWe {
+	background-color: rgb(var(--backgroundLight)) !important;
+	color: rgb(var(--textLightish)) !important;
+}
+
+.MillenniumWindow_Settings ._1TV2TLk7RNa3PqD1_WKqfs :is(._22PtA83qCSBVvw_H3awXtj, ._2nlvCeRgqW2MTiJW3hXlu4) {
+	color: rgb(var(--textLight)) !important;
+}
+
+/* 1y079gs follow-up supersedes the old s&box-only blue exception.
+ * The approved embedded fallback replacement is in gameArtworkFallback.css. */
+
+/* d83b20: Library hover preview's CSS backing, not the artwork above it. */
+.DesktopUI ._2sGn0cBsD44TjnUIh-lx9d,
+._2sGn0cBsD44TjnUIh-lx9d ._1RfxlV1H3JsSs-aRaXVJQt {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+._2sGn0cBsD44TjnUIh-lx9d :is(._1Kdi2PBxcdQwDpa-48hrf2, .MIHa_O-B1JXrzkoGc255n, .dfy8sRBn82Ozvw4RiqewN, ._2HOH927_SBdi8J559aStH6) {
+	color: rgb(var(--textLightest)) !important;
+}
+
+._2sGn0cBsD44TjnUIh-lx9d :is(.My_SveQxVY_oRxfkK5mqN, ._3ry-JDFfnNe58WNZ7U6aVf, ._1VGPO4xU5sgRK6DFt4t74O, ._3ddJwYxqm61xYwptGOh8Me) {
+	color: rgb(var(--textLight)) !important;
+}
+
+._2sGn0cBsD44TjnUIh-lx9d ._2RtE4QeKjPlWH1cqQFUfH3 {
+	background: rgb(var(--backgroundLight)) !important;
+}
+
+._2sGn0cBsD44TjnUIh-lx9d ._2RtE4QeKjPlWH1cqQFUfH3:hover {
+	background: rgb(var(--accentDarkest)) !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+/* 6ojis5: flat caption chrome below Most Popular's intact game capsule.
+ * Cover the decorative blurred backing without filtering/removing its asset. */
+._2a9SnCjTTOhX5y6SfbKFkC ._2d1hSvdpY5L2-GN1EnUb9Z {
+	background: rgb(var(--backgroundLightish)) !important;
+}
+
+._2a9SnCjTTOhX5y6SfbKFkC ._2d1hSvdpY5L2-GN1EnUb9Z::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: rgb(var(--backgroundLightish));
+}
+
+._2a9SnCjTTOhX5y6SfbKFkC ._3gwMkKp82bb5aZj4EeQnpi {
+	color: rgb(var(--textLightest)) !important;
+}
+
+._2a9SnCjTTOhX5y6SfbKFkC ._3gwMkKp82bb5aZj4EeQnpi._3DR9f2B3JQKviESgdrHp1u {
+	color: rgb(var(--textLightish)) !important;
+}
+
+._38FqIwZQKW6BlRyzN66pi6 {
+	color: rgb(var(--textLight)) !important;
+}
+
+._38FqIwZQKW6BlRyzN66pi6 .rYBZBWnNW6m-N9vX0Chce {
+	background-color: rgb(var(--background)) !important;
+	background-image: radial-gradient(ellipse farthest-corner at 20% 30%,
+		rgb(var(--backgroundLight)) 0%, rgb(var(--backgroundLightish)) 50%, rgb(var(--background)) 100%) !important;
+}
+
+/* wmpqv4: explicit blue exception for the Steam Cloud usage label. */
+.F0RwwSil7eAxsLls7SH-E ._1KmR8MOpvgQ9OO2AmwOCca {
+	color: rgb(var(--blue)) !important;
+}
+
+/* gpkif1 / 1nlmsp3: game Properties' Beta branch table and controls. */
+[id*="/properties/"] .DialogBody {
+	color: rgb(var(--textLight)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy ._1LCoWsUrJmZHr7SVX0luaG {
+	background-color: rgb(var(--backgroundDarkish)) !important;
+	color: rgb(var(--textLight)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy ._1LCoWsUrJmZHr7SVX0luaG._2fy9Xqi70es7wkqy4iOvBE {
+	background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy ._1LCoWsUrJmZHr7SVX0luaG.dB7T-kfL2b2b0jd9Zg9fa {
+	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy .dB7T-kfL2b2b0jd9Zg9fa ._2d_FE9TOpHt1FsYhLEpjCp {
+	border-left-color: rgb(var(--accent)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy ._33vTXbnDrHUQCTEKwJC3Eh {
+	color: rgb(var(--textLightest)) !important;
+}
+
+._3jWpi0kJp_piNEvdMufMmy :is(._3OwCSCZC5BPFq4X7PLVzKp, ._3FgV6oQH8JCN-J9BPCCs14) {
+	color: rgb(var(--textLightish)) !important;
+}
+
+[id*="/properties/"] button.DialogButton:not(.GreenPlay):not(.Destructive) {
+	background-color: rgb(var(--backgroundLightish)) !important;
+	background-image: none !important;
+	color: rgb(var(--textLightest)) !important;
+}
+
+[id*="/properties/"] button.DialogButton.Primary:not(.GreenPlay):not(.Destructive) {
+	background-color: rgb(var(--accentDarkest)) !important;
+}
+
+[id*="/properties/"] button.DialogButton.Primary:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, .gpfocus) {
+	background-color: rgb(var(--accent)) !important;
+	color: rgb(var(--backgroundDarkest)) !important;
+}
+
+[id*="/properties/"] button.DialogButton:not(.GreenPlay):not(.Destructive):is(:disabled, .Disabled) {
+	background-color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textLightish)) !important;
+}
 
 /* stuff for testing small mode
 .WideWindow,
@@ -17,12 +275,19 @@ div.RGNMWtyj73_-WdhflrmuY._3WJCt_OkjPA6npxOtguSt5 > div._3xRRJfD2xy95i9NhJxLTp0.
   font-family: var(--font) !important;
   box-shadow: none !important;
 }
+
+/* Live-audit note: the Activity feed's outer shell must stay transparent;
+ * individual news entries retain their own card backgrounds. */
+._2r4TK4BAuU-J4FuF_O7v_5 > ._31ptFGGMZrSQc5BCX1e5lm._2G5B7o_YoI__u11--EFjal {
+  background: transparent !important;
+}
 /*
 html,body{
 	background: rgb(var(--background)) !important;
 }
+*/
 
-/* Uncomment if you to test stuff 
+/* Uncomment if you want to test stuff
 *:hover{
 	background: pink !important;
 }
@@ -64,13 +329,50 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 
 /*make blue stuff accented*/
-img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, ._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA, img[src="/images/steam_spinner.png"], ._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
+img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, img[src="/images/steam_spinner.png"], ._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
 {
 	filter: var(--accentFilter);
 }
 img[src^="data:image/png;base64"] /*missing game images in download menu*/
 {
 	filter: var(--accentFilter) !important;
+}
+
+/* The download progress strip is CSS UI, not an image. Its base is the grey
+ * track and its ::after pseudo-element is the pink fill. */
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA {
+	filter: none !important;
+	background: rgb(var(--backgroundLight)) !important;
+}
+
+._1xCcFYWIrJ7W8WRDmGvR3y {
+	color: rgb(var(--accent)) !important;
+}
+
+/* The visible download fill is a pseudo-element. The shorthand clears Steam's
+ * blue background-image as well as its background color. */
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA::after {
+	background: rgb(var(--accent)) !important;
+}
+
+/* One-pixel Library chrome divider captured as Steam blue. */
+._3pXasCUulX4jjqO79s4q_F._2MkHZqf7MrgW3f8qGHiI8Z {
+	background-image: linear-gradient(to right,
+		rgba(0, 0, 0, 0) 10%,
+		rgba(var(--accent), .325) 50%,
+		rgba(0, 0, 0, 0) 90%) !important;
+}
+
+/* CSS-only Library labels/buttons. These are not image-backed, so replace
+ * Steam's native blue directly instead of using the image accent filter. */
+._3iV2vMTw_vwWJ_gmiz1Q1k {
+	color: rgb(var(--textAccented)) !important;
+	border-color: rgb(var(--textAccented)) !important;
+}
+
+._1J21tLst5SEhBPkVRT53UV {
+	color: rgb(var(--accentLight)) !important;
+	border-color: rgb(var(--accentLight)) !important;
 }
 
 /*##########################################
@@ -115,6 +417,57 @@ background: rgba(var(--backgroundLightish));
   align-items: flex-start !important;
   min-height: 24px !important;
 }
+
+/*
+ * macOS keeps the native traffic lights in the TitleBar and renders the
+ * SuperNav as a second row. Keep that native TitleBar untouched, then place
+ * the nav in its unused drag area instead. The m_zdwpwXKR6k0qaLyoAaY marker
+ * is added by Steam only to its macOS top bar.
+ */
+._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY {
+	position: relative !important;
+	height: 40px !important;
+	min-height: 40px !important;
+}
+
+._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY > ._3Z3ohQ8-1NKnCZkbS6fvy {
+	position: absolute !important;
+	top: 0 !important;
+	left: 99px !important;
+	box-sizing: border-box !important;
+	height: 40px !important;
+	min-height: 40px !important;
+	padding: 0 0 0 11px !important;
+	z-index: 1 !important;
+}
+
+._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY > ._3Z3ohQ8-1NKnCZkbS6fvy > ._2D64jIEK7wpUR_NlObDW76 {
+	box-sizing: border-box !important;
+	height: 40px !important;
+	min-height: 40px !important;
+	padding-top: 0 !important;
+	align-items: center !important;
+}
+
+/* Keep the macOS traffic lights first, then put downloads/friends before
+ * Steam's right-side title controls, without changing the normal path. */
+._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY > ._39oUCO1OuizVPwcnnv88no > .Focusable-downloads[data-atoms-mac-buttons] {
+	order: 3 !important;
+}
+
+._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY > ._39oUCO1OuizVPwcnnv88no > ._3cykd-VfN_xBxf3Qxriccm {
+	order: 4 !important;
+}
+
+/* macOS has no injected root-menu toggle competing for this space. Keep
+ * the active download label readable at compact window widths. */
+@media (max-width: 1499px) {
+	._3Z7VQ1IMk4E3HsHvrkLNgo.m_zdwpwXKR6k0qaLyoAaY ._2VtAqT03BpBsVdmxwptn9D {
+		max-width: 15vw !important;
+		min-width: 8vw !important;
+	}
+}
+
 /* back forward buttons*/
 ._25lBLzuVeYAUG279up4xP8._1LYTHQzcI1u6tcxbbcc5V3, ._25lBLzuVeYAUG279up4xP8._2cO0HdvLEGAdhosLekWsmo /* forward */
 {
@@ -1080,8 +1433,97 @@ rgba(var(--accentLightest)) 100%) !important;
 }
 
   /*compatability for the extendium plugin on millineum*/
-  .extensions-bar-container .extension-button .update-dot {
+.extensions-bar-container .extension-button .update-dot {
 
     background: rgb(var(--accent)) !important;
     border: 1px solid rgba(var(--accent), var(--opacity7)) !important;
+}
+
+/*
+ * Capture 2.0 — Steam-client CSS surfaces.
+ * These are deliberately limited to non-image chrome, so game art and icons
+ * do not inherit a blanket hue rotation.
+ */
+
+/* The notification card was filtering its entire surface (and thumbnail).
+ * Keep the artwork natural and retain only a neutral, readable card backing.
+ * The user's latest request removes all decorative pink highlight effects. */
+:root ._1OOQPJx0nCNP9ME9toCmV7 {
+    filter: none !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+:root ._1OOQPJx0nCNP9ME9toCmV7::before,
+:root ._1OOQPJx0nCNP9ME9toCmV7::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
+}
+
+/* Keep Steam's background icon and its native opacity/hover behavior.
+ * Only its hover-blue color becomes neutral; do not hide the icon. */
+:root ._1OOQPJx0nCNP9ME9toCmV7 ._3RkGkNRNheAkoRA3migph5 {
+    color: rgb(var(--greyLightest)) !important;
+}
+
+/* The bell remains visible/clickable, without a coloured unread/hover box. */
+:root .RtSv39ZoBOySnb8XQ5hJf,
+:root .RtSv39ZoBOySnb8XQ5hJf:hover,
+:root .RtSv39ZoBOySnb8XQ5hJf::before,
+:root .RtSv39ZoBOySnb8XQ5hJf::after {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* One-pixel Library chrome flare: preserve the effect, replace Steam blue. */
+._3pXasCUulX4jjqO79s4q_F._2MkHZqf7MrgW3f8qGHiI8Z {
+    background-image: linear-gradient(to right,
+        rgba(var(--accent), 0) 10%,
+        rgba(var(--accent), .325) 50%,
+        rgba(var(--accent), 0) 90%) !important;
+}
+
+/* Flat client modal and dropdown surfaces that still resolved to blue/slate. */
+.ModalPosition_TopBar {
+    background-image: linear-gradient(to right,
+        rgb(var(--accent)),
+        rgb(var(--accentLightest))) !important;
+}
+
+button.DialogDropDown._DialogInputContainer.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Captured CSS-only playback progress bar. */
+._2QdTyzstrC0qxmIBRewmFb._1AHwgG8SLF8QL4SPHixfq {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* Captured neutral Library panels with a native blue-grey radial shine. */
+.LibriMVXcLl1HB60ZUp78.Panel,
+._2kqz-bSlDu-I49_cV_wicB {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(100% 80% at 64% 95%,
+        rgba(var(--accent), .16) 0%,
+        rgba(var(--backgroundLightish), .35) 30%,
+        rgba(var(--backgroundDarkest), .6) 100%) !important;
+}
+
+._2kqz-bSlDu-I49_cV_wicB {
+    border-image-source: linear-gradient(to right bottom,
+        rgba(var(--accentDarkish), .9) 0%,
+        rgba(var(--accentDarkish), .32) 50%,
+        rgba(var(--accent), .5) 100%) !important;
+}
+
+/* qmr48t: neutralize the Library detail scrim without changing its fade. */
+._1Qa-Aq8WFiF9584yU_1xuC > .Jbe--NUNw7sxbxGsMSjVa {
+    background-image: linear-gradient(
+        rgba(var(--backgroundDarkish), .1) 0%,
+        rgba(var(--backgroundDarkish), .7) 82px,
+        rgba(var(--backgroundDarkish), .3) 80%,
+        rgba(var(--backgroundDarkish), 0) 100%) !important;
 }

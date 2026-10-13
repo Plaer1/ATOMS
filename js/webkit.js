@@ -2,9 +2,15 @@ import { skipAgeGate, zoomEnabler } from './utilities/utility.js';
 import waitForElement from './utilities/waitForElement.js';
 import removeProfileBrand from './utilities/removeProfileBrand.js';
 import handleQueueKeys from './utilities/queueKeyHandler.js';
-import runGrayscaleScript from './utilities/greyscaleBackground.js';
+import runGrayscaleScript, { installApprovedStoreBackdrops } from './utilities/greyscaleBackground.js';
 import funnyText from './utilities/funnyText.js';
+import { installThemeToggle } from './utilities/visualThemeControls.js';
+import restoreVanillaGeometry from './utilities/restoreVanillaGeometry.js';
 waitForElement('body', function(element) {
+
+installThemeToggle();
+restoreVanillaGeometry();
+installApprovedStoreBackdrops();
 
 
 
@@ -46,5 +52,8 @@ if (document.title.startsWith("Steam Community")) {
     }
 }
 
-});
+if (document.title.startsWith("Upcoming Releases")) {
+	runGrayscaleScript();
+}
 
+});

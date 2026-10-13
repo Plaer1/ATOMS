@@ -2,6 +2,122 @@
 @import url('../config.css');
 @import url('shiinaLib/webkit.css');
 @import url('scrollbars.css');
+@import url('mediaSelections.css');
+@import url('capture3.css');
+@import url('annotationBatch1.css');
+@import url('annotationBatch2.css');
+
+/* ATOMS CSS-only web controls. Keep the imported Shiina layer unchanged and
+ * theme these non-image controls from the actual webkit file. */
+.lX3GvxrkYaEqKJRpIhPsk {
+    background: rgb(var(--accent)) !important;
+}
+
+.home_tab_button.active {
+    background: transparent !important;
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+.creator_follow_btn:not(.following) {
+    background: rgba(var(--accent), .125) !important;
+}
+
+.creator_follow_btn:not(.following):not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover {
+    background: rgba(var(--accent), .26) !important;
+}
+
+.speakerStatus {
+    background: rgb(var(--accent)) !important;
+}
+
+._1J21tLst5SEhBPkVRT53UV {
+    color: rgb(var(--accentLight)) !important;
+}
+
+.discovery_queue_customize_ctn>.btn_medium {
+    color: rgb(var(--accentLight)) !important;
+}
+
+.btnv6_blue_blue_innerfade {
+    color: rgb(var(--accentLight)) !important;
+    background: rgb(var(--accentDark)) !important;
+}
+
+.btnv6_blue_blue_innerfade:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover {
+    background: rgb(var(--accentDarkest)) !important;
+}
+
+.game_page_autocollapse_readmore {
+    background: rgb(var(--accentDark)) !important;
+    color: rgb(var(--accentLight)) !important;
+}
+
+.game_page_autocollapse_readmore:hover {
+    background: rgb(var(--accentDarkest)) !important;
+}
+
+.game_description_column .block .block_header .right a {
+    background-color: rgb(var(--accentDark)) !important;
+    color: rgb(var(--accentLight)) !important;
+}
+
+.game_description_column .block .block_header .right a:hover {
+    background-color: rgb(var(--accentDarkest)) !important;
+}
+
+div.early_access_announcements .post .more {
+    color: rgb(var(--accentLight)) !important;
+    background: rgb(var(--accentDark)) !important;
+}
+
+div.early_access_announcements .post .more:hover {
+    background: rgb(var(--accentDarkest)) !important;
+}
+
+.btnv6_lightblue_blue,
+.btnv6_lightblue_blue>span {
+    background: rgb(var(--accentLight)) !important;
+}
+
+.btnv6_lightblue_blue:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover,
+.btnv6_lightblue_blue:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover>span {
+    background: rgb(var(--accent)) !important;
+}
+
+.btn_blue_white_innerfade,
+.btn_blue_white_innerfade>span {
+    background: rgba(var(--accent), .8) !important;
+}
+
+.btn_blue_white_innerfade:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover,
+.btn_blue_white_innerfade:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover>span {
+    background: rgb(var(--accentDark)) !important;
+}
+
+a.group_tab:hover {
+    background: rgb(var(--accentLight)) !important;
+}
+
+.group_tab.active>span {
+    background: rgba(var(--accent), .8) !important;
+}
+
+.joinchat_bg .joinchat_button {
+    background: rgba(var(--accent), .8) !important;
+}
+
+.joinchat_bg .joinchat_membercount,
+.btn_grey_black {
+    color: rgb(var(--accentLight)) !important;
+}
+
+a.readmore_link {
+    background: rgb(var(--accentDark)) !important;
+}
+
+.group_content_header .group_content_header_viewmore {
+    background-color: rgb(var(--accentDark)) !important;
+}
 /*@import url('webkitNegativeText.css');
 
   /* custom element css:
@@ -35,18 +151,6 @@ div::-webkit-scrollbar-thumb:window-inactive {
     -webkit-box-shadow: none !important;
     background: transparent !important;
 }
-
-/* weird pyramid after next in que button*/
-.btn_next_in_queue:after {
-    height: 39% !important;
-}
-/*move que button into store container*/
-.btn_next_in_queue {
-    margin-left: -55% !important;
-    margin-top: 20px !important;
-}
-/*TODO: 
-make this shit so that it just uses steam classes instead of doing this way*/
 
 .game_area_purchase_not_refundable, .game_area_purchase_custom_cart_credit {
     padding-top: 0 !important;
@@ -178,8 +282,10 @@ var(--opacity2)) !important;
 	display:inline-block !important;
 	transform-origin:left;
 }
+/* These are structural web headers, not call-to-action controls. Keep them
+ * on the same light surface as the Store's primary top bar. */
 .Bar, .profile_customization_header{
-	background: rgba(var(--accent)) !important;
+	background: rgb(var(--backgroundLightish)) !important;
 
 }
 /*fix for adding other icons to the community hub shortut bar*/
@@ -622,7 +728,7 @@ a.btn_black:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hove
 }
 /*background of genre specific/sale pages without images (so temporary sales should still have (some) theme)*/
 .SaleBackground:not([style*="background-image"]){
-	background: rgb(var(--background)) !important;
+	background-color: rgb(var(--background)) !important;
 }
 button._131dBxXvyV0SDKXTx9Ad0n:not(._20o0K-LdkmbQfesddfuo-X) /*unselected buttons in reviews menu on gamestore pages*/
 {
@@ -1059,12 +1165,12 @@ this should be an actual image later
 */
 #points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > div:nth-child(5) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
 {
-	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
+	background-image: url('img/RewardsSeason1Hero-grey.png') !important;
 }
 
 #points_shop_root > div > div._1TznBfOuD_2xPpXIWUDeW6.Panel.Focusable > div > div > div.padding-bottom-xlarge._3RDAb3BHcPamYwkrsBsOiL.Panel.Focusable > div._1Zwjfp7uC-ucOlcO5hWzSq.Panel.Focusable > div > div > div > div:nth-child(15) > div > div > div:not(.ZRG9mTu664hov2pk9QCmU, .pvOC3DAMIZRHRdTbeNyrQ)
 {
-	background-image: url(/skins/ATOMS/img/RewardsSeason1Hero-grey.png) !important;
+	background-image: url('img/RewardsSeason1Hero-grey.png') !important;
 }
 ._3nHerBg5ELmarLbN--Gmpp, ._2MFEYjLdT-bfsz3n1hkGnf, header.svelte-zbmz7j.svelte-zbmz7j /*header section in the steam  peek container*/
 {
@@ -1243,8 +1349,9 @@ div.RGNMWtyj73_-WdhflrmuY._3WJCt_OkjPA6npxOtguSt5 > div._3xRRJfD2xy95i9NhJxLTp0.
 html,body{
 	background: rgb(var(--background)) !important;
 }
+*/
 
-/* Uncomment if you to test stuff 
+/* Uncomment if you want to test stuff
 *:hover{
 	background: pink !important;
 }
@@ -1287,13 +1394,27 @@ div::-webkit-scrollbar-thumb:window-inactive {
 }
 
 /*make blue stuff accented*/
-img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, ._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA, img[src="/images/steam_spinner.png"], ._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
+img[src="/images/defaultappimage.png"], .gWDyh18yme_n7VmrYhmid._2oPMu032IJnXb5-21W07V-._3AXaY4djCODzJ6On5MRKno, ._2BlTqJQonHkEpBSpiC1NEA, .bGfjajFo4DI-ULSQxw1KY, img[src="https://steamcommunity-a.akamaihd.net/economy/emoticon/steamthumbsup"], ._2lVtDi3eSjGcLfXVsRgoUy, ._3KDkLoCR8OM8xfdQysKn9t ._30N3oYMkrAbxU-Vxc_1l6C, img[src="/images/steam_spinner.png"], ._3Cqjn4ZCF_ooB9QdEA-tKi._1aBr4F-yYtm9OnDrnaLTae /*auto-recording disabled warning*/
 {
 	filter: var(--accentFilter);
 }
 img[src^="data:image/png;base64"] /*missing game images in download menu*/
 {
 	filter: var(--accentFilter) !important;
+}
+
+/* Download strip: grey CSS track, pink ::after fill. */
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA {
+	filter: none !important;
+	background: rgb(var(--backgroundLight)) !important;
+}
+
+._1xCcFYWIrJ7W8WRDmGvR3y {
+	color: rgb(var(--accent)) !important;
+}
+
+._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA::after {
+	background: rgb(var(--accent)) !important;
 }
 
 /*##########################################
@@ -2307,4 +2428,437 @@ rgba(var(--accentLightest)) 100%) !important;
 
     background: rgb(var(--accent)) !important;
     border: 1px solid rgba(var(--accent), var(--opacity7)) !important;
+}
+
+/*
+ * CSS-only Store and Community audit fixes.
+ *
+ * These selectors came from the live CDP audit. They deliberately exclude
+ * image/SVG-backed elements: native flat blue/slate surfaces are mapped to
+ * the ATOMS palette directly instead of being hue-rotated.
+ */
+
+/* This full-width Store chrome layer was applying the old hue-rotate filter
+ * to otherwise normal CSS UI. Give it a real ATOMS base instead. */
+.h2B3SGR_w4RWdrnsRZEcD ._19o1GB7ysfrWKLYpqZ6aXu._2IyR9WyPwYb15ILBjPvLR9 {
+    filter: none !important;
+    background-color: transparent !important;
+}
+
+/* Native Steam blue buttons: Add to Library, review filters, and preference
+ * actions. The child span owns the visible fill on some older Store pages. */
+.btn_blue_steamui,
+.btn_blue_steamui > span {
+    filter: none !important;
+    color: rgb(var(--textLightest)) !important;
+    background: linear-gradient(to right,
+        rgb(var(--accent)) 5%,
+        rgb(var(--accentDarkish)) 60%) !important;
+}
+
+.btn_blue_steamui:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover,
+.btn_blue_steamui:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover > span {
+    background: linear-gradient(to right,
+        rgb(var(--accentLightish)) 5%,
+        rgb(var(--accentDark)) 60%) !important;
+}
+
+/* These were CSS text/fade layers in Community and app hubs, not artwork. */
+.game_page_autocollapse_readmore,
+.gradient,
+.apphub_AllContentText {
+    filter: none !important;
+}
+
+.gradient {
+    background: linear-gradient(to bottom,
+        rgba(var(--background), 0),
+        rgb(var(--background))) !important;
+}
+
+.apphub_AllContentText {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Store search suggestions, tags, and small card labels. */
+._2Cp17yynz2h_StEQZcNnqB,
+.S-0da5Ll-j0-,
+._33yqka47vWurNqhnhLJb_m.WidgetTag {
+    color: rgb(var(--textLight)) !important;
+    background: rgba(var(--accent), var(--opacity2)) !important;
+}
+
+._2Cp17yynz2h_StEQZcNnqB:hover,
+.S-0da5Ll-j0-:hover,
+._33yqka47vWurNqhnhLJb_m.WidgetTag:hover {
+    background: rgba(var(--accent), var(--opacity333)) !important;
+}
+
+[id^="searchSuggestions_"].SdFPqnbn0yI- {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(
+        rgb(var(--backgroundLight)),
+        rgb(var(--backgroundDarkish))) !important;
+}
+
+div.reason > div.main.bytags > div.tags > span {
+    color: rgb(var(--textLight)) !important;
+    background: rgba(var(--accent), .12) !important;
+}
+
+/* Slate-only Store price/widget shells. Keep native green discount and
+ * presence states intact: those communicate meaning rather than branding. */
+.StoreSalePriceWidgetContainer,
+.Cj7J5QHbL-0-._3BsNYqJmlVM- {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+
+/* Interactive Recommender's flat blue progress tracks. */
+.PryOzZThxkI-,
+.jj84PVz-aow- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Personal Calendar: native navy page, section, cards, and controls. */
+.-eI1hK-YHzA-.Panel {
+    background-color: rgb(var(--background)) !important;
+}
+
+.ag682w7MuHY-.Panel {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+
+.zc6E7zYwMVQ-.Panel {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+.zc6E7zYwMVQ-.Panel:hover {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+._0Yp9qPJ4rvQ-.SxMdVrGe9aY-.pXN5O3YW9VE-,
+._0Yp9qPJ4rvQ-._-1PRvvg35hk-.pXN5O3YW9VE-,
+.KDP8ul6OEiY- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.EVNlC9c2y-U-,
+.IG5AcX8yPdI- {
+    background-color: rgb(var(--accent)) !important;
+}
+
+.KDP8ul6OEiY- {
+    color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+.rGuH1gD4ryg-.NmzlVu-XMK4- {
+    background-color: rgba(var(--backgroundDarkest), var(--opacity6)) !important;
+}
+
+/* Modern Community/Workshop controls captured during the audit. */
+.YAnzAmuUUnI-.ob-nIzzquk8-.fkz-MePtKwI-,
+.inqz7Zdx9Xg-.ob-nIzzquk8-.fkz-MePtKwI- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.inqz7Zdx9Xg-.ob-nIzzquk8-.fkz-MePtKwI-.mMHE23-XFxU- {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accent)) !important;
+}
+
+.inqz7Zdx9Xg-.a-Dt3-0cU9Y-.fkz-MePtKwI- {
+    color: rgb(var(--textAccented)) !important;
+    border-color: rgb(var(--accent)) !important;
+    background-color: rgba(var(--accent), .12) !important;
+}
+
+.Bo5an3G1SQw-.Panel {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(85.9% 84.18% at 34.28% 100%,
+        rgba(var(--backgroundDarkish), 0) 27.5%,
+        rgba(var(--backgroundDarkest), .4) 67.94%) !important;
+}
+
+.BroadcastButton {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgba(var(--accent), .4) !important;
+    background-image: linear-gradient(to right,
+        rgb(var(--accentDarkish)),
+        rgb(var(--accentLightish))) !important;
+}
+
+.progress_bar,
+.t-LlQicBZjE-::after,
+.HoPMNUPOwr8-::after {
+    background-color: rgb(var(--accent)) !important;
+}
+
+.progress_bar_background,
+.t-LlQicBZjE-,
+.HoPMNUPOwr8- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+.ModalPosition_TopBar {
+    background-image: linear-gradient(to right,
+        rgb(var(--accent)),
+        rgb(var(--accentLightest))) !important;
+}
+
+/* Community link and metadata colors that still resolved to Steam blue. */
+.tmplChatName,
+.ChatName,
+.guide_home_category_count,
+.workshopItemAuthorName,
+.btnv6_blue_hoverfade,
+.btnv6_grey_black,
+.commentthread_subscribe_hint_q,
+.subSectionTitle,
+.just_added_text,
+.forum_topic_name,
+.forum_topic_op,
+.forum_topic_lastpost,
+.detailsStatNumChangeNotes,
+.change_note_link,
+.guides_home_section_title,
+#VotesUpCount,
+.screenshotDescription,
+.mediaTitle,
+.headline,
+.followStat,
+.modalFullItemLink,
+.apphub_MostPopularLink,
+#VideoLoadingText {
+    color: rgb(var(--textAccented)) !important;
+}
+
+.btnv6_blue_hoverfade,
+.btnv6_grey_black {
+    border-color: rgb(var(--accentDarkish)) !important;
+}
+
+.workshopItemAuthorLine,
+.workshopItemShortDesc,
+#footerText,
+.sharedfiles_usercontrol_ctn,
+.ellipsis.sharedfiles_usercontrol_ctn,
+#FilterContainer {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Store structural backgrounds found outside image-backed capsules. */
+.PlaceholderInner {
+    background-image: radial-gradient(107.95% 57.49% at 50% 100%,
+        rgba(var(--backgroundDarkish), .2) 0%,
+        rgba(var(--backgroundDarkish), .52) 5%,
+        rgba(var(--backgroundDarkish), .85) 20%,
+        rgb(var(--backgroundDarkish)) 60%,
+        rgb(var(--backgroundDarkest)) 100%) !important;
+}
+
+.game_background_lighten {
+    background-image: radial-gradient(1000px 153px at 50% top,
+        rgb(var(--backgroundLightish)),
+        rgba(var(--background), 0)) !important;
+}
+
+/* This is the flat, full-width sale-section backing—not capsule artwork. */
+._2wlqOo3XXW1wCAxwfudaL8:not(._2StYOVdV9beNEHqNB_UQuQ) {
+    background-color: rgb(var(--background)) !important;
+    background-image: linear-gradient(0deg,
+        rgb(var(--backgroundDarkish)) 0%,
+        rgb(var(--backgroundLightish)) 100%) !important;
+}
+
+.tab_browse_option_label {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+}
+
+.view_active {
+    color: rgb(var(--textLightest)) !important;
+    background-image: linear-gradient(135deg,
+        rgb(var(--accentLightish)) 0%,
+        rgb(var(--accentDarkish)) 100%) !important;
+}
+
+.view_inactive {
+    color: rgb(var(--textAccented)) !important;
+    border-color: rgb(var(--accentDarkish)) !important;
+    background-color: rgba(var(--accent), var(--opacity2)) !important;
+}
+
+.friend_block_avatar {
+    background-color: rgba(var(--accent), var(--opacity2)) !important;
+}
+
+._1nz7pkRvV4rRrybZrUZu0R._1rPGVQftqLzqjH04tebuaT.Panel {
+    color: rgb(var(--textAccented)) !important;
+    background-color: rgba(var(--accent), .14) !important;
+}
+
+/* These flat page/modal headers were previously swept into the old image
+ * hue-rotate list. They are structural surfaces, so match Store chrome. */
+#modalContentTitleBar,
+.popup_menu_subheader {
+    filter: none !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+
+/*
+ * Capture 2.0 — CSS-only web surfaces.
+ *
+ * These are structural backgrounds and controls observed in the live Store
+ * and Community targets. No img, video, or SVG selector belongs here: those
+ * stay in the explicit graphics-review pass.
+ */
+
+/* The broad native-blue wash behind Store app and curator pages. */
+.game_page_background_ctn.game {
+    background-image: radial-gradient(1000px 500px at 23% top,
+        rgba(var(--accentDarkish), .34),
+        rgba(var(--background), 0) 72%) !important;
+}
+
+/* Keep the page canvas on ATOMS' base color while Steam mounts or swaps UI. */
+html,
+body {
+    background-color: rgb(var(--background)) !important;
+}
+
+/* Store home CSS overlays; the capsule artwork itself remains untouched. */
+.home_gift_card_link.gift_card_desktop {
+    color: rgb(var(--textLightest)) !important;
+    background-image: linear-gradient(to right,
+        rgb(var(--backgroundDarkest)) 0%,
+        rgb(var(--accentDarkish)) 100%) !important;
+}
+
+#home_maincap_v7 .store_main_capsule .info {
+    background-image:
+        linear-gradient(0deg,
+            rgba(var(--backgroundDarkest), .78) 5%,
+            rgba(var(--backgroundDarkish), .84) 38%,
+            rgba(var(--background), .5) 100%),
+        radial-gradient(circle at 10% 0%,
+            rgba(var(--accent), .18) 0%,
+            rgba(var(--accent), 0) 70%) !important;
+}
+
+/* Flat blue callout panels repeated across Steam Hardware pages. */
+._1cOoCFwafBlSkwllIMf3XM._39HWXhhjsbML7K9sme9ItV._2DwHnbQk_PGfGThmz17qKu.Panel,
+._1QP7mh3IZ6mkLZFarqOI6K,
+.XRxbVx8hEC64irIt5ETl6.Panel {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(180deg,
+        rgb(var(--accent)) 0%,
+        rgb(var(--accentDarkish)) 100%) !important;
+}
+
+/* CSS-only wishlist controls on sale and hardware pages. */
+.v9uRg57bwOaPsvAnkXESO > div.WishlistButton,
+._3FAid_cwwxW8-9Sp6pSPqS.WishlistButton {
+    filter: none !important;
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(to right,
+        rgb(var(--accent)),
+        rgb(var(--accentDarkish))) !important;
+}
+
+/* Personal Calendar's remaining navy field and blue add control. */
+.WCG-2-OYepA-.Panel {
+    background-color: rgb(var(--background)) !important;
+    background-image: radial-gradient(107.95% 57.49% at 50% 100%,
+        rgba(var(--backgroundDarkish), .2) 0%,
+        rgba(var(--backgroundDarkish), .52) 5%,
+        rgba(var(--backgroundDarkish), .85) 20%,
+        rgb(var(--backgroundDarkish)) 60%,
+        rgb(var(--backgroundDarkest)) 100%) !important;
+}
+
+button.et-RRc3JMu8- {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* Community Market's old green header and selected-tab treatment. */
+.market_header_bg,
+#BG_top {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(to right,
+        rgb(var(--backgroundDarkest)),
+        rgb(var(--backgroundLightish))) !important;
+}
+
+.market_tab_well_tab_contents {
+    color: rgb(var(--textLightest)) !important;
+    background-image: linear-gradient(to bottom,
+        rgb(var(--accentLightish)),
+        rgb(var(--accentDarkish))) !important;
+}
+
+.market_search_advanced_button,
+.game_button_contents {
+    color: rgb(var(--textLight)) !important;
+    background-image: linear-gradient(to bottom,
+        rgb(var(--backgroundLightish)),
+        rgb(var(--backgroundDarkish))) !important;
+    border-image-source: linear-gradient(to bottom,
+        rgb(var(--accentDarkish)),
+        rgb(var(--backgroundDarkest))) !important;
+}
+
+#marketBetaNoteCtn {
+    background-color: rgba(var(--accent), .16) !important;
+}
+
+/* Community controls that were still supplied with Steam's flat blue. */
+.guide_home_category_selection,
+#ShareItemBtn {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--accentDarkish)) !important;
+    background-image: linear-gradient(to bottom,
+        rgb(var(--accentLightish)),
+        rgb(var(--accentDarkish))) !important;
+}
+
+.apphub_sectionTab.active {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+/* Curator recommendation cards use a CSS radial wash, not card artwork. */
+.steam_curator_recommendation {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(161.29% 1235.17% at -3.1% 130.83%,
+        rgba(var(--accentDarkish), .7) 0%,
+        rgb(var(--backgroundDarkish)) 60%,
+        rgb(var(--background)) 100%) !important;
+}
+
+/* Current Community Market app-shell surfaces. These recurring compound
+ * classes were observed across search and listing pages, so map only their
+ * neutral panel layers; item-quality glows are intentionally left alone. */
+.ehjQMAdlrkI-._6ogph74EeuE-.mMHE23-XFxU-.MCrEfjh4wsk- {
+    background-color: rgb(var(--background)) !important;
+}
+
+._7nBh3BZ8VvY-.P5l1h4VfEfg-._6ogph74EeuE-.mMHE23-XFxU-,
+.tNCLz4rNyo4-._1WHxiF6PoO0-.RUtZWmuOvVA-.P5l1h4VfEfg- {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+}
+
+.qQUo7p9Yflo-._8nvwc5hEUQ8-.ehjQMAdlrkI-.P5l1h4VfEfg-,
+.kuTJDaZGbhc-.TsJuUJvIPNE-.P5l1h4VfEfg-._6ogph74EeuE- {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+.Psv8L3U3Y44-._0Yp9qPJ4rvQ-.sI7wun-GD7g-.gXydmc2EKLk- {
+    background-image: linear-gradient(to bottom,
+        rgb(var(--backgroundLightish)),
+        rgb(var(--backgroundDarkish))) !important;
 }

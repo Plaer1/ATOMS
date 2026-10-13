@@ -154,6 +154,7 @@ the config is broken down into a few main sections:
 	/* Global Settings */
 	--font:						"Motiva Sans",Arial,Helvetica,sans-serif;		/* changes font*/
 	--accentFilter: 			hue-rotate(79deg);								/*turns blues pink, must only be used when nessicary*/
+	--youtubeRedFilter: 		hue-rotate(295deg);							/* maps YouTube's #ff0033 red toward ATOMS' pink/purple accent */
 
 	/* ####################
 	/* Library Settings */

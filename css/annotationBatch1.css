@@ -1,0 +1,181 @@
+/* Store home annotation batch 1, 2026-10-12.
+ * Selection IDs refer to the saved capture, whose notes remain intact.
+ * Set CSS colours directly; only the two explicitly approved images change.
+ */
+
+/* llxp3y: neutral canvas and inherited text in the main carousel. */
+html body.v6 ._3gVAXLzTzt5xCjFA1_c9rn {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    --blue-gradient-bg-muted: radial-gradient(161.29% 1235.17% at -3.1% 130.83%,
+        rgb(var(--backgroundLightish)) 0%,
+        rgb(var(--backgroundDarkish)) 60%,
+        rgb(var(--backgroundDark)) 100%);
+}
+
+/* tyh5bj: the small card label keeps its native three-stop geometry. */
+html body.v6 .znNVIhFP6KdJlUS2p2B7q {
+    color: rgb(var(--textLightest)) !important;
+    background-image: linear-gradient(315deg,
+        rgb(var(--accentLightish)) 5%,
+        rgb(var(--accentDarkish)) 50%,
+        rgb(var(--accentDarkest)) 95%) !important;
+}
+
+/* 1vo7g3w: remove the blue corner from the promotional card's CSS wash. */
+html body.v6 .tqaXEuWN2wV5_8lmSkMng._8UPO4fZBxxerbhcRBpAcc {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(315deg,
+        rgba(var(--accentDark), .66) 5%,
+        rgba(var(--accentDarkest), .78) 50%,
+        rgb(var(--backgroundDarkish)) 95%) !important;
+}
+
+/* l9qpu2, 1t2t1bx, 1o9h2me: neutral recommendation/update/creator panels. */
+html body.v6 .deep_dive_key_tags,
+html body.v6 .recently_updated_desc,
+html body.v6 .creator_capsule_ctn {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(161.29% 1235.17% at -3.1% 130.83%,
+        rgb(var(--backgroundLightish)) 0%,
+        rgb(var(--backgroundDarkish)) 60%,
+        rgb(var(--backgroundDark)) 100%) !important;
+}
+
+/* eds2ii, 1lqoyz7: an opaque dark price strip with legible current prices. */
+html body.v6 .store_capsule_container .discount_block.discount_block_inline {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body.v6 .store_capsule_container .discount_block_inline .discount_prices {
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+
+html body.v6 .store_capsule_container .discount_block_inline .discount_final_price {
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body.v6 .store_capsule_container .discount_block_inline .discount_original_price {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* 19aysxl / p4elef: use Steam home.css's native green. Its --green variable
+ * collides with the skin's RGB triplet. Cover all homepage inline discounts,
+ * including the wide single-game cards, without changing the global variable. */
+html body.v6 .store_capsule_container .discount_block_inline .discount_pct,
+html body.v7 .discount_block.discount_block_inline .discount_pct {
+    background: #a1cd44 !important;
+    color: #000 !important;
+}
+
+/* fytij7: use the stable classes, never React's transient «r2» ID. */
+html body.v6 ._2-tz2hqtOXPPtMnVPHNSdx.WidgetHeaderCtn {
+    color: rgb(var(--textLightest)) !important;
+    background-image: linear-gradient(77deg,
+        rgb(var(--accentDarkest)) 0%,
+        rgb(var(--backgroundLightish)) 50%,
+        rgba(var(--background), 0) 70%) !important;
+}
+
+/* oy508j: replace only the Steam Deck section's CSS background layers. */
+html body.v6 #home_deck_content {
+    color: rgb(var(--textLight)) !important;
+}
+
+html body.v6 #home_deck_content .home_deck_section.ctn_background {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image:
+        linear-gradient(0deg,
+            rgba(var(--backgroundDarkest), .45) 5%,
+            rgba(var(--backgroundDarkish), .65) 20%,
+            rgba(var(--background), .5) 65%,
+            rgba(var(--backgroundLightish), .45) 95%,
+            rgba(var(--backgroundLight), .55) 100%),
+        radial-gradient(circle at 10% 0%,
+            rgba(var(--backgroundLightish), .2) 0%,
+            rgba(var(--backgroundDarkish), .05) 50%,
+            rgba(var(--backgroundLightish), 0) 90%),
+        radial-gradient(circle at 80% 100%,
+            rgba(var(--backgroundLightish), .1) 0%,
+            rgba(var(--backgroundLightish), .05) 50%,
+            rgba(var(--backgroundLightish), 0) 90%) !important;
+}
+
+/* l3e87r / 1rlpxbq: pink wishlist ribbons, including the wide home cards;
+ * preserve their original white SVG star. */
+html body.v6 .store_capsule_container .ds_flag.ds_wishlist_flag,
+html body.v6 .home_content_item > .ds_flag.ds_wishlist_flag {
+    background-color: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* 17ehuvk, refined by z0nvlk and the 21:57 follow-up: grey rows with a
+ * lighter grey selection; both states moved up one theme palette step. */
+html body.v6 .home_tabs_columns :is(a.tab_item, a.tab_row_item) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--background)) !important;
+}
+
+html body.v6 .home_tabs_columns :is(a.tab_item, a.tab_row_item):is(.focus, .gpfocus, :hover) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+html body.v6 .home_tabs_columns :is(a.tab_item, a.tab_row_item):is(.focus, .gpfocus, :hover)::after {
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+html body.v6 .home_tabs_columns :is(a.tab_item, a.tab_row_item):is(.focus, .gpfocus, :hover)
+    :is(.tab_item_name, .tab_item_details, .tab_row_item_name, .tab_row_item_content) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* slfy86: solid grey curator panel, with no artificial five-line minimum. */
+html body.v6 #apps_recommended_by_curators_v2 .curator_capsule_ctn {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+html body.v6 #apps_recommended_by_curators_v2 .curator_capsule_blurb {
+    min-block-size: 0 !important;
+}
+
+/* q2oafr, 1idhzia: both follow states use neutral button backgrounds. */
+html body.v6 .creator_capsule_ctn .creator_follow_btn,
+html body.v6 .creator_capsule_ctn .creator_follow_btn.following {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgba(var(--backgroundLightest), .24) !important;
+}
+
+html body.v6 .creator_capsule_ctn .creator_follow_btn > span {
+    color: rgb(var(--textLightest)) !important;
+    background: transparent !important;
+}
+
+html body.v6 .creator_capsule_ctn .creator_follow_btn:not(.btn_disabled):not(:disabled):hover {
+    background: rgb(var(--backgroundLight)) !important;
+    border-color: rgba(var(--backgroundLightest), .42) !important;
+}
+
+/* r2iual: explicitly requested hue rotation, scoped to this gift-card image. */
+html body.v6 img.home_gift_card_img[src*="/store/home/gc_fan.webp"] {
+    filter: var(--accentFilter) !important;
+}
+
+/* v791c1: white pixels cannot be hue-rotated. Use the selected PNG's alpha as
+ * a mask over the theme accent, retaining its original 16px image box. */
+html body.v6 .creator_capsule_ctn .creator_follow_btn.following > span
+    > img[src*="/public/images/v6/ico/ico_selected.png"] {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'/%3E");
+    background-color: rgb(var(--accent)) !important;
+    -webkit-mask: url("https://store.akamai.steamstatic.com/public/images/v6/ico/ico_selected.png") center / contain no-repeat;
+    mask: url("https://store.akamai.steamstatic.com/public/images/v6/ico/ico_selected.png") center / contain no-repeat;
+    filter: none !important;
+}

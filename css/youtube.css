@@ -1,0 +1,24 @@
+/*
+ * Embedded YouTube player only.
+ *
+ * This intentionally themes the player chrome and progress controls, not the
+ * video frame, channel avatars, thumbnails, or SVG artwork.
+ */
+@import url('configDefaults.css');
+@import url('../config.css');
+
+.ytProgressBarLineProgressBarPlayed {
+    background-image: linear-gradient(90deg,
+        rgb(var(--accent)) 80%,
+        rgb(var(--accentLightest))) !important;
+}
+
+.ytProgressBarPlayheadProgressBarPlayheadDot {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* YouTube's cued-overlay play glyph is native #ff0033 artwork. It is not a
+ * video frame or thumbnail, so the dedicated red-to-pink filter is safe here. */
+cued-overlay.ytmCuedOverlayHost .ytmCuedOverlayPlayButtonIcon .ytSpecIconShapeHost {
+    filter: var(--youtubeRedFilter) !important;
+}

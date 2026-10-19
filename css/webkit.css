@@ -6,6 +6,7 @@
 @import url('capture3.css');
 @import url('annotationBatch1.css');
 @import url('annotationBatch2.css');
+@import url('achievements.css');
 
 /* ATOMS CSS-only web controls. Keep the imported Shiina layer unchanged and
  * theme these non-image controls from the actual webkit file. */
@@ -2861,4 +2862,14 @@ button.et-RRc3JMu8- {
     background-image: linear-gradient(to bottom,
         rgb(var(--backgroundLightish)),
         rgb(var(--backgroundDarkish))) !important;
+}
+
+/* 16v9jyc: legacy Community group navigation's lower rule. */
+.group_tabs > .responsive_hidden {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+/* 110mt7u: preserve native active/hover tab geometry; only recolor its rule. */
+.sectionTabs.item > .sectionTab {
+    border-bottom-color: rgb(var(--accent)) !important;
 }

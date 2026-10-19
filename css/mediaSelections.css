@@ -74,6 +74,11 @@ img.discussionSearchTextSubmitImg[src*="searchbox_workshop_submit.gif"] {
 	filter: var(--accentFilter) !important;
 }
 
+/* jibq0a: explicitly approved exact URL, not the group-logo/avatar class. */
+img[src="https://avatars.fastly.steamstatic.com/9b62d03b03693bbffa90947d8435f5238ea86cac_full.jpg"] {
+	filter: var(--accentFilter) !important;
+}
+
 /* Approved 2026-10-13: lm9k5x / 1drwibq / 1oxrqas / 1ltdnor /
  * 1srxmlt / 12f6nt. Include normal and highlighted variants of these six
  * selected Guide icons, without filtering their card or text. */

@@ -7,9 +7,17 @@
 	width: 0.6rem !important;
 }
 
-/*scrollbar thumb color*/
+/* 1a4yl9n / xhh1o6: keep idle thumbs transparent. The old unconditional
+ * accent overrode Steam's container-hover hiding, including Library lists. */
 ::-webkit-scrollbar-thumb {
-	background: rgba(var(--accent)) !important;
+	background-color: transparent !important;
+	background-image: none !important;
+}
+
+*:is(:hover, :focus-within)::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+	background-color: rgb(var(--accent)) !important;
 }
 
 body::-webkit-scrollbar-thumb:window-inactive {

@@ -1,0 +1,141 @@
+/* October 18 achievement/Profile Games annotations. Steam's SSR view also
+ * uses --background for a complete color, so resolve ATOMS aliases at root. */
+:root {
+    --atoms-achievement-bg: rgb(var(--background));
+    --atoms-achievement-panel: rgb(var(--backgroundLightish));
+    --atoms-achievement-track: rgb(var(--backgroundDarkish));
+}
+
+/* peo9kn / qa9vkm: neutral page, overview, rows and breadcrumb header.
+ * Artwork layers and their native blur/masks are deliberately untouched. */
+:root:has(.r3Usx8aC7Xk-) body {
+    background-color: var(--atoms-achievement-bg) !important;
+}
+
+.r3Usx8aC7Xk- .kuTJDaZGbhc-,
+:root:has(.r3Usx8aC7Xk-) .O6W7VFmW1Gk-,
+:root:has(.r3Usx8aC7Xk-) [data-index] > .P5l1h4VfEfg- {
+    background-color: var(--atoms-achievement-panel) !important;
+}
+
+:root:has(.r3Usx8aC7Xk-) :is(.YXPNY9nRMaY-, .UgnsnraQ9xg-) {
+    background-color: var(--atoms-achievement-track) !important;
+}
+
+.Z2hc6V7xIVo- {
+    background-image: linear-gradient(rgb(var(--backgroundDark)), rgb(var(--backgroundLightish))) !important;
+}
+
+/* 1rnuzxx: base-game set header; DLC sets retain their distinct treatment. */
+.EQqxstseYOM-:not(.gll5nH8jh6w-) {
+    background: radial-gradient(8% 130% at 0% 50%,
+        rgba(var(--accent), .65) 0%, rgba(var(--accent), 0) 100%),
+        radial-gradient(70% 277% at 21% 24%,
+        rgb(var(--accentDarkish)) 0%, rgb(var(--accentDarkest)) 100%) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+.EQqxstseYOM-:not(.gll5nH8jh6w-) .Q3WpK6X3W0o- {
+    color: rgb(var(--accentLightest)) !important;
+}
+
+/* 1vzvbac / 1bme0x1: ordinary blue progress, not the purple DLC variant
+ * or the disabled/unavailable progress states. */
+.Ipalm5ENV44-:not(._0XQXm1s6RWA-):not(.OkFlRZIwL-8-):not(.j4BO9cYqm-8-) {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* The set headers and per-achievement progress use a separate pseudo-fill. */
+.cJQvFpktOuY-:not(._-4HvMTVx8TY-) {
+    --color-progress-bar-foreground: rgb(var(--accent)) !important;
+}
+
+/* 1euagj7 / 115hqnm / hsfsuw / 1o1s1fo: completion text and header links. */
+.cgwmRarnhq0-.IokSIloSPlA-,
+.r3Usx8aC7Xk- a.MhcW6UA5-LA-.tEcMq-I-lRg- {
+    color: rgb(var(--accent)) !important;
+}
+
+.r3Usx8aC7Xk- a.MhcW6UA5-LA-.tEcMq-I-lRg-:hover {
+    color: rgb(var(--accentLight)) !important;
+}
+
+/* ul1gvu / xk6ja4 / 1mnic2s: visible trophy paint only. Preserve URL
+ * gradient fills, clip paths, and black/white mask geometry. */
+.baoabtDhz7Y-,
+:root:has(.r3Usx8aC7Xk-) .Q3WpK6X3W0o- {
+    color: rgb(var(--accent)) !important;
+}
+
+.baoabtDhz7Y- > .V3UcU547o9g- > svg > g > path[fill="#1A9FFF" i] {
+    fill: rgb(var(--accent)) !important;
+}
+
+.baoabtDhz7Y- stop[stop-color="#1A9FFF" i] {
+    stop-color: rgb(var(--accent)) !important;
+}
+
+.baoabtDhz7Y- stop[stop-color="#1465CF" i] {
+    stop-color: rgb(var(--accentDark)) !important;
+}
+
+/* 1k7b7lh: native sparkles and trophy shine use accentLightest, while
+ * retaining native animation timing, reduced-motion rules and stop opacity. */
+.baoabtDhz7Y- stop[stop-color="white" i] {
+    stop-color: rgb(var(--accentLightest)) !important;
+}
+
+.baoabtDhz7Y- ._8ULQdRr0jAM-,
+[data-atoms-achievement-sparkles] ._8ULQdRr0jAM- {
+    color: rgb(var(--accentLightest)) !important;
+    filter: drop-shadow(0 0 3px rgba(var(--accentLightest), .8)) !important;
+}
+
+/* 1j8nyu7: rare percentages become pink. The small helper reuses Steam's
+ * native star layer on these badges without replacing their icon or text. */
+.YdwpRPPithE-.tQWKFb1QLD0- {
+    color: rgb(var(--accent)) !important;
+    position: relative;
+}
+
+.kuTJDaZGbhc- .E-F5JVsCXEo-[style*="--color-amber-10"] {
+    color: rgb(var(--accent)) !important;
+}
+
+:where(.J1gNXqOLM6A-) .YdwpRPPithE-.tQWKFb1QLD0- > [data-atoms-achievement-sparkles] {
+    display: block !important;
+}
+
+.LowPerfMode .YdwpRPPithE- > [data-atoms-achievement-sparkles] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .YdwpRPPithE-.tQWKFb1QLD0- > [data-atoms-achievement-sparkles] {
+        display: none !important;
+    }
+}
+
+/* 8lo14y: grey inactive track, accent active track; keep native size/knob. */
+:root:has(.r3Usx8aC7Xk-) .XWjEvL39Yi4- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+:root:has(.r3Usx8aC7Xk-) .XWjEvL39Yi4-::before {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* 3681q6 / 1yovzgs: Profile Games tab underline and blue navigation text. */
+a.aMOYGh7hnLQ-.xm0ps8RlGjM- {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+.e1OlraMtN2w- a,
+.e1OlraMtN2w- button:not(.unlHdc1q06Q-) {
+    color: rgb(var(--accent)) !important;
+}
+
+.e1OlraMtN2w- a:hover,
+.e1OlraMtN2w- button:not(.unlHdc1q06Q-):hover {
+    color: rgb(var(--accentLight)) !important;
+}

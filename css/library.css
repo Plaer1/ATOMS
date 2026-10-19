@@ -93,7 +93,8 @@
 }
 
 /* 1hcgn8i: the full achievement sheet and individual row surfaces. */
-._1UXC2lGcmNTGepRJTwtuH0._2kMZ9dNT_LVROmPbKzcCHo {
+/* whaamr: current sheets also mount without the older second class. */
+._1UXC2lGcmNTGepRJTwtuH0 {
 	background-color: rgb(var(--background)) !important;
 	color: rgb(var(--textLight)) !important;
 }

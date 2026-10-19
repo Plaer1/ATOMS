@@ -15,6 +15,8 @@ const os = require('os');
 const path = require('path');
 const { installAnnotationHighlights } = require('./steam-annotation-highlights.js');
 const { installAnnotationInputLock, AnnotationInputLockBridge, LOCK_BINDING } = require('./steam-annotation-input-lock.js');
+const { installAnnotationThemeToggle } = require('./steam-annotation-theme-toggle.js');
+const { AnnotationSelectionStore } = require('./annotation-selection-store.js');
 let WebSocket;
 try {
     WebSocket = require('ws');
@@ -45,8 +47,10 @@ const files = {
     css: path.join(sessionDir, 'css-candidates.jsonl'),
     topLevel: path.join(sessionDir, 'top-level-unthemed.jsonl')
 };
-const streams = Object.fromEntries(Object.entries(files).map(([name, file]) => [name, fs.createWriteStream(file, { flags: 'a' })]));
-const limits = { events: 5000, assets: 9000, selections: 2000, css: 7000, topLevel: 5000 };
+const selectionStore = new AnnotationSelectionStore(files.selections);
+const streams = Object.fromEntries(Object.entries(files).filter(([name]) => name !== 'selections')
+    .map(([name, file]) => [name, fs.createWriteStream(file, { flags: 'a' })]));
+const limits = { events: 5000, assets: 9000, css: 7000, topLevel: 5000 };
 const counts = { events: 0, assets: 0, selections: 0, css: 0, topLevel: 0 };
 const targets = new Map();
 let stopping = false;
@@ -61,7 +65,9 @@ const sessionMetadata = {
         'records outermost visible unthemed surfaces in top-level-unthemed.jsonl',
         'Alt-click records the exact topmost rendered element with an optional note',
         'Alt-click never changes the selected element; it only records the selection and note',
+        'unselecting deletes the saved note instead of retaining cancellation events',
         'holding Alt freezes CSS hover and shields page input while the picker remains usable',
+        'the theme comparison button follows the annotator lifecycle; stopping restores the theme and removes it',
         'drag/drop and menu-trigger interactions are recorded compactly',
         'uses a bounded likely-surface scan, viewport sampling, and bounded added-subtree scans; no mutation-triggered full-page scans',
         'no document HTML, screenshots, or network bodies',
@@ -76,6 +82,12 @@ if (fs.existsSync(sessionFile)) {
 }
 
 function write(kind, payload) {
+    if (kind === 'selections') {
+        // Authored notes are never dropped by the automatic-scan file caps.
+        selectionStore.record({ timestamp: new Date().toISOString(), ...payload });
+        counts.selections += 1;
+        return;
+    }
     if (!streams[kind] || counts[kind] >= limits[kind]) return;
     counts[kind] += 1;
     streams[kind].write(JSON.stringify({ timestamp: new Date().toISOString(), ...payload }) + '\n');
@@ -117,7 +129,6 @@ function visualAuditSource() {
     const KEY = '__atomsVisualAuditV5';
     const PREVIOUS_KEYS = ['__atomsVisualAuditV4', '__atomsVisualAuditV3'];
     const EMIT = '__atomsVisualAuditEmit';
-    const TOGGLE_API_KEY = '__atomsThemeToggleV1';
     const TOGGLE_HOST_ID = 'atoms-theme-toggle-host';
     const PICKER_HOST_ID = 'atoms-visual-audit-host';
     const MAX_STRING = 700;
@@ -531,12 +542,6 @@ function visualAuditSource() {
         emitOnce('top-level-surface', descriptor);
     };
 
-    const installToggle = () => {
-        // Recording must not opt users into a theme feature or recreate its
-        // button after they disable the Millennium setting.
-        window[TOGGLE_API_KEY]?.sync?.();
-    };
-
     const describePicked = (picked, includeMarkup = false) => {
         if (!picked || !picked.element) return null;
         if (picked.kind === 'gradient') {
@@ -735,12 +740,15 @@ function visualAuditSource() {
             if (!entry) return;
             const input = getNoteInput();
             entry.note = trim(input ? input.value : '', MAX_NOTE_LENGTH);
+            entry.selectionId ||= window.crypto?.randomUUID?.()
+                || `selection-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
             state.selectionState.set(entry.element, entry);
             state.selected.add(entry.element);
             state.pendingNote = null;
             closeNote();
             emit('selection', {
                 selected: true,
+                selectionId: entry.selectionId,
                 asset: entry.descriptor,
                 note: entry.note,
                 previewFilter: entry.previewFilter,
@@ -894,8 +902,8 @@ function visualAuditSource() {
                 state.selected.delete(element);
                 emit('selection', {
                     selected: false,
+                    selectionId: prior.selectionId,
                     asset: prior.descriptor,
-                    note: prior.note || '',
                     previewFilter: prior.previewFilter,
                     previewApplied: prior.previewApplied
                 });
@@ -1095,6 +1103,7 @@ function visualAuditSource() {
     const stop = () => {
         if (state.stopped) return;
         state.stopped = true;
+        window.__atomsAnnotationThemeToggleV1?.stop();
         window.__atomsAnnotationInputLockV1?.stop();
         window.__atomsAnnotationHighlightsV1?.stop();
         if (state.timer) clearTimeout(state.timer);
@@ -1142,7 +1151,6 @@ function visualAuditSource() {
         emit('stopped', { selectedAssets: state.selected.size });
     };
 
-    installToggle();
     installPicker();
     state.observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -1189,7 +1197,7 @@ function visualAuditSource() {
     return 'installed';
 }
 
-const source = `(${installAnnotationHighlights.toString()})();(${installAnnotationInputLock.toString()})();(${visualAuditSource.toString()})();`;
+const source = `(${installAnnotationHighlights.toString()})();(${installAnnotationInputLock.toString()})();(${visualAuditSource.toString()})();(${installAnnotationThemeToggle.toString()})();`;
 
 class TargetConnection {
     constructor(target) {

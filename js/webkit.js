@@ -6,11 +6,13 @@ import runGrayscaleScript, { installApprovedStoreBackdrops } from './utilities/g
 import funnyText from './utilities/funnyText.js';
 import { installThemeToggle } from './utilities/visualThemeControls.js';
 import restoreVanillaGeometry from './utilities/restoreVanillaGeometry.js';
+import installAchievementSparkles from './utilities/achievementSparkles.js';
 waitForElement('body', function(element) {
 
 installThemeToggle();
 restoreVanillaGeometry();
 installApprovedStoreBackdrops();
+installAchievementSparkles();
 
 
 

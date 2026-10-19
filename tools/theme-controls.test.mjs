@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import installMenus from '../js/utilities/restartMenus.js';
 import installDownloads from '../js/utilities/titlebarDownloads.js';
 import { installThemeToggle } from '../js/utilities/visualThemeControls.js';
+import { installAnnotationThemeToggle } from './steam-annotation-theme-toggle.js';
 
 test('new checkbox groups all existing Millennium settings in the same visible tab', () => {
     const skin = JSON.parse(fs.readFileSync(new URL('../skin.json', import.meta.url), 'utf8'));
@@ -120,6 +121,32 @@ test('old recorder toggle is restored and replaced without an unconditional butt
     window.__atomsThemeToggleV1 = { setDisabled: v => calls.push(v), stop: () => calls.push('stop') };
     assert.equal(installThemeToggle().version, 2);
     assert.deepEqual(calls, [false, 'stop']);
+});
+
+test('annotator owns the real comparison button and restores sheets on stop', async () => {
+    const f = fixture();
+    globalThis.location = { href: 'https://steamloopback.host/index.html' };
+    document.removeEventListener = () => {};
+    window.__atomsVisualAuditV5 = { stop() {} };
+    const own = f.add(f.root, '', 'link');
+    own.rel = 'stylesheet'; own.href = 'https://millennium.host/v1/themes/ATOMS/css/library.css';
+    const conditional = f.add(f.root, '', 'link');
+    conditional.rel = 'stylesheet'; conditional.href = 'https://millennium.host/v1/themes/ATOMS/css/optional.css'; conditional.disabled = true;
+    const controls = installThemeToggle();
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+    const capture = installAnnotationThemeToggle();
+    assert.equal(await capture.ready, true);
+    installThemeToggle({ showButton: false }); // A late Millennium default-off entrypoint.
+    assert.equal(controls.isButtonEnabled(), true);
+    document.getElementById('atoms-theme-toggle-host').shadowRoot.querySelector('button').click();
+    assert.equal(own.disabled, true);
+    window.__atomsVisualAuditV5.stop();
+    assert.equal(own.disabled, false);
+    assert.equal(conditional.disabled, true);
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+    assert.equal(controls.isDisabled(), false);
+    assert.equal(controls.isButtonEnabled(), false);
+    assert.equal(f.observers[0].active, false);
 });
 
 for (const platform of ['Windows', 'X11; Linux', 'Macintosh; Mac OS X']) {

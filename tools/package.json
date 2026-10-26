@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "description": "ATOMS local annotation and theme validation tools",
+  "scripts": {
+    "annotate": "node steam-visual-audit.js",
+    "check": "node check-theme.mjs"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.15"
+  }
+}

@@ -1,0 +1,142 @@
+/* News list and reader text on neutral surfaces. Shared dark roles are the
+ * defaults; Light mode swaps those roles without copying component rules.
+ * Exact media hue exceptions and outer reader transparency have other owners. */
+
+/* Feed tiles: their text panel is separate from the header artwork. */
+html body ._1E3Anhs34BXsWWWqH4RNPL ._3IQK4rcEU5IYtZuW-Ogsgu {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._3IQK4rcEU5IYtZuW-Ogsgu ._1M8-Pa3b3WboayCgd5VBJT {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._3IQK4rcEU5IYtZuW-Ogsgu :is(._1JjUp7sfpntpaOqu1_lyvO,._2g3JjlrRkzgUWXF57w3leW) {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._3IQK4rcEU5IYtZuW-Ogsgu :is(._1_taBomEIggVub90iRWW1Y,._71phFKOzg8aQlBU1rCA2T,._4-fqVd8yRSHEAjj7Hkx_V,._1LkWXJVxWYdKiKf2Mxq3zs) {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Native events.css day separators explicitly use #e5e5e5. */
+html body ._3j2deAP85R6gftsIWiHe7n ._2aVLRsz60HV81P8VKT3kQj {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* The feed's three action hitboxes keep their native dimensions. A neutral
+ * surface and explicit span/SVG pair replace the overlapping native hovers. */
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3_86JJo-1O_KkOZwRl2uZ6 {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3_86JJo-1O_KkOZwRl2uZ6 span {
+    color: inherit !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3_86JJo-1O_KkOZwRl2uZ6 > a.PR8xM_Lig1kieA79gLjOB {
+    color: inherit !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3_86JJo-1O_KkOZwRl2uZ6 svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3_86JJo-1O_KkOZwRl2uZ6:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM ._3nZg0h8xaxxZeW0g870Htl svg {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM .ysX-kDvwrjduqk2LGUkUg,
+html body ._1E3Anhs34BXsWWWqH4RNPL ._1Hhqg7g-POjV0ysalDN4YM .ysX-kDvwrjduqk2LGUkUg:is(:hover,:focus-visible) {
+    color: rgb(var(--accent)) !important;
+}
+
+/* Sidebar headings, filters, links and secondary counts. */
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._3uZE-tI5d1lF6NQwSrxauh {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._11O61s8Pr7CrLbKxzm9VMK {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._3X16Tg0OrHJJL36_8dwlHo,._3_CIMpiaZYsgSD9rEIImZh,._7TrXidlVTKkfcdujKCtM5) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq input.DialogInput {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq input.DialogInput::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq input.DialogInput:focus-visible {
+    border-color: rgb(var(--accent)) !important;
+    outline-color: rgb(var(--accent)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._2LoObf7xShKZbZ1G71rR_3,._2ctVaeTDGGfjh-pOjQ4ktO) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._1zyVyzldzUj085oNa8Y0r1 {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._1zyVyzldzUj085oNa8Y0r1:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._23qmf5MYL9D2szWuV-txE2 {
+    color: rgb(var(--textLightish)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(.MeJhm7ZvNEcgMNrj4YyRg,._3nwCq_gduAro-qt7Kt3x6s,._3sXsgTKq8xa1K7EYzNNOBq) {
+    color: rgb(var(--textLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._1zyVyzldzUj085oNa8Y0r1,._3Es2qlfJBkwe2Yqco9B1VL) svg {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._1zyVyzldzUj085oNa8Y0r1,._3Es2qlfJBkwe2Yqco9B1VL):is(:hover,:focus-visible) svg {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._2NQEg_ngTN4otkyy-9VfGQ a,._2IWYfBr6LLolwVjYdZcBco a,._2VFTM7o6Mn2fvJXYr9mSVo) {
+    color: rgb(var(--textLink)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq :is(._2NQEg_ngTN4otkyy-9VfGQ a,._2IWYfBr6LLolwVjYdZcBco a,._2VFTM7o6Mn2fvJXYr9mSVo):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body ._15YLDKm80opUF5Tivo7UK- ._1nf0vlWuKk9Qn7ncHC5uhq ._2NQEg_ngTN4otkyy-9VfGQ a svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* Reader article card and explicit neutral text. Its outer modal backdrop and
+ * the one selected banner image are intentionally not painted here. */
+html body ._3CJsgSK-y815Zeoe6bz6dh ._1KsYSVzmvIfRivBTcx-_GE {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(ellipse at top left,rgb(var(--backgroundLightish)),rgb(var(--backgroundDarkish))) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._3z2NYCkFizMu4fMvWTIBUG {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._3z2NYCkFizMu4fMvWTIBUG :is(h1,h2,h3,.L_ehQkR9HaVr2cdS1P1lc) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._3z2NYCkFizMu4fMvWTIBUG ._20f2sKS2M7PlPSnPCinT26 {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh :is(._2KsEbGy9kiSDeQpcqEc9DG,.efy3k8RozzxfFidgbdfZZ,._2WwG2r8yZuu2EMJgFTQZp8,._2VqeQaZVaUkkEWaiLkmqmT) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._1KsYSVzmvIfRivBTcx-_GE :is(.bb_paragraph,.bb_ul,.bb_ol,.bb_table) {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._1KsYSVzmvIfRivBTcx-_GE :is(.Udzrpqr8534T5DvVZveNP,a._29bMZB6BOQfTQ_3za-w60I.Link,.bb_paragraph a,.bb_ul a,.bb_ol a,.bb_table a) {
+    color: rgb(var(--textLink)) !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh ._1KsYSVzmvIfRivBTcx-_GE :is(.Udzrpqr8534T5DvVZveNP,a._29bMZB6BOQfTQ_3za-w60I.Link,.bb_paragraph a,.bb_ul a,.bb_ol a,.bb_table a):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}

@@ -15,7 +15,7 @@ const value = (rule, prop) => rule.nodes.find(node => node.prop === prop)?.value
 
 test('Millennium description uses a neutral theme grey, not accented text', () => {
     const rule = rules('library.css').find(rule => rule.selector === '.MillenniumWindow_MainSteamWindow .MillenniumThemes_Description');
-    assert.equal(value(rule, 'color'), 'rgba(var(--greyLightest), .65)');
+    assert.equal(value(rule, 'color'), 'rgba(var(--textNeutral), .65)');
 });
 
 test('notifications retain a neutral card and transparent decorative highlights', () => {
@@ -29,7 +29,7 @@ test('notifications retain a neutral card and transparent decorative highlights'
     assert.equal(value(glow, 'background'), 'transparent');
     assert.equal(value(glow, 'opacity'), '0');
     const watermark = all.find(rule => rule.selector.includes('._3RkGkNRNheAkoRA3migph5'));
-    assert.equal(value(watermark, 'color'), 'rgb(var(--greyLightest))');
+    assert.equal(value(watermark, 'color'), 'rgb(var(--textNeutral))');
     assert.ok(!value(watermark, 'opacity'));
     assert.ok(!value(watermark, 'display'));
     assert.ok(!value(watermark, 'visibility'));

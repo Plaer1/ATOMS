@@ -1,5 +1,6 @@
 @import url('configDefaults.css');
 @import url('../config.css');
+@import url('themeText.css');
 *{  /*Uncomment if you want to change the font */
     font-family: var(--font) !important;
 	box-shadow: none !important;
@@ -7,6 +8,11 @@
 
 html,body{
 	background: rgb(var(--background)) !important;
+}
+/* Web-content context menus expose the shell through their native padding.
+ * Match the ordinary row canvas without changing menu sizing or hit areas. */
+html.useBrowserViewContextMenu.MillenniumWindow_ContextMenu .PP7LM0Ow1K5qkR8WElLpt {
+    background: rgb(var(--background)) !important;
 }
 /* fix menus at the top */
 .contextMenuItem, ._1UgM1Pm8SbTWX7_2f-crGt /* notif dropdown */
@@ -22,4 +28,23 @@ html,body{
 ._11phBiBefcVQdzrnrezkKa, ._2jphjrSifC6orDT4g_7Wd /*wallet balance in account settings dropdown*/
 {
 	color: rgb(var(--textAccented)) !important;
+}
+/* Native detached menu rows keep visible hover/focus/pressed distinctions. */
+:root .contextMenuItem {
+    color: rgb(var(--textLight)) !important;
+}
+:root .contextMenuItem:not(.disabled):not(.Disabled):not([aria-disabled="true"]):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .contextMenuItem:not(.disabled):not(.Disabled):not([aria-disabled="true"]):active {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .contextMenuItem:is(:focus-visible, .gpfocus) {
+    outline-color: rgb(var(--accent)) !important;
+}
+:root .contextMenuItem:is(.disabled, .Disabled, [aria-disabled="true"]) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightish)) !important;
 }

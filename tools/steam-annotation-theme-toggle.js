@@ -29,13 +29,14 @@ function installAnnotationThemeToggle(loadControls) {
             controls.setButtonEnabled = forcedSet;
         }
         controls.setButtonEnabled(true);
+        window.__atomsInstallAnnotationColorToggleV1?.();
         return true;
     };
 
     const sync = () => {
         if (!active) return Promise.resolve(false);
         const current = window.__atomsThemeToggleV1;
-        if (current?.version === 2 && typeof current.setButtonEnabled === 'function') {
+        if (current?.version >= 2 && typeof current.setButtonEnabled === 'function') {
             return Promise.resolve(bind(current));
         }
         if (!pending) {
@@ -61,7 +62,7 @@ function installAnnotationThemeToggle(loadControls) {
         document.removeEventListener('DOMContentLoaded', sync);
         if (controls) {
             if (controls.setButtonEnabled === forcedSet) controls.setButtonEnabled = originalSet;
-            originalSet.call(controls, false);
+            originalSet.call(controls, window.__atomsDebugMenuEnabledV1 === true);
         }
         if (audit?.stop === wrappedStop) audit.stop = originalStop;
     };

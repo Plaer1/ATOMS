@@ -31,18 +31,46 @@ function selectionFingerprint(record) {
     return createHash('sha256').update(JSON.stringify(record)).digest('hex');
 }
 
+function parseLines(text) {
+    const entries = [];
+    let pending = '';
+    for (const line of text.match(/[^\n]*(?:\n|$)/g) || []) {
+        if (!line) continue;
+        pending += line;
+        if (!line.trim()) continue;
+        const record = JSON.parse(line);
+        if (!record || typeof record !== 'object' || Array.isArray(record)) throw new Error('Invalid annotation record');
+        entries.push({ record, raw: pending });
+        pending = '';
+    }
+    return { entries, trailing: pending };
+}
+
 class AnnotationSelectionStore {
     constructor(file) {
         this.file = path.resolve(file);
         const text = fs.existsSync(this.file) ? fs.readFileSync(this.file, 'utf8') : '';
         // Refuse malformed input instead of silently discarding a user's note.
-        const records = text.split('\n').filter(line => line.trim()).map(JSON.parse);
+        const parsed = parseLines(text);
+        this.sourceText = text;
+        this.rawEntries = parsed.entries;
+        this.trailing = parsed.trailing;
+        const records = parsed.entries.map(entry => entry.record);
         this.records = activeSelections(records);
         this.prunedEvents = records.length - this.records.length;
         if (this.prunedEvents) this.replace(this.records);
     }
 
     replace(records) {
+        // Keep the bytes of untouched rows, including legacy formatting. A
+        // targeted correction must not migrate every other saved annotation.
+        const originals = new Map(this.rawEntries.map(entry => [entry.record, entry.raw]));
+        const entries = records.map(record => ({ record, raw: originals.get(record) || JSON.stringify(record) + '\n' }));
+        for (let i = 0; i < entries.length - 1; i++) {
+            if (!entries[i].raw.endsWith('\n')) entries[i].raw += '\n';
+        }
+        const trailing = entries.length ? this.trailing : '';
+        const text = entries.map(entry => entry.raw).join('') + trailing;
         const temporary = `${this.file}.tmp-${process.pid}-${randomBytes(6).toString('hex')}`;
         let opened = false;
         try {
@@ -50,10 +78,14 @@ class AnnotationSelectionStore {
             const fd = fs.openSync(temporary, 'wx', mode);
             opened = true;
             try {
-                fs.writeFileSync(fd, records.map(record => JSON.stringify(record) + '\n').join(''));
+                fs.writeFileSync(fd, text);
                 fs.fsyncSync(fd);
             } finally { fs.closeSync(fd); }
             fs.renameSync(temporary, this.file);
+            this.records = records.slice();
+            this.rawEntries = entries;
+            this.trailing = trailing;
+            this.sourceText = text;
         } finally {
             if (opened && fs.existsSync(temporary)) fs.unlinkSync(temporary);
         }
@@ -68,8 +100,7 @@ class AnnotationSelectionStore {
             this.records = next;
             return { removed, saved: false };
         }
-        fs.appendFileSync(this.file, JSON.stringify(record) + '\n', { mode: 0o600 });
-        this.records.push(record);
+        this.replace([...this.records, record]);
         return { removed: 0, saved: true };
     }
 
@@ -95,4 +126,4 @@ class AnnotationSelectionStore {
     }
 }
 
-module.exports = { AnnotationSelectionStore, activeSelections, selectionFingerprint };
+module.exports = { AnnotationSelectionStore, activeSelections, selectionFingerprint, selectionKey };

@@ -1,5 +1,6 @@
 @import url('configDefaults.css');
-@import url('../config.css');@import url('scrollbars.css');
+@import url('../config.css');
+@import url('themeText.css');@import url('scrollbars.css');
 
 *
 {
@@ -90,7 +91,7 @@ background: radial-gradient(ellipse farthest-corner at 0% 50%, rgba(var(--accent
 }
 /* fix fill for arrows on expand group chats w/ unread messages  */
 .Collapsed.HasUnreadChats .chatSectionTitle .SVGIcon_DoubleArrow .Arrow1, .Collapsed.HasUnreadChats .chatSectionTitle .SVGIcon_DoubleArrow .Arrow2 {
-    stroke: var(--ingame) !important;
+    stroke: rgb(var(--accent)) !important;
 }
 /* color circle for unread chat blibs*/
 .chatUnreadCircle {
@@ -123,14 +124,15 @@ background: radial-gradient(ellipse farthest-corner at 0% 50%, rgba(var(--accent
 }
 /* typing notification*/
 .FriendChatTypingNotification{
-    background: linear-gradient(to top, var(--darkgreyLightlyTransparent) 0%, var(--darkgreySlightlyTransparent) 12px, var(--accentInvisible) 80%);
+    background: linear-gradient(to top, rgba(var(--backgroundDarkish), .9) 0%, rgba(var(--backgroundDarkish), .65) 12px, rgba(var(--backgroundDarkish), 0) 80%);
+    color: rgb(var(--textLightish)) !important;
 }
 /* input area container*/
 html.client_chat_frame .chatWindow .chatEntry  {
     background: rgba(var(--backgroundDarkish)) !important;
 }
 /* text input area & buttons*/
-._113iuw_HlE_qSgt9cGWCSv, button, .DialogInput_Wrapper>input.DialogInput {
+._113iuw_HlE_qSgt9cGWCSv, .DialogInput_Wrapper>input.DialogInput {
     background: rgba(var(--backgroundDark)) !important;
 }
 /* file upload popup */
@@ -150,4 +152,221 @@ html.client_chat_frame .chatWindow .chatEntry  {
 }
 .friendSearchInput {
 	background: rgba(var(--backgroundLightish)) !important;
+}
+
+
+/* Neutral Friends chrome; the explicit persona states below pair status text
+ * and glyphs while preserving avatar artwork and native away masks. */
+:root .quickAccessFriendsMessage,
+:root .ChatRoomList .ChatRoomList_Empty {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .quickAccessFriendsMessage {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root .quickAccessFriends.emptyQuickAccess .quickAccessFriendsMessageDismiss {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .quickAccessFriends.emptyQuickAccess .quickAccessFriendsMessageDismiss:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .ChatRoomList_Empty a {
+    color: rgb(var(--textLink)) !important;
+}
+:root .socialListTab,
+:root .friendsListSectionTitle,
+:root .friendGroup .groupName,
+:root .friendListFooter,
+:root .friendsContextMenu .DNDCheckBox .DialogToggle_Label {
+    color: rgb(var(--textLight)) !important;
+}
+:root .socialListTab.activeTab {
+    color: rgb(var(--textLightest)) !important;
+}
+:root .socialListTab .tabLabel {
+    color: inherit !important;
+}
+:root .friendGroup:is(.offlineFriends, .onlineFriends) .groupName .groupCount,
+:root .friendGroup .groupName .groupCount.collapsed {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .friendsListSectionTitle .SVGIcon_NewChatGroup {
+    fill: rgb(var(--icon)) !important;
+}
+:root .friendsListSectionTitle .SVGIcon_NewChatGroup line {
+    stroke: rgb(var(--backgroundLightish)) !important;
+}
+:root .friendsListSectionTitle.chatSectionTitle:hover {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .friendsListSectionTitle.chatSectionTitle:hover .SVGIcon_NewChatGroup {
+    fill: rgb(var(--textLightest)) !important;
+}
+:root .friendsListSectionTitle.chatSectionTitle:hover .SVGIcon_NewChatGroup line {
+    stroke: rgb(var(--backgroundLight)) !important;
+}
+:root .friendListFooter .SVGIcon_Button {
+    color: rgb(var(--icon)) !important;
+}
+:root .friendListFooter .SVGIcon_Button [fill]:not([fill="none"]) {
+    fill: currentColor !important;
+}
+:root .friendListFooter .SVGIcon_Button [stroke]:not([stroke="none"]) {
+    stroke: currentColor !important;
+}
+:root .friendsContextMenu .personaContextMenuItem:has(.DNDCheckBox):is(:hover, .gpfocus, .gpfocuswithin) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Favorite captions are neutral labels beneath avatars, not status markers. */
+:root .quickAccessFriends .favoriteElement .playerName {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .quickAccessFriends .favoriteElement:hover .playerName {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Persona names shown as in-game keep their green meaning in either palette.
+ * Status strips, avatar artwork and the game title keep their native styling. */
+:root .ingame .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textInGame)) !important;
+}
+
+/* Friends controls use neutral resting surfaces and explicit action states. */
+:root button:not(.Primary):not(.Destructive):not(.GreenPlay) {
+    background: rgb(var(--backgroundDark)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root button:not(.Primary):not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root button.Primary:not(.Destructive):not(.GreenPlay) {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root button.Primary:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--accentDarkish)) !important;
+}
+:root button.Primary:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):active {
+    background: rgb(var(--accent)) !important;
+}
+:root button:not(.Destructive):not(.GreenPlay):is(:disabled, .Disabled) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+:root .chatEntry :is(input, textarea, [contenteditable="true"]),
+:root .friendSearchInput {
+    color: rgb(var(--textLight)) !important;
+    caret-color: rgb(var(--textAccentedSoft)) !important;
+}
+:root .chatEntry :is(input, textarea)::placeholder,
+:root .friendSearchInput::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Status text belongs to the persona widget, not the scrollbar stylesheet.
+ * Keep game-title/status graphics outside this foreground mapping. */
+:root .online:not(.ingame):not(.in-game):not(.offline) .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textLink)) !important;
+}
+:root .offline .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Friends persona rows share state foregrounds; native online/away strip
+ * geometry, masks and opacity remain owned by Steam. */
+:root .friend.online:not(.ingame):not(.offline) {
+    color: rgb(var(--textLink)) !important;
+}
+:root .friend.online:not(.ingame):not(.offline) :is(.nOdcT-MoOaXGePXLyPe0H, ._2Ri005Wg_uXDTa71kdRbcN, .status) {
+    color: rgb(var(--textLink)) !important;
+}
+:root .friend.ingame,
+:root .friend.ingame :is(.nOdcT-MoOaXGePXLyPe0H, ._2Ri005Wg_uXDTa71kdRbcN, .status) {
+    color: rgb(var(--textInGame)) !important;
+}
+:root .friend.offline,
+:root .friend.offline :is(.nOdcT-MoOaXGePXLyPe0H, ._2Ri005Wg_uXDTa71kdRbcN, .status) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .friend :is(.SVGIcon_DownArrowContextMenu, .SVGIcon_MobilePhone),
+:root .friend .SVGIcon_MobilePhone path {
+    fill: currentColor !important;
+}
+:root .friend.online:not(.ingame) ._3xUpb5DWXPFNcHHIcv-9pe {
+    background: rgb(var(--accent)) !important;
+}
+:root .friend.ingame ._3xUpb5DWXPFNcHHIcv-9pe {
+    background: rgb(var(--textInGame)) !important;
+}
+:root .friendStatusHover:is(:hover, .Friend_ContextMenuActive, .gpfocuswithin) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Confirmation is a paired action; the native dim state has no click handler.
+ * Preserve its opacity, sizing and invitation behavior. */
+:root .confirmInviteRequestContainer .confirmInviteButton.confirmInvites {
+    background: linear-gradient(to right, rgb(var(--accentDarkest)) 0%, rgb(var(--accentDarkest)) 50%) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root .confirmInviteRequestContainer .confirmInviteButton.confirmInvites:not(.dim):is(:hover, :focus-visible, .gpfocus, :active) {
+    background: linear-gradient(to right, rgb(var(--accentDarkish)) 0%, rgb(var(--accentDarkest)) 50%) !important;
+}
+:root .confirmInviteRequestContainer .confirmInviteButton.confirmInvites.dim {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Chat body and speaker labels are native foreground owners. Authored BBCode
+ * descendants keep their own inline colors; only real links use link roles. */
+:root .chatHistory .msgText {
+    color: rgb(var(--textLight)) !important;
+}
+:root .chatHistory .serverMsg .msgText,
+:root .chatHistory .speakerTimeStamp {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .chatHistory .msgText a[href] {
+    color: rgb(var(--textLink)) !important;
+}
+:root .chatHistory .msgText a[href]:is(:hover, :focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+:root .ChatSpeaker .speaker.online,
+:root .ChatSpeaker .speaker.online .speakerName {
+    color: rgb(var(--textLink)) !important;
+}
+:root .ChatSpeaker .speaker.online .speakerStatus {
+    background-color: rgb(var(--accent)) !important;
+}
+:root .ChatSpeaker .speaker.ingame,
+:root .ChatSpeaker .speaker.ingame .speakerName {
+    color: rgb(var(--textInGame)) !important;
+}
+:root .ChatSpeaker .speaker.offline,
+:root .ChatSpeaker .speaker.offline .speakerName {
+    color: rgb(var(--textLightish)) !important;
+}
+/* The chat add-person glyph uses native solid paths plus stroked lines. */
+:root .inviteAnotherFriendButton {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+:root .inviteAnotherFriendButton:is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+:root .inviteAnotherFriendButton .SVGIcon_Button {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+:root .inviteAnotherFriendButton .SVGIcon_Button [fill]:not([fill="none"]) {
+    fill: currentColor !important;
+}
+:root .inviteAnotherFriendButton .SVGIcon_Button line {
+    stroke: currentColor !important;
+}
+:root .inviteAnotherFriendButton:is(:hover, :focus-visible, .gpfocus) .SVGIcon_Button {
+    color: rgb(var(--iconSelected)) !important;
 }

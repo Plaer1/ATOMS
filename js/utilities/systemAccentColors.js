@@ -12,29 +12,40 @@ const SYSTEM_ACCENT_VARIABLES = {
 
 function applyAccentReferences() {
     const rootStyle = document.documentElement.style;
+    const reference = name => buildCssVarReference(SYSTEM_ACCENT_VARIABLES[name]);
+    for (const name of Object.keys(SYSTEM_ACCENT_VARIABLES)) {
+        const suffix = name.slice('accent'.length);
+        rootStyle.setProperty(`--${name}`, reference(name));
+        rootStyle.setProperty(`--accentLightMode${suffix}`, reference(name));
+    }
 
-    rootStyle.setProperty("--accent", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accent));
-    rootStyle.setProperty("--accentLightish", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLightish));
-    rootStyle.setProperty("--accentLight", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLight));
-    rootStyle.setProperty("--accentLightest", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLightest));
-    rootStyle.setProperty("--accentDarkish", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentDarkish));
-    rootStyle.setProperty("--accentDark", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentDark));
-    rootStyle.setProperty("--accentDarkest", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentDarkest));
-    rootStyle.setProperty("--textLightish", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLight));
-    rootStyle.setProperty("--textLight", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLightest));
-    rootStyle.setProperty("--textLightest", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentLightest));
-    rootStyle.setProperty("--textDarkish", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentDarkish));
-    rootStyle.setProperty("--textDark", buildCssVarReference(SYSTEM_ACCENT_VARIABLES.accentDark));
+    // Transparent fills must follow the same optional system accent as their
+    // opaque partners, in both palettes. Values remain RGBA channel lists.
+    const transparent = {
+        Transparent: ['accent', .498],
+        LightTransparentest: ['accent', .173],
+        LessTransparent: ['accent', .765],
+        MoreTransparent: ['accentLightest', .216],
+        DarkTransparent: ['accentDark', 1],
+        DarkerTransparent: ['accentDarkish', .816],
+    };
+    for (const [suffix, [shade, alpha]] of Object.entries(transparent)) {
+        const value = `${reference(shade)}, ${alpha}`;
+        rootStyle.setProperty(`--accent${suffix}`, value);
+        rootStyle.setProperty(`--accentLightMode${suffix}`, value);
+    }
+    for (const [role, shade] of Object.entries({
+        textLightish: 'accentLight', textLight: 'accentLightest', textLightest: 'accentLightest',
+        textDarkish: 'accentDarkish', textDark: 'accentDark',
+    })) rootStyle.setProperty(`--${role}`, reference(shade));
 }
 
 function buildCssVarReference(propertyNames) {
-    return propertyNames.reduceRight((fallbackReference, propertyName) => {
-        if (!fallbackReference) {
-            return `var(${propertyName})`;
-        }
-
-        return `var(${propertyName}, ${fallbackReference})`;
-    }, "");
+    // Some platforms expose the base color without the light/dark variants.
+    // Keep every reference valid in that case instead of losing the declaration.
+    const fallback = SYSTEM_ACCENT_VARIABLES.accent.filter(name => !propertyNames.includes(name));
+    return [...propertyNames, ...fallback].reduceRight((reference, name) =>
+        reference ? `var(${name}, ${reference})` : `var(${name})`, '');
 }
 
 function readCssCustomProperty(propertyNames) {

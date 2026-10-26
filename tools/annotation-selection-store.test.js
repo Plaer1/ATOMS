@@ -125,3 +125,33 @@ test('invalid completion keys are rejected without changing notes', t => {
         assert.equal(f.read(), before);
     }
 });
+
+test('append adds a missing separator while preserving existing formatted row bytes', t => {
+    const f = fixture(t), original = '  {"payload":{"selected":true,"note":"old\\u0020note"}}';
+    fs.writeFileSync(f.file, original);
+    const store = f.store(), added = note('new');
+    store.record(added);
+    assert.equal(f.read(), original + '\n' + JSON.stringify(added) + '\n');
+    assert.deepEqual(f.store().records, store.records);
+});
+
+test('failed atomic append cannot partially add a row or update cached records', t => {
+    const original = note('existing'), f = fixture(t, [original]), store = f.store();
+    const rename = fs.renameSync;
+    fs.renameSync = () => { throw Error('simulated append commit failure'); };
+    try { assert.throws(() => store.record(note('unsaved')), /commit failure/); }
+    finally { fs.renameSync = rename; }
+    assert.equal(f.read(), JSON.stringify(original) + '\n');
+    assert.deepEqual(store.records, [original]);
+    assert.equal(store.sourceText, f.read());
+    assert.deepEqual(fs.readdirSync(f.dir), ['selected-assets.jsonl']);
+});
+
+test('batch removal retains the exact bytes of unrelated legacy rows', t => {
+    const completed = note('done'), retained = note('keep');
+    const f = fixture(t), raw = '\t' + JSON.stringify(retained).replace('keep', 'ke\\u0065p') + '\r\n';
+    fs.writeFileSync(f.file, JSON.stringify(completed) + '\n' + raw);
+    const store = f.store();
+    assert.deepEqual(store.completeBatch([selectionFingerprint(completed)]), { removed: 1, pending: 1 });
+    assert.equal(f.read(), raw);
+});

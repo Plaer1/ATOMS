@@ -1,0 +1,40 @@
+/* Wallet account information only; funding controls and amounts retain
+ * Steam's geometry and behavior. */
+html body h2.addfunds_pageheader {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.addfunds_about,.addfunds_about p,.addfunds_area_purchase_game > p) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .addfunds_footer {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .accountInfoBlock {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .accountInfoBlock .block_header {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .accountInfoBlock .block_content.block_content_inner {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .accountInfoBlock .accountData.price {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .accountInfoBlock .accountLabel {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .accountInfoBlock .wallent_actions_ctn {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .accountInfoBlock :is(a.addfunds_linkbar,.accountData a) {
+    color: rgb(var(--textAccented)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .accountInfoBlock :is(a.addfunds_linkbar,.accountData a):is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}

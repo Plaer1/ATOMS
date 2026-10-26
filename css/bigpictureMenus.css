@@ -23,6 +23,10 @@
     background-color: rgb(var(--backgroundLightish)) !important;
     color: rgb(var(--textLightest)) !important;
 }
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_:is(.disabled, .Disabled, [aria-disabled="true"]) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
 
 #MainNavMenuContainer ._1uLVHdiiCg78BRnhqLxUID {
     background-color: rgb(var(--accent)) !important;
@@ -35,5 +39,67 @@
 /* Keep the BrowserView's unused strips transparent, not an opaque rectangle. */
 html:has(#browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)),
 body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
+	/* BrowserView body otherwise has zero paint height with overflow:hidden. */
+	height: 100% !important;
+    color-scheme: var(--atoms-color-scheme);
     background-color: transparent !important;
+}
+
+/* Native label and icon leaves specify pale ink independently of the row. */
+#MainNavMenuContainer ._3xZ3ZujYllkNRr5UdDfNmz,
+#MainNavMenuContainer ._3x-ZK1MiNB1Uvo7Aa6qEBs,
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_ svg {
+    color: rgb(var(--textLight)) !important;
+}
+#MainNavMenuContainer ._2w9TpQwxU7vcwaAbf3KGv_:is(:hover, .gpfocus, ._10bq5BppQ3fcLqTNXms8yA) :is(._3xZ3ZujYllkNRr5UdDfNmz, ._3x-ZK1MiNB1Uvo7Aa6qEBs) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Quick Access is a separate BrowserView; its own explicit leaves must travel
+ * with the scoped menu sheet, alongside the native-loader palette nodes. */
+#QuickAccess-NA .V0cr-SAnDhzAWmPZdrJQJ {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+#QuickAccess-NA ._2m0zlP8eZ_9SlQsO52oxql ._1gJzx0OgstpPqW34DFUKC6::before,
+#QuickAccess-NA ._2m0zlP8eZ_9SlQsO52oxql ._1gJzx0OgstpPqW34DFUKC6::after {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+#QuickAccess-NA :is(._34nl5vUoFCDYYnmHNL7axB, ._1JWa53jDD1iJjo9tVuAGCH) {
+    color: rgb(var(--textLightest)) !important;
+}
+#QuickAccess-NA :is(._209R3qA-Wx082PDdwSVmNW, ._1Yq4sTcxEJyOBqs1A82DRd, ._1Lj_uGcaEakD4-fjXZ4Msi, ._1jWuuK7bsBNe8gisOpeqHm) {
+    color: rgb(var(--textLight)) !important;
+}
+#QuickAccess-NA ._1S76C3gQf4oOTbLdTMVH0m:not(:is(._5lc3T6GeSXWcAwdUPhUjP, ._8BbyFiC91jdOHFS3ytKh)) {
+    color: rgb(var(--textLightish)) !important;
+}
+#QuickAccess-NA ._1S76C3gQf4oOTbLdTMVH0m._2QHMua1-KysYKpszTPAW_O:not(:is(._5lc3T6GeSXWcAwdUPhUjP, ._8BbyFiC91jdOHFS3ytKh)) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+#QuickAccess-NA ._1S76C3gQf4oOTbLdTMVH0m:not(:is(._5lc3T6GeSXWcAwdUPhUjP, ._8BbyFiC91jdOHFS3ytKh)):is(.gpfocus, :hover) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Mounted Quick Access notifications declare pale text and a dark header
+ * independently of the pane. Pair those owners; preserve avatars and badges. */
+#QuickAccess-NA ._34nl5vUoFCDYYnmHNL7axB {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+#QuickAccess-NA ._2MGSmn9lIFnmLVIX49POSx {
+    color: rgb(var(--textLightest)) !important;
+}
+#QuickAccess-NA ._26v9mHAi56x63OwY-jxett {
+    color: rgb(var(--textLight)) !important;
+}
+#QuickAccess-NA :is(._7XKFnSNjW_tHfyxaezoD3, ._3q7nNrnxIUlXvIZkxi5mom, ._3hEeummFKRey8l5VXxZwxz) {
+    color: rgb(var(--textLightish)) !important;
+}
+#QuickAccess-NA ._3hEeummFKRey8l5VXxZwxz ._3uw_GTY6HwY9Tq23mBDutA {
+    color: rgb(var(--textInGame)) !important;
+}
+#QuickAccess-NA ._2h6KD6p6y4vIgO2Toxx-_K:is(:hover, .gpfocus) {
+    background-color: rgb(var(--backgroundLightish)) !important;
 }

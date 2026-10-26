@@ -132,3 +132,13 @@ test('recorder installs the controller after its picker and explicitly stops it'
     assert.match(source, /visualAuditSource\.toString\(\).*installAnnotationThemeToggle\.toString\(\)/);
     assert.match(source, /window\.__atomsAnnotationThemeToggleV1\?\.stop\(\)/);
 });
+
+test('stopping capture keeps an explicitly enabled debug menu available', async () => {
+    const f = fixture();
+    f.window.__atomsDebugMenuEnabledV1 = true;
+    const api = f.run(); await api.ready;
+    f.audit.stop();
+    assert.equal(f.controls.enabled, true);
+    assert.equal(api.stopped, true);
+    assert.equal(f.controls.setButtonEnabled, f.nativeSet);
+});

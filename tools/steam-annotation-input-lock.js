@@ -9,13 +9,17 @@ const LOCK_BINDING = '__atomsAnnotationInputLockEmit';
 function installAnnotationInputLock() {
     if (/^about:srcdoc(?:[?#]|$)/i.test(location.href)) return 'ignored-note-frame';
     const KEY = '__atomsAnnotationInputLockV1';
-    if (window[KEY] && !window[KEY].stopped) return 'already-installed';
-    let held = false, token = 0, frame = null, stopped = false;
+    if (window[KEY]?.version >= 8 && !window[KEY].stopped) return 'already-installed';
+    // Upgrade the input helper without replacing the picker or its pending note.
+    window[KEY]?.stop();
+    let held = false, token = 0, frame = null, frameReady = false, stopped = false;
     let hovered = [], readyTimer = null, tailUntil = 0;
+    let dragStyle = null, dragHost = null, dragHostRegion = null;
     const bindings = [];
     const shadow = () => document.getElementById('atoms-visual-audit-host')?.shadowRoot;
     const audit = () => window.__atomsVisualAuditV5;
     const noteOpen = () => shadow()?.getElementById('note')?.style.display === 'block';
+    const editorOpen = () => noteOpen() || window.__atomsAnnotationNoteManagerV1?.isOpen();
     const emit = (action, id) => {
         try { window.__atomsAnnotationInputLockEmit(JSON.stringify({ action, token: id })); }
         catch (_) { release(); }
@@ -25,9 +29,34 @@ function installAnnotationInputLock() {
         bindings.push(() => target.removeEventListener(type, handler, options));
     };
     const eat = event => { event.preventDefault(); event.stopImmediatePropagation(); };
+    const lostAltGesture = event => event.altKey === false
+        && /^(?:pointermove|pointerdown|pointerup|mousemove|mousedown|mouseup|click|dblclick|auxclick|contextmenu|wheel)$/.test(event.type);
+    const restoreNativeDragRegions = () => {
+        dragStyle?.remove(); dragStyle = null;
+        if (dragHost && dragHost.style.getPropertyValue('-webkit-app-region') === 'no-drag'
+            && dragHost.style.getPropertyPriority('-webkit-app-region') === 'important') {
+            if (dragHostRegion.value) dragHost.style.setProperty('-webkit-app-region', dragHostRegion.value, dragHostRegion.priority);
+            else dragHost.style.removeProperty('-webkit-app-region');
+        }
+        dragHost = null; dragHostRegion = null;
+    };
+    const suspendNativeDragRegions = () => {
+        dragStyle = document.createElement('style');
+        dragStyle.id = 'atoms-alt-native-no-drag';
+        dragStyle.textContent = 'html, html::before, html::after, html *, html *::before, html *::after { -webkit-app-region: no-drag !important; }';
+        (document.head || document.documentElement).appendChild(dragStyle);
+        // The picker is a shadow host, so its own inline region must also opt
+        // out. Preserve the exact preimage for the end of this Alt gesture.
+        dragHost = document.getElementById('atoms-visual-audit-host');
+        if (dragHost) {
+            dragHostRegion = { value: dragHost.style.getPropertyValue('-webkit-app-region'),
+                priority: dragHost.style.getPropertyPriority('-webkit-app-region') };
+            dragHost.style.setProperty('-webkit-app-region', 'no-drag', 'important');
+        }
+    };
     const forward = (kind, event) => {
         const input = audit()?.input;
-        if (!input || noteOpen()) return;
+        if (!input || typeof input[kind] !== 'function' || editorOpen()) return false;
         // Hit-testing is synchronous. The shield returns before the next paint,
         // and the browser never dispatches a physical event into the page.
         frame?.style.setProperty('pointer-events', 'none', 'important');
@@ -35,67 +64,93 @@ function installAnnotationInputLock() {
             input[kind]({ clientX: event.clientX, clientY: event.clientY,
                 altKey: true, button: event.button || 0,
                 preventDefault() {}, stopImmediatePropagation() {}, stopPropagation() {} });
-        } finally { frame?.style.setProperty('pointer-events', 'auto', 'important'); }
+        } catch (_) {
+            release();
+            return false;
+        } finally {
+            frame?.style.setProperty('pointer-events', frameReady ? 'auto' : 'none', 'important');
+            if (editorOpen()) release();
+        }
+        return true;
     };
     const release = () => {
-        if (!held && !frame) return;
+        if (!held && !frame && !dragStyle && !dragHost) return;
         held = false;
         clearTimeout(readyTimer);
         tailUntil = performance.now() + 250;
-        frame?.remove(); frame = null;
+        frame?.remove(); frame = null; frameReady = false;
+        restoreNativeDragRegions();
         hovered = [];
         emit('release', token);
     };
     const begin = () => {
-        if (held || stopped || !audit() || audit().stopped || !audit().input || noteOpen()) return;
+        if (held || stopped || !audit() || audit().stopped || !audit().input || editorOpen()) return;
         held = true;
         token += 1;
-        hovered = [...document.querySelectorAll(':hover')].filter(e =>
-            !e.closest('#atoms-visual-audit-host, #atoms-theme-toggle-host')).slice(0, 64);
-        // Fail open if the CDP owner disappears; do not leave Steam input stuck.
-        readyTimer = setTimeout(release, 1500);
-        emit('freeze', token);
+        try {
+            hovered = [...document.querySelectorAll(':hover')].filter(e =>
+                !e.closest('#atoms-visual-audit-host, #atoms-theme-toggle-host, #atoms-annotation-note-manager-host')).slice(0, 64);
+            // Native titlebar dragging bypasses DOM listeners. Suspend it
+            // synchronously, before waiting for the CDP hover acknowledgement.
+            suspendNativeDragRegions();
+            // Fail open if the CDP owner disappears; do not leave Steam input stuck.
+            readyTimer = setTimeout(release, 1500);
+            emit('freeze', token);
+        } catch (_) { release(); }
     };
     const activate = id => {
         if (!held || id !== token || stopped || !shadow()) return false;
-        clearTimeout(readyTimer);
-        frame = document.createElement('iframe');
-        frame.id = 'atoms-alt-input-shield';
-        frame.title = 'ATOMS Alt input shield';
-        frame.style.cssText = 'position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;border:0!important;background:transparent!important;pointer-events:auto!important;z-index:-1!important;';
-        frame.srcdoc = '<!doctype html><html><head><style>html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden;cursor:crosshair}</style></head><body tabindex="-1"></body></html>';
-        frame.addEventListener('load', () => {
-            if (!held || !frame?.isConnected || id !== token) return;
-            const w = frame.contentWindow;
-            const pointer = event => {
-                eat(event);
-                if (!event.altKey) { release(); return; }
-                if (event.type === 'mousemove') forward('move', event);
-                if (event.type === 'click' && event.button === 0) forward('click', event);
-            };
-            for (const type of ['pointermove', 'pointerdown', 'pointerup', 'mousemove', 'mousedown', 'mouseup',
-                'click', 'dblclick', 'auxclick', 'contextmenu', 'dragstart', 'dragover', 'drop', 'wheel', 'touchstart', 'touchmove']) {
-                w.addEventListener(type, pointer, { capture: true, passive: false });
-            }
-            w.addEventListener('keydown', event => {
-                eat(event);
-                if (event.key === 'Escape') release();
-            }, true);
-            w.addEventListener('keyup', event => {
-                eat(event);
-                if (event.key === 'Alt' || !event.altKey) release();
-            }, true);
-            if (!noteOpen()) {
-                w.focus();
-                frame.contentDocument.body.focus({ preventScroll: true });
-            }
-        }, { once: true });
-        shadow().prepend(frame);
-        return true;
+        if (frame) return true;
+        try {
+            frame = document.createElement('iframe');
+            frame.id = 'atoms-alt-input-shield';
+            frame.title = 'ATOMS Alt input shield';
+            frame.style.cssText = 'position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;border:0!important;background:transparent!important;pointer-events:none!important;-webkit-app-region:no-drag!important;z-index:-1!important;';
+            frame.srcdoc = '<!doctype html><html><head><style>html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden;cursor:crosshair}html,body,html::before,html::after,html *,html *::before,html *::after{-webkit-app-region:no-drag!important}</style></head><body></body></html>';
+            frame.addEventListener('load', () => {
+                if (!held || !frame?.isConnected || id !== token) return;
+                try {
+                    const w = frame.contentWindow;
+                    const pointer = event => {
+                        eat(event);
+                        if (lostAltGesture(event)) { release(); return; }
+                        if (event.type === 'mousemove') forward('move', event);
+                        if (event.type === 'click' && event.button === 0) forward('click', event);
+                    };
+                    for (const type of ['pointermove', 'pointerdown', 'pointerup', 'mousemove', 'mousedown', 'mouseup',
+                        'click', 'dblclick', 'auxclick', 'contextmenu', 'dragstart', 'dragenter', 'dragover', 'dragleave', 'dragend', 'drop',
+                        'wheel', 'touchstart', 'touchmove', 'touchend', 'touchcancel']) {
+                        w.addEventListener(type, pointer, { capture: true, passive: false });
+                    }
+                    w.addEventListener('keydown', event => {
+                        eat(event);
+                        if (event.key === 'Escape') release();
+                    }, true);
+                    w.addEventListener('keyup', event => {
+                        eat(event);
+                        if (event.key === 'Alt' || !event.altKey) release();
+                    }, true);
+                    // Pointer events reach the shield without keyboard focus. Keep
+                    // Steam's focused element/window unchanged: focusing this child
+                    // document blurs menu owners and dismisses their dropdowns.
+                    // Alt-up remains on the original window's existing keyup handler.
+                    clearTimeout(readyTimer);
+                    frameReady = true;
+                    frame.style.setProperty('pointer-events', 'auto', 'important');
+                } catch (_) { release(); }
+            }, { once: true });
+            frame.addEventListener('error', () => { if (held && id === token) release(); }, { once: true });
+            shadow().prepend(frame);
+            return true;
+        } catch (_) { release(); return false; }
     };
     const keydown = event => {
         if (event.key === 'Alt' && !event.repeat) begin();
-        if (held && !noteOpen()) eat(event);
+        if (held && editorOpen()) { release(); return; }
+        if (held) {
+            eat(event);
+            if (event.key === 'Escape') release();
+        }
     };
     const keyup = event => {
         if (held && (event.key === 'Alt' || !event.altKey)) { eat(event); release(); }
@@ -104,8 +159,11 @@ function installAnnotationInputLock() {
         if (stopped) return;
         if (event.type === 'pointerdown' && !event.altKey && !held) tailUntil = 0;
         if (held) {
+            if (editorOpen()) { release(); return; }
+            if (lostAltGesture(event)) { eat(event); release(); return; }
             // Also block the transition events generated when the shield mounts.
-            if (!noteOpen() && event.type === 'mousemove') forward('move', event);
+            if (event.type === 'mousemove') forward('move', event);
+            if (event.type === 'click' && event.button === 0) forward('click', event);
             eat(event);
         } else if (performance.now() < tailUntil && /^(?:pointerup|mouseup|click|auxclick|contextmenu)$/.test(event.type)) eat(event);
     };
@@ -113,7 +171,8 @@ function installAnnotationInputLock() {
     listen(window, 'keyup', keyup);
     for (const type of ['pointerover', 'pointerout', 'pointerenter', 'pointerleave', 'pointermove',
         'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'mousemove', 'pointerdown', 'pointerup',
-        'mousedown', 'mouseup', 'click', 'dblclick', 'auxclick', 'contextmenu', 'wheel', 'dragstart', 'dragover', 'drop']) {
+        'mousedown', 'mouseup', 'click', 'dblclick', 'auxclick', 'contextmenu', 'wheel',
+        'dragstart', 'dragenter', 'dragover', 'dragleave', 'dragend', 'drop', 'touchstart', 'touchmove', 'touchend', 'touchcancel']) {
         listen(window, type, intercept, { capture: true, passive: false });
     }
     listen(window, 'pagehide', release);
@@ -123,13 +182,35 @@ function installAnnotationInputLock() {
     });
     const noteFrame = () => shadow()?.getElementById('note-input-frame');
     let attachedNote = null;
+    let noteObserver = null;
+    const focusNote = () => {
+        if (stopped || !noteOpen()) return;
+        // Opening a note ends the Alt gesture. Removing its input shield
+        // before focusing the editor prevents a later Alt-up from stealing focus.
+        release();
+        const n = noteFrame();
+        // Native overlay note windows own keyboard focus while open.
+        if (window.__atomsAnnotationOverlayEditorV1?.focus()) return;
+        try {
+            n.contentWindow.focus();
+            n.contentDocument.getElementById('note-input')?.focus({ preventScroll: true });
+        } catch (_) {} // The frame load handler retries once it is available.
+    };
     const bindNote = () => {
         const n = noteFrame();
         if (!n || n === attachedNote) return;
         attachedNote = n;
+        noteObserver?.disconnect();
+        noteObserver = new MutationObserver(focusNote);
+        noteObserver.observe(shadow().getElementById('note'), { attributes: true, attributeFilter: ['style'] });
         const attach = () => {
             try {
                 listen(n.contentWindow, 'keyup', keyup);
+                // Events inside the iframe never bubble to the outer note box.
+                // Reacquire Steam's native focus as well as the DOM input focus.
+                listen(n.contentWindow, 'pointerdown', focusNote);
+                listen(n.contentWindow, 'click', focusNote);
+                focusNote();
                 // Steam can block the srcdoc's inline script. Install this
                 // from the parent too, so Enter/Escape always reach the saved
                 // picker's existing note handler, without rebuilding its state.
@@ -154,10 +235,11 @@ function installAnnotationInputLock() {
     const stop = () => {
         release(); stopped = true;
         observer.disconnect();
+        noteObserver?.disconnect();
         bindings.splice(0).forEach(remove => remove());
         window[KEY].stopped = true;
     };
-    window[KEY] = { activate, release, stop, getHovered: () => hovered,
+    window[KEY] = { version: 8, activate, release, stop, getHovered: () => hovered,
         isHeld: () => held, getToken: () => token, stopped: false };
     return 'installed';
 }

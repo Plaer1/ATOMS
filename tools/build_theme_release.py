@@ -20,7 +20,9 @@ EXCLUDED = {"js/utilities/domDumperChild.js"}
 
 def release_files(root=ROOT):
     files = {}
-    for folder in ("css", "js", "data"):
+    # README links must still work after extracting the ZIP. Only the public
+    # media subtree is included; other documentation/work files stay private.
+    for folder in ("css", "js", "data", "docs/media"):
         for path in sorted((root / folder).rglob("*")):
             relative = path.relative_to(root).as_posix()
             if path.is_file() and not path.is_symlink() and relative not in EXCLUDED and not any(p.startswith('.') for p in path.relative_to(root).parts):

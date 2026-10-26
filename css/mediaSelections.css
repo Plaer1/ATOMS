@@ -30,7 +30,8 @@
 :root img[src*="1d0167575d746dadea7706685c0f3c01c8aeb6d8.jpg"],
 :root img[src*="07c8144ef8eb4b0522e7a64429f8f187ff01ee25.jpg"],
 :root img[src*="RgGbIK_Xaakl8PcQ2KQKK0i_2YIC7wZf7gTzKvLti-4wttL6ECYQfWnVrvtPO17Cg21bxebO3U9ipAtKlE8ALp2SM7UutkmcY-3rbAFrfmCr9IVa1exd-LgmamZSD8fMR4MhlA"],
-:root img[src*="icon_rate.png"] {
+:root img[src*="icon_rate.png"],
+:root img[src*="f2498fd436d850ccdd4d20cd06e80bc7fd9dc5bb_960x311.png"] {
 	filter: var(--accentFilter) !important;
 }
 

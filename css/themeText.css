@@ -1,0 +1,417 @@
+/* Shared foreground roles for native chrome in both modes. The active
+ * palette lives in configDefaults.css; lightMode.css only swaps its tokens. */
+@import url('nativeDialogs.css');
+html, body {
+    color-scheme: var(--atoms-color-scheme);
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Steam's shared loading screen opts into an opaque background with this
+ * second class. Its transparent variant keeps the native backing untouched;
+ * spinner images, placement, visibility and animation remain native. */
+:root ._3sa1NXudhvcc1U7HrlLdNQ._2ngG3CCc-g0zyXymxnDnM0 {
+    background-color: rgb(var(--background)) !important;
+}
+/* Main-window initialization supplies the canvas around a deliberately
+ * transparent shared loader. Its native slate fill otherwise survives after
+ * the theme palette has loaded during a Steam UI restart. */
+:root ._2YwTwqFtU04JgwfzXSAcSV {
+    background-color: rgb(var(--background)) !important;
+}
+:root ._3sa1NXudhvcc1U7HrlLdNQ._2ngG3CCc-g0zyXymxnDnM0 ._3rAIymq-pEYFB9bIdm-Aoz,
+:root ._2YwTwqFtU04JgwfzXSAcSV ._3sa1NXudhvcc1U7HrlLdNQ ._3rAIymq-pEYFB9bIdm-Aoz {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* The persona widget is shared by Library, chat and native popups. Map its
+ * name by status; game labels and avatar/status graphics stay independent. */
+:root .online:not(.ingame):not(.in-game):not(.offline) .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textLink)) !important;
+}
+:root :is(.ingame, .in-game) .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textInGame)) !important;
+}
+:root .offline .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Native Steam form/menu text is often white without inheriting from body. */
+.DialogContent, .DialogContent_InnerWidth, .DialogBody, .DialogLabel,
+.DialogHeader, .DialogSubHeader, .DialogInput, .DialogTextInputBase,
+.DialogDropDown_CurrentDisplay, .contextMenuItem, .MenuItem,
+.MillenniumWindow_Settings, .MillenniumWindow_MainSteamWindow {
+    color: rgb(var(--textLight)) !important;
+}
+
+.DialogInput, .DialogTextInputBase, textarea, select {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Native Library labels and captions use literal white/slate rather than
+ * ATOMS tokens. Target text on neutral chrome; leave over-art badges alone. */
+:root ._2Lu3d-5qLmW4i19ysTt2jT:not(._1gqEjB5QsKT_NftD1dEsdZ) ._19axKcqYRuaJ8vdYKYmtTQ,
+:root ._3O48LaKWcabKx07xdrt1TH,
+:root ._3kSh7qVSTDcPDePx9kya8C,
+:root .DVBcpUzJ0x6kaRMfug0OJ,
+:root ._28IqrZIgxpqkUQyhdaLDUN,
+:root ._2PPbMrzl8PKBwpkjYs9b0i,
+:root .SettingsDialogSubHeader,
+:root ._3jMlJm4PQCA8SfNlUR99Fo,
+:root .KGS2r2ext4jvDYa-MAFLD,
+:root .DialogButton.Secondary {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Paged Settings paints its active navigation row with the accent. The title
+ * has its own foreground rule, so pair only the active title with white. */
+:root ._1-vlriAtKYDViAEunue4VO._2DpXjzK3WWsOtUWUrcuOG7:not(.oUzYn48NLkHPRjiT8W86M) ._2PPbMrzl8PKBwpkjYs9b0i {
+    color: rgb(var(--textOnAction)) !important;
+}
+/* Native unselected navigation hover uses a bright backing in both palettes.
+ * Its title must follow that backing rather than the page-text foreground. */
+:root ._1-vlriAtKYDViAEunue4VO:not(._2DpXjzK3WWsOtUWUrcuOG7):not(.oUzYn48NLkHPRjiT8W86M):hover ._2PPbMrzl8PKBwpkjYs9b0i {
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+:root ._2rlKqvybYupc-uk64cdQ8D,
+:root ._1kdinbVqPuXSbJRQa_pAuw,
+:root ._2qm05e8tWSAb-_fAHytQCP,
+:root ._1ljKTq3H58WbDZGNPfM0TY,
+:root ._1W1to_azoBRG95oNAFpf9Q {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Millennium now embeds its settings in the main window as well as a
+ * standalone dialog; both use these same native field-row classes. */
+:root .eKmEXJCm_lgme24Fp_HWt,
+:root .MillenniumDesktopSidebar {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root .MillenniumDesktopSidebar .MillenniumDesktopSidebar_Title {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightest)) !important;
+    box-shadow: none !important;
+}
+
+:root .eKmEXJCm_lgme24Fp_HWt:not(.aIeh3X5T2M074RLW1qn6_):is(._2HuzvKQ2QMUJ-JJOeApaF1, :not(:has(button.DialogButton))):is(:hover, .gpfocus, .gpfocuswithin),
+:root .DialogButton.Secondary,
+:root .DialogDropDown {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+}
+
+/* Library game summary and its native per-label colors. */
+:root ._3Y87YQY56ZCOqhgcZFaDc5,
+:root ._3Y87YQY56ZCOqhgcZFaDc5 ._2TYVGoD27ZMfjRirKQNLfk {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3Y87YQY56ZCOqhgcZFaDc5 ._34lrt5-Fc3usZU6trA1P0- {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3Y87YQY56ZCOqhgcZFaDc5 ._3rpUkswF6xc_ste4Ros_xM {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1FnJ6dPuknQFQ2RTpKTI16 ._33cnXIqTRgRr49_FNXIHj6 {
+    color: rgb(var(--textOnAction)) !important;
+}
+:root ._1Pb6PMh_3L5p5NzuUz0Pp9 ._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._1Pb6PMh_3L5p5NzuUz0Pp9 ._33cnXIqTRgRr49_FNXIHj6 {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._1Pb6PMh_3L5p5NzuUz0Pp9 ._2AzIX5kl9k6JnxLfR5H4kX :is(svg, path, polygon) {
+    color: rgb(var(--textLightish)) !important;
+    fill: rgb(var(--textLightish)) !important;
+}
+:root ._1Pb6PMh_3L5p5NzuUz0Pp9 ._2AzIX5kl9k6JnxLfR5H4kX svg line {
+    stroke: rgb(var(--textLightish)) !important;
+}
+
+/* Capsule friend-count badges sit directly over dark artwork. */
+:root ._3zxPLsbnU5LuorR0_EPCEC {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+
+/* Library detail links have a separate native translucent-white label. */
+:root ._2r4TK4BAuU-J4FuF_O7v_5,
+:root ._2r4TK4BAuU-J4FuF_O7v_5 ._2sNDjgK9EWiPLdNGkjun-w {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 a:hover ._2sNDjgK9EWiPLdNGkjun-w {
+    color: rgb(var(--textLink)) !important;
+}
+
+/* Library notification button. Its SVG already uses currentColor. */
+:root ._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf {
+    color: rgb(var(--icon)) !important;
+}
+:root ._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf:hover {
+    color: rgb(var(--iconSelected)) !important;
+}
+
+/* Native game-summary icons: the clock path stays empty; its small tick
+ * circles keep their native solid geometry. */
+:root ._1aKegVl9_lSdNAyWYZQlr9 :is(._1GZdosVXnfrf69yU8DWASl,._1UXbBdCvbg9tyZhc4owO4W) {
+    color: rgb(var(--icon)) !important;
+}
+:root ._1aKegVl9_lSdNAyWYZQlr9 :is(._1GZdosVXnfrf69yU8DWASl,._1UXbBdCvbg9tyZhc4owO4W) svg :is(path,polyline,circle) {
+    stroke: currentColor !important;
+}
+:root ._1aKegVl9_lSdNAyWYZQlr9 :is(._1GZdosVXnfrf69yU8DWASl,._1UXbBdCvbg9tyZhc4owO4W) svg :is(path,polyline) {
+    fill: none !important;
+}
+:root ._1aKegVl9_lSdNAyWYZQlr9 :is(._1GZdosVXnfrf69yU8DWASl,._1UXbBdCvbg9tyZhc4owO4W) svg circle {
+    fill: currentColor !important;
+}
+
+/* Library news cards and summaries on neutral panels. */
+:root :is(._3fsjzvni7TQ1NphLHM_5r3,._1gljEIuhbsQpFCWuVhdKTJ) {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+:root :is(._3zwBRDW1egliiT4pKYIXap,.Ru7OBQzSxqIo3jIsbtV9g,.ElNfQSVSKeMaOVHygQ4Nh) {
+    color: rgb(var(--textLightish)) !important;
+    text-shadow: none !important;
+}
+:root :is(.LibriMVXcLl1HB60ZUp78,._1HZy7BvOZuPT8feUwadL4W):hover :is(._3fsjzvni7TQ1NphLHM_5r3,._1gljEIuhbsQpFCWuVhdKTJ) {
+    color: rgb(var(--textAccented)) !important;
+}
+/* The separate over-image card variant retains its paired foreground. */
+:root ._3xi-HLpFVHaakihoqhQ_6C :is(._1gljEIuhbsQpFCWuVhdKTJ,.Ru7OBQzSxqIo3jIsbtV9g,.ElNfQSVSKeMaOVHygQ4Nh) {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 :is(.nTb1NqsRSnwl0UTOYn_JA,._3jC8om-5Sci_dkUB-6VYiU) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 :is(.uoFNFZ7Hs5cF1IjP2fvPw,._14kZVEyaz7WX57N47z4Yr1) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2gISWIeEzZ9PNuAzVuMaWd ._1-H7tKj_QcGHLUbx5wVsGg {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+
+/* Install confirmation: neutral folder/app labels, never the semantic
+ * warning or disk-space states. */
+:root ._3wtPUBfilFITcl1s4u6A7T :is(.NtxG7ioEuQKxrtXEy57H5,._1_JaK7j-59AgDKQOOOJVBA,._2vs_5hKYSMZTn7dKHTim5D,.DialogToggle_Label) {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Native announcement reader: ordinary article text and header metadata
+ * use page roles; embedded media and artwork remain unfiltered. */
+:root :is(._32mHvRSmD7AVK9OIOPlaFu,._3z2NYCkFizMu4fMvWTIBUG),
+:root ._32mHvRSmD7AVK9OIOPlaFu .A_A2B6fTn_MPLlGCmsLtd {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3z2NYCkFizMu4fMvWTIBUG :is(._2KsEbGy9kiSDeQpcqEc9DG,.efy3k8RozzxfFidgbdfZZ,._1lmj3YadvgLSNGiTrVsnnT) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._32mHvRSmD7AVK9OIOPlaFu .A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton,.WidgetTag) {
+    color: rgb(var(--textLink)) !important;
+}
+:root ._3wtPUBfilFITcl1s4u6A7T ._3lAxXofku7q3P5FhXRfqH0 {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3wtPUBfilFITcl1s4u6A7T .DialogButton.Primary {
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._3z2NYCkFizMu4fMvWTIBUG .TqEPC9bhvVpZ1rb3Z8Mbd {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3z2NYCkFizMu4fMvWTIBUG :is(._2VqeQaZVaUkkEWaiLkmqmT,._4LAnPYKRPeF-QDReu_VGm,.MBkkhT4wei3tWetnWbiqn),
+:root ._32mHvRSmD7AVK9OIOPlaFu .EventEditorTextTitle {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._32mHvRSmD7AVK9OIOPlaFu .A_A2B6fTn_MPLlGCmsLtd :is(b,strong) {
+    color: rgb(var(--textLightest)) !important;
+}
+/* The activity-feed version of the same announcement title and caption. */
+:root ._2r4TK4BAuU-J4FuF_O7v_5 ._1Cva_kor3lWBIoeu9cQxJq {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 ._1ujzuoxGhLunHZQqHAqRgg {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Library neutral captions, collection headings, buttons and filter panel.
+ * These elements declare native white rather than inheriting page text. */
+:root :is(._1ABCOz8DSrl-YJdh1xD-m0,._23SnllqT_AqZ1C_QHcNQ4Z,._1LJqx_qFOC8199RBQO5kU8,._30wJO3MC4x-I1OWpy1TAeE,.GTdO0X-5EOwChz3fc2iLU) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2GRcKrPZsMSF6glMPRMZei {
+    color: rgb(var(--textLight)) !important;
+}
+/* Badges with semantic fills keep their own dark paired foreground. */
+:root ._1LJqx_qFOC8199RBQO5kU8:is(._1KR40mXc7Z4Dss99aBDbyN,._1H3NRDhuiZh5xH5jZsiI38,._3lWVD8RYypVvbk60T5Vqcs) {
+    color: rgb(var(--textOnDiscount)) !important;
+}
+:root ._1VNuYHM6BPBOJspC6zPf5r ._35eOQ6EeVHNV5HGBrJ1-Vu {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._30wJO3MC4x-I1OWpy1TAeE :is(._2oAiZidGyUxL-hfupFDQ2m),
+:root .GTdO0X-5EOwChz3fc2iLU :is(.DialogToggle_Label,.DialogLabel,.DialogCheckbox_Container),
+:root ._23SnllqT_AqZ1C_QHcNQ4Z .DialogDropDown_CurrentDisplay {
+    color: rgb(var(--textLight)) !important;
+}
+/* The filled cloud is not a clock outline. Preserve its filled check shape. */
+:root ._1kiZKVbDe-9Ikootk57kpA .MbTRimZpGCATmn39ae8RT,
+:root .lO1IF132jJ1gc9yz2HYvV ._3qDWQGB0rtwM3qpXTb11Q- svg {
+    color: rgb(var(--icon)) !important;
+}
+:root .lO1IF132jJ1gc9yz2HYvV ._3qDWQGB0rtwM3qpXTb11Q-:hover svg {
+    color: rgb(var(--iconSelected)) !important;
+}
+:root ._1VNuYHM6BPBOJspC6zPf5r {
+    color: rgb(var(--textLight)) !important;
+}
+:root .sv3ZHPWbrD7yjwx5Mi3u5 ._1dHjjSl-57o1KQsQ1m1HSA,
+:root ._1VNuYHM6BPBOJspC6zPf5r :is(._22mb5kcx6UUTgRNUjEp1yv,._2LWo2qq9d-zuglW2VlM_Xu) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .sv3ZHPWbrD7yjwx5Mi3u5 ._1dHjjSl-57o1KQsQ1m1HSA._3WavcSX0NkHlBh5fICWKyB {
+    color: rgb(var(--textLight)) !important;
+}
+/* Console output uses native pale text on the shared Console panel. */
+:root .GTdO0X-5EOwChz3fc2iLU ._3jy873nqjNYyriykDzLA_:not(._1su6b5TTKWmVCiIO05QxQY):not(._1_sfF8PJnA70SCQg-HQZQM):not(._3O8kZQ0Xqm4ErZTM9rQPXQ) {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* The resize grip uses Steam's native alpha bitmap as a mask. Its hitbox and
+ * resize behavior stay native; foreground follows the neutral icon role. */
+:root .window_resize_grip {
+    background-image: none !important;
+    background-color: rgb(var(--icon)) !important;
+    mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAACXBIWXMAAAsSAAALEgHS3X78AAAAR0lEQVRIx2P8z0AZYKJQPwMLyTqQncxIBReMGsDAwDjg6WAYGIAvKaMlWuyiA++FYWDAaFKmWlImKtFiFx14LwwDAwY+KQMAmkcKPwxTSEoAAAAASUVORK5CYII=');
+    mask-size: 16px 16px;
+    mask-position: 4px 4px;
+    mask-repeat: no-repeat;
+}
+:root .window_resize_grip:hover {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* Account text uses the requested accent; chrome glyphs keep neutral icon roles.
+ * Avatar/status colors and the underlying artwork remain independent. */
+:root ._3yD46y5pd3zOGR7CzKs0mC.online,
+:root ._3yD46y5pd3zOGR7CzKs0mC.online > div:not(.avatarHolder),
+:root ._3yD46y5pd3zOGR7CzKs0mC.online > svg {
+    color: rgb(var(--accent)) !important;
+}
+:root ._3yD46y5pd3zOGR7CzKs0mC.online > svg > path {
+    fill: currentColor !important;
+}
+:root :is(._2Szzh5sKyGgnLUR870zbDE,._1TdaAqMFadi0UTqilrkelR,._2EQ7ghgqIdjKv9jsQC0Zq9) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+    color: rgb(var(--icon)) !important;
+}
+:root :is(._2Szzh5sKyGgnLUR870zbDE,._1TdaAqMFadi0UTqilrkelR,._2EQ7ghgqIdjKv9jsQC0Zq9):hover {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+:root :is(._2Szzh5sKyGgnLUR870zbDE,._1TdaAqMFadi0UTqilrkelR,._2EQ7ghgqIdjKv9jsQC0Zq9) :is(svg,._1KrJ3sFAqPBN9mfpaNTU5F) {
+    color: rgb(var(--icon)) !important;
+}
+:root :is(._2Szzh5sKyGgnLUR870zbDE,._1TdaAqMFadi0UTqilrkelR,._2EQ7ghgqIdjKv9jsQC0Zq9) svg > path,
+:root ._2Szzh5sKyGgnLUR870zbDE svg > g > path {
+    fill: currentColor !important;
+}
+/* The active announcement's pink surface needs its own white foreground. */
+:root ._2Szzh5sKyGgnLUR870zbDE._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR,
+:root ._2Szzh5sKyGgnLUR870zbDE._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR svg {
+    color: rgb(var(--textOnAction)) !important;
+}
+
+/* Notifications have a more specific native transparent button rule. */
+:root ._2Lu3d-5qLmW4i19ysTt2jT._3mGEzzp18imtSzGPkduedi ._2Szzh5sKyGgnLUR870zbDE {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+:root ._2Lu3d-5qLmW4i19ysTt2jT._3mGEzzp18imtSzGPkduedi:hover ._2Szzh5sKyGgnLUR870zbDE {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+/* Native downloads/friends are inverse tiles. Use the same native glyph
+ * geometry without the surrounding tile, like the news and bell icons. */
+:root :is(._2EQ7ghgqIdjKv9jsQC0Zq9,._1TdaAqMFadi0UTqilrkelR) ._1KrJ3sFAqPBN9mfpaNTU5F:has(> svg) {
+    background-color: rgb(var(--icon)) !important;
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+:root ._2EQ7ghgqIdjKv9jsQC0Zq9 ._1KrJ3sFAqPBN9mfpaNTU5F:has(> svg) {
+    mask-image: url('img/titlebarDownloads.svg');
+}
+:root ._1TdaAqMFadi0UTqilrkelR ._1KrJ3sFAqPBN9mfpaNTU5F:has(> svg) {
+    mask-image: url('img/titlebarFriends.svg');
+}
+:root :is(._2EQ7ghgqIdjKv9jsQC0Zq9,._1TdaAqMFadi0UTqilrkelR) ._1KrJ3sFAqPBN9mfpaNTU5F > svg {
+    visibility: hidden;
+}
+/* Window actions use the same neutral foreground without filling outlines. */
+:root .windowControlButton,
+:root .windowControlButton svg {
+    color: rgb(var(--icon)) !important;
+}
+:root .windowControlButton svg :is(line,rect,polyline) {
+    stroke: rgb(var(--icon)) !important;
+}
+
+/* Neutral root-menu glyph and vertically centered native announcement icon. */
+:root .rootToggleButtonWrapperDiv #logoPath { fill: rgb(var(--icon)) !important; }
+:root .rootToggleButtonWrapperDiv:hover #logoPath { fill: rgb(var(--textLightest)) !important; }
+:root ._2Szzh5sKyGgnLUR870zbDE._3LKQ3S_yqrebeNLF6aeiog ._34bQcTHo5QKzuujoEyU1tm {
+    position: static !important;
+    top: auto !important;
+}
+/* Online status text only; preserve offline, in-game and avatar graphics. */
+:root .AdQYbMq7HHJ3Jgljib9UX.online:not(.ingame):not(.offline) ._1cB0qtF0paHWWyj1XNcnbG._2Ri005Wg_uXDTa71kdRbcN {
+    color: rgb(var(--accent)) !important;
+}
+/* The announcement's small category label is ordinary accent, not the
+ * contrasting light-mode emphasis used elsewhere. */
+:root ._1HZy7BvOZuPT8feUwadL4W ._1ujzuoxGhLunHZQqHAqRgg > div {
+    color: rgb(var(--accent)) !important;
+}
+/* The existing menu can already be mounted when a theme update arrives.
+ * Declarative geometry upgrades that owner without reinvoking its installer. */
+:root .rootToggleButtonWrapperDiv {
+    margin-inline: 6px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+:root .rootToggleButtonWrapperDiv > svg#toggleButton {
+    margin: 0 !important;
+}
+/* The legacy click handler exposes its wrapped state through this exact
+ * inline offset. Compensate for the added spacing only in that state. */
+:root .rootMenuWrapperDiv[style*="margin-left: -30px"] {
+    margin-left: -36px !important;
+}
+
+/* Unread state belongs to the bell glyph, not a colored button backing. */
+:root ._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(._1QQWjaXmb1eTHZpeIhQA_5),
+:root ._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(._1QQWjaXmb1eTHZpeIhQA_5) svg {
+    color: rgb(var(--accent)) !important;
+}
+
+/* Shared before Desktop enters Big Picture: the startup pseudo-layer has its
+ * own native black paint. Keep its fade/movie/blur, replace only the backing. */
+.j78ibJaZ9aRJEMt_g81_F,
+.j78ibJaZ9aRJEMt_g81_F::after {
+    background-color: rgb(var(--background)) !important;
+}
+
+/* Native New-to-Library banner (not the review-rating or controller chips).
+ * The separate Coming Soon modifier retains its own semantic treatment. */
+.BasicUI ._2jj5TjFhHD1lvxMlpJYek6 .N8aJrSpxQ6II4CY_aFdYI:not(.QTJZotuAt67vK7Sa2Wjus) {
+    background-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}

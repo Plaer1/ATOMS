@@ -1,0 +1,1306 @@
+/* Store text on neutral ATOMS surfaces. These rules use the dark palette by
+ * default; Light mode changes only the role values in configDefaults.css. */
+
+/* Bridge Steam's homepage foreground/surface tokens without overwriting its
+ * --blue/--green names, which collide with ATOMS' RGB-triplet swatches. */
+html body:is(.v6,.v7) {
+    --page-background: rgb(var(--background));
+    --light-fg: rgb(var(--textLight));
+    --midlight-fg: rgb(var(--textLightish));
+    --dimlight-fg: rgba(var(--textLightish), .6);
+    --dimmestlight-fg: rgba(var(--textLightish), .3);
+    --dark-ctn-bg: rgb(var(--backgroundDarkish));
+    --price-dark-bg: rgb(var(--backgroundDarkest));
+    --light-ctn-bg: rgb(var(--backgroundLightish));
+    --mid-ctn-bg: rgb(var(--backgroundLightish));
+    --light-ctn-bg-hover: rgb(var(--backgroundLight));
+    --dark-ctn-bg-gradient: linear-gradient(rgb(var(--backgroundDarkish)), rgba(var(--background),0));
+    --blue-gradient-bg-muted: radial-gradient(ellipse at left bottom, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish)));
+}
+
+/* Homepage sections: headings, game names, metadata and controls each have
+ * a role. No universal descendant color rule: art captions keep their pairing. */
+html body :is(.home_pagecontent_ctn,.personal_calendar_ctn,#module_discounts_and_events,#home_deck_content) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.home_section_title,.home_title,.home_title_ctn a,.tab_item_title,.tab_item_name,.tab_row_item_name,.tab_title,.home_tab_button,.home_tabs_row,.home_smallcap_title,.community_recommendation_app .app_name,.store_main_capsule .app_name) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.home_section_subtitle,.home_content_reason,.tab_item_tags,.tab_item_details,.tab_item_release_date,.steam_curator_desc,.steam_curator_featuring_desc,.steam_curators_empty,.recently_updated_desc,.hero_stat .label) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body :is(.deep_dive_key_tags,.deep_dive_tag,.curator_text,.curator_name,.curator_block .blurb > span,.recently_updated_announcement_link,.home_content.single,.home_content.single_buttonbar,.creator_follow_btn span,.store_main_capsule .info,.store_main_capsule .reason .main .tags > span,.tab_preview .tags > a) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.see_more_link,.home_title_ctn a,.home_tab_button,.creator_follow_btn):hover,
+html body .recently_updated_announcement_link:hover {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .see_more_link,
+html body .home_pagecontent_ctn .btnv6_white_transparent,
+html body .home_pagecontent_ctn .btnv6_white_transparent > span {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .home_pagecontent_ctn .btnv6_white_transparent:hover,
+html body .home_pagecontent_ctn .btnv6_white_transparent:hover > span {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body :is(.home_pagecontent_ctn,.personal_calendar_ctn) .discount_block .discount_prices {
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body :is(.home_pagecontent_ctn,.personal_calendar_ctn) .discount_block.no_discount {
+    background: transparent !important;
+}
+html body :is(.home_pagecontent_ctn,.personal_calendar_ctn) .discount_prices > div {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.home_pagecontent_ctn,.personal_calendar_ctn) .discount_prices .discount_original_price {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Hover cards share the page's surfaces, including their arrow and tags. */
+html body .game_hover_box {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .game_hover_box :is(.hover_title,.hover_body,.hover_review_summary,#hover_desc) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .game_hover_box :is(.hover_release,.hover_top_area,.tags_title) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .game_hover_box .hover_review_summary {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body .hover_tag_row .app_tag {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body .game_hover :is(.hover_arrow_left,.hover_arrow_right) {
+    background: rgb(var(--backgroundLightish)) !important;
+    width: 12px;
+    clip-path: polygon(100% 0,0 50%,100% 100%);
+}
+html body .game_hover .hover_arrow_right { transform: rotate(180deg); }
+
+/* Current React Store menu. Native neutral token aliases stay scoped to the
+ * menu, so video controls and text on artwork elsewhere keep native colors. */
+html body ._16jZ3HEbtaJTl80pQINN2Y {
+    --Neutrals-white: rgb(var(--textLightest));
+    --Neutrals-lightestGrey: rgb(var(--textLight));
+    --Neutrals-lighterGrey: rgb(var(--textLightish));
+    --Text-Main: rgb(var(--textLight));
+    --Blue-gredient: linear-gradient(rgb(var(--accent)),rgb(var(--accentDarkish)));
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y :is(._2RyPu-qJzs6novxZiGSDf-,._1XjtpBn93p5fSXOBFU6T4R,._3HgY-dL5S3-fJeU9WwcyJ8) {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y :is(._3xA_zAPk4Gs81l4iCC0fRz,._1Wz57jagOh6dxI7GUA5igl) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(._16jZ3HEbtaJTl80pQINN2Y,._2SuTwoGRq7L6D8hZByqE62) ._1PSb462Tg4S8M046QIk4PM {
+    color: rgb(var(--textOnAction)) !important;
+    background: rgb(var(--accent)) !important;
+}
+html body :is(._16jZ3HEbtaJTl80pQINN2Y,._2SuTwoGRq7L6D8hZByqE62) ._1PSb462Tg4S8M046QIk4PM :is(._1fyDZMVLKzvHIle_9i4Lpq,svg) {
+    color: rgb(var(--textOnAction)) !important;
+    fill: currentColor !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y a:not(.qqQDu9j0LIoK-w06-JxB5):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* App pages: neutral headings, body copy and secondary details. Semantic
+ * review ratings, green purchase controls, video UI and art are left paired. */
+html body :is(.page_content_ctn,.review_ctn) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.apphub_AppName,.block_title,.game_area_description h2,.sys_req h2,h2.block_header,.block_header h2,.game_area_purchase_game h1,.game_area_purchase_game h2,.game_purchase_options_editions_header_title,.block.responsive_apppage_details_right.heading) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.bb_paragraph,.game_description_snippet,.sysreq_contents,.sysreq_contents strong,.package_contents,.game_area_dlc_price,.game_purchase_price,.game_purchase_price.price,.game_area_dlc_name,.game_area_details_specs_ctn,.game_area_details_specs a,.game_details,.details_block,.f6hU22EA7Z8peFWZVBJU) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.release_date .subtitle,.release_date .date,.dev_row b,.details_block b,.reason.for,.game_language_options td,.game_language_options th,.game_area_details_specs .label) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body :is(.game_area_purchase_game,.game_area_offsite_purchase,.game_purchase_options_editions,.game_area_dlc_row) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    background-image: none !important;
+}
+html body :is(.game_purchase_action .game_purchase_price,.game_purchase_action .discount_prices) {
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body .game_purchase_action .discount_final_price { color: rgb(var(--textLightest)) !important; }
+html body .game_purchase_action .discount_original_price { color: rgb(var(--textLightish)) !important; }
+
+/* Current app-page React labels, news and reviews (observed in Steam). */
+html body :is(._3yxJH3baj7mwTTYzBIyi_Z,._2gXzKgnqPNSUzBWEYvQ4OP,._2jc1DpJ_WzFtigRh5qDWce,._1l0-iEDSNo_iZ95BUT31hW,._1CXIQ2B63vhNXx-kCDgpUY,._2nAa7fM6w0mQzxPqb6sPYU,._3RMhe-2D4zNZ4Wvhc9MIRc) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(._1mfBI5XbiaKU9vS5WkJALu,._3wGfw-n0Vvme1W7TMRVn1I,._1odBXcjq8-Q8SFXViJa7c6,._2BGZunVy7Z0-h18owewCzo,.kauOU9QnW8Fs0QpxzTBph,._17lxcLR8FnXBii5ZgrKZCf,._1zbKizfCRpoX2D_zOLQes0,.CecQS-9NnDjfJDCPbAQZN) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.HZ6b2d4r4EFnT_1BeU5vo,._2Tq_Z1Hko5WX8JFR8g6dwf,._3ANj1jpZ3BkJEdiPp_Nt-i,._1N9XZTVu3iXgXmyuKwSF4E,._36PINioDf9qx6L5QCpuW3l,._37ICOYBDy-RisYkzNGWFDX) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body :is(.K01H9PwUQhHjebFXo5Jhy,._2AL4QiqNSjqzhkK1W9m2E6,._2rVi-K-6kLGyoCnjKAHcf5 a) {
+    color: rgb(var(--textAccented)) !important;
+}
+
+/* Isolate Steam's negative-z artwork above the body canvas. The shared
+ * Upcoming Releases backing must not paint over app-page backgrounds. */
+html body.app div.game_page_background.game {
+    background-color: transparent !important;
+    isolation: isolate;
+}
+/* Only native decorative art is filtered. Screenshots/video/text are siblings. */
+html body.app div.game_page_background_ctn {
+    filter: var(--storeBackdropFilter) !important;
+    opacity: var(--pageBackdropOpacity);
+}
+/* Native texture already fades to 20%; avoid multiplying that away again in
+ * light mode. Retain its layout and gradient mask, with grayscale on parent. */
+html body.app .game_page_background_ctn > img.gameTexture {
+    filter: opacity(var(--pageBackdropTextureOpacity)) !important;
+    mask-image: var(--pageBackdropTextureMask) !important;
+    mix-blend-mode: var(--pageBackdropTextureBlendMode) !important;
+}
+
+/* Homepage Calendar's native text and blue card layers. */
+html body :is(.personal_calendar_ctn,._326_uhqq2I-hJwNRSqIZK4) :is(._3RqS6vEZhqX3_4AIeJFajW,._3LB60XV--dXt2yYQ6dF5aT) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.personal_calendar_ctn,._326_uhqq2I-hJwNRSqIZK4) :is(._1qbTrTsvR9qbMi-Navsk-D,._3cnfRW-1ajM2MW96f4sTXj) {
+    color: rgb(var(--textLightish)) !important;
+    text-shadow: none !important;
+}
+html body .personal_calendar_ctn :is(._1pMe55FBPBDyaWssCZrawa,._1iXgQQI5ZT9D1DgDCwVW_T,._1Vtz51wGyJHD9wpoDFNZ8M,._1Vtz51wGyJHD9wpoDFNZ8M a) {
+    color: rgb(var(--textLight)) !important;
+}
+html body:is(.v6,.v7) ._326_uhqq2I-hJwNRSqIZK4 .tqaXEuWN2wV5_8lmSkMng {
+    background: linear-gradient(315deg,rgb(var(--accentDarkest)),rgb(var(--accentDark))) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .personal_calendar_ctn ._1Vtz51wGyJHD9wpoDFNZ8M {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .personal_calendar_ctn ._1wt5Ne6MrJfPVdFz5fGlop {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body .personal_calendar_ctn ._1wt5Ne6MrJfPVdFz5fGlop:hover {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .personal_calendar_ctn .lX3GvxrkYaEqKJRpIhPsk {
+    color: rgb(var(--textOnAccent)) !important;
+    background: rgb(var(--accent)) !important;
+}
+
+/* Current Discounts & Events widget shares the same text and price roles. */
+html body #module_discounts_and_events .PMgHw7SIUZWM8LLZTz-9k {
+    color: rgb(var(--textLightest)) !important;
+}
+html body #module_discounts_and_events ._2L23Sk2CNSFCplu_7mMmQx {
+    color: rgb(var(--textLightest)) !important;
+}
+html body #module_discounts_and_events ._1xgg-R84IHS6h5_x6ZycXi {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #module_discounts_and_events ._2f_EIAuOVG5ZIzYb1sXJlw {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body #module_discounts_and_events ._2f_EIAuOVG5ZIzYb1sXJlw:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body #module_discounts_and_events .znNVIhFP6KdJlUS2p2B7q {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+
+/* Nested native links/captions also declare their own foreground. */
+html body :is(.dev_row .subtitle,.game_area_purchase_game .bundle_base_discount) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body :is(.package_contents a,._1l0-iEDSNo_iZ95BUT31hW a,h2.block_header span,h2.block_header em,.block_header em) {
+    color: inherit !important;
+}
+html body .no_curators_followed a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .game_purchase_options_editions_header_compare_button {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* Discovery Queue headings and sidebar use literal native whites/grays. */
+html body.v6 h2.pageheader,
+html body.v6 .page_content:has(.explore_rightcol_box) .rightcol > h2 {
+    color: rgb(var(--textLightest)) !important;
+}
+html body.v6 .explore_rightcol_box .explore_rightcol_count {
+    color: rgb(var(--textLightest)) !important;
+}
+html body.v6 .explore_rightcol_box :is(.explore_rightcol_header,.explore_rightcol_text,.explore_rightcol_explain) {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* The expanded Store menu has independent search and wishlist labels. */
+html body ._16jZ3HEbtaJTl80pQINN2Y :is(._2V9568XIc6vv9aEQ3EIVlG,.BReXgOZvJY6u4htWQn1aF) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y :is(._2c8KHMFOeIi4TVcVN6qeIi,._2L23Sk2CNSFCplu_7mMmQx) {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Discovery and the current Store navigation bar. */
+html body .discovery_queue_apps > h2,
+html body ._16jZ3HEbtaJTl80pQINN2Y :is(._175B12uOwmeGBNcSaQFe-Z,.vj9hwW9u0MpjH7MVjjNw0) {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y ._175B12uOwmeGBNcSaQFe-Z:not(.qqQDu9j0LIoK-w06-JxB5):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y ._3gaaE-cRfFWJdZcC8XMi0x {
+    background: rgb(var(--accent)) !important;
+}
+html body ._2GxMhpm7OC2WWXN_wjgA78 {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* App feature labels have a separate accent-tinted backing. Use a readable
+ * page foreground on that surface; keep the glyph/accent decoration. */
+html body #category_block :is(.game_area_details_specs .label,.game_area_details_specs_ctn .label,.ny6hWVK6ii05H200KRhds,._3FBEGAfvLQj4qYjstmZAPE,._2079QFhY02KJ4KxGMltDNJ) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #category_block :is(._2xmH7agKi37v9kwFHi093S,._3vt5rw82YhkhWtu5ld9QeP) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #game_area_purchase > a,
+html body .early_access_announcements :is(._1TRFtE8IfXpDQ_loHnB_bU,._2vEwZPNBe2qcTuxZf5cpiD) {
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .early_access_announcements h2 {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .early_access_announcements .OtherEvents_EventCtn {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .early_access_announcements :is(._2BWwVF5N-3fDuJRblB6gHb,._11JXznGoylLSEmZXZbgcsq) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .early_access_announcements .ENbI1gFgvIca6HSKAbfiJ.RLbLb742gN095uDUITtIB {
+    color: rgb(var(--textLight)) !important;
+}
+/* The hidden image-hover version stays hidden until Steam reveals it. */
+html body .early_access_announcements ._2GYp44BuZLfKRQdeILTDC3 .ENbI1gFgvIca6HSKAbfiJ {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+html body :is(.XIDYByW4BEOm-YiOiwGmO,._2BG1JKMgeqn_cr0rbRhRNA,.no_curators_followed) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body :is(.XIDYByW4BEOm-YiOiwGmO,._2BG1JKMgeqn_cr0rbRhRNA) :is(.WidgetTag,._1SnxJyZ5foWgNRCNLmKm6H,._1SnxJyZ5foWgNRCNLmKm6H > span) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body ._2qz5D65VkY796Xw-al9f_a {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body ._2qz5D65VkY796Xw-al9f_a :is(.wJ7ZiTc09km2kH4mSsZ9j,.wJ7ZiTc09km2kH4mSsZ9j span) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._2qz5D65VkY796Xw-al9f_a ._2h0GKAYcXRP10ryZHFn79d {
+    background: rgba(var(--accent), .16) !important;
+    color: rgb(var(--textAccented)) !important;
+}
+html body :is(.XIDYByW4BEOm-YiOiwGmO,._2BG1JKMgeqn_cr0rbRhRNA) .StoreSaleDiscountBox {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+/* Positive review blue becomes the theme accent. Other rating states retain
+ * their distinct native semantics. The summary backing is neutral. */
+html body ._1rJdzVWqHHLrXDngd242Qr {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body ._2K0QaklF1PPjEzkH9U2Ozt.DVGYJj6Ddo8-TqMXZ8tDa {
+    color: rgb(var(--textAccented)) !important;
+}
+html body ._3F7bFyuhd9Wd6ElK9gYO78 {
+    opacity: 1 !important;
+}
+html body ._3F7bFyuhd9Wd6ElK9gYO78 ._24Z0sYrwo1ALn7WkF98RaU {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Wishlist's current generated components. Steam's exact dragged row is an
+ * alternate ancestor because the virtual-list clone is portaled to body. */
+html body .awGgT3ZKumU- {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(h2,.SxMdVrGe9aY-,.I8vuMMV-osE-,.JAybs32rLv4-,.nqLMv8j-iBw-,.-HQzBzl6lqI-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(.BKhk6CZ5ib0-,.JmLh4Njn6Xg-,.TU39sK7r2pU-,.ZdGB16lKY0I-,.lgaj8WbBqtc-,.MqFcMoKfvAw-,._9Rf9BwU0xAQ-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .awGgT3ZKumU- :is(.PE-3oq-yIvg-,.uY4s6MvOMgg-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+/* Steam portals its virtual-list drag clone directly to body. Keep that
+ * exact transient row on the same palette while preserving native motion,
+ * opacity and black shadow. */
+html body:has(.awGgT3ZKumU-) .PE-3oq-yIvg-.I81GCdWS-oQ- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+/* Rank fields share their palette with ordinary rows and body-portal clones.
+ * Keep Steam's input size/padding, native value handling and drag geometry. */
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk- .Ndh5LdeIG9s- > input {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLightish)) !important;
+    caret-color: rgb(var(--textAccented)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk-:hover .Ndh5LdeIG9s- > input {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+    box-shadow: inset 1px 1px rgba(var(--backgroundDarkest),.4) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk- .Ndh5LdeIG9s- > input:focus {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+    outline: 1px solid rgb(var(--accent)) !important;
+    outline-offset: -1px;
+    box-shadow: inset 1px 1px rgba(var(--backgroundDarkest),.4) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(.PzuczM6OUSY-,.h2hJmhz41JY-,.U3ndjc3qoW8-,.Vy3rNuKLunU-,.p0Gsr94HawQ-,._6QzykeEsckc-) {
+    background: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(.PzuczM6OUSY-,.U3ndjc3qoW8-,.Vy3rNuKLunU-,.p0Gsr94HawQ-):hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(.PzuczM6OUSY- span,.h2hJmhz41JY- label,.h2hJmhz41JY- button,.qhUI2RnjHYw-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) :is(.h2hJmhz41JY- h3,._0uIJq8Pia8Q-.ojEsJSejN5U-) {
+    color: rgb(var(--accent)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .QoJP0e0vzFA- {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .rsMD9WnTopA- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .hPiY1A-1izA- {
+    color: inherit !important;
+}
+html body :is(.XIDYByW4BEOm-YiOiwGmO,._2BG1JKMgeqn_cr0rbRhRNA) .CapsuleBottomBar {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y input._2tlUAG6WNyYFlk9caIiLj5,
+html body ._16jZ3HEbtaJTl80pQINN2Y input._2tlUAG6WNyYFlk9caIiLj5:focus {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+
+/* Wishlist uses Steam's server-rendered Store header, with independent class
+ * names from app pages. Its flyouts share the same palette roles. */
+html body .WCG-2-OYepA- {
+    --Neutrals-white: rgb(var(--textLightest));
+    --Neutrals-lightestGrey: rgb(var(--textLight));
+    --Neutrals-lighterGrey: rgb(var(--textLightish));
+    --Text-Main: rgb(var(--textLight));
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--background)) !important;
+}
+html body .WCG-2-OYepA- :is(.EYF1OQwj3TE-,.XjqMC1cYnuc-,input) {
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body .WCG-2-OYepA- :is(.oWSo9BvK7oY-,.OcgtiSjfJhw-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .WCG-2-OYepA- :is(.uY4s6MvOMgg-,.SdFPqnbn0yI-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .WCG-2-OYepA- input {
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .WCG-2-OYepA- .IG5AcX8yPdI-,
+html body .WCG-2-OYepA- .EYF1OQwj3TE-.A6D3N-ewYBQ-,
+html body .WCG-2-OYepA- .EYF1OQwj3TE-.iXv7KYShgr4- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+html body .awGgT3ZKumU- .kkZ9PsIE60o- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+html body .awGgT3ZKumU- .kkZ9PsIE60o-:hover {
+    background: rgb(var(--accentLightish)) !important;
+}
+html body .awGgT3ZKumU- .mpKocPQdcN4- {
+    background: linear-gradient(rgb(var(--accent)),rgb(var(--accentDarkish))) !important;
+}
+
+/* Wishlist's filter form uses native checkbox/radio and range controls,
+ * independently of the already themed popover container and labels. */
+html body .awGgT3ZKumU- .h2hJmhz41JY- input {
+    accent-color: rgb(var(--accent));
+    color: rgb(var(--textLight)) !important;
+}
+/* Keep Chromium's native range track/thumb geometry and checked controls.
+ * Painting the range pseudo-elements while appearance:auto made a solid bar. */
+html body .awGgT3ZKumU- .PzuczM6OUSY- svg.rWPJIq88Xb0- {
+    color: rgb(var(--icon)) !important;
+}
+html body .awGgT3ZKumU- .PzuczM6OUSY- svg.rWPJIq88Xb0- path {
+    fill: currentColor !important;
+}
+html body .awGgT3ZKumU- .h2hJmhz41JY- .oS2hPC3gY6k- > span {
+    color: rgb(var(--textOnAccent)) !important;
+    background: linear-gradient(rgb(var(--accent)),rgb(var(--accentDarkish))) !important;
+    text-shadow: none !important;
+}
+html body .awGgT3ZKumU- .h2hJmhz41JY- .oS2hPC3gY6k-:hover > span {
+    background: rgb(var(--accentLightish)) !important;
+}
+
+/* App screenshot navigation and Deck compatibility panel. */
+html body ._2Z-YccLz9coJD6SBV13Fya :is(._2lIBEOcXRC3KKhDamcV9t,._3DXmyv2Yx-lnmLz03GryEd) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--icon)) !important;
+    border-color: rgb(var(--backgroundDarkest)) !important;
+}
+html body ._2Z-YccLz9coJD6SBV13Fya :is(._2lIBEOcXRC3KKhDamcV9t,._3DXmyv2Yx-lnmLz03GryEd):hover,
+html body ._2Z-YccLz9coJD6SBV13Fya ._2SBCUqLfy4PgWdonAHX_fR:active ._3DXmyv2Yx-lnmLz03GryEd {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._2Z-YccLz9coJD6SBV13Fya ._2lIBEOcXRC3KKhDamcV9t svg path {
+    fill: currentColor !important;
+}
+html body #gameAreaDLCSection h2.gradientbg {
+    color: rgb(var(--textLightest)) !important;
+}
+html body #gameAreaDLCSection h2.gradientbg :is(.note,em) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #gameAreaDLCSection h2.gradientbg .note a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .Cek1s5Ixk2xYmkqjjESD0 {
+    background: linear-gradient(to right, rgb(var(--backgroundDarkish)), rgb(var(--backgroundDarkest))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .Cek1s5Ixk2xYmkqjjESD0 svg {
+    color: rgb(var(--icon)) !important;
+}
+html body .Cek1s5Ixk2xYmkqjjESD0 svg path { fill: currentColor !important; }
+
+/* Wishlist's calendar invitation: tint only its supplied blue illustration. */
+html body .awGgT3ZKumU- img.REftl0OutEE- { filter: var(--accentFilter) !important; }
+html body .awGgT3ZKumU- a.z4nYR-MCfbI- {
+    background: linear-gradient(90deg, rgb(var(--accentDarkest)), rgb(var(--accentDark))) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .awGgT3ZKumU- a.z4nYR-MCfbI- ._2Z4Swl30C0M- {
+    color: inherit !important;
+}
+
+/* Critic quotes and Family ownership use foregrounds paired with their surface. */
+html body #game_area_reviews { color: rgb(var(--textLight)) !important; }
+html body #game_area_reviews a { color: rgb(var(--textAccented)) !important; }
+html body .package_in_library_flag.in_family_library {
+    background: linear-gradient(to right, rgb(var(--accent)), rgb(var(--accentDarkish))) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+
+/* Current review filters are native popovers; preserve their form layout. */
+html body ._8bfDpjt5qevt4WIKJfbhY {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body ._8bfDpjt5qevt4WIKJfbhY ._5LZaR2A9MHRJsI_5NuOH {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._8bfDpjt5qevt4WIKJfbhY .KWW38fWPQYOxw1BAaS6Ju:is(:hover,:has([aria-expanded="true"])) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body ._8bfDpjt5qevt4WIKJfbhY ._5LZaR2A9MHRJsI_5NuOH svg {
+    fill: currentColor !important;
+}
+html body ._2i2FUBZKGyiP5Sb6tuASpO._1ZD_vW39scAOPFhX3KQC42 {
+    --popover-background: rgb(var(--backgroundLightish));
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 ._2YwI6QyeX5t6yHIRe9YxHR:hover ._3SylPDpxfzxULSIHNNs0e9 {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 ._2gZBTB3Ko7mAvZCtcGVqVm {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 ._3Of9wgaq4jOSunCk6aDh-h {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 ._3Of9wgaq4jOSunCk6aDh-h:hover {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._1ZD_vW39scAOPFhX3KQC42 input { accent-color: rgb(var(--accent)); }
+html body .pgzV3PE_496cofVMBZS8z { background: rgb(var(--backgroundDarkish)) !important; }
+html body .pgzV3PE_496cofVMBZS8z._3w1oVxBXP0UTp5ezfdBQWo {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+/* The current histogram uses CSS bars, not screenshot/image filters. Keep
+ * negative reviews orange so positive/negative series remain distinct. */
+html body .pgzV3PE_496cofVMBZS8z ._1CB11dhU36u3GXF7wbJvRN {
+    background-color: rgb(var(--accent)) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z :is(._2HCdZKXevNyxiEHTIcm7Jl,._34ORp0u7scRrbC3DDcHz3p:hover) {
+    background-color: rgb(var(--textLightest)) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z ._2IZcf1lo2OwtussYBlr5KY {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z ._3laM7u4MkRxKIjKy6PUm0p {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z ._1KsjGaQ7pAFawvTAaA1fGp {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z .C_oRj-mVQWma1wrzDiGur {
+    background-color: rgba(var(--accent),.16) !important;
+}
+html body .pgzV3PE_496cofVMBZS8z ._1F5bWwu4v5Pb8LS5nWTEx5 {
+    background-color: rgba(var(--accent),.16) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+html body ._3eE3x6hLZfLx4F6Mkal8p4 ._2EkNLQD535Kga4g3yLwLF6 ._2oDvO-jxaq_OjLB5r9Dle8 {
+    fill: rgb(var(--backgroundLightish)) !important;
+}
+
+/* News filter sidebar: neutral controls and explicit nested native labels. */
+html body ._uX0hAa1v6coYNh6Al4D6 .tQZ7I-5Bxpp4zpDf48imu {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._uX0hAa1v6coYNh6Al4D6 :is(._17nuaBuSlylN8eWUkcLsAv,.MeJhm7ZvNEcgMNrj4YyRg) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._uX0hAa1v6coYNh6Al4D6 :is(._2LoObf7xShKZbZ1G71rR_3,.DialogCheckbox_Container,.DialogToggle_Label) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body ._uX0hAa1v6coYNh6Al4D6 .DialogCheckbox {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--icon)) !important;
+}
+html body ._uX0hAa1v6coYNh6Al4D6 .DialogCheckbox.Active {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body ._uX0hAa1v6coYNh6Al4D6 .SVGIcon_DialogCheck path { stroke: currentColor !important; }
+html body ._1zyVyzldzUj085oNa8Y0r1 {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body ._1zyVyzldzUj085oNa8Y0r1:hover { background: rgb(var(--backgroundLight)) !important; }
+html body ._1zyVyzldzUj085oNa8Y0r1 svg { color: inherit !important; fill: currentColor !important; }
+html body ._1zyVyzldzUj085oNa8Y0r1 ._23qmf5MYL9D2szWuV-txE2 {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Full personal-calendar page. Artwork/video stay untouched; text panels,
+ * capsule price bars, badges and expanded-card details share native roles. */
+html body .-eI1hK-YHzA- { color: rgb(var(--textLight)) !important; }
+html body .-eI1hK-YHzA- :is(.qzIo473CVnk-,.u-4NX5LxvFE-,.sn49wJzspcE-) {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+html body .-eI1hK-YHzA- :is(.R5CFVBGT9vk-,.R5CFVBGT9vk- a,.w3jcCRb69Us-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .-eI1hK-YHzA- :is(.ag682w7MuHY-,.NCPaSb4YV1I-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .-eI1hK-YHzA- .TUgCewSfXl0- {
+    background: linear-gradient(90deg, rgb(var(--backgroundDarkest)), rgb(var(--backgroundLightish))) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .-eI1hK-YHzA- .vpJFPf5ue1U-._7O54ooudUro- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .-eI1hK-YHzA- :is(._0uWyQeNM7D8-,.K2UfkCIuEhY-,.YHonIqDIZys-) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .-eI1hK-YHzA- .QYFii1vIT5Q- { color: rgb(var(--textLightest)) !important; }
+html body .-eI1hK-YHzA- .Y9w82-bhx7g- { color: rgb(var(--textLightish)) !important; }
+html body .-eI1hK-YHzA- .KY4Cd9W1L6Q- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+html body .m0FGLQCyzgQ- .tWdu3iqQbcE-,
+html body .m0FGLQCyzgQ- .XYegsy7Crd8- {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .m0FGLQCyzgQ- .XYegsy7Crd8- a,
+html body .m0FGLQCyzgQ- .Mqd3yjra1cQ- { color: rgb(var(--textLightest)) !important; }
+html body .m0FGLQCyzgQ- :is(.MqX-UEo7sDI-,.CMAk-Lj-B-c-,.Y3mMej4B0DQ- .GZ9dWF-K9ms-,.Y3mMej4B0DQ- ._2nb60BYT6xM-,.Y3mMej4B0DQ- .gFiW3jql-zM-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .m0FGLQCyzgQ- .sWBwy-DWHc0- {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .m0FGLQCyzgQ- .Y8-xMgjFr6A- svg { fill: rgb(var(--icon)) !important; color: rgb(var(--icon)) !important; }
+html body .m0FGLQCyzgQ- .jZgodbCVsZk-.pcNbwAL-ARI- { color: rgb(var(--textAccented)) !important; }
+html body .m0FGLQCyzgQ- :is(.K2UfkCIuEhY-,.YHonIqDIZys-) {
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body .m0FGLQCyzgQ- .QYFii1vIT5Q- { color: rgb(var(--textLightest)) !important; }
+html body .m0FGLQCyzgQ- .Y9w82-bhx7g- { color: rgb(var(--textLightish)) !important; }
+html body .m0FGLQCyzgQ- .KY4Cd9W1L6Q- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+
+/* Review prose headings use the shared text accent. Fade only overflowing
+ * collapsed prose through alpha, so existing neutral/accent card backings
+ * remain intact. The native fade is 30px, with stops at 5% and 95%. */
+html body ._1zbKizfCRpoX2D_zOLQes0 :is(h1,h2,h3) { color: rgb(var(--textAccented)) !important; }
+html body ._7-m3PA_FStk99zsZUPYX- ._25ppgVnyq5WaMqUlTkqeug {
+    background: transparent !important;
+}
+html body ._7-m3PA_FStk99zsZUPYX-:not(._3NUI82h2e6Am3hmtU-1_Sq) .uxZHwbCMxnLnMBo894hNi:has(> ._25ppgVnyq5WaMqUlTkqeug) {
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 28.5px), rgba(0,0,0,.05) calc(100% - 1.5px));
+}
+
+/* Reviewer specifications are a neutral inset, independent of the review
+ * card's highlighted/composited backing. Heading and detail roles differ. */
+html body .KahBO3vHzFejyThpZEiB {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textAccentedSoft)) !important;
+}
+html body .KahBO3vHzFejyThpZEiB ._3toTOSwDTTJaLLQjvKd99_ {
+    color: rgb(var(--textAccented)) !important;
+}
+
+/* Store friend presence: keep in-game/offline meanings distinct. */
+html body #friend_block .friend_block_holder.friend_status_online {
+    background: rgba(var(--accent),.1) !important;
+}
+html body #friend_block .friend_status_online .friend_block_content,
+html body #friend_block .friend_status_online .friend_block_content a,
+html body #friend_block .friend_status_online .friend_name,
+html body #friend_block .friend_status_online .friend_info {
+    color: rgb(var(--textAccented)) !important;
+}
+html body #friend_block .friend_status_in-game .friend_block_content,
+html body #friend_block .friend_status_in-game .friend_block_content a,
+html body #friend_block .friend_status_in-game .friend_name,
+html body #friend_block .friend_status_in-game .friend_info {
+    color: rgb(var(--textInGame)) !important;
+}
+html body #friend_block .friend_status_offline .friend_block_content,
+html body #friend_block .friend_status_offline .friend_block_content a,
+html body #friend_block .friend_status_offline .friend_name,
+html body #friend_block .friend_status_offline .friend_info {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #friend_block .block_content_inner > p {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #friend_block .block_content_inner > p > a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body #friend_block .block_content_inner > p > a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Current search's suggestion explanation has its own explicit blue link. */
+html body [id^="searchSuggestions_"] ._3DOcONbchITbAuaF30dduG {
+    color: rgb(var(--textLightish)) !important;
+}
+html body [id^="searchSuggestions_"] ._3DOcONbchITbAuaF30dduG ._1mtMuV53xbsbnLr8ectO0p {
+    color: rgb(var(--textLightest)) !important;
+}
+html body [id^="searchSuggestions_"] ._3DOcONbchITbAuaF30dduG a._3HgV0usLjzxByxBF2zvGYj {
+    color: rgb(var(--textAccented)) !important;
+}
+html body [id^="searchSuggestions_"] ._3DOcONbchITbAuaF30dduG a._3HgV0usLjzxByxBF2zvGYj:is(:hover,:focus-visible,.gpfocus) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Modern homepage list rows use native state classes as well as pointer hover. */
+html body ._3Z1skIYVoqLbYiP2wy46Ce {
+    background: linear-gradient(90deg, rgba(var(--backgroundDarkish),.6), rgba(var(--backgroundLightish),.6)) !important;
+}
+html body ._3Z1skIYVoqLbYiP2wy46Ce:is(.tHXw2oCZIXQZPrZvcoSPB,.gpfocus,:focus-visible),
+html body ._3Z1skIYVoqLbYiP2wy46Ce.sEmReCdwylgRBuJtn0A1G:hover {
+    background: linear-gradient(90deg, rgb(var(--backgroundLightish)), rgb(var(--backgroundLight))) !important;
+}
+html body ._3Z1skIYVoqLbYiP2wy46Ce ._2c8KHMFOeIi4TVcVN6qeIi {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._3Z1skIYVoqLbYiP2wy46Ce .KG1rpRyNTy_2__H8GV8__ {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._3Z1skIYVoqLbYiP2wy46Ce .GvTn3nY1hCInPWgRZbO8p {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._3d8rSU2lLYPG8rcq0iWLbq > ._3wkp8GaMeHBsrImd61r1X- {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Shared Calendar/Wishlist navigation panel; preserve its grid and artwork. */
+html body .uQeikjci8I0-.q-DP3khZsgc- {
+    background: linear-gradient(90deg, rgb(var(--backgroundDarkish)), rgb(var(--backgroundLightish))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+html body.dlc_curator .mature_content_filtered {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body.dlc_curator .mature_content_filtered a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body.dlc_curator .mature_content_filtered a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* DLC creator pages: page, sections and cards have separate elevations.
+ * Capsule images, trailers, ownership flags and follow state stay native. */
+html body.dlc_curator .background_gradient_ctn {
+    background: linear-gradient(90deg,rgb(var(--background)) 0%,rgba(var(--background),0) 15%,rgba(var(--background),0) 85%,rgb(var(--background)) 100%) !important;
+}
+html body.dlc_curator .creator_grid_ctn {
+    color: rgb(var(--textLight)) !important;
+}
+html body.dlc_curator .page_content_ctn.light_container.bezel,
+html body.dlc_curator .page_content.browse_reviews {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body.dlc_curator .browse_ctn_background {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body.dlc_curator :is(.content_highlights,.curator_featured .contents,.browse_content .recommendation,.browse_content .store_capsule,.socialmedia_accounts) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body.dlc_curator .curator_featured .capsule {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body.dlc_curator .follow_controls,
+html body.dlc_curator .follow_controls .follow_btn_stats {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body.dlc_curator .follow_controls .num_followers {
+    color: rgb(var(--textLightest)) !important;
+}
+html body.dlc_curator .follow_controls .num_followers_text {
+    color: rgb(var(--textLightish)) !important;
+}
+html body.dlc_curator .curator_name a {
+    color: rgb(var(--textAccented)) !important;
+    text-shadow: none !important;
+}
+/* Keep the native image's inline box, and reuse its verified transparent
+ * alpha as a neutral icon. The padded link's hit area stays unchanged. */
+html body.dlc_curator .curator_report a:has(> img[src$="/icon_settings.png"]) {
+    position: relative;
+    color: rgb(var(--icon)) !important;
+}
+html body.dlc_curator .curator_report a > img[src$="/icon_settings.png"] {
+    visibility: hidden;
+}
+html body.dlc_curator .curator_report a:has(> img[src$="/icon_settings.png"])::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: currentColor;
+    mask: url('https://store.fastly.steamstatic.com/public/images/bigpicture/icon_settings.png') center / contain no-repeat;
+    opacity: .5;
+    pointer-events: none;
+}
+html body.dlc_curator .curator_report a:has(> img[src$="/icon_settings.png"]):is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body.dlc_curator .curator_report a:has(> img[src$="/icon_settings.png"]):is(:hover,:focus-visible)::after {
+    opacity: 1;
+}
+html body.dlc_curator .browse_content .recommendation:is(:hover,:focus-within),
+html body.dlc_curator .steam_curator_recommendation:hover .store_capsule {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body.dlc_curator :is(h2,h4,.recommendation_link,.price_row) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body.dlc_curator :is(.curator_review,.recommendation_midcol,.recommendation_stats,.recommendation_type_ctn,.recommendation_desc,.color_created,.navigation_bar > *,.nav_right_side,.curator_report a) {
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body.dlc_curator :is(.curator_review_date,.recommendation_disclosures,.curator_filter_tag_count,.browse_filters h4,.paged_items_paging_summary,.paged_items_paging_size_title) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body.dlc_curator .recommendation_desc::before,
+html body.dlc_curator .recommendation_desc::after {
+    color: rgb(var(--textLightish)) !important;
+}
+html body.dlc_curator :is(.browse_filters a,.browse_tabs a,.paged_items_paging_size_item,.paged_items_paging_pagelink,.recommendation_readmore a) {
+    color: rgb(var(--textAccented)) !important;
+    text-shadow: none !important;
+}
+html body.dlc_curator :is(.navigation_bar > a,.browse_filters a,.browse_tabs a):is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body.dlc_curator :is(.navigation_bar > a.selected,.browse_filters a.selected,.browse_tabs a.selected) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+html body.dlc_curator .paged_items_paging {
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body.dlc_curator :is(.paged_items_paging_size_item,.paged_items_paging_pagelink,.recommendation_readmore a):is(:hover,:focus-visible,.active,.size_selected) {
+    color: rgb(var(--textLightest)) !important;
+}
+/* Native oversize-review fade belongs to this featured-card backing. */
+html body.dlc_curator .curator_featured .capsule p.curator_review.oversize:after,
+html body.dlc_curator .curator_featured .capsule p.curator_review.oversize:hover {
+    background: linear-gradient(to bottom,rgba(var(--backgroundLightish),0) 5%,rgb(var(--backgroundLightish)) 95%) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body.dlc_curator .curator_featured .capsule p.curator_review.oversize:hover {
+    border-image: linear-gradient(to bottom,transparent 5%,rgb(var(--backgroundLight)) 95%) 10 !important;
+}
+
+/* Store-home text links follow the regular/light link family. Keep product
+ * titles and filled actions on their existing paired foreground roles. */
+html body .home_page_body_ctn :is(.home_title_ctn a,.home_tab_button,.recently_updated_announcement_link,.community_recommendations_block > .review_box .view_more a,.community_recommendations_block > .review_box .persona_name a,.home_page_content .more_content a,.steam_curator_desc a,.curator_block .blurb a):not(.gift_card_desktop,.btnv6_white_transparent,.btnv6_blue_hoverfade,.creator_follow_btn,[role="button"]) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .home_page_body_ctn :is(.home_title_ctn a,.home_tab_button,.recently_updated_announcement_link,.community_recommendations_block > .review_box .view_more a,.community_recommendations_block > .review_box .persona_name a,.home_page_content .more_content a,.steam_curator_desc a,.curator_block .blurb a):not(.gift_card_desktop,.btnv6_white_transparent,.btnv6_blue_hoverfade,.creator_follow_btn,[role="button"]):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Modern app-page modal shell, shared title/close and plain content leaves.
+ * Preserve the native maximum sizes, scrolling, controls and media geometry. */
+html body dialog._1mPKxUDAZ01x-i7612JIsL {
+    color: rgb(var(--textLight)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL ._79d7mzfWutbJb1DCbh1Du {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL ._79d7mzfWutbJb1DCbh1Du::before {
+    background: linear-gradient(to right,rgb(var(--accent)),rgb(var(--accentDarkish))) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL::backdrop {
+    background: rgba(var(--backgroundOverlay),var(--backgroundOverlayOpacity)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL ._2tpBIlq2yGQqKcloht-UiJ {
+    color: rgb(var(--textLightest)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL .RC4JznqJb34yCm04FKk0I {
+    color: rgb(var(--icon)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL .RC4JznqJb34yCm04FKk0I:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Tag editor: own the native dialog and explicit form surfaces, not the
+ * app-page tag links outside it. Checkbox/report sprites retain their state. */
+html body dialog.app_tag_modal_frame {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body dialog.app_tag_modal_frame::backdrop {
+    background: rgba(var(--backgroundOverlay),var(--backgroundOverlayOpacity)) !important;
+}
+html body dialog.app_tag_modal_frame :is(.newmodal_header,.newmodal_header .title_text,h2) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body dialog.app_tag_modal_frame :is(.newmodal_content,.newmodal_content p,.app_tag_modal p) {
+    color: rgb(var(--textLight)) !important;
+}
+html body dialog.app_tag_modal_frame :is(.app_tag_modal_tooltip,.app_tag_lang_note,p.small) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_modal_seperator {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body dialog.app_tag_modal_frame :is(.gray_bevel,.gray_bevel input) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+html body dialog.app_tag_modal_frame .gray_bevel:focus-within {
+    outline: 1px solid rgb(var(--accent));
+}
+html body dialog.app_tag_modal_frame input::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Wishlist's supplied 22x30 drag glyph is an alpha mask. Its original img
+ * retains the flex footprint; only this decorative silhouette is recolored. */
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk- .A-pGqULyrJo-:has(> img) {
+    position: relative;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk- .A-pGqULyrJo- > img {
+    visibility: hidden;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk- .A-pGqULyrJo-:has(> img)::after {
+    content: "";
+    width: 22px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    background: rgb(var(--icon));
+    mask: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAeCAYAAAAo5+5WAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEEFRg0nBijuQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAw0lEQVRIx+2WMQqDMBSG/xedEnCp3kFzh56gN+iN7SrFLsEDmElwDHGyFNEYlQyF/FPgvXx5fMsL3R9P+CRJEgsAxhjy6We+UClLSFl+H7gMnqGcC3AuvOHMFzrHF86OQI/A062CMYaa5o2zYQiUNMsyGwRcVWWQicOpaNsPooqoIqqIKvYmrusX/dXE4VS4lqkQwnl5HMfND4xzmRbFzeZ5sVrXuscwDHRKhVIdad2vQpXq6JLjJdwH6lSxhAOwP+fdTHcfVDuVWnTzAAAAAElFTkSuQmCC") center / contain no-repeat;
+}
+html body :is(.awGgT3ZKumU-,.PE-3oq-yIvg-.I81GCdWS-oQ-) .E0AZ1CRvqNk-:is(:hover,:focus-within) .A-pGqULyrJo-::after {
+    background: rgb(var(--textLightest));
+}
+html body dialog.app_tag_modal_frame .app_tag_control {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_count {
+    color: rgb(var(--textLightish)) !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_adjust {
+    color: rgb(var(--icon)) !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_adjust:is(:hover,:focus-visible) {
+    color: rgb(var(--textLink)) !important;
+}
+
+/* Mini-profile text/surface owners are separate from avatar, nameplate and
+ * game artwork. Do not filter the popup or repaint those media elements. */
+html body .miniprofile_hover .miniprofile_container {
+    isolation: isolate;
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body .miniprofile_hover .miniprofile_background {
+    background: radial-gradient(ellipse farthest-corner at 20% 30%,rgb(var(--backgroundLightish)),rgb(var(--backgroundDarkish)) 50%,rgb(var(--backgroundDarkest))) !important;
+}
+html body .miniprofile_hover .miniprofile_backdrop {
+    background: linear-gradient(to bottom,rgba(var(--backgroundDarkish),.85) 5%,rgba(var(--backgroundDarkish),.65) 95%) !important;
+}
+html body .miniprofile_hover .miniprofile_content,
+html body .miniprofile_hover .miniprofile_detailssection {
+    color: rgb(var(--textLight)) !important;
+}
+html body .miniprofile_hover .miniprofile_container:not(:has(.miniprofile_nameplate)) .miniprofile_playersection .player_content {
+    text-shadow: none !important;
+}
+html body .miniprofile_hover :is(.persona,.miniprofile_featuredcontainer .description .name) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .miniprofile_hover :is(.secondaryname,.friend_status_offline,.miniprofile_featuredcontainer .description .xp) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .miniprofile_hover :is(.persona.online,.friend_status_online) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .miniprofile_hover :is(.persona.ingame,.friend_status_in-game,.miniprofile_game_name,.game_state,.rich_presence) {
+    color: rgb(var(--textInGame)) !important;
+}
+html body .miniprofile_hover .miniprofile_playtimesection:not(.forcurrentgame) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .miniprofile_hover .miniprofile_playtimesection .playtimecontent {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .miniprofile_hover .miniprofile_playtimesection .timeplayed {
+    color: rgb(var(--textLight)) !important;
+}
+html body .miniprofile_hover .miniprofile_container:has(.miniprofile_nameplate) .miniprofile_playersection .player_content {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+html body .miniprofile_hover .miniprofile_container:has(.miniprofile_nameplate) .miniprofile_playersection .player_content :is(.persona,.secondaryname,.friend_status_offline,.friend_status_online,.friend_status_in-game) {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+
+/* Reuse the native close silhouette as an alpha mask at its original size. */
+html body dialog.app_tag_modal_frame .newmodal_close {
+    background: rgb(var(--icon)) !important;
+    mask: var(--atoms-legacy-dialog-close-mask) center / contain no-repeat;
+}
+html body dialog.app_tag_modal_frame .newmodal_close:is(:hover,:focus-visible) {
+    background: rgb(var(--textLightest)) !important;
+}
+html body dialog.app_tag_modal_frame .newmodal_buttons .btn_grey_steamui,
+html body dialog.app_tag_modal_frame .newmodal_buttons .btn_grey_steamui > span {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body dialog.app_tag_modal_frame .newmodal_buttons .btn_grey_steamui:is(:hover,:focus-visible),
+html body dialog.app_tag_modal_frame .newmodal_buttons .btn_grey_steamui:is(:hover,:focus-visible) > span {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_form_ctn button > span {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+    text-shadow: none !important;
+}
+html body dialog.app_tag_modal_frame .app_tag_form_ctn button:is(:disabled,.btn_disabled) > span {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Store's SimpleModalDialog consumer is the wishlist-category manager.
+ * Style its explicit leaves; opening/closing and category writes stay native. */
+html body dialog._1mPKxUDAZ01x-i7612JIsL ._3ej4mcyhVunlvw3BjUXtel :is(.Y4Cx2WnIKvFCo_RLEflGd,._3Ra2jK42XFbrJlIPtsmMfC) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL input._3MO9bYl8-oPkXVO9nu_FXh {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL input._3MO9bYl8-oPkXVO9nu_FXh::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL input._3MO9bYl8-oPkXVO9nu_FXh:focus-visible {
+    outline: 1px solid rgb(var(--accent));
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL :is(button._1c0u5zo_wZGsAM08nfEEKu,button._1c0u5zo_wZGsAM08nfEEKu > span,button._15dbpkIdbzeDJlZYQEhn1d,button._15dbpkIdbzeDJlZYQEhn1d > span) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    text-shadow: none !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL :is(button._1c0u5zo_wZGsAM08nfEEKu,button._15dbpkIdbzeDJlZYQEhn1d):is(:hover,:focus-visible),
+html body dialog._1mPKxUDAZ01x-i7612JIsL :is(button._1c0u5zo_wZGsAM08nfEEKu,button._15dbpkIdbzeDJlZYQEhn1d):is(:hover,:focus-visible) > span {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body dialog._1mPKxUDAZ01x-i7612JIsL button._14GZWzJgooP0mbfTvEQnjA,
+html body dialog._1mPKxUDAZ01x-i7612JIsL button._14GZWzJgooP0mbfTvEQnjA > span {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+    text-shadow: none !important;
+}
+
+html body dialog._1mPKxUDAZ01x-i7612JIsL button._1c0u5zo_wZGsAM08nfEEKu._2vVKhV_YC031wyUrFu6vJx,
+html body dialog._1mPKxUDAZ01x-i7612JIsL button._1c0u5zo_wZGsAM08nfEEKu._2vVKhV_YC031wyUrFu6vJx > span {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* Gift cards are a filled control, separate from homepage prose links. */
+html body #home_maincap_v7 .home_title_ctn a.gift_card_desktop {
+    color: rgb(var(--textOnAction)) !important;
+}
+
+/* The native wide carousel sizes arrows against a parent that includes the
+ * thumbnail row. Its existing geometry helper supplies only the art height;
+ * leave native positioning intact until that measurement is available. */
+html body #home_maincap_v7.carousel_wide_mode .carousel_container.maincap[style*="--atoms-maincap-art-height"] > .arrow {
+    top: 0 !important;
+    bottom: auto !important;
+    height: var(--atoms-maincap-art-height) !important;
+    transform: none !important;
+}
+
+/* Expanded Store capsule: theme its text/chrome without filtering preview media. */
+html body ._3QqbGLgtSpReBWRaPB5GnI {
+    color: rgb(var(--textLight)) !important;
+    background: linear-gradient(359.91deg,rgb(var(--backgroundLightish)) 30%,rgba(var(--backgroundLight),.3) 85%) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI ._3WlfumeMCR40WR-uBdg3Gx {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI ._38GHf0V2kn6MNNjQF7QajG {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI :is(.APpfln1FqbXnR9klsbeM_,._1keH60e_I90mkEgfpsw88B,._3b8-ojNFf-CIMu9sOMJhM6,._3RQ_AUZpM18Y9IO5ufZ5X6,.yYag_VAd2NXLTrOBd-6mu,._3-FV36ByKDMBDoEKOpnY9s) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI ._2bi1NxjYgiXf0VZFoYAKWE {
+    color: rgb(var(--textLightish)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI ._2bi1NxjYgiXf0VZFoYAKWE:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI ._1Y5yJHywrdBJlgg1JbWnM5 svg {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI .XwgGstGDpIVOjAfg3pK1e._j-FE6iveSoKTCgGAx_NK {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI .XwgGstGDpIVOjAfg3pK1e._2Mc-wW0wAsgehC46aTwBVa {
+    color: rgb(var(--textAccented)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI :is(._3WlfumeMCR40WR-uBdg3Gx,.APpfln1FqbXnR9klsbeM_) a:not(._2bi1NxjYgiXf0VZFoYAKWE) {
+    color: rgb(var(--textLink)) !important;
+}
+html body ._3QqbGLgtSpReBWRaPB5GnI :is(._3WlfumeMCR40WR-uBdg3Gx,.APpfln1FqbXnR9klsbeM_) a:not(._2bi1NxjYgiXf0VZFoYAKWE):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Flat navigation has no artwork behind its labels. Keep the Wishlist count
+ * on the regular link family and the filled cart on its white action pair. */
+html body ._16jZ3HEbtaJTl80pQINN2Y ._175B12uOwmeGBNcSaQFe-Z {
+    text-shadow: none !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z._1tJxbjNzcWSdG2hBsklCTN,
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z._1tJxbjNzcWSdG2hBsklCTN .BReXgOZvJY6u4htWQn1aF {
+    color: rgb(var(--textLink)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z._1tJxbjNzcWSdG2hBsklCTN:is(:hover,:focus-visible),
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z._1tJxbjNzcWSdG2hBsklCTN:is(:hover,:focus-visible) .BReXgOZvJY6u4htWQn1aF {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z.qqQDu9j0LIoK-w06-JxB5,
+html body ._16jZ3HEbtaJTl80pQINN2Y a._175B12uOwmeGBNcSaQFe-Z.qqQDu9j0LIoK-w06-JxB5 :is(.BReXgOZvJY6u4htWQn1aF,svg) {
+    color: rgb(var(--textOnAction)) !important;
+    fill: currentColor !important;
+}
+
+/* Reuse the native cut-arrow silhouette; its white pixels otherwise disappear
+ * on the light canvas. Native dimensions, rotations and outer opacity remain. */
+html body #home_maincap_v7 .carousel_container.maincap > .arrow > div {
+    background-image: none !important;
+    background-color: rgb(var(--icon)) !important;
+    mask: url("https://cdn.fastly.steamstatic.com/store/icons/cut_arrow.svg") center / contain no-repeat;
+}
+html body #home_maincap_v7 .carousel_container.maincap > .arrow:is(:hover,:focus-visible) > div {
+    background-color: rgb(var(--textLightest)) !important;
+}
+
+/* Current sale-card flags and price badge. Steam's full-color --green token
+ * cannot consume ATOMS' RGB-triplet swatch, so use the explicit discount pair. */
+html body ._1gsW0WuP7ZclL1_ScZlsvo > ._3dtnlw7cvJhAMGafZPipGv._3Rgc5idc13zGnjAaIpVNAR {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo > ._3dtnlw7cvJhAMGafZPipGv._3Rgc5idc13zGnjAaIpVNAR > svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo:has(.znNVIhFP6KdJlUS2p2B7q)[style*="--atoms-sale-badge-bottom"] > ._3dtnlw7cvJhAMGafZPipGv._3Rgc5idc13zGnjAaIpVNAR {
+    top: calc(var(--atoms-sale-badge-bottom) + 4px) !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo ._1-29ksrfQaORRCqN2AVf06 {
+    color: rgb(var(--textLight)) !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo :is(._2wlqkq-0fkggDE-Kll8Rwd,._2lQxRlo1DQ1PN08TYTil2L) {
+    background: rgb(var(--discountBackground)) !important;
+    color: rgb(var(--textOnDiscount)) !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo ._2lQxRlo1DQ1PN08TYTil2L ._3cdhtxJwOkHYnEljY7P-vL {
+    color: inherit !important;
+}
+html body ._1gsW0WuP7ZclL1_ScZlsvo ._3KFNh7n6I49ARX6I0oXdel {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Calendar feature tiles deliberately keep color in both palettes. Pair only
+ * their known text leaves with the deep-accent chrome; media stays native. */
+html body ._326_uhqq2I-hJwNRSqIZK4 .tqaXEuWN2wV5_8lmSkMng :is(._3LB60XV--dXt2yYQ6dF5aT,._3cnfRW-1ajM2MW96f4sTXj,._1pMe55FBPBDyaWssCZrawa,._1iXgQQI5ZT9D1DgDCwVW_T,._1Vtz51wGyJHD9wpoDFNZ8M,._1Vtz51wGyJHD9wpoDFNZ8M a) {
+    color: rgb(var(--textOnAccentDark)) !important;
+    text-shadow: none !important;
+}
+html body ._326_uhqq2I-hJwNRSqIZK4 .tqaXEuWN2wV5_8lmSkMng ._1Vtz51wGyJHD9wpoDFNZ8M {
+    background: rgba(var(--backgroundOverlay),.18) !important;
+}
+
+/* Deep Dive's decorative CSS layers are separate from its game artwork. */
+html body #module_deep_dive .deep_dive_gradient_1 {
+    background: linear-gradient(101.27deg,rgb(var(--accentDarkest)) -2.19%,rgba(var(--accentDarkest),0) 60.92%) !important;
+}
+html body #module_deep_dive .deep_dive_gradient_2 {
+    background: linear-gradient(173.61deg,rgba(var(--accentDark),.63) 8.41%,rgba(var(--accentDark),0) 103.62%) !important;
+}
+html body #module_deep_dive .deep_dive_gradient_3 {
+    background: linear-gradient(173.36deg,rgb(var(--accentDarkest)) 13.48%,rgba(var(--accentDarkest),0) 115.68%) !important;
+}
+html body #module_deep_dive :is(.deep_dive_text,.deep_dive_bottom_text) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body #module_deep_dive .deep_dive_top_text {
+    color: rgb(var(--textLink)) !important;
+}
+html body #module_deep_dive .recommended_by_deep_dive_method {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #module_deep_dive .deep_dive_key_tags {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #module_deep_dive .deep_dive_tag {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body #module_deep_dive .deep_dive_tag:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* Steam Deck section chrome gets a persistent deep-accent surface. Keep
+ * price/status subpanels on their existing semantic pairs. */
+html body #home_deck_content .home_deck_section.ctn_background {
+    background: linear-gradient(315deg,rgb(var(--accentDarkest)),rgb(var(--accentDark))) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body #home_deck_content .home_deck_section :is(.home_section_title,.home_deck_title,.home_section_subtitle) {
+    color: rgb(var(--textOnAccentDark)) !important;
+    text-shadow: none !important;
+}

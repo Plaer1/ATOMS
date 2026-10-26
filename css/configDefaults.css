@@ -32,8 +32,9 @@ the config is broken down into a few main sections:
 
 */
 
-:root { 
-
+:root {
+    --atoms-color-mode: dark;
+    --atoms-color-scheme: dark;
 /* #####################################
 /* ####################
 /* COLORS 
@@ -75,7 +76,7 @@ the config is broken down into a few main sections:
     --blueLight:					127, 174, 196;		/*#d7adff*/
     --blueLightest:					97, 197, 237;
     --darkishblue:					0, 0, 0;
-    --darkblue:						30, 37, 47;			/*#ab37a7*/
+
     --darkestblue:					33, 41, 52;
 
 	/* Pinks */
@@ -101,11 +102,27 @@ the config is broken down into a few main sections:
 	--lessTransparentPink:			194, 129, 255, 0.765;	/*#c281ffc3*/
 	--transparenterAccentPink:		194, 129, 255, 0.173;	/*#c281ff2c*/
 	--transparenterPink:			252, 105, 247, 0.216;	/*#fc69f737*/
-	--transparentdarkPink:			#ab37a7ff;				/*#ab37a7ff*/ /*fixme*/
+    --transparentdarkPink: 171, 55, 167, 1; /* RGBA channels for rgba(var(...)) */
 	--transparentdarkerPink:		154, 70, 151, 0.816;	/*#9a4697d0*/
 
-	/* ATOM'S COLORS */
-	/*change a bunch of accent colors at once*/
+    /* ATOMS COLORS
+     * Active palette: DARK by default. Components use these roles, not raw
+     * swatches. Copy the roles you want to customize into config.css.
+     *
+     * background*   = page/panel/row surfaces
+     * textLink / textLinkSoft = regular/light accent links on page/panel surfaces
+     *                (independent light accents follow the matching LightMode roles)
+     * textAccented  = contrasting emphasis; light mode uses textLightModeAccented
+     * textAccentedSoft = lighter accent text on dark panels; readable accent in light
+     * textLight     = normal text on those surfaces
+     * textLightish  = secondary labels, metadata, and placeholders
+     * textLightest  = headings and emphasized values
+     * textWhite     = strongest page text (also follows the selected mode)
+     * textInGame    = readable green persona text; status/avatar colors are separate
+     * textDark*     = the existing muted accent-tinted text shades
+     * textOnAccent / textOnAction / textOnSelection / textOnArtwork / textOnDiscount = paired foregrounds;
+     *                they are separate from ordinary page text on purpose.
+     */
 
 	/* accents*/
 	--accent:		 				var(--pink);
@@ -132,19 +149,145 @@ the config is broken down into a few main sections:
 	--backgroundDarkish: 			var(--greyDarkish); 
 	--backgroundDark: 				var(--greyDark); 
 	--backgroundDarkest: 			var(--greyDarkest);
+    /* Canvas behind faded, unowned badge cards; dark keeps Steam's native shade. */
+    --backgroundUnownedCard: 16, 16, 16;
+    /* Locked achievement artwork blends into light panels; achieved icons stay native. */
+    --unachievedIconOpacity: 1;
 
+    /* Text on neutral page and panel backgrounds. */
 	--textAccented:					var(--accent);
+    --textAccentedSoft: var(--accentLight);
+    --textLink: var(--accent);
+    --textLinkSoft: var(--accentLightish);
 	--textLightish:					var(--pinkWhiteish);
 	--textLight:					var(--pinkWhite);
 	--textLightest:					var(--pinkWhiteest);
 	--textWhite:					var(--white);
+    --textInGame: 227, 255, 194;
 	--textDarkish:					var(--pinkWhiteDarkish);
 	--textDark:				    	var(--pinkWhiteDark);
 
+    /* Foregrounds paired with specific surfaces. */
+    --textNeutral: var(--greyLightest); /* neutral chrome formerly using backgroundLightest */
+    --textOnAccent: var(--greyDarkest); /* labels/glyphs on accent-filled controls */
+    --textOnSelection: var(--greyDarkest); /* labels on highlighted Library rows and native bright navigation hover in both modes */
+    --textOnAccentDark: var(--white); /* text on deep-accent panels in either mode */
+    --textOnAction: var(--white);     /* light play/stop/download glyphs on accent action buttons */
+    --textOnArtwork: var(--white);     /* stays white over game artwork in either mode */
+    --textOnDiscount: 0, 0, 0;         /* stays dark on Steam's discount badges */
+    /* Semantic green controls retain their surface/foreground pair in either mode. */
+    --backgroundPositiveAction: 121, 153, 5;
+    --backgroundPositiveActionHover: 83, 105, 4;
+    --textOnPositiveAction: var(--white);
+    --discountBackground: 161, 205, 68;
+    --icon: var(--textLightish);
+    --iconSelected: var(--accent);
+
+    /* Modal scrim: color and transparency are independent of panel colors. */
+    --backgroundOverlay: 0, 0, 0;
+    --backgroundOverlayOpacity: .55;
+
+    /* Decorative Store backdrops only: images/video content are unaffected. */
+    --storeBackdropFilter: grayscale(1) brightness(.77);
+    --storeBackdropOpacity: 1;
+    --storeBackdropLightModeFilter: grayscale(1) brightness(1.2);
+    --storeBackdropLightModeOpacity: .18;
+    /* Transparent homepage calendar splash: light marks on dark, dark marks
+     * on light. Native opacity and mask continue to control its subtlety. */
+    --calendarBackdropFilter: grayscale(1) brightness(0) invert(1);
+    --calendarBackdropLightModeFilter: grayscale(1) brightness(0);
+    /* Community artwork includes Steam's baked dark overlay. Keep its dark
+     * treatment shared, with extra light-mode lift for the same gray image. */
+    --communityBackdropFilter: var(--storeBackdropFilter);
+    --communityBackdropLightModeFilter: grayscale(1) brightness(3);
+
+    /* Full Store game / Community page artwork. Separate from small Store
+     * calendar/sale decorations: preserve their existing opacity above. */
+    --pageBackdropOpacity: 1;
+    --pageBackdropMask: none; /* generated full-page art: dark keeps its native edge */
+    --pageBackdropTextureOpacity: .2; /* Steam's native dark texture strength */
+    --pageBackdropTextureBlendMode: lighten; /* Steam's native dark compositing */
+    --pageBackdropTextureMask: linear-gradient(#000 60%, transparent 100%); /* shorter dark-art fade */
+    --pageBackdropLightModeOpacity: .25;
+    --pageBackdropLightModeTextureOpacity: 1;
+    --pageBackdropLightModeTextureBlendMode: normal; /* keeps gray art visible on a light canvas */
+    --pageBackdropLightModeTextureMask: linear-gradient(#000 20%, rgba(0, 0, 0, .6) 55%, transparent 90%);
+
+    /* Alternate LIGHT palette. These are inactive unless Light mode is on.
+     * The active roles above continue to default to the dark palette.
+     * Existing --accentLight is an accent shade, hence --accentLightMode* here. */
+    --backgroundLightMode: 225, 225, 225;
+    --backgroundLightModeLightish: 217, 217, 217;
+    --backgroundLightModeLight: 194, 194, 194;
+    --backgroundLightModeLightest: 21, 21, 21;
+    --backgroundLightModeDarkish: 227, 227, 227;
+    --backgroundLightModeDark: 230, 230, 230;
+    --backgroundLightModeDarkest: 233, 233, 233;
+    --backgroundLightModeUnownedCard: var(--backgroundLightModeDarkish);
+    --unachievedIconLightModeOpacity: .55;
+
+    --accentLightMode: var(--pink);
+    --accentLightModeLightish: var(--pinkLightish);
+    --accentLightModeLight: var(--pinkLight);
+    --accentLightModeLightest: var(--pinkLightest);
+    --accentLightModeDarkish: var(--darkishPink);
+    --accentLightModeDark: var(--darkPink);
+    --accentLightModeDarkest: var(--darkestPink);
+    --accentLightModeTransparent: var(--transparentPink);
+    --accentLightModeLightTransparentest: var(--transparenterAccentPink);
+    --accentLightModeLessTransparent: var(--lessTransparentPink);
+    --accentLightModeMoreTransparent: var(--transparenterPink);
+    --accentLightModeDarkTransparent: var(--transparentdarkPink);
+    --accentLightModeDarkerTransparent: var(--transparentdarkerPink);
+
+    /* Text accent is darker than the unchanged accent fill on light panels. */
+    --textLightModeAccented: var(--accentLightModeDarkest);
+    --textLightModeAccentedSoft: var(--accentLightModeDarkest);
+    --textLightModeLink: var(--accentLightMode);
+    --textLightModeLinkSoft: var(--accentLightModeLightish);
+    --textLightMode: 45, 45, 45;
+    --textLightModeLightish: 81, 81, 81;
+    --textLightModeLightest: 22, 22, 22;
+    --textLightModeWhite: 0, 0, 0;
+    --textLightModeInGame: 54, 90, 22;
+    --textLightModeDarkish: 67, 67, 67;
+    --textLightModeDark: 90, 90, 90;
+
+    /* Legacy full-color roles (complete CSS colors, not RGB triplets).
+     * Kept for existing Store/Community consumers and user config compatibility.
+     * Active definitions stay dark; dormant alternatives are selected in lightMode.css. */
+    --steamNearWhite: #ccc;
+    --steamNearWhiteLightMode: #333;
+    --steamIconWhite: #67707b;
+    --steamIconWhiteLightMode: #58616b;
+    --realblack: #101010;
+    --realblackLightMode: #efefef;
+    --blacker: #1c1c1c;
+    --blackerLightMode: #e3e3e3;
+    --darkergrey: #151515;
+    --darkergreyLightMode: #eaeaea;
+    --bedarkgrey: #161616;
+    --bedarkgreyLightMode: #e9e9e9;
+    --begrey: #262627;
+    --begreyLightMode: #d9d9d8;
+    --thegrey: #181818;
+    --thegreyLightMode: #e7e7e7;
+    --littlegrey: #282828;
+    --littlegreyLightMode: #d7d7d7;
+    --darkgreyLightlyTransparent: #1e1e1ed4;
+    --darkgreyLightlyTransparentLightMode: #e1e1e1d4;
+    --darkgreySlightlyTransparent: #1e1e1ebb;
+    --darkgreySlightlyTransparentLightMode: #e1e1e1bb;
+    --lightergrey: #353535;
+    --lightergreyLightMode: #cacaca;
+    --dakerwhite: #b8b6b4;
+    --dakerwhiteLightMode: #47494b;
+    --backgroundDarkTransparent: var(--halfvisibleblack);
+    --backgroundDarkTransparentLightMode: #ffffff77;
+
 	/* some static steam color definitons*/
 	--ingame:						#92be38;
-	--steamNearWhite: 			#ccc;
-	--steamIconWhite: 			#67707b;
+
 
 /* #####################################
 /* ####################
@@ -159,7 +302,9 @@ the config is broken down into a few main sections:
 	/* ####################
 	/* Library Settings */
 	--libraryText:				"Home";											/* changes the home text in the library*/
-	--transparentGameOpacity:	var(--opacity333);								/* changes how transparent the uninstalled games in the library are*/
+    /* Millennium supplies --uninstalledGameOpacity (0% invisible, 100% opaque).
+     * Leave its value to the native slider; use 77.77% when unavailable. */
+	--transparentGameOpacity:	var(--uninstalledGameOpacity, 0.7777); /* only while Dim uninstalled games is enabled */
 	--gameShine:				var(--accentGameShine);							/*chages highlight game tile hover, see below for other options)*/
 	--achievementGlow:			var(--accentAchievementGlow);					/*chages rare achievement glow, see below for other options)*/
 
@@ -192,7 +337,7 @@ the config is broken down into a few main sections:
 		--transPrideGameShine: linear-gradient( to bottom, transparent 15%, rgba(var(--blue), var(--opacity75)) 22%, rgba(var(--pink), var(--opacity75)) 35%, rgba(var(--white), var(--opacity75)) 49%, rgba(var(--pink), var(--opacity75)) 68%, rgba(var(--blue), var(--opacity75)) 69%, transparent 100%);
 
 		/*bisexual pride*/
-		--bisexualPrideGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--darkerPink)) 40%, rgba(var(--Purple), var(--opacity75)) 60%, rgba(var(--Blue), var(--opacity75)) 100%);
+		--bisexualPrideGameShine: linear-gradient( to bottom, transparent 0%, rgba(var(--darkPink)) 40%, rgba(var(--purple), var(--opacity75)) 60%, rgba(var(--blue), var(--opacity75)) 100%);
 
 	/* ###############################
 	/* Achievement Shine Gradients: */
@@ -242,18 +387,9 @@ don't use any of this....
 
 	--black: #000000;
 	--black-ish: #2a3f5a00;
-	--realblack: #101010;
-	--blacker: #1c1c1c;
-	--darkergrey: #151515;
-	--bedarkgrey: #161616;
-	--begrey: #262627;
-	--thegrey: #181818;
-	--littlegrey: #282828;
-	--darkgreyLightlyTransparent: #1e1e1ed4;
-	--darkgreySlightlyTransparent: #1e1e1ebb;
+
 	--lightgrey: #020209;
-	--lightergrey: #353535;
-	--dakerwhite: #b8b6b4;
+
 	--trans: transparent;
 	--invisiblegrey: #3e3e3e3d;
 	--invisibleblack: #00000000;
@@ -286,7 +422,6 @@ don't use any of this....
 	--brightpurple: #7d3cf5; 
 	--transpurple: #6624e2b3; 
 
-	--backgroundDarkTransparent:var(--halfvisibleblack);
 
 }
 

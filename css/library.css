@@ -1,13 +1,15 @@
 @import url('configDefaults.css');
 @import url('../config.css');
+@import url('themeText.css');
 @import url('scrollbars.css');
 @import url('mediaSelections.css');
 @import url('gameArtworkFallback.css');
 @import url('capture3.css');
+@import url('libraryFeedback.css');
 
 /* 1ux2dkw: Millennium's theme description uses a blue-tinted native grey. */
 .MillenniumWindow_MainSteamWindow .MillenniumThemes_Description {
-	color: rgba(var(--greyLightest), .65) !important;
+	color: rgba(var(--textNeutral), .65) !important;
 }
 
 /* ds00or: current native Library featured-item heading. */
@@ -15,18 +17,16 @@
 	color: rgb(var(--accent)) !important;
 }
 
-/* 57gqfy: keep the Library card's reaction controls visible, preserving
- * their native placement and 26px hitboxes. Neutral backing, coloured glyph. */
+/* Library reactions keep native hidden-until-card-hover presentation and
+ * placement. Keyboard focus reveals the same native 26px controls. */
 ._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4 {
-	opacity: 1 !important;
-	transform: scale(1) !important;
 	background-color: rgb(var(--backgroundLightish)) !important;
 	color: rgb(var(--textLight)) !important;
 }
 
 ._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4 .Mj5HqvDXedpotuga04XmY {
 	background-color: rgb(var(--backgroundLightish)) !important;
-	color: rgb(var(--accent)) !important;
+	color: rgb(var(--icon)) !important;
 }
 
 ._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4:is(:hover, :focus-within),
@@ -35,7 +35,7 @@
 }
 
 ._3lh8aaHNMcFvupuNhQDfFt .Mj5HqvDXedpotuga04XmY svg path[fill="#2A83CF"] {
-	fill: rgb(var(--accent)) !important;
+	fill: currentColor !important;
 }
 
 /* v65j3r / d8r3ko / 1kaix38: current Settings field/button rows. */
@@ -50,7 +50,9 @@
 	background-image: none !important;
 }
 
-.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt:not(.aIeh3X5T2M074RLW1qn6_):is(:hover, .gpfocus, .gpfocuswithin) {
+/* Button fields delegate activation to their child. Only clickable fields or
+ * fields without a button should paint the whole row as an interaction. */
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt:not(.aIeh3X5T2M074RLW1qn6_):is(._2HuzvKQ2QMUJ-JJOeApaF1, :not(:has(button.DialogButton))):is(:hover, .gpfocus, .gpfocuswithin) {
 	background-color: rgb(var(--backgroundLight)) !important;
 }
 
@@ -206,11 +208,6 @@
 		rgb(var(--backgroundLight)) 0%, rgb(var(--backgroundLightish)) 50%, rgb(var(--background)) 100%) !important;
 }
 
-/* wmpqv4: explicit blue exception for the Steam Cloud usage label. */
-.F0RwwSil7eAxsLls7SH-E ._1KmR8MOpvgQ9OO2AmwOCca {
-	color: rgb(var(--blue)) !important;
-}
-
 /* gpkif1 / 1nlmsp3: game Properties' Beta branch table and controls. */
 [id*="/properties/"] .DialogBody {
 	color: rgb(var(--textLight)) !important;
@@ -253,7 +250,7 @@
 
 [id*="/properties/"] button.DialogButton.Primary:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, .gpfocus) {
 	background-color: rgb(var(--accent)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 [id*="/properties/"] button.DialogButton:not(.GreenPlay):not(.Destructive):is(:disabled, .Disabled) {
@@ -303,7 +300,6 @@ div::-webkit-scrollbar-thumb:window-inactive {
 
 ::selection ,
 ._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR,																
-.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd,																	
 ._7AlhCx3XGzBeIrQaCneUD._1gqEjB5QsKT_NftD1dEsdZ:not(._2cO0HdvLEGAdhosLekWsmo) ._19axKcqYRuaJ8vdYKYmtTQ::after,	
 ._3OSZu24hLN7YKjqGi7I2Xp,																						
 ._3Sl0QHQ69uK7ZMQo5vBfrA ._3IWp5BnnsY_aMKCxhCjShP._317lekDG36odwSaDLtFQgd,										
@@ -378,11 +374,17 @@ img[src^="data:image/png;base64"] /*missing game images in download menu*/
 
 /*##########################################
 /* Various backgrounds */
-html, ._27m9Qbg4ShilOgwvYZWV8l, ._3JV6-V6z0SKmNu6TlI1Bdr, ._2sNr7PFYcJZWNkEMCDVVPR, ._23zCI_59RJTWRvY-_YCFb9, .u1xD3KJEgksF_J_5TLZzO, .DialogContent_InnerWidth, .DialogContent._DialogLayout, .DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-, ._1mfQu39T7gxcr0KSHso6_A, ._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, ._32mHvRSmD7AVK9OIOPlaFu, ._2ilpH-HpvuSm6s5MWX5bA-, .LclHwcOfHFpwObYMD1HLa, .OhSdLYuggDtBcWjYP0j_9, ._1_cYNJSvS6IXs9vLTEYjy5, ._2r4TK4BAuU-J4FuF_O7v_5, ._31ptFGGMZrSQc5BCX1e5lm, ._3-V8vjmrwuJM6Ws3tsjFJj > div, ._2PF_m-I5yte3WnQhpcz8RC, ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper, ._3pSPluBgf0NeR1kkCLWMhR, ._2FxbHJzYoH024ko7zqcJOf, .DesktopUI .DialogMenuPosition > ._30wJO3MC4x-I1OWpy1TAeE._DialogInputContainer, ._1LJqx_qFOC8199RBQO5kU8, ._3Sb2o_mQ30IDRh0C72QUUu, .GTdO0X-5EOwChz3fc2iLU, ._2SdqX9SccD_TtDat-bNo5-, ._2JKpGzeAiwmBdY73bfRXz-, ._2gSXCB6PbOlMxslr8hm6dm, ._2Nq6ov7A1hGcHXVOXNt_OE, ._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw, ._3f3VJUtyLXUf_JDFE-BaQ6, ._37mmOlZM_8n5yJAG5CHiW7, ._1ENHEsrSLcTRtPQFl1F-wL._1DvwQt0JN-Ogp_4tVZdkzX, ._1xLWmfPlWGV47FujycPN_c, ._3Mbhnlk1Go2j8yCdjthzc7.IbePLaw-vSvhG1GTenYFg._2KB3yVOsiRCK9qK6mwKl9c, .RGNMWtyj73_-WdhflrmuY ._2CmrnGY-Amtd83ScJkFvx2, .Rp8QOGJ2DypeDniMnRBhr, ._27qasW5wLU4h4nUgawpo1q, .QsvsRVwbsApgKt1MhM0fz, .FullModalOverlay, ._3mz8wQ6Q44B8P7pzPP4Iyw /*more library backgrounds*/
+html, ._27m9Qbg4ShilOgwvYZWV8l, ._3JV6-V6z0SKmNu6TlI1Bdr, ._2sNr7PFYcJZWNkEMCDVVPR, ._23zCI_59RJTWRvY-_YCFb9, .u1xD3KJEgksF_J_5TLZzO, .DialogContent_InnerWidth, .DialogContent._DialogLayout, .DialogContent._DialogLayout._31Kkeb6BIUOVu8QL-dgtY-, ._1mfQu39T7gxcr0KSHso6_A, ._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, ._32mHvRSmD7AVK9OIOPlaFu, ._2ilpH-HpvuSm6s5MWX5bA-, .LclHwcOfHFpwObYMD1HLa, .OhSdLYuggDtBcWjYP0j_9, ._1_cYNJSvS6IXs9vLTEYjy5, ._3-V8vjmrwuJM6Ws3tsjFJj > div, ._2PF_m-I5yte3WnQhpcz8RC, ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper, ._3pSPluBgf0NeR1kkCLWMhR, ._2FxbHJzYoH024ko7zqcJOf, .DesktopUI .DialogMenuPosition > ._30wJO3MC4x-I1OWpy1TAeE._DialogInputContainer, ._1LJqx_qFOC8199RBQO5kU8, ._3Sb2o_mQ30IDRh0C72QUUu, .GTdO0X-5EOwChz3fc2iLU, ._2SdqX9SccD_TtDat-bNo5-, ._2JKpGzeAiwmBdY73bfRXz-, ._2gSXCB6PbOlMxslr8hm6dm, ._2Nq6ov7A1hGcHXVOXNt_OE, ._3FmxxjyWNHU1PrBGnBe6tm._2l416KfEtI4CL0mCUEmOBw, ._3f3VJUtyLXUf_JDFE-BaQ6, ._37mmOlZM_8n5yJAG5CHiW7, ._1ENHEsrSLcTRtPQFl1F-wL._1DvwQt0JN-Ogp_4tVZdkzX, ._1xLWmfPlWGV47FujycPN_c, ._3Mbhnlk1Go2j8yCdjthzc7.IbePLaw-vSvhG1GTenYFg._2KB3yVOsiRCK9qK6mwKl9c, .RGNMWtyj73_-WdhflrmuY ._2CmrnGY-Amtd83ScJkFvx2, .Rp8QOGJ2DypeDniMnRBhr, .QsvsRVwbsApgKt1MhM0fz, ._3mz8wQ6Q44B8P7pzPP4Iyw /*more library backgrounds*/
 
 {
 	&:not(.fullheight.ModalDialogPopup):not(._1UJDmU3N-pkv7oTJ_Zf9nK) {
 	background: rgb(var(--background)) !important;}
+}
+
+/* These panel defaults are separate owners, so the original giant group's
+ * maximum nested-selector specificity cannot suppress their scoped states. */
+:where(._2r4TK4BAuU-J4FuF_O7v_5, ._31ptFGGMZrSQc5BCX1e5lm):not(.fullheight.ModalDialogPopup):not(._1UJDmU3N-pkv7oTJ_Zf9nK) {
+    background: rgb(var(--background)) !important;
 }
 
 /*############################
@@ -408,7 +410,7 @@ background: rgba(var(--backgroundLightish));
 }
 ._1f9_BgoyE1cjqyeKD8dh9u .YzIcpcz4oFx-nndxro5jE .hXJt8CFzzitOG3moJEGg- /*fix for titlebar in some popups*/
 {
-	color: rgb(var(--textAccented)) !important;
+	color: rgb(var(--accent)) !important;
 	padding-top: calc(1rem + 12px)
 }
 
@@ -507,7 +509,7 @@ max-height: 30px !important;
 }
 /*############################################################
 /*text accents*/
-._1Ve4VFO2EEkeNZdel_Asky a, ._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL, ._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R, .ErrorBoundary > h1, .ErrorBoundary > h1 a, ._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-, ._2rjVTGz8aLvqOdz5v2gq5C, ._2mZ8LlvoUiyeEUtIWuTri, ._16dREqlIrGflPfbNtLGdJh, ._2iEkqauHWZiCAOo0cWqnPP, ._2u9RZJXJSDg3e-J_EX1exE, .KId8dCUFbYh_bz-jozERD, .QQy4BCjcpjCfAvTKAqBq3, ._3csl-MPe-hKuT8hQpOqEG5, .Udzrpqr8534T5DvVZveNP, .A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton), ._3kXEpnxa2qb5znYMSbKT0p, ._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM > svg > path, ._2ns4wnmgr4XBzARpwn2NZ1, ._23Pup1qLf91kwjALd-jFGc, ._2g3Gley034M1ZGhcq005s, ._1vIlyxb5BAwKPUkOfO94qZ, ._2hfibYuzyMOQ0sj2egsHh0, ._3yD46y5pd3zOGR7CzKs0mC.online, ._3i0kopAostOz2IDi9HqmeN, .H4JE-8OU0E7AeMZY3bEeM, .BRmrC-jnwpXqye4oYB21C button.DialogButton, .qX4kNo6O0M-mYntdErKSJ, .UJn_t5bdfyjDFBCTAl2bL, .online .nOdcT-MoOaXGePXLyPe0H, .hXJt8CFzzitOG3moJEGg-, ._1ujzuoxGhLunHZQqHAqRgg > div, ._1dg8hJMsAYISbeQUxcCJcv div._1YqJbKvmcYmfIDhCmNIQ5q, div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid icon in library view*/
+._1Ve4VFO2EEkeNZdel_Asky a, ._117rQTHH1RIewY7sSlvg3Z:hover ._34F9wkevkmNM4yJfpPQ0GL, ._117rQTHH1RIewY7sSlvg3Z:hover.Sil68-ocRzI8Xeloq3d7R, .ErrorBoundary > h1, .ErrorBoundary > h1 a, ._1sCy-pm412Smb0wJx0W-4._1-TLiuTZBQNz2fvBGj6aq-, ._2rjVTGz8aLvqOdz5v2gq5C, ._2mZ8LlvoUiyeEUtIWuTri, ._16dREqlIrGflPfbNtLGdJh, ._2iEkqauHWZiCAOo0cWqnPP, ._2u9RZJXJSDg3e-J_EX1exE, .KId8dCUFbYh_bz-jozERD, .QQy4BCjcpjCfAvTKAqBq3, ._3csl-MPe-hKuT8hQpOqEG5, .Udzrpqr8534T5DvVZveNP, .A_A2B6fTn_MPLlGCmsLtd a:not(.LinkButton), ._3kXEpnxa2qb5znYMSbKT0p, ._3PLc4OJQTCKFtmy81QMYv5._33jqEbo2sBXJZ08w9BkdEM > svg > path, ._2ns4wnmgr4XBzARpwn2NZ1, ._23Pup1qLf91kwjALd-jFGc, ._2g3Gley034M1ZGhcq005s, ._1vIlyxb5BAwKPUkOfO94qZ, ._3yD46y5pd3zOGR7CzKs0mC.online, ._3i0kopAostOz2IDi9HqmeN, .H4JE-8OU0E7AeMZY3bEeM, .BRmrC-jnwpXqye4oYB21C button.DialogButton, .qX4kNo6O0M-mYntdErKSJ, .UJn_t5bdfyjDFBCTAl2bL, .hXJt8CFzzitOG3moJEGg-, ._1ujzuoxGhLunHZQqHAqRgg > div, ._1dg8hJMsAYISbeQUxcCJcv div._1YqJbKvmcYmfIDhCmNIQ5q, div.N8aJrSpxQ6II4CY_aFdYI.QTJZotuAt67vK7Sa2Wjus /*coming soon text on game grid icon in library view*/
 {
 	color: rgb(var(--textAccented)) !important;
 }
@@ -751,7 +753,7 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 /*###########################################################
 /*main library page:*/
 
-._1S6CCCQlcTTAAHh3LMTLh1, .ErrorBoundary, ._1ABCOz8DSrl-YJdh1xD-m0, ._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c, ._3KDkLoCR8OM8xfdQysKn9t, ._2EOPVRm0FFn4LjXaGZ0Xh9, ._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause), .PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
+._1S6CCCQlcTTAAHh3LMTLh1, .ErrorBoundary, ._1ABCOz8DSrl-YJdh1xD-m0, ._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c, ._2EOPVRm0FFn4LjXaGZ0Xh9, ._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause), .PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
 {
 		background: rgb(var(--backgroundDarkish)) !important;
 }
@@ -760,7 +762,7 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 ._18z-3vkWndCBO5WJgFldRK, ._1n7Wloe5jZ6fSuvV18NNWI:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
 	background: rgb(var(--accent)) !important;
 	border-color:rgb(var(--accent)) !important; 
-	color: rgb(var(--backgroundLightest)) !important;
+	color: rgb(var(--textNeutral)) !important;
 }
 
 /* context menu install/update button bg */
@@ -785,13 +787,13 @@ rgba(var(--accentLight)) 70%);
 }
 
 /* Game Page shelf text color. & remove background */
-[class^="DialogDropDown"] {
-  color: rgba(var(--accent)) !important;
-  background: transparent !important;
+.DialogDropDown {
+  color: rgb(var(--textLight)) !important;
+  background: rgb(var(--backgroundLightish)) !important;
 }
 /*remove background from shelf dropdown*/
 ._DialogInputContainer:hover {
-  background: var(--halfTransparent) !important; /* same as the lines seperating the shelfs *//*fixme*/
+  background: rgba(var(--backgroundLight), .5) !important;
 
 }
 /* What's new with you?*/
@@ -832,12 +834,12 @@ background: rgba(var(--accentDark)) !important;
 /*scroll to top button*/
 ._1J21tLst5SEhBPkVRT53UV>div{
   background: rgba(var(--accent)) !important;
-  color: rgba(var(--backgroundLightest)) !important;
+  color: rgba(var(--textNeutral)) !important;
 }
 /*scroll to top button*/
 ._1J21tLst5SEhBPkVRT53UV>div:hover{
   background: rgba(var(--accentLightest)) !important;
-  color: rgba(var(--backgroundDarkest)) !important;
+  color: rgba(var(--textOnAccent)) !important;
 }
 svg.kEODDe6M5cuHWuPlcQexX /*steamdeck compatable*/
 {
@@ -878,8 +880,8 @@ rgba(var(--accent)) 100%);
 /*now available banner at top of library*/
 ._2Ae5emb7JLG4NvS2OmutTx{
 	background: radial-gradient(100% 100% at 45% 45%,
-#864885 0%,
-#1a1a24 100%);
+rgb(var(--accentDarkish)) 0%,
+rgb(var(--backgroundDarkest)) 100%);
 }
 /*glow at bottom of now available banner*/
 ._2Ae5emb7JLG4NvS2OmutTx ._2K0aVYjPsk-WFUDacCkX8L {
@@ -889,29 +891,29 @@ background: transparent;
 ._2Ae5emb7JLG4NvS2OmutTx ._1moqKkq1K4nAp1XqDtnRdQ::before {
 	background: conic-gradient(from 90deg at 50% 50%,
 
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
 
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
 
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe,
+		rgb(var(--accentLightest)),
 transparent,
-	#ffc6fe);
+		rgb(var(--accentLightest)));
 }/*fixme*/
 
 
@@ -927,6 +929,18 @@ transparent,
 /*game shine*/
 .MyNb5dG3FsBnKdp8j_ntk {
 background: var(--gameShine);
+}
+
+/* Pointer enhancement of Steam's existing desktop portrait hover. The native
+ * 3deg pitch/15px depth and --gameShine paint remain the 100% base. The slider
+ * scales rotation (including that pitch) and pointer shine offset, not depth.
+ * Without the JS-owned marker Steam's rules win unchanged. */
+._1pwP4eeP1zQD7PEgmsep0W._54PuCatl_tYG836TOs4Mv .WYgDg9NyCcMIVuMyZ_NBC[data-atoms-library-tile-tilt="pointer"]:hover:not(._3VOR2AeYATx3qSE0I-Pm-5) {
+    transform: rotateX(calc(var(--atoms-library-tilt-base, 3deg) + var(--atoms-library-tilt-x, 0deg))) rotateY(var(--atoms-library-tilt-y, 0deg)) translateZ(15px);
+}
+._1pwP4eeP1zQD7PEgmsep0W._54PuCatl_tYG836TOs4Mv .WYgDg9NyCcMIVuMyZ_NBC[data-atoms-library-tile-tilt="pointer"]:hover:not(._3VOR2AeYATx3qSE0I-Pm-5) .MyNb5dG3FsBnKdp8j_ntk {
+    transform: rotateZ(210deg) translateX(calc(12% + var(--atoms-library-shine-x, 0%))) translateY(calc(32% + var(--atoms-library-shine-y, 0%)));
+    transition-duration: 160ms, .6s;
 }
 
 /*###########################################################
@@ -978,8 +992,7 @@ var(--opacity5)) !important;
 /* highlight game list games on hover */
 ._2-O4ZG0KrnSrzISHBKctFQ:hover, ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj /* games w/ too short names*/
  {
-  background: rgba(var(--accent),
-var(--opacity333)) !important;
+  background: color-mix(in srgb, rgb(var(--accent)) calc(var(--opacity333) * 100%), rgb(var(--background))) !important;
 }
 
 ._1UBpAXP408Ez_L_mXhW5Q9 /*currently selected game background*/
@@ -987,10 +1000,12 @@ var(--opacity333)) !important;
 	background: rgba(var(--accent),
 var(--opacity666)) !important;
 }																				
-._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ:hover, ._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj, ._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ :hover, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ:hover, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ :hover /*currently selected game background hovered*/
+._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ:hover,
+._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj,
+._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ:hover,
+._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._3cMVyOc-9F9Jvp3uKF7_xj /*currently selected game background hovered*/
 {
-	background: rgba(var(--accent),
-var(--opacity8)) !important;
+	background: color-mix(in srgb, rgb(var(--accent)) calc(var(--opacity8) * 100%), rgb(var(--background))) !important;
 	color: rgba(var(--textWhite));
 }	
 ._1UBpAXP408Ez_L_mXhW5Q9._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp, ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp /*games with updates on the sidebar and long names*/
@@ -1020,11 +1035,11 @@ var(--opacity333)) !important;
 
 /*make sort by date/playable grey when inactive */
 ._3mzKdQXht__YHo6PX1LmB6 circle, ._3mzKdQXht__YHo6PX1LmB6 polyline, ._3mzKdQXht__YHo6PX1LmB6 path {
-  stroke: var(--almostWhiteSteam) !important;
+  stroke: rgb(var(--icon)) !important;
 }
 /* part of above item*/
 ._3mzKdQXht__YHo6PX1LmB6 path {
-  fill: var(--almostWhiteSteam) !important;
+  fill: rgb(var(--icon)) !important;
 }
 
 
@@ -1051,11 +1066,11 @@ rgba(var(--accentLightest)) 100%) !important;
 /* triangle in the play button*/
 .playTriangle, .SVGIcon_FlatArrow > polygon, .SVGIcon_Download > path, .SVGIcon_Download > svg > path, :not(._1Pb6PMh_3L5p5NzuUz0Pp9) > ._2AzIX5kl9k6JnxLfR5H4kX svg /* update icon*/
 {
-	fill: rgba(var(--backgroundLightest)) !important;
+	fill: rgb(var(--textOnAction)) !important;
 }
 /* stop in the stop/cancle button*/
 ._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX>svg>line{
-	stroke: rgba(var(--backgroundLightest)) !important;
+	stroke: rgb(var(--textOnAction)) !important;
 }
 
 /*rare achievment glow color*/
@@ -1123,7 +1138,7 @@ text color */
 }
 /* do you reccomend this game to other players */
 ._3LE-6w1ItIAB4CKJFCa3Od, ._2SAb6geDpe6toA1GaP0GjH._1E_ENwpaym7n3ke0XFpczv {
-	background: var(--almostWhiteSteam);
+	background: rgb(var(--backgroundLightish));
 }
 
 /* MAJOR UPDATE background */
@@ -1158,10 +1173,10 @@ have you changed your mind?)*/
 }
 /*link color*/
 ._1O62-3Y03GsnA0709QyJ_O, .DialogBody a {
-  color: rgba(var(--accentDark)) !important;
+  color: rgb(var(--textAccentedSoft)) !important;
 }
-.DialogBody a:hover {
-	color: rgba(var(--accentLight)) !important;
+.DialogBody a:is(:hover, :focus-visible, .gpfocus) {
+	color: rgb(var(--textLightest)) !important;
   }
 
 .update-item-type, .N8aJrSpxQ6II4CY_aFdYI /*new to library notification above game tiles in library view*/
@@ -1317,7 +1332,7 @@ button.DialogButton.Primary, .gkgG-dWgjpwS_aqlcMNTM /* selected drive for instal
  /*disabled text*/
 button.DialogButton.Primary.Disabled{
 	text-decoration: line-through !important;
-	color: rgba(var(--backgroundDarkest)) !important;
+	color: rgba(var(--textOnAccent)) !important;
 }
 .disabled{
 	text-decoration: line-through !important;
@@ -1466,7 +1481,7 @@ rgba(var(--accentLightest)) 100%) !important;
 /* Keep Steam's background icon and its native opacity/hover behavior.
  * Only its hover-blue color becomes neutral; do not hide the icon. */
 :root ._1OOQPJx0nCNP9ME9toCmV7 ._3RkGkNRNheAkoRA3migph5 {
-    color: rgb(var(--greyLightest)) !important;
+    color: rgb(var(--textNeutral)) !important;
 }
 
 /* The bell remains visible/clickable, without a coloured unread/hover box. */
@@ -1486,7 +1501,7 @@ rgba(var(--accentLightest)) 100%) !important;
         rgba(var(--accent), 0) 90%) !important;
 }
 
-/* Flat client modal and dropdown surfaces that still resolved to blue/slate. */
+/* Flat client modal surfaces that still resolved to blue/slate. */
 .ModalPosition_TopBar {
     background-image: linear-gradient(to right,
         rgb(var(--accent)),

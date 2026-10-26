@@ -1,0 +1,73 @@
+/* Loaded only by Millennium's Light mode checkbox. Import the palette here
+ * too so transient menus/frames receive the same defaults and local overrides.
+ * Shared components and decorative backdrops consume these palette roles;
+ * avatars, game capsules, and video keep their native treatment. */
+@import url('configDefaults.css');
+@import url('../config.css');
+
+:root:root {
+    --atoms-color-scheme: light;
+    --atoms-color-mode: light !important;
+    --background: var(--backgroundLightMode) !important;
+    --backgroundLightish: var(--backgroundLightModeLightish) !important;
+    --backgroundLight: var(--backgroundLightModeLight) !important;
+    --backgroundLightest: var(--backgroundLightModeLightest) !important;
+    --backgroundDarkish: var(--backgroundLightModeDarkish) !important;
+    --backgroundDark: var(--backgroundLightModeDark) !important;
+    --backgroundDarkest: var(--backgroundLightModeDarkest) !important;
+    --backgroundUnownedCard: var(--backgroundLightModeUnownedCard) !important;
+    --unachievedIconOpacity: var(--unachievedIconLightModeOpacity) !important;
+    --accent: var(--accentLightMode) !important;
+    --accentLightish: var(--accentLightModeLightish) !important;
+    --accentLight: var(--accentLightModeLight) !important;
+    --accentLightest: var(--accentLightModeLightest) !important;
+    --accentDarkish: var(--accentLightModeDarkish) !important;
+    --accentDark: var(--accentLightModeDark) !important;
+    --accentDarkest: var(--accentLightModeDarkest) !important;
+    --accentTransparent: var(--accentLightModeTransparent) !important;
+    --accentLightTransparentest: var(--accentLightModeLightTransparentest) !important;
+    --accentLessTransparent: var(--accentLightModeLessTransparent) !important;
+    --accentMoreTransparent: var(--accentLightModeMoreTransparent) !important;
+    --accentDarkTransparent: var(--accentLightModeDarkTransparent) !important;
+    --accentDarkerTransparent: var(--accentLightModeDarkerTransparent) !important;
+    --textAccented: var(--textLightModeAccented) !important;
+    --textAccentedSoft: var(--textLightModeAccentedSoft) !important;
+    --textLink: var(--textLightModeLink) !important;
+    --textLinkSoft: var(--textLightModeLinkSoft) !important;
+    --textLight: var(--textLightMode) !important;
+    --textLightish: var(--textLightModeLightish) !important;
+    --textLightest: var(--textLightModeLightest) !important;
+    --textWhite: var(--textLightModeWhite) !important;
+    --textInGame: var(--textLightModeInGame) !important;
+    --textDarkish: var(--textLightModeDarkish) !important;
+    --textDark: var(--textLightModeDark) !important;
+    --textNeutral: var(--textLightModeLightest) !important;
+    --textOnAccent: var(--white) !important;
+    --storeBackdropFilter: var(--storeBackdropLightModeFilter) !important;
+    --communityBackdropFilter: var(--communityBackdropLightModeFilter) !important;
+    --storeBackdropOpacity: var(--storeBackdropLightModeOpacity) !important;
+    --calendarBackdropFilter: var(--calendarBackdropLightModeFilter) !important;
+    --pageBackdropOpacity: var(--pageBackdropLightModeOpacity) !important;
+    --pageBackdropMask: var(--pageBackdropLightModeTextureMask) !important;
+    --pageBackdropTextureOpacity: var(--pageBackdropLightModeTextureOpacity) !important;
+    --pageBackdropTextureBlendMode: var(--pageBackdropLightModeTextureBlendMode) !important;
+    --pageBackdropTextureMask: var(--pageBackdropLightModeTextureMask) !important;
+    --steamNearWhite: var(--steamNearWhiteLightMode);
+    --steamIconWhite: var(--steamIconWhiteLightMode);
+
+    /* Legacy Store/Community surfaces still reference these hex tokens. */
+
+    --realblack: var(--realblackLightMode);
+    --blacker: var(--blackerLightMode);
+    --darkergrey: var(--darkergreyLightMode);
+    --bedarkgrey: var(--bedarkgreyLightMode);
+    --begrey: var(--begreyLightMode);
+    --thegrey: var(--thegreyLightMode);
+    --littlegrey: var(--littlegreyLightMode);
+    --darkgreyLightlyTransparent: var(--darkgreyLightlyTransparentLightMode);
+    --darkgreySlightlyTransparent: var(--darkgreySlightlyTransparentLightMode);
+    --lightergrey: var(--lightergreyLightMode);
+    --dakerwhite: var(--dakerwhiteLightMode);
+    --backgroundDarkTransparent: var(--backgroundDarkTransparentLightMode);
+}
+

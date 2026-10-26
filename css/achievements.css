@@ -32,7 +32,7 @@
         rgba(var(--accent), .65) 0%, rgba(var(--accent), 0) 100%),
         radial-gradient(70% 277% at 21% 24%,
         rgb(var(--accentDarkish)) 0%, rgb(var(--accentDarkest)) 100%) !important;
-    color: rgb(var(--textLightest)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
 }
 
 .EQqxstseYOM-:not(.gll5nH8jh6w-) .Q3WpK6X3W0o- {
@@ -53,11 +53,11 @@
 /* 1euagj7 / 115hqnm / hsfsuw / 1o1s1fo: completion text and header links. */
 .cgwmRarnhq0-.IokSIloSPlA-,
 .r3Usx8aC7Xk- a.MhcW6UA5-LA-.tEcMq-I-lRg- {
-    color: rgb(var(--accent)) !important;
+    color: rgb(var(--textAccented)) !important;
 }
 
 .r3Usx8aC7Xk- a.MhcW6UA5-LA-.tEcMq-I-lRg-:hover {
-    color: rgb(var(--accentLight)) !important;
+    color: rgb(var(--textAccentedSoft)) !important;
 }
 
 /* ul1gvu / xk6ja4 / 1mnic2s: visible trophy paint only. Preserve URL
@@ -94,12 +94,12 @@
 /* 1j8nyu7: rare percentages become pink. The small helper reuses Steam's
  * native star layer on these badges without replacing their icon or text. */
 .YdwpRPPithE-.tQWKFb1QLD0- {
-    color: rgb(var(--accent)) !important;
+    color: rgb(var(--textAccented)) !important;
     position: relative;
 }
 
 .kuTJDaZGbhc- .E-F5JVsCXEo-[style*="--color-amber-10"] {
-    color: rgb(var(--accent)) !important;
+    color: rgb(var(--textAccented)) !important;
 }
 
 :where(.J1gNXqOLM6A-) .YdwpRPPithE-.tQWKFb1QLD0- > [data-atoms-achievement-sparkles] {
@@ -130,12 +130,18 @@ a.aMOYGh7hnLQ-.xm0ps8RlGjM- {
     border-bottom-color: rgb(var(--accent)) !important;
 }
 
+/* Profile Games uses the same rare-achievement layer. Preserve its conic
+ * mask, six-second rotation and reduced-performance behavior. */
+html body .ErLZ35-FvjE- .EwPW-wVE028- {
+    background: var(--achievementGlow) !important;
+}
+
 .e1OlraMtN2w- a,
 .e1OlraMtN2w- button:not(.unlHdc1q06Q-) {
-    color: rgb(var(--accent)) !important;
+    color: rgb(var(--textAccented)) !important;
 }
 
 .e1OlraMtN2w- a:hover,
 .e1OlraMtN2w- button:not(.unlHdc1q06Q-):hover {
-    color: rgb(var(--accentLight)) !important;
+    color: rgb(var(--textAccentedSoft)) !important;
 }

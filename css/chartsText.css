@@ -1,0 +1,160 @@
+/* Modern Charts. Keep native chart geometry, game art and green/orange
+ * trend semantics; only the blue decoration and page/control paint change. */
+html body .SteamChartsShell {
+    color: rgb(var(--textLight)) !important;
+    color-scheme: var(--atoms-color-scheme);
+}
+html body .SteamChartsShell :is(h1,.GpbRWedhZd4- b,.gVg7T-9KFfY-,.sE26KzUTS8I-,.cNorHOLUtNs-,.UzY-DsdkE1I-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .SteamChartsShell :is(.GpbRWedhZd4-,.r39MVTqKimI-,.ovegPqOuJIw-,.zsaHTbjfLGQ-,._1NHg81rb90A-,.RXflLOgH0r0-,.hv-Pl2EA7-c-,.kY5DWfq2Oe0-,._7zmpUGEGDTM-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .SteamChartsShell :is(.tYHZXmg84-w-,._62kVNiVLY3w-,.llXybK-kQyQ-) {
+    color: rgb(var(--textAccented)) !important;
+}
+
+/* The overview bars reference this local SVG gradient. Offsets and stop
+ * opacity remain native; no filter touches labels, capsules or status data. */
+html body .SteamChartsShell .eyc4VnVmsCc- {
+    background-image: linear-gradient(rgba(var(--backgroundLightish),.5),rgba(var(--backgroundDarkish),.5)) !important;
+}
+html body .SteamChartsShell .eyc4VnVmsCc- #bar_linear stop {
+    stop-color: rgb(var(--accent)) !important;
+}
+html body .SteamChartsShell .eyc4VnVmsCc- #bar_linear stop[offset="1"] {
+    stop-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .SteamChartsShell .eyc4VnVmsCc- .recharts-cartesian-grid-horizontal line {
+    stroke: rgb(var(--backgroundLight)) !important;
+}
+html body .SteamChartsShell .eyc4VnVmsCc- .recharts-cartesian-axis-tick text {
+    fill: rgb(var(--textLightish)) !important;
+}
+
+/* Section panels and list rows share elevations in both palettes. */
+html body .SteamChartsShell .NBN-f1mBrso- {
+    background: linear-gradient(rgba(var(--backgroundLightish),.6),rgba(var(--backgroundDarkish),.6)) !important;
+}
+html body .SteamChartsShell :is(.kOXBwh3YQto-,.cCE5WXLdwQ4-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .SteamChartsShell :is(.qYQ2UjV4jLQ-,tr._6-rISlJoUe0-) {
+    background: linear-gradient(90deg,rgb(var(--backgroundDarkish)),rgb(var(--backgroundLightish))) !important;
+}
+html body .SteamChartsShell :is(.qYQ2UjV4jLQ-,tr._6-rISlJoUe0-):is(:hover,:focus-within,.gpfocus) {
+    background: linear-gradient(90deg,rgb(var(--backgroundLightish)),rgb(var(--backgroundLight))) !important;
+}
+html body .SteamChartsShell :is(.yn-mOOrdAYQ-,.XXg82rdteIk-,._6wDqawephLE-,.gow5uZZIQEU-,.owxxTzCprsc-,.AMqeZJOLXaA-,._0UyVznhx0AQ-,.-pKIiUTXq-w-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .SteamChartsShell :is(._5JCnwB-P8FY-,.vGOJiIhBnNo-,.S0OGjWAy4Co-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .SteamChartsShell .S0OGjWAy4Co- {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .SteamChartsShell .xjiY68vUbWQ- {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+html body .SteamChartsShell .xjiY68vUbWQ-:is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+
+/* In-Library ribbon: its capsule-sized wrapper is not a paint target. */
+html body .SteamChartsShell .Orilt6rfaTI- {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* Most Played price widgets: give only the discounted final price a compact
+ * semantic green pair. Keep the cell, original price and regular/free price
+ * on neutral surfaces, with native widget dimensions and discount math. */
+html body .SteamChartsShell td.owxxTzCprsc- .StoreSalePriceWidgetContainer.Discounted .QYFii1vIT5Q- {
+    background: rgb(var(--backgroundPositiveActionHover)) !important;
+    color: rgb(var(--textOnPositiveAction)) !important;
+    text-shadow: none !important;
+}
+html body .SteamChartsShell td.owxxTzCprsc- .StoreSalePriceWidgetContainer:not(.Discounted) .QYFii1vIT5Q- {
+    background: transparent !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .SteamChartsShell td.owxxTzCprsc- .StoreSalePriceWidgetContainer .Y9w82-bhx7g- {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .SteamChartsShell td.owxxTzCprsc- .StoreSalePriceWidgetContainer .Y9w82-bhx7g-::before {
+    border-color: currentColor !important;
+    box-shadow: none !important;
+}
+
+html body .SteamChartsShell :is(a._4IVE0bUT9m8-,._5qMqVivZRIU-,.Hm1VV1Ltxnc- a) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textAccented)) !important;
+}
+html body .SteamChartsShell :is(a._4IVE0bUT9m8-,._5qMqVivZRIU-,.Hm1VV1Ltxnc- a):is(:hover,:focus-visible,.gpfocus) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .SteamChartsShell :is(a._4IVE0bUT9m8-,._5qMqVivZRIU-,.Hm1VV1Ltxnc- a):active {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Native SSR control tokens cover trigger hover/active/focus while keeping
+ * native disabled opacity and layout. The detached menu is mapped separately. */
+html body:has(.SteamChartsShell) .PwGZnF9BFA8-._0Yp9qPJ4rvQ- {
+    --bg-color: rgb(var(--backgroundLightish)) !important;
+    --bg-color-hover: rgb(var(--backgroundLight)) !important;
+    --bg-color-active: rgb(var(--backgroundDarkest)) !important;
+    --bg-color-focus: rgb(var(--backgroundLight)) !important;
+    --text-color: rgb(var(--textLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.SteamChartsShell) .BRQQe76HnTs-,
+html body:has(.SteamChartsShell) .PwGZnF9BFA8-._0Yp9qPJ4rvQ- span.h9k0m4mdzeY-.NWgTAn1-iiQ-.IokSIloSPlA- {
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.SteamChartsShell) [role="listbox"].mMHE23-XFxU- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body:has(.SteamChartsShell) [role="listbox"].mMHE23-XFxU- [role="option"].QFIvh9bCMN0- {
+    background: transparent !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.SteamChartsShell) [role="listbox"].mMHE23-XFxU- [role="option"].QFIvh9bCMN0-:is(:hover,:focus-visible,[data-focused="true"]) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body:has(.SteamChartsShell) [role="listbox"].mMHE23-XFxU- [role="option"].QFIvh9bCMN0-[data-selected="true"] {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* Side navigation's decorative gradient keeps its native extent but now
+ * fades into this page's canvas in either mode, including narrow layouts. */
+html body:has(.SteamChartsShell) .-IN79XL9SlI- {
+    background: linear-gradient(rgb(var(--backgroundDarkish)) 50%,rgba(var(--background),0) 100%) !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .VGRHH1W2CEA- {
+    color: rgb(var(--textLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a {
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a:is(:hover,:focus-visible,.yY5kIMMmcbU-) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a.yY5kIMMmcbU- {
+    background-image: linear-gradient(transparent 95%,rgb(var(--accent)) 95%) !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a svg {
+    color: inherit !important;
+}
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a .SVGIcon_Home polygon:not([fill="none" i]),
+html body:has(.SteamChartsShell) .-IN79XL9SlI- .Tn4B4CyfYls- a svg path[fill="#C3D3D8" i] {
+    fill: currentColor !important;
+}

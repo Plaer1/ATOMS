@@ -97,12 +97,83 @@ export default function restoreVanillaGeometry() {
         timer: null,
         queuedForce: false,
         observer: null,
+        maincapHeights: new Map(),
+        saleOffsets: new Map(),
+        saleObserved: new Set(),
+        saleResizeObserver: null,
         installed: false
+    };
+
+    const heightProperty = '--atoms-maincap-art-height';
+    const restoreHeight = (element, prior) => {
+        if (prior.value) element.style.setProperty(heightProperty, prior.value, prior.priority);
+        else element.style.removeProperty(heightProperty);
+    };
+    const measureMaincapArt = () => {
+        const current = new Set();
+        for (const container of document.querySelectorAll('#home_maincap_v7 .carousel_container')) {
+            const items = container.querySelector('.carousel_items');
+            const height = items?.getBoundingClientRect().height;
+            if (!Number.isFinite(height) || height <= 0) continue;
+            current.add(container);
+            if (!state.maincapHeights.has(container)) state.maincapHeights.set(container, {
+                value: container.style.getPropertyValue(heightProperty),
+                priority: container.style.getPropertyPriority(heightProperty)
+            });
+            // Pagination is a separate sibling. Measure the artwork owner so
+            // responsive heights do not depend on a fixed pagination offset.
+            container.style.setProperty(heightProperty, `${height}px`);
+        }
+        for (const [element, prior] of state.maincapHeights) {
+            if (!current.has(element)) {
+                restoreHeight(element, prior);
+                state.maincapHeights.delete(element);
+            }
+        }
+    };
+
+    const saleProperty = '--atoms-sale-badge-bottom';
+    const restoreSaleOffset = (card, prior) => {
+        if (prior.value) card.style.setProperty(saleProperty, prior.value, prior.priority);
+        else card.style.removeProperty(saleProperty);
+    };
+    const measureSaleBadges = () => {
+        const current = new Set(), observed = new Set();
+        for (const card of document.querySelectorAll('._1gsW0WuP7ZclL1_ScZlsvo')) {
+            const sale = card.querySelector('.znNVIhFP6KdJlUS2p2B7q');
+            const flag = card.querySelector(':scope > ._3dtnlw7cvJhAMGafZPipGv._3Rgc5idc13zGnjAaIpVNAR');
+            if (!sale || !flag || sale.closest('._1gsW0WuP7ZclL1_ScZlsvo') !== card) continue;
+            observed.add(card); observed.add(sale);
+            const bounds = card.getBoundingClientRect(), badge = sale.getBoundingClientRect();
+            const scale = card.offsetHeight > 0 ? bounds.height / card.offsetHeight : 1;
+            const bottom = (badge.bottom - bounds.top) / scale - (card.clientTop || 0);
+            if (!Number.isFinite(bottom) || bottom < 0 || badge.width <= 0 || badge.height <= 0) continue;
+            current.add(card);
+            if (!state.saleOffsets.has(card)) state.saleOffsets.set(card, {
+                value: card.style.getPropertyValue(saleProperty),
+                priority: card.style.getPropertyPriority(saleProperty)
+            });
+            const value = `${bottom}px`;
+            if (card.style.getPropertyValue(saleProperty) !== value) card.style.setProperty(saleProperty, value);
+        }
+        for (const [card, prior] of state.saleOffsets) if (!current.has(card)) {
+            restoreSaleOffset(card, prior); state.saleOffsets.delete(card);
+        }
+        if (state.saleResizeObserver) {
+            for (const target of state.saleObserved) if (!observed.has(target)) state.saleResizeObserver.unobserve(target);
+            for (const target of observed) if (!state.saleObserved.has(target)) state.saleResizeObserver.observe(target);
+            state.saleObserved = observed;
+        }
     };
 
     const clear = () => {
         for (const entry of state.entries) restoreInline(entry);
         state.entries.clear();
+        for (const [element, prior] of state.maincapHeights) restoreHeight(element, prior);
+        state.maincapHeights.clear();
+        for (const [card, prior] of state.saleOffsets) restoreSaleOffset(card, prior);
+        state.saleOffsets.clear();
+        state.saleResizeObserver?.disconnect(); state.saleObserved.clear();
     };
 
     const refresh = (force = false) => {
@@ -115,7 +186,7 @@ export default function restoreVanillaGeometry() {
         const known = new Set(Array.from(state.entries, (entry) => entry.element));
         const current = new Set(candidates.map((entry) => entry.element));
         const changed = force || candidates.length !== state.entries.size || candidates.some((entry) => !known.has(entry.element));
-        if (!changed) return;
+        if (!changed) { measureMaincapArt(); measureSaleBadges(); return; }
 
         // Remove our inline snapshots before reading native values, then toggle
         // only ATOMS links for this synchronous style read. The browser cannot
@@ -152,6 +223,8 @@ export default function restoreVanillaGeometry() {
                 state.entries.delete(entry);
             }
         }
+        measureMaincapArt();
+        measureSaleBadges();
     };
 
     const schedule = (force = false) => {
@@ -179,11 +252,12 @@ export default function restoreVanillaGeometry() {
         window.addEventListener(TOGGLE_EVENT, onToggle);
         window.addEventListener('resize', () => schedule(true));
         state.observer = new MutationObserver(() => schedule());
+        if (typeof ResizeObserver === 'function') state.saleResizeObserver = new ResizeObserver(() => schedule());
         if (document.documentElement) state.observer.observe(document.documentElement, { childList: true, subtree: true });
         schedule(true);
     };
 
-    const api = { install, refresh: () => refresh(true), clear };
+    const api = { version: 2, install, refresh: () => refresh(true), clear };
     window[STATE_KEY] = api;
     install();
     return api;

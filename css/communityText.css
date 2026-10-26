@@ -1,0 +1,962 @@
+/* Community neutral surfaces and their foregrounds share the dark-default
+ * palette. The generated decorative background follows storeBackdrop* roles. */
+html body .apphub_background {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_background :is(.community_home_shortcut_content,.community_home_search_content) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_background .community_home_title {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .apphub_background :is(.community_home_subtitle,.community_home_app_shortcuts_list_header,.community_home_search_title,.apphub_CardContentGuideDesc) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .apphub_background :is(.community_activity_or,.community_home_join_steam,.apphub_CardContentMain .reviewInfo,.apphub_CardContentMain .reviewInfo .title,.apphub_CardContentMain .reviewInfo .hours) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_background .apphub_sectionTab > span {
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_background .apphub_sectionTab:is(.active,:hover) > span {
+    color: rgb(var(--accent)) !important;
+}
+/* Native hover type labels already use ATOMS' neutral backing. Keep their
+ * foreground paired with it on Home and per-app hubs, not artwork-white. */
+html body .apphub_Card .apphub_CardContentType {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Shared-files pages mount their hub navigation outside apphub_background.
+ * Its foreground must follow the page palette there as well. */
+html body .apphub_sectionTabs .apphub_sectionTab > span,
+html body .apphub_responsive_tab .responsive_tab_control_inner {
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body .apphub_sectionTabs .apphub_sectionTab:is(.active,:hover) > span {
+    color: rgb(var(--accent)) !important;
+}
+
+/* App hub headers and cards share these owners even when the native page
+ * uses apphub_blue/#ModalContentContainer instead of apphub_background. */
+html body .apphub_HeaderStandardTop {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.apphub_AppName,.apphub_CommunitySubSection) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.apphub_CommunitySubSectionArrows,.apphub_Stats,
+    .apphub_friends_who_played_recently_title) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .apphub_HomeHeader :is(.statsselect,.statsselect_text) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .apphub_HomeHeader .statsselect:is(:hover,:focus-within) .statsselect_text {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .apphub_HomeHeader .apphub_more_friends_who_play {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body .apphub_HomeHeader .apphub_more_friends_who_play:is(:hover,:focus-visible) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .apphub_HeaderBottom {
+    background-color: rgba(var(--backgroundDarkish), var(--opacity85)) !important;
+}
+html body .apphub_HeaderBottomText {
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_SwitchSitesBtn {
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_SwitchSitesBtn :is(.leftcap,.middle,.rightcap) {
+    background-image: none !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .apphub_SwitchSitesBtn:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .apphub_SwitchSitesBtn:is(:hover,:focus-visible) :is(.leftcap,.middle,.rightcap) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body .apphub_Card {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_Card .apphub_CardContentGuideTitle {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .apphub_Card :is(.apphub_CardContentDiscussionTitle,.apphub_CardContentNewsTitle),
+html body .apphub_UserReviewCardContent .vote_header .title {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .apphub_Card :is(.apphub_CardContentGuideDesc,.apphub_CardContentNewsDesc),
+html body .apphub_UserReviewCardContent .apphub_CardTextContent {
+    color: rgb(var(--textLight)) !important;
+}
+html body .apphub_Card :is(.apphub_CardContentTitle,.apphub_CardContentGuideForApp,
+    .apphub_CardMetaData,.apphub_CardContentAuthorName,.apphub_CardContentAppName,
+    .apphub_CardContentMoreLink,.apphub_CardContentNewsDate,.apphub_CardContentDiscussionDate,
+    .apphub_CardContentDiscussionType,.date_posted),
+html body .apphub_UserReviewCardContent .vote_header .hours {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .apphub_Card.interactable:hover :is(.apphub_CardContentAuthorBlock,.apphub_CardContentDiscussionType) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .apphub_Card .apphub_CardBG.workshop {
+    background-image: radial-gradient(at right bottom, rgba(var(--accent), .12),
+        rgb(var(--backgroundDarkish)) 75%) !important;
+    filter: none !important;
+}
+html body .apphub_Card :is(.apphub_CardContentTitle a,.apphub_CardContentGuideTitle a,
+    .apphub_CardContentMain .bb_link,.apphub_CardContentAppName a,.apphub_CardContentMoreLink a,
+    .apphub_CardContentAuthorName:not(.offline):not(.in-game):not(.ignored) a),
+html body :is(.appHubShortcut a,.community_home_app_shortcuts_list a,.apphub_GetMoreContent,
+    .apphub_MostPopularLink,.apphub_Chat,.apphub_Chat a,.apphub_HeaderBottomText a,
+    .apphub_HeaderTop a:not([class*="btn_"]):not([class*="btnv6_"])) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .apphub_Card :is(.apphub_CardContentTitle a,.apphub_CardContentGuideTitle a,
+    .apphub_CardContentMain .bb_link,.apphub_CardContentAppName a,.apphub_CardContentMoreLink a,
+    .apphub_CardContentAuthorName:not(.offline):not(.in-game):not(.ignored) a):is(:hover,:focus-visible),
+html body :is(.appHubShortcut a,.community_home_app_shortcuts_list a,.apphub_GetMoreContent,
+    .apphub_MostPopularLink,.apphub_Chat,.apphub_Chat a,.apphub_HeaderBottomText a,
+    .apphub_HeaderTop a:not([class*="btn_"]):not([class*="btnv6_"])):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Guide chrome: headings, author metadata and ordinary comments sit on
+ * neutral surfaces. Guide pictures and embedded article media stay intact. */
+html body :is(.guideTop,#sharedfiles_content_ctn) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .guideTop :is(.workshopItemTitle,.workshopItemDescriptionTitle),
+html body #sharedfiles_content_ctn :is(.workshopItemDetailsHeader,.rightSectionTopTitle,.subSectionTitle,.commentthread_header_label,.commentthread_header_label a,.commentthread_header_label span) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .guideTop :is(.workshopItemDescription,.guideTopDescription,.workshopItemAuthorLine),
+html body #sharedfiles_content_ctn :is(.subSectionDesc,.commentthread_comment_text,.commentthread_comment_text a,.detailsStatRight,.guideDesc,.workshopTags) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .guideTop :is(.guideAuthors,.ratingSection,.fileRatingDetails),
+html body #sharedfiles_content_ctn :is(.detailsStatLeft,.workshopTagsTitle,.stats_table,.commentthread_comment_timestamp,.commentthread_comment_editlink,.commentthread_paging,.commentthread_paging a,.commentthread_subscribe_hint,.commentthread_subscribe_hint_q) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #sharedfiles_content_ctn :is(.commentthread_comment_author,.commentthread_comment_author a,.guideIndex a,.workshopItemAuthorName,.workshopTags a) {
+    color: rgb(var(--textLink)) !important;
+}
+html body #sharedfiles_content_ctn :is(.stats_table tr > td:first-child,.commentthread_workshop_authorbadge) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body #sharedfiles_content_ctn :is(.guideSubSectionSelectionLink,.guideSubSectionSelectionLink a) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body #sharedfiles_content_ctn :is(.subSectionDesc a.bb_link,.sidebar a:not([class*="btn_"]):not(.general_btn)) {
+    color: rgb(var(--textLink)) !important;
+}
+html body #sharedfiles_content_ctn :is(.guideSubSectionSelectionLink,.guideSubSectionSelectionLink a,
+    .subSectionDesc a.bb_link,.sidebar a:not([class*="btn_"]):not(.general_btn)):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body #sharedfiles_content_ctn :is(.commentthread_entry_quotebox,.commentthread_textarea,.commentthread_header,.commentthread_footer,.sidebar .panel,.sidebar .rightDetailsBlock) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .guideTop .general_btn,
+html body #sharedfiles_content_ctn .commentthread_entry_submitlink :is(.btn_grey_black,.btn_grey_black > span) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .guideTop .general_btn:is(:hover,.toggled),
+html body #sharedfiles_content_ctn .commentthread_entry_submitlink .btn_grey_black:hover {
+    color: rgb(var(--textAccented)) !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+/* Share retains its existing filled accent gradient. */
+html body .guideTop #ShareItemBtn {
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .guideTop .vertical_divider,
+html body #sharedfiles_content_ctn .sidebar .hr {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body #sharedfiles_content_ctn .sidebar .friendBlockContent {
+    color: rgb(var(--textLink)) !important;
+}
+html body #sharedfiles_content_ctn .sidebar .friendSmallText {
+    color: rgb(var(--textLightish)) !important;
+}
+
+html body :is(.guideTop,#sharedfiles_content_ctn) .review_award_count {
+    color: rgb(var(--accent)) !important;
+}
+
+/* Community filter flyouts have their own blue hover fill. */
+html body .apphub_SectionFilter .filterselect,
+html body .filterselect_options,
+html body .filterselect_options .option {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body .apphub_SectionFilter .filterselect:hover,
+html body .apphub_SectionFilter .option:is(:hover,.selected),
+html body .filterselect_options .option:is(:hover,.selected) {
+    color: rgb(var(--textAccented)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Forum chrome and the detached hover preview use the same neutral pairs.
+ * The overlay remains transparent so it cannot cover the topic title. */
+html body:has(.forum_area) :is(.forum_list_name,.rightbox_list_option,.rightbox_list_option_content),
+html body .forum_topic_tooltip {
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.forum_area) :is(.rightbox_list_header,.forum_list_postcount),
+html body .forum_topic :is(.forum_topic_details,.forum_topic_reply_count,.forum_topic_award_count) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body:has(.forum_area) .rightbox_list_option:is(.selected,:hover) .rightbox_list_option_content {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .forum_topic_tooltip {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border: 1px solid rgb(var(--backgroundLight)) !important;
+}
+html body .forum_topic_tooltip :is(.forum_topic_name,.topic_hover_text,.topic_hover_data) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .forum_topic_tooltip .topic_hover_row {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .forum_topic_overlay:hover {
+    background: rgba(var(--backgroundLight), .22) !important;
+}
+/* Discussion row links have their own native white/unread/hover colors;
+ * metadata remains separate, as do sticky/answer/status labels and glyphs. */
+html body .forum_topic .forum_topic_name,
+html body:has(.forum_area) .rightbox .weblink a,
+html body:has(.forum_area) .rightbox a .rightbox_list_option_content,
+html body .forum_paging :is(.forum_paging_pagelink,.commentthread_pagelink):not(.active),
+html body .forum_pagesize_options a {
+    color: rgb(var(--textLink)) !important;
+}
+html body .forum_topic:is(:hover,:focus-within) .forum_topic_name,
+html body:has(.forum_area) .rightbox .weblink a:is(:hover,:focus-visible),
+html body:has(.forum_area) .rightbox a:is(:hover,:focus-visible) .rightbox_list_option_content,
+html body .forum_paging :is(.forum_paging_pagelink,.commentthread_pagelink):not(.active):is(:hover,:focus-visible),
+html body .forum_pagesize_options a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .forum_topic :is(.forum_topic_op,.forum_topic_lastpost),
+html body:has(.forum_area) :is(.rightbox_list_header,.rightbox_content_header),
+html body .forum_paging :is(.forum_paging_pagelink,.commentthread_pagelink).active,
+html body .forum_pagesize_options {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .forum_topic :is(.forum_topic_op a,.forum_topic_lastpost a) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .forum_topic :is(.forum_topic_op a,.forum_topic_lastpost a):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .forum_topic:hover {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .forum_paging .pagebtn {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .forum_paging .pagebtn:not(.disabled):is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .forum_paging .pagebtn.disabled {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .forum_area :is(input[type="text"],input[type="search"],input:not([type])) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .forum_area :is(input[type="text"],input[type="search"],input:not([type]))::placeholder {
+    color: rgb(var(--textLightish)) !important;
+    opacity: 1;
+}
+html body .forum_area :is(input[type="text"],input[type="search"],input:not([type])):focus-visible {
+    outline: 1px solid rgb(var(--accent));
+    outline-offset: 2px;
+}
+
+/* These two native 20px glyphs have no page-aware foreground. Reuse their
+ * own alpha masks and retain the image box; game/card media is unaffected. */
+html body .forum_topic :is(
+    img[src*="/skin_1/forum_icon_Comments.png"],
+    img[src*="/skin_1/icon_PinnedPost.png"]) {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'/%3E");
+    background-color: rgb(var(--icon)) !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    filter: none !important;
+}
+html body .forum_topic img[src*="/skin_1/forum_icon_Comments.png"] {
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/skin_1/forum_icon_Comments.png");
+}
+html body .forum_topic img[src*="/skin_1/icon_PinnedPost.png"] {
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/skin_1/icon_PinnedPost.png");
+}
+
+/* The review footer paints its own dark-blue strip below the card. */
+html body .apphub_CardContentMain .UserReviewCardContent_Footer > .content {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body .apphub_CardContentMain .UserReviewCardContent_Footer .gradient {
+    background: linear-gradient(transparent, rgb(var(--backgroundDarkish))) !important;
+}
+html body .UserReviewCardContent_Footer .control_block .text {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .UserReviewCardContent_Footer .developer_response {
+    color: rgb(var(--textLink)) !important;
+}
+html body .UserReviewCardContent_Footer .developer_response:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Classic review detail documents and the migrated profile review list
+ * share text/control components. None of these selectors targets a native
+ * personal-profile landing, a card/avatar image or an artist background. */
+html body:has(.review_area_content) .bluefade {
+    /* Native page_bg_blue.png is shared decorative chrome, not game art. */
+    background-image: none !important;
+}
+html body .review_area_content,
+html body .review_developer_response_text {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.ratingSummary,.review_developer_response_title) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.playTime,.recommendation_date,.review_comments_disabled) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .ratingSummaryHeader {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body :is(.ratingBar,.review_app_actions,.review_comments_disabled) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+html body :is(.ratingBar,.review_rate_bar) {
+    color: rgb(var(--textLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .review_developer_response {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+/* The review iframe imports profilev2.css, whose comment leaves explicitly
+ * stay white. Limit these pairs to the actual review document, preserving
+ * personal-profile artist media and native developer/error/status badges. */
+html body:has(.review_area_content) :is(.commentthread_comment_text,.review_developer_response_text) {
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.review_area_content) :is(.commentthread_comment_timestamp,.rightSectionTopTitle) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body:has(.review_area_content) :is(.review_developer_response a,.commentthread_author_link,.commentthread_comment_text a,.rightSectionTopTitle a,.review_award_count,.commentthread_pagelink:not(.active)) {
+    color: rgb(var(--textLink)) !important;
+}
+html body:has(.review_area_content) :is(.review_developer_response a,.commentthread_author_link,.commentthread_comment_text a,.rightSectionTopTitle a,.commentthread_pagelink:not(.active)):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body:has(.review_area_content) .commentthread_pagelink.active {
+    color: rgb(var(--textLightish)) !important;
+}
+html body:has(.review_area_content) :is(.review_rate_bar .btn_grey_grey,.commentthread_paging .pagebtn) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.review_area_content) .review_rate_bar .btn_grey_grey > span {
+    color: inherit !important;
+}
+html body:has(.review_area_content) .review_rate_bar .btn_grey_grey.btn_active,
+html body:has(.review_area_content) :is(.review_rate_bar .btn_grey_grey,.commentthread_paging .pagebtn):not(.disabled):not(.btn_disabled):is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body:has(.review_area_content) .commentthread_paging .pagebtn.disabled {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .review_area_content a,
+html body .review_developer_response_exists_date {
+    color: rgb(var(--textLink)) !important;
+}
+html body .review_area_content a:is(:hover,:focus-visible),
+html body .review_developer_response_exists_date:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body:has(.review_area_content) #rightContents .panel {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.review_area_content) #rightContents .panel:not(.owner):not(.admin) {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body:has(.review_area_content) :is(.general_btn.panel_btn,.responsive_review_gameoptions .general_btn):not(.toggled):not(.btn_active):not(.active) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body:has(.review_area_content) :is(.general_btn.panel_btn,.responsive_review_gameoptions .general_btn):not(.toggled):not(.btn_active):not(.active):not(.btn_disabled):not(:disabled):is(:hover,:focus-visible) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .review_list .review_box_content,
+html body .review_list .review_box :is(.rightcol,.content) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .review_list .review_box_content > .rightcol {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+html body .review_list :is(h1,h2),
+html body .review_list .review_box .header {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .review_list .review_box :is(.header a,.content a) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .review_list .review_box :is(.header a,.content a):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+/* Native profile_reviews.css gives these leaves explicit pale colors; the
+ * review-box foreground cannot reach them by inheritance. Keep thumb/capsule
+ * images and refund/compensation/status badges native. */
+html body .review_list .review_box :is(.vote_header,.reviewer_hardware_container) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .review_list .review_box :is(.vote_header .title,.reviewer_hardware) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .review_list .review_box :is(.vote_header .hours,.posted,.control_block,.control_block .text) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .review_list .review_box :is(.vote_header a,.review_award_count),
+html body .review_list .pagingPageLink {
+    color: rgb(var(--textLink)) !important;
+}
+html body .review_list .review_box .vote_header a:is(:hover,:focus-visible),
+html body .review_list .pagingPageLink:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .review_list .review_box .hr {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body .review_list .giantNumber {
+    color: rgb(var(--accent)) !important;
+}
+html body .review_list .giantNumberSubhead {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .review_list .dselect_container :is(.trigger,.dropcontainer ul) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .review_list .dselect_container .dropcontainer ul li a {
+    color: rgb(var(--textLight)) !important;
+}
+html body .review_list .dselect_container .trigger:is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .review_list .dselect_container .dropcontainer ul li a:is(.highlighted_selection,:hover,:focus-visible) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab,
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab > span {
+    color: rgb(var(--textLink)) !important;
+}
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab.active,
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab.active > span {
+    color: rgb(var(--accent)) !important;
+}
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab:is(:hover,:focus-visible),
+html body .sharedfiles_tabs_ctn .sectionTabs.item > .sectionTab:is(:hover,:focus-visible) > span {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Community event-reader header: the blurred copy is decoration, separate
+ * from the real game logo/image and title. Native brightness(40%) makes a
+ * dark strip even when the modal's neutral palette is light. */
+html body ._3CJsgSK-y815Zeoe6bz6dh {
+    color: rgb(var(--textLight)) !important;
+    /* Native owns layout only. This translucent theme tint is intentional,
+     * not a claim that Steam supplied an .85-alpha background. */
+    background-color: rgba(var(--background), var(--opacity85)) !important;
+}
+html body .AppPartnerEventsBanner {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body .AppPartnerEventsBanner :is(._1iqjH40fN4Diar-d-rLbR5,._3tf3bdmBO0Ji0rv8PH-ZXz) {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+html body .AppPartnerEventsBanner :is(.DialogDropDown_CurrentDisplay,.FollowBtnText) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .AppPartnerEventsBanner :is(.DialogDropDown,.DialogDropDown_Arrow) {
+    color: rgb(var(--icon)) !important;
+}
+html body .AppPartnerEventsBanner .DialogDropDown_Arrow svg polygon {
+    fill: currentColor !important;
+}
+html body ._3CJsgSK-y815Zeoe6bz6dh .Udzrpqr8534T5DvVZveNP {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .AppPartnerEventsBanner .wavRtSPqcvhar0kUHlKoJ ._3RHFoIvdUHn0fp8G8M258k {
+    filter: blur(60px) var(--storeBackdropFilter) !important;
+    opacity: calc(.6 * var(--pageBackdropOpacity)) !important;
+}
+
+/* Group overview boxes and comments use neutral page surfaces. Their native
+ * gray/blue text is separate from the artwork-backed group header and from
+ * persona, moderation and error status colors. No Clan ID is required. */
+html body .grouppage_content_area :is(.leftcol.hasContentBoxes,
+    .group_content_bodytext, .formatted_group_summary,
+    .group_overview_announcement_content) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .grouppage_content_area :is(h1, .group_content_header,
+    .commentthread_count, .commentthread_count_label) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .grouppage_content_area :is(h2, a.large_title, h2.large_title,
+    .formatted_group_summary a, .group_content_header a, a.readmore_link) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .grouppage_content_area :is(.group_overview_announcement_footer,
+    .commentthread_subscribe_desc, .commentthread_subscribe_hint,
+    .commentthread_comment_timestamp, .commentthread_comment_author .actionlink) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .grouppage_content_area .group_content_header .group_content_header_viewmore {
+    background: rgb(var(--accentDarkish)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .grouppage_content_area .group_content_header .group_content_header_viewmore:is(:hover,:focus-visible) {
+    background: rgb(var(--accentDark)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+/* The 36px native truncation layer fades into the overview's page canvas;
+ * its old blue raster is a CSS decoration rather than announcement media. */
+html body .grouppage_content_area .group_overview_announcement_fade {
+    background: linear-gradient(to bottom, rgba(var(--background), 0), rgb(var(--background))) !important;
+}
+html body .membercounts .membercount.online {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .membercounts .membercount.ingame {
+    color: rgb(var(--textInGame)) !important;
+}
+html body .membercounts .membercount.members,
+html body .membercounts .membercount.members a {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .group_comments :is(.commentthread_header,.commentthread_footer,
+    .commentthread_entry_quotebox,.commentthread_textarea) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .group_comments .commentthread_textarea::placeholder {
+    color: rgb(var(--textLightish)) !important;
+    opacity: 1;
+}
+html body .group_comments .commentthread_textarea:focus {
+    border-color: rgb(var(--accent)) !important;
+    outline-color: rgb(var(--accent)) !important;
+}
+html body .group_comments .commentthread_comment_text {
+    color: rgb(var(--textLight)) !important;
+}
+html body .group_comments :is(.commentthread_comment_text a,
+    .commentthread_subscribe_hint_q,.commentthread_pagelink,
+    .commentthread_allcommentslink) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .group_comments :is(.commentthread_pagelink.active,
+    .commentthread_paging) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .group_comments :is(.commentthread_comment_text a:hover,
+    .commentthread_pagelink:not(.active):hover,.commentthread_allcommentslink:hover) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .group_comments .commentthread_comment:not(.hidden_post):hover {
+    background: rgba(var(--backgroundLight), .22) !important;
+}
+html body .group_comments .commentthread_entry_submitlink :is(.btn_grey_black,.btn_grey_black > span) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .group_comments .commentthread_entry_submitlink .btn_grey_black:hover,
+html body .group_comments .commentthread_entry_submitlink .btn_grey_black:hover > span {
+    color: rgb(var(--textAccented)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* Native presence rules explicitly color names and their nested labels.
+ * Keep that meaning while providing a readable foreground for either page
+ * palette; avatar frames and in-game/online art are independent. */
+html body :is(.grouppage_content_area,#sharedfiles_content_ctn,.apphub_background)
+    :is(.persona.online,.persona.online a,.friend_status_online,
+        .friend_status_online div,.friend_status_online a) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body :is(.grouppage_content_area,#sharedfiles_content_ctn,.apphub_background)
+    :is(.persona.in-game,.persona.in-game a,.friend_status_in-game,
+        .friend_status_in-game div,.friend_status_in-game a) {
+    color: rgb(var(--textInGame)) !important;
+}
+html body :is(.grouppage_content_area,#sharedfiles_content_ctn,.apphub_background)
+    :is(.persona.offline,.persona.offline a,.friend_status_offline,
+        .friend_status_offline div,.friend_status_offline a) {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Group header/title text sits over the page-aware member-tile overlay.
+ * Keep the real member images and header geometry unchanged. */
+html body .grouppage_header_name {
+    color: rgb(var(--textLightest)) !important;
+}
+html body :is(.grouppage_header_label,
+    .grouppage_header_abbrev,.grouppage_friendsingroup_title,
+    .grouppage_friendsingroup_title .friendsingroup_count) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .group_tabs .group_tab,
+html body .group_tabs .group_tab > span {
+    color: rgb(var(--textLight)) !important;
+}
+html body .group_tabs a.group_tab:is(:hover,:focus-visible) {
+    background: rgb(var(--accent)) !important;
+}
+html body .group_tabs .group_tab:is(.active,:hover,:focus-visible),
+html body .group_tabs .group_tab:is(.active,:hover,:focus-visible) > span {
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* These native leaves declare their own pale foregrounds instead of
+ * inheriting the overview's body, sidebar and View More control roles. */
+html body .grouppage_content_area :is(.announcement_body,p.group_body_links) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .grouppage_content_area p.group_body_links a {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .grouppage_content_area .joinchat_bg .joinchat_membercount,
+html body .grouppage_content_area .joinchat_bg .joinchat_membercount :is(.count,.joinchat_label) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .grouppage_content_area .rightcol .weblink > a {
+    color: rgb(var(--textLight)) !important;
+}
+html body .grouppage_content_area .rightcol .weblink > a:is(:hover,:focus-visible) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .grouppage_content_area .group_associated_game {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .grouppage_content_area .group_associated_game > a {
+    color: rgb(var(--textLight)) !important;
+}
+html body .grouppage_content_area .group_associated_game:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body .grouppage_content_area .group_associated_game > a:is(:hover,:focus-visible) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .grouppage_content_area .group_content_header .group_content_header_viewmore > a,
+html body .grouppage_content_area .group_content_header .group_content_header_viewmore > a > span {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+/* The nested profile-games page retains full ATOMS styling. Its Completed
+ * information notice owns a separate native blue fill and inherited link;
+ * map only that notice and its actual text leaves, not game cards or media. */
+html body .ErLZ35-FvjE- .DXiWPOd9E2A- {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .ErLZ35-FvjE- .DXiWPOd9E2A- > b {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .ErLZ35-FvjE- .DXiWPOd9E2A- > a {
+    color: rgb(var(--textLink)) !important;
+}
+html body .ErLZ35-FvjE- .DXiWPOd9E2A- > a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .ErLZ35-FvjE- .DXiWPOd9E2A- > a:focus-visible {
+    outline: 1px solid rgb(var(--accent)) !important;
+    outline-offset: 2px;
+}
+
+/* Profile Games' modern module declares its own white/gray/blue variables.
+ * Give that module semantic colors before its selected card/action leaves. */
+html body .ErLZ35-FvjE- {
+    --typography-color-primary: rgb(var(--textLight));
+    --typography-color-neutral: rgb(var(--textLightish));
+    --color-info: rgb(var(--accent));
+    --color-backdrop: rgb(var(--backgroundDarkish));
+    --color-highlight: rgb(var(--accent));
+    color: rgb(var(--textLight));
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE-.qSm-WI7qXIE- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- .SneKFkp55Bg- .Tqka43veki8- {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- .xMHnQPzVAX0- :is(._5r4voF1GRxA-,.VueyTgirxBU-,.SBr0k5kcPck-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- button.WnfjYSyvqNI- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- button.WnfjYSyvqNI-:is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body .ErLZ35-FvjE- .qaT2YvwApZE- button.WnfjYSyvqNI-:focus-visible {
+    outline: 1px solid rgb(var(--accent));
+    outline-offset: 2px;
+}
+/* This Games achievement tooltip is a body-mounted component. Its blurred
+ * image, icon and native geometry remain independent of the neutral panel. */
+html:has(.ErLZ35-FvjE-) body ._3s4C0IO9698- {
+    color: rgb(var(--textLight)) !important;
+}
+html:has(.ErLZ35-FvjE-) body ._3s4C0IO9698- .I09u8YJHy1M- {
+    background: radial-gradient(at 20% 30%, rgb(var(--backgroundLight)),
+        rgb(var(--backgroundLightish)) 50%, rgb(var(--backgroundDarkish))) !important;
+}
+html:has(.ErLZ35-FvjE-) body ._3s4C0IO9698- .RCggUFi4Ujg- .kUq5gqVCjoU- {
+    color: rgb(var(--textLightish)) !important;
+}
+html:has(.ErLZ35-FvjE-) body ._3s4C0IO9698- .RCggUFi4Ujg- .kUq5gqVCjoU- .Wt-7wcGQDCU- {
+    color: rgb(var(--textLightest)) !important;
+}
+html:has(.ErLZ35-FvjE-) body ._3s4C0IO9698- ._3q4WQZk60DA- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* These modern Community pages share Steam's body typography tokens. Scope
+ * their neutral roles to the two verified roots, retaining status-color tokens. */
+html:has(:is(.ErLZ35-FvjE-,.KHOD4K-lWWs-)) body {
+    --color-text-body-title: rgb(var(--textLightest));
+    --color-text-body-body: rgb(var(--textLight));
+    --color-text-body-subtitle: rgb(var(--textLightish));
+    --color-text-body-description: rgb(var(--textLightish));
+    --color-text-body-note: rgb(var(--textLightish));
+}
+/* The small profile header is shared by Games, Badges and other full-theme
+ * subpages. Personal profile landings import only profileAccents.css. */
+html body .profile_small_header_text {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .profile_small_header_text a {
+    color: rgb(var(--textLink)) !important;
+}
+html body .profile_small_header_text a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .profile_small_header_arrow {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Native React profile-subpage header and Games tabs explicitly use white.
+ * Share header roles without touching its avatar/art or layout. */
+html body ._1WHxiF6PoO0- :is(.Q5WOxcN63k0-,.M4-Lc-g-O3U-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body ._1WHxiF6PoO0- :is(.Q5WOxcN63k0- a,.M4-Lc-g-O3U- a) {
+    color: rgb(var(--textLink)) !important;
+}
+html body ._1WHxiF6PoO0- :is(.Q5WOxcN63k0- a,.M4-Lc-g-O3U- a):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body ._1WHxiF6PoO0- .kd0AtvY9hsY- {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .ErLZ35-FvjE- .v45EpdUp4Ls- .aMOYGh7hnLQ- {
+    color: rgb(var(--textLight)) !important;
+}
+html body .ErLZ35-FvjE- .v45EpdUp4Ls- .aMOYGh7hnLQ-:is(.xm0ps8RlGjM-,:hover,:focus-visible) {
+    color: rgb(var(--textLink)) !important;
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+
+/* Known modern Workshop compounds, bounded by its app root even when a
+ * tooltip/card is mounted in a body portal. Flex utility hashes stay generic. */
+html:has(.KHOD4K-lWWs-) body .oQJ4ZJN3E6g-.oANGzvAVSAs- {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body .KHOD4K-lWWs- .sI7wun-GD7g-.XjBGa3VUFr8-.Qhm6jOAQZog- {
+    color: rgb(var(--textLight)) !important;
+}
+html body .KHOD4K-lWWs- .EnFuoPFRUQw-.sI7wun-GD7g-.hBHIQ0nx1yU-.Qhm6jOAQZog-,
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- {
+    background: radial-gradient(85.9% 84.18% at 34.28% 100%,
+        rgb(var(--backgroundLightish)) 27.5%, rgb(var(--backgroundDarkish)) 67.94%) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Workshop's explicit native white leaves sit outside its card root. The
+ * page gate covers those shared header/navigation owners without its art. */
+html:has(.KHOD4K-lWWs-) body .eDVdMzW4Ol4- .UzmBdjUEGaQ- a,
+html:has(.KHOD4K-lWWs-) body .bt37JYoalu8- .WXrKel0QHX8- {
+    color: rgb(var(--textLight)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .eDVdMzW4Ol4- .UzmBdjUEGaQ-:is(.Ldik1p0iuKE-,:hover) a,
+html:has(.KHOD4K-lWWs-) body .bt37JYoalu8- .WXrKel0QHX8-:is(.PaiSGO8eD8Y-,:hover,:focus-visible) {
+    color: rgb(var(--textLink)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .eDVdMzW4Ol4- .UzmBdjUEGaQ-.Ldik1p0iuKE-,
+html body .KHOD4K-lWWs- .XjBGa3VUFr8- .xGjiYBznm-U-.GL-WxjUbwGc- {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .bt37JYoalu8- {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .bt37JYoalu8- .WXrKel0QHX8-.PaiSGO8eD8Y- {
+    box-shadow: inset 0 -2px rgb(var(--accent)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .OCw7CSOMK40- {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .eDVdMzW4Ol4- h1._4mSfgGkNpzc-,
+html:has(.KHOD4K-lWWs-) body ._0ohcyeFEL5c-,
+html:has(.KHOD4K-lWWs-) body .oANGzvAVSAs- :is(.aP4Gy0iCXGk-,.QDN3gIbHDvM-,.o-1nl4PVk5c-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .wHzCuUaejBg- .Oju0VmCZMsM- {
+    color: rgb(var(--textLightish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .oANGzvAVSAs- .y0E8iqKrgIk- {
+    color: rgb(var(--textLight)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .oANGzvAVSAs- :is(.Hwk2iwzQzLk-,.y-EAQH8Pox0-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .oANGzvAVSAs- :is(.QDN3gIbHDvM-,.o-1nl4PVk5c-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .hBHIQ0nx1yU- :is(code,.IokSIloSPlA-) {
+    color: rgb(var(--textLight)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- .tvRMtdP6--U- {
+    color: rgb(var(--textLightish)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- a,
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- .EEj7KkET8kk-:not(.SLYW0mdzEK4-) {
+    color: rgb(var(--textLink)) !important;
+}
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- a:is(:hover,:focus-visible),
+html:has(.KHOD4K-lWWs-) body .dHl1yNBHOF0- .EEj7KkET8kk-:not(.SLYW0mdzEK4-):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Badge tasks have a decorative blue texture behind the authored task/user
+ * controls. Isolate that texture instead of filtering cards and avatars. */
+html body .badge_gamecard_page .badge_detail_tasks {
+    position: relative;
+    isolation: isolate;
+    background-image: none !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .badge_gamecard_page .badge_detail_tasks::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("https://community.fastly.steamstatic.com/public/images/profile/badge_tasks_bg.png");
+    background-position: inherit;
+    background-repeat: inherit;
+    background-size: inherit;
+    filter: grayscale(1);
+    opacity: .2;
+}
+html body .badge_gamecard_page .badge_friendwithgamecard {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border: 1px solid rgb(var(--backgroundLight));
+}
+html body .badge_gamecard_page .badge_friendwithgamecard_actions {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Badge title/drop metadata and friend messages declare independent native
+ * light foregrounds. Persona colors and the paired action buttons stay owned
+ * by their existing status/control rules. */
+html body .badge_gamecard_page .badge_title {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .badge_gamecard_page :is(.badge_title_stats,.badge_friendwithgamecard_msg,.badge_card_set_text) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .badge_gamecard_page .badge_title_stats a {
+    color: rgb(var(--textLink)) !important;
+}
+html body .badge_gamecard_page .badge_title_stats a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* The task's View Cards in Inventory control sits outside the friend/card
+ * action wrappers. Pair that exact native inventory link and its inner label. */
+html body .badge_gamecard_page .badge_detail_tasks a.btn_grey_grey[href*="/inventory/"] {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .badge_gamecard_page .badge_detail_tasks a.btn_grey_grey[href*="/inventory/"] > span {
+    background: transparent !important;
+    color: inherit !important;
+}
+html body .badge_gamecard_page .badge_detail_tasks a.btn_grey_grey[href*="/inventory/"]:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):is(:hover,:focus-visible) {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .badge_gamecard_page .badge_detail_tasks a.btn_grey_grey[href*="/inventory/"]:not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):is(:hover,:focus-visible) > span {
+    color: inherit !important;
+}
+
+/* Missing large cards have a separate native canvas beneath their .1-alpha
+ * image. Swap only that canvas; small placeholders and owned art keep their
+ * native assets, opacity and geometry. The dark role preserves native #101010. */
+html body .badge_gamecard_page .badge_card_set_card.unowned .game_card_unowned_border {
+    background-color: rgb(var(--backgroundUnownedCard)) !important;
+}

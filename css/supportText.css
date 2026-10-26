@@ -1,0 +1,127 @@
+/* Steam Support is imported only for help.steampowered.com. Its loading
+ * canvas and wizard use the same dark-default ATOMS roles as other pages. */
+html,
+html body,
+html body .page_body_ctn {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(#page_content,#wizard_contents,.wizard_content_wrapper) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .help_intro_text {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .wizard_content_wrapper .help_your_issue_start {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .wizard_content_wrapper .help_your_issue_start > .help_your_issue {
+    color: rgb(var(--textLight)) !important;
+}
+html body .help_header,
+html body .wizard_content_wrapper :is(h1:not(.failed),h2,h3,.game_name,.help_game_header,.help_wizard_button_text) {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+html body .wizard_content_wrapper :is(.breadcrumbs,.breadcrumb_separator,.breadcrumb_current_page,.help_lowlight_text,.help_purchase_detail_box,.help_header_right,.help_header_link,.help_header_left,.LineItemRow,.help_wizard_button_description) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .wizard_content_wrapper .help_highlight_text {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .wizard_content_wrapper :is(a,.help_wizard_button,.help_wizard_button > span) {
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.help_wizard_button:not(.help_wizard_button_highpri),.help_site_button,.help_purchase_detail_box,.help_app_header) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .help_app_header_divider {
+    background: rgb(var(--accent)) !important;
+}
+html body .help_site_button {
+    color: rgb(var(--textLight)) !important;
+}
+html body .wizard_content_wrapper .help_wizard_button:not(.disabled):not(.nohover):not(.help_wizard_button_highpri):is(:hover,:focus-visible,.opened),
+html body .wizard_content_wrapper .help_wizard_button:not(.disabled):not(.nohover):not(.help_wizard_button_highpri):is(:hover,:focus-visible,.opened) > span {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .wizard_content_wrapper a:not(.help_wizard_button):hover {
+    color: rgb(var(--textAccented)) !important;
+}
+html body .help_site_button:is(:hover,:focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body :is(#help_search_support_input,.help_search_support_input) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Explicit wizard/refund text leaves do not inherit the root foreground. */
+html body #wizard_contents :is(.help_section_text,.refund_request_warnings,.refund_token_balance_name,.refund_value,.refund_value_details,.refund_game_name) {
+    color: rgb(var(--textAccented)) !important;
+}
+html body #wizard_contents :is(.refund_token_balance_amount,.refund_item_header,.refund_game_detail) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #wizard_contents :is(.refund_note,.help_header_nolink,.help_wizard_button_dark) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #wizard_contents :is(.help_refund_request_area,.refund_info_box,.refund_game_block,.help_game_refund_box,.help_wizard_button_notes) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #wizard_contents .refund_token_balance_hr { border-color: rgb(var(--backgroundLight)) !important; }
+html body #wizard_contents .help_game_request_refund_button {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textAccented)) !important;
+}
+html body #wizard_contents .help_game_request_refund_button:is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+/* Native high-priority green and failure red retain their status meaning. */
+html body .wizard_content_wrapper .help_wizard_button_highpri,
+html body .wizard_content_wrapper .help_wizard_button_highpri > span {
+    color: rgb(var(--textOnAction)) !important;
+}
+html body .dselect_container :is(.trigger,.activetrigger),
+html body .dselect_container .dropcontainer ul {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .dselect_container .dropcontainer ul li a {
+    color: rgb(var(--textLight)) !important;
+}
+html body .dselect_container :is(.trigger:hover,.activetrigger),
+html body .dselect_container .dropcontainer ul li a:is(:hover,.highlighted_selection,:focus-visible) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+html body #help_refund_request_dialog :is(textarea,select,input[type="text"],input[type="email"],input[type="number"]) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #help_refund_request_dialog :is(textarea,input)::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #help_refund_request_dialog :is(textarea,select,input):focus-visible,
+html body .dselect_container :is(.trigger,.activetrigger):focus-visible {
+    outline-color: rgb(var(--accent)) !important;
+}
+html body #help_refund_request_dialog :is(textarea,select,input):disabled {
+    color: rgb(var(--textLightish)) !important;
+}
+/* Reuse Steam's arrow alpha rather than keeping its white raster on a
+ * light trigger. Native size, inset and control interaction are unchanged. */
+html body .dselect_container .trigger::after {
+    background: currentColor !important;
+    mask-image: url('https://help.steampowered.com/public/images/ico_arrow_dn_for_select.png');
+    mask-repeat: no-repeat;
+    mask-position: right;
+}

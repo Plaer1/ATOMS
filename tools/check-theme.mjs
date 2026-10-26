@@ -18,14 +18,21 @@ for (const patch of manifest.Patches) {
     for (const key of ['TargetCss', 'TargetJs']) if (patch[key]) checkFile(patch[key]);
 }
 for (const [name, condition] of Object.entries(manifest.Conditions)) {
-    if (!(condition.default in condition.values)) errors.push(`Invalid condition default: ${name}`);
-    for (const value of Object.values(condition.values)) for (const key of ['TargetCss', 'TargetJs']) {
+    if (condition.slider) {
+        const { min, max, step, cssVariable, unit = '' } = condition.slider;
+        const initial = Number(condition.default);
+        if (![min, max, step, initial].every(Number.isFinite) || min >= max || step <= 0 || initial < min || initial > max ||
+            !/^--[a-zA-Z_][\w-]*$/.test(cssVariable) || !/^(?:[a-zA-Z]+|%)?$/.test(unit)) errors.push(`Invalid slider: ${name}`);
+        continue;
+    }
+    if (!(condition.default in (condition.values ?? {}))) errors.push(`Invalid condition default: ${name}`);
+    for (const value of Object.values(condition.values ?? {})) for (const key of ['TargetCss', 'TargetJs']) {
         if (!value[key]) continue;
         checkFile(value[key].src);
         for (const match of value[key].affects) regex(match);
     }
 }
-for (const key of ['Steam-WebKit', 'webkitJS']) checkFile(manifest[key]);
+for (const key of ['Steam-WebKit', 'webkitCSS', 'webkitJS']) if (manifest[key]) checkFile(manifest[key]);
 const files = folder => fs.readdirSync(path.join(root, folder), { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(path.join(folder, e.name)) : [path.join(folder, e.name)]);
 let cssCount = 0, jsCount = 0;
 for (const file of files('css').filter(f => f.endsWith('.css'))) {

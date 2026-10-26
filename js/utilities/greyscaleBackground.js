@@ -1,25 +1,96 @@
-import waitForElement from "./waitForElement.js";
+import { isProfileLanding } from './pageRoutes.js';
 
 /* s0fjuu / 8c9hvn: these native layers contain only background artwork.
  * Keeping the image on its own layer preserves responsive sizing, masks and
  * gradients, without filtering the text or rebuilding a full-page backdrop.
- * CSS also catches later React mounts, so no polling or DOM observer is needed.
+ * CSS catches later React mounts; sale artwork sizing below follows its bitmap
+ * so a long product list cannot push the fade past the image's lower edge.
  */
+const SALE_ART = '.SaleBackground > ._2StYOVdV9beNEHqNB_UQuQ._2wlqOo3XXW1wCAxwfudaL8:empty';
+
+export function renderedBackdropHeight(naturalWidth, naturalHeight, backgroundSize, boxWidth, boxHeight) {
+    const size = backgroundSize.split(',')[0].trim();
+    if (size === 'cover' || size === 'contain') {
+        return naturalHeight * Math[size === 'cover' ? 'max' : 'min'](boxWidth / naturalWidth, boxHeight / naturalHeight);
+    }
+    const [x = 'auto', y = 'auto'] = size.split(/\s+/);
+    const length = (value, basis) => value === 'auto' ? null
+        : value.endsWith('%') ? parseFloat(value) * basis / 100 : parseFloat(value);
+    const height = length(y, boxHeight), width = length(x, boxWidth);
+    if (Number.isFinite(height)) return height;
+    return Number.isFinite(width) ? width * naturalHeight / naturalWidth : naturalHeight;
+}
+
+function sizeSaleArtworkMasks() {
+    const key = '__atomsSaleBackdropSizingV1';
+    if (window[key]) { window[key].refresh(); return; }
+    const images = new WeakMap();
+    let timer;
+    const refresh = () => {
+        for (const element of document.querySelectorAll(SALE_ART)) {
+            const computed = getComputedStyle(element);
+            const source = normalizeUrlFn(computed.backgroundImage);
+            if (!source) continue;
+            let entry = images.get(element);
+            const update = () => {
+                if (!element.isConnected || images.get(element) !== entry || !entry.image.naturalWidth) return;
+                const style = getComputedStyle(element);
+                const height = renderedBackdropHeight(entry.image.naturalWidth, entry.image.naturalHeight,
+                    style.backgroundSize, element.clientWidth, element.clientHeight);
+                const value = `${height}px`;
+                if (element.style.getPropertyValue('--atoms-backdrop-image-height') !== value)
+                    element.style.setProperty('--atoms-backdrop-image-height', value);
+            };
+            if (entry?.source === source) { update(); continue; }
+            entry = { source, image: new Image() };
+            images.set(element, entry);
+            entry.image.onload = update;
+            entry.image.src = source.slice(5, -2);
+        }
+    };
+    const observer = new MutationObserver(records => {
+        if (!records.some(record => record.addedNodes.length)) return;
+        clearTimeout(timer);
+        timer = setTimeout(refresh, 100);
+    });
+    // Only sale routes have these full-page decorations. Observe their mounts,
+    // not every Store page, and leave native geometry/text/media untouched.
+    if (document.body) observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('resize', refresh);
+    window[key] = { refresh };
+    refresh();
+}
+
 export function installApprovedStoreBackdrops() {
+    if (isProfileLanding()) return;
     const style = document.querySelector('style[data-grayscale-bg="approved-store-art"]')
         || document.createElement('style');
     style.dataset.grayscaleBg = 'approved-store-art';
     style.dataset.atomsVisualEffect = 'grayscale-background';
     style.textContent = `
+        .personal_calendar_ctn.v2 {
+            isolation: isolate;
+        }
+        .personal_calendar_ctn.v2 > .personal_calendar_background:empty {
+            filter: var(--calendarBackdropFilter, grayscale(1) brightness(0) invert(1)) !important;
+        }
         a[href*="/personalcalendar/"] .-U8O2frQ6tI- > .-NaokOc2Odw-:empty,
         a[href*="/personalcalendar/"] ._1hrnAqRA57mMuhK3gjPSLu > ._2TQdMr4X39QLH39Z0_airS:empty,
         .SaleBackground > ._2StYOVdV9beNEHqNB_UQuQ._2wlqOo3XXW1wCAxwfudaL8:empty {
-            filter: grayscale(100%) brightness(0.77) !important;
+            filter: var(--storeBackdropFilter, grayscale(1) brightness(.77)) !important;
+            opacity: var(--storeBackdropOpacity, 1);
             background-color: rgb(var(--background)) !important;
+        }
+        .SaleBackground > ._2StYOVdV9beNEHqNB_UQuQ._2wlqOo3XXW1wCAxwfudaL8:empty {
+            mask-image: var(--pageBackdropMask, none);
+            mask-size: 100% var(--atoms-backdrop-image-height, 100%);
+            mask-position: center top;
+            mask-repeat: no-repeat;
         }
     `;
     if (!style.isConnected) document.head.appendChild(style);
     window.__atomsThemeToggleV1?.sync();
+    if (location.hostname === 'store.steampowered.com' && location.pathname.startsWith('/sale/')) sizeSaleArtworkMasks();
 }
 
 /* ========= Utils ========= */
@@ -38,7 +109,9 @@ function decodeHtmlEntities(str) {
 
 function normalizeUrlFn(urlFn) {
     if (!urlFn) return null;
-    const m = urlFn.match(/^url\((.*)\)$/i);
+    // Steam can supply `url(...), none`. Capture the image, not the trailing
+    // empty/gradient layer, which would otherwise become part of its URL.
+    const m = urlFn.match(/^url\(\s*("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[^)]*)\s*\)/i);
     if (!m) return null;
     let inside = m[1].trim();
     inside = inside.replace(/^['"]|['"]$/g, "");
@@ -101,46 +174,10 @@ function extractBackgroundImage(el) {
 }
 
 /* ========= Appliers ========= */
-function applyViewportBackdrop(bgImage, opts = {}) {
-    const { position = "center top", size = "cover", repeat = "no-repeat" } = opts;
-
-    console.log("[grayscale][applyViewport] img:", bgImage, "opts:", opts);
-
-    const style = document.createElement("style");
-    style.setAttribute("data-grayscale-bg", "body-viewport");
-    style.setAttribute("data-atoms-visual-effect", "grayscale-background");
-
-    style.innerHTML = `
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-
-            background-image: ${bgImage} !important;
-            background-position: ${position};
-            background-size: ${size};
-            background-repeat: ${repeat};
-
-            filter: grayscale(100%) brightness(0.77);
-            will-change: filter, transform;
-        }
-        body > * { position: relative; z-index: 1; }
-        body { position: static; background: transparent !important; }
-        html, body { min-height: 100%; }
-    `;
-    document.head.appendChild(style);
-    console.log("[grayscale][applyViewport] style appended");
-    return true;
-}
-
 // Element-scoped applier (used by other routes)
-function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
-    const { forceNoRepeat = false, forceCenterX = false } = opts;
+export function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
+    const { forceNoRepeat = false, forceCenterX = false, opacityRole = "storeBackdropOpacity",
+        filterRole = "storeBackdropFilter", pageArtwork = false } = opts;
     console.log("[grayscale][applyEl] start for:", selectorHint, "el:", el, "opts:", opts);
 
     if (!el || !el.isConnected) {
@@ -151,12 +188,78 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
     const cs = getComputedStyle(el);
     console.log("[grayscale][applyEl] computed style acquired");
 
-    const bgImage = extractBackgroundImage(el);
+    const previousAnchor = el.getAttribute("data-grayscale-anchor");
+    const previousStyle = previousAnchor && [...document.querySelectorAll('style[data-grayscale-bg]')]
+        .find(style => style.dataset.grayscaleBg === selectorHint &&
+            style.textContent.includes(`[data-grayscale-anchor="${previousAnchor}"]`));
+    // A previous run already removed the native image through its stylesheet.
+    // Keep its source available for repeated entrypoint loads and hot updates.
+    const bgImage = extractBackgroundImage(el) || previousStyle?.dataset.grayscaleSource;
     if (!bgImage) {
         console.warn("[grayscale][applyEl] no valid bg for:", selectorHint);
         return false;
     }
     console.log("[grayscale][applyEl] bgImage:", bgImage);
+
+    if (pageArtwork) {
+        // Community hubs use an empty, zero-height art node; the activity feed
+        // uses a node as tall as its content. Neither is an artwork-sized box.
+        // A body-owned decorative layer keeps the same composition on both,
+        // with its fade measured against the bitmap rather than the feed.
+        const style = previousStyle || document.createElement('style');
+        const anchorId = previousAnchor || `grayscale-${Math.random().toString(36).slice(2, 9)}`;
+        el.setAttribute('data-grayscale-anchor', anchorId);
+        style.setAttribute('data-grayscale-bg', selectorHint);
+        style.setAttribute('data-atoms-visual-effect', 'grayscale-background');
+        style.dataset.grayscaleSource = bgImage;
+        const render = (ratio = style.dataset.grayscaleRatio || '16 / 9') => {
+            style.dataset.grayscaleRatio = ratio;
+            style.textContent = `
+                html [data-grayscale-anchor="${anchorId}"][data-grayscale-anchor] {
+                    background-image: none !important;
+                    ${el === document.body ? '' : 'background-color: transparent !important;'}
+                }
+                body {
+                    position: relative;
+                    isolation: isolate;
+                    background-color: rgb(var(--background)) !important;
+                }
+                body::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: ${ratio};
+                    pointer-events: none;
+                    z-index: -1;
+                    background-image: ${bgImage} !important;
+                    background-position: center top;
+                    background-size: 100% auto;
+                    background-repeat: no-repeat;
+                    filter: var(--${filterRole}, grayscale(1) brightness(.77));
+                    opacity: var(--${opacityRole}, 1);
+                    mask-image: var(--pageBackdropMask, none);
+                }
+            `;
+            window.__atomsThemeToggleV1?.sync();
+        };
+        render();
+        if (!style.isConnected) document.head.appendChild(style);
+        if (!style.dataset.grayscaleLoadedSource || style.dataset.grayscaleLoadedSource !== bgImage) {
+            const image = new Image();
+            image.onload = () => {
+                if (!style.isConnected || style.dataset.grayscaleSource !== bgImage) return;
+                if (image.naturalWidth && image.naturalHeight) {
+                    style.dataset.grayscaleLoadedSource = bgImage;
+                    render(`${image.naturalWidth} / ${image.naturalHeight}`);
+                }
+            };
+            image.src = bgImage.slice(5, -2);
+        }
+        return true;
+    }
 
     const bgPosRaw = cs.backgroundPosition || "center top";
     let [posX, posY] = bgPosRaw.trim().split(/\s+/);
@@ -175,13 +278,18 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
         console.log("[grayscale][applyEl] set el.style.position=relative");
     }
 
-    const style = document.createElement("style");
-    const anchorId = `grayscale-${Math.random().toString(36).slice(2, 9)}`;
+    const style = previousStyle || document.createElement("style");
+    const anchorId = previousAnchor || `grayscale-${Math.random().toString(36).slice(2, 9)}`;
     el.setAttribute("data-grayscale-anchor", anchorId);
 
     style.setAttribute("data-grayscale-bg", selectorHint);
     style.setAttribute("data-atoms-visual-effect", "grayscale-background");
-    style.innerHTML = `
+    style.dataset.grayscaleSource = bgImage;
+    style.textContent = `
+        [data-grayscale-anchor="${anchorId}"] {
+            background-image: none !important;
+            isolation: isolate;
+        }
         [data-grayscale-anchor="${anchorId}"]::before {
             content: "";
             position: absolute;
@@ -196,189 +304,51 @@ function applyGrayscaleBackgroundToEl(el, selectorHint = "<el>", opts = {}) {
             background-size: ${bgSize};
             background-repeat: ${bgRepeat};
 
-            filter: grayscale(100%) brightness(0.77);
+            filter: var(--storeBackdropFilter, grayscale(1) brightness(.77));
+            opacity: var(--${opacityRole}, 1);
             will-change: filter, transform;
         }
         [data-grayscale-anchor="${anchorId}"] > * { position: relative; z-index: 1; }
     `;
-    document.head.appendChild(style);
+    if (!style.isConnected) document.head.appendChild(style);
+    window.__atomsThemeToggleV1?.sync();
     console.log("[grayscale][applyEl] style tag appended for anchor:", anchorId);
     return true;
 }
 
-/* ========= Cart polling (reads from cart div, paints to body, then clears original) ========= */
-function pollCartForBackground({
-    selector = ".FaiD8bJRAZ-HoNo0VvLOO",
-    intervalMs = 33,
-    maxMs = 10000,
-} = {}) {
-    const t0 = performance.now();
-    let attempts = 0;
-    let timerId = null;
-
-    // ensure we can nuke the original background robustly
-    const ensureCartBackgroundClearedRule = () => {
-        if (document.querySelector("style[data-grayscale-clear-cart]")) return;
-        const s = document.createElement("style");
-        s.setAttribute("data-grayscale-clear-cart", "1");
-        s.textContent = `
-            ${selector} {
-                background: none !important;
-                background-image: none !important;
-            }
-        `;
-        document.head.appendChild(s);
-        console.log("[grayscale][cart][clear] CSS rule injected to force background none");
-    };
-
-    const clearOriginalBackground = (el) => {
-        try {
-            el.style.setProperty("background-image", "none", "important");
-            el.style.setProperty("background", "none", "important");
-            console.log("[grayscale][cart][clear] inline background cleared");
-        } catch (e) {
-            console.warn("[grayscale][cart][clear] inline clear failed:", e);
-        }
-        ensureCartBackgroundClearedRule();
-    };
-
-    const tick = () => {
-        attempts += 1;
-        const elapsed = Math.round(performance.now() - t0);
-
-        const el = document.querySelector(selector);
-        console.log(
-            `[grayscale][cart][poll] attempt ${attempts}, elapsed ${elapsed}ms, node:`,
-            el,
-            "cssText:",
-            el?.style?.cssText
-        );
-
-        if (!el) {
-            if (elapsed >= maxMs) {
-                console.warn("[grayscale][cart][poll] giving up; element never appeared");
-                return;
-            }
-            timerId = setTimeout(tick, intervalMs);
-            return;
-        }
-
-        const img = extractBackgroundImage(el);
-        console.log("[grayscale][cart][poll] extracted img:", img);
-
-        if (img) {
-            const cs = getComputedStyle(el);
-            const pos = cs.backgroundPosition || "center top";
-            const size = cs.backgroundSize && cs.backgroundSize !== "auto" ? cs.backgroundSize : "cover";
-            const rep = cs.backgroundRepeat || "no-repeat";
-            const ok = applyViewportBackdrop(img, { position: pos, size, repeat: rep });
-            console.log("[grayscale][cart][poll] applied to viewport:", ok);
-
-            clearOriginalBackground(el);
-            console.log("[grayscale][cart][poll] success; stopping");
-            return;
-        }
-
-        if (elapsed >= maxMs) {
-            console.warn("[grayscale][cart][poll] giving up; background not found within cap");
-            return;
-        }
-        timerId = setTimeout(tick, intervalMs);
-    };
-
-    console.log("[grayscale][cart][poll] start:", { selector, intervalMs, maxMs });
-    tick();
-    return () => {
-        if (timerId) clearTimeout(timerId);
-    };
-}
-
-/* ========= Runner (export default) ========= */
+/* ========= Routes ========= */
+// Native patches and the WebKit entrypoint can both install this module.
+// One bounded retry handles late CSS/React artwork without duplicate pollers.
 export default function runGrayscaleScript() {
-    console.log("[grayscale][run] title:", document.title, "url:", location.href);
+    if (isProfileLanding()) return;
+    if (window.__atomsGrayscaleRoutesV2) return;
+    const { hostname, pathname } = location;
+    const community = hostname === 'steamcommunity.com';
+    const store = hostname === 'store.steampowered.com';
+    const upcoming = store && pathname.startsWith('/explore/upcoming');
+    const cart = store && /^\/cart(?:\/|$)/.test(pathname);
+    const seasonal = store && pathname === '/' && document.body.classList.contains('seasonal_sale');
+    const deals = store && pathname.startsWith('/sale/special_deals');
+    if (!community && !upcoming && !cart && !seasonal && !deals) return;
+    window.__atomsGrayscaleRoutesV2 = true;
 
-    if (document.title.startsWith("Upcoming Releases")) {
-        console.log("[grayscale][route] Upcoming Releases");
-        let upcomingApplied = false;
-
-        waitForElement(
-            "div.game_page_background.game",
-            function (el) {
-                if (upcomingApplied) return;
-                upcomingApplied = true;
-                applyGrayscaleBackgroundToEl(el, "div.game_page_background.game", {
-                    forceNoRepeat: true,
-                    forceCenterX: true,
-                });
-            },
-            100,
-            5000
-        );
-        return;
-    }
-
-    if (location.href.startsWith("https://steamcommunity.com")) {
-        console.log("[grayscale][route] Steam Community");
-        let communityApplied = false;
-
-        waitForElement(
-            ".apphub_background",
-            function (el) {
-                if (communityApplied) return;
-                communityApplied = true;
-                console.log("[grayscale][route] .apphub_background ready. el:", el);
-                applyGrayscaleBackgroundToEl(el, ".apphub_background", {
-                    forceNoRepeat: true,
-                    forceCenterX: true,
-                });
-            },
-            69,
-            2000
-        );
-
-        setTimeout(() => {
-            if (communityApplied || !document.body) return;
-            console.log("[grayscale][route] community fallback to body background");
-            const img = extractBackgroundImage(document.body);
-            if (img) {
-                communityApplied = true;
-                applyViewportBackdrop(img);
-            }
-        }, 2000);
-        return;
-    }
-
-    if (document.title === "Shopping Cart") {
-        console.log("[grayscale][route] Shopping Cart");
-        const CART_SEL = ".FaiD8bJRAZ-HoNo0VvLOO";
-        console.log("[grayscale][route] cart selector:", CART_SEL);
-
-        waitForElement(CART_SEL, function () {
-            console.log("[grayscale][route] cart element observed; begin polling and paint to body, then clear original");
-            pollCartForBackground({ selector: CART_SEL, intervalMs: 33, maxMs: 10000 });
-        });
-        return;
-    }
-
-    if (document.title.startsWith("Welcome to Steam") && document.body.classList.contains("seasonal_sale")) {
-        console.log("[grayscale][route] Welcome to Steam + seasonal_sale");
-        waitForElement("body", function (el) {
-            console.log("[grayscale][route] body ready (seasonal). el:", el);
-            const img = extractBackgroundImage(el);
-            if (img) applyViewportBackdrop(img);
-        });
-        return;
-    }
-
-    if (location.href.startsWith("https://store.steampowered.com/sale/special_deals")) {
-        console.log("[grayscale][route] special deals sale page");
-        waitForElement("body", function (el) {
-            console.log("[grayscale][route] body ready (special deals). el:", el);
-            const img = extractBackgroundImage(el);
-            if (img) applyViewportBackdrop(img);
-        });
-        return;
-    }
-
-    console.log("[grayscale][route] no matching route");
+    const started = performance.now();
+    const tryInstall = () => {
+        if (isProfileLanding()) return;
+        const element = community ? document.querySelector('.apphub_background')
+            : upcoming ? document.querySelector('div.game_page_background.game')
+            : cart ? document.querySelector('.FaiD8bJRAZ-HoNo0VvLOO')
+            : document.body;
+        if (element && applyGrayscaleBackgroundToEl(element,
+            community ? (element === document.body ? 'community-body' : '.apphub_background')
+                : upcoming ? 'div.game_page_background.game' : cart ? 'cart-art' : 'store-body',
+            { pageArtwork: true, opacityRole: 'pageBackdropOpacity',
+                filterRole: community ? 'communityBackdropFilter' : 'storeBackdropFilter' })) return;
+        if (community && applyGrayscaleBackgroundToEl(document.body, 'community-body',
+            { pageArtwork: true, opacityRole: 'pageBackdropOpacity', filterRole: 'communityBackdropFilter' })) return;
+        // An apphub node can arrive before its CSS source. Retry extraction,
+        // and only claim success after an image has actually been installed.
+        if (performance.now() - started < 5000) setTimeout(tryInstall, 100);
+    };
+    tryInstall();
 }

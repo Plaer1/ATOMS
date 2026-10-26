@@ -387,7 +387,7 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 /*###########################################################
 /*main library page:*/
 
-._1S6CCCQlcTTAAHh3LMTLh1, .ErrorBoundary, ._1ABCOz8DSrl-YJdh1xD-m0, ._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c, ._3KDkLoCR8OM8xfdQysKn9t, ._2EOPVRm0FFn4LjXaGZ0Xh9, ._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause), .PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
+._1S6CCCQlcTTAAHh3LMTLh1, .ErrorBoundary, ._1ABCOz8DSrl-YJdh1xD-m0, ._1ABCOz8DSrl-YJdh1xD-m0._1dDpSuaJBGZzS41s0SPk4c, ._2EOPVRm0FFn4LjXaGZ0Xh9, ._1n7Wloe5jZ6fSuvV18NNWI:not(.Play):not(.Install):not(.Update):not(.Pause), .PP7LM0Ow1K5qkR8WElLpt															/* context menu bg*/
 {
 		background: rgb(var(--backgroundDarkish)) !important;
 }
@@ -396,7 +396,7 @@ TODOTODOTODOTODOTODOTODOTODOTODOTODO
 ._18z-3vkWndCBO5WJgFldRK, ._1n7Wloe5jZ6fSuvV18NNWI:hover:not(.Play):not(.Install):not(.Update):not(.Pause) {
 	background: rgb(var(--accent)) !important;
 	border-color:rgb(var(--accent)) !important; 
-	color: rgb(var(--backgroundLightest)) !important;
+	color: rgb(var(--textNeutral)) !important;
 }
 
 /* context menu install/update button bg */
@@ -455,12 +455,12 @@ background: rgba(var(--accentDark)) !important;
 /*scroll to top button*/
 ._1J21tLst5SEhBPkVRT53UV>div{
   background: rgba(var(--accent)) !important;
-  color: rgba(var(--backgroundLightest)) !important;
+  color: rgba(var(--textNeutral)) !important;
 }
 /*scroll to top button*/
 ._1J21tLst5SEhBPkVRT53UV>div:hover{
   background: rgba(var(--accentLightest)) !important;
-  color: rgba(var(--backgroundDarkest)) !important;
+  color: rgba(var(--textOnAccent)) !important;
 }
 /*update footer*/
 ._2iJsgdTIX9Tj23rWnB7Q-c{
@@ -632,11 +632,11 @@ note: you may need to adjust the size for best clarity.*/
 /* triangle in the play button*/
 .playTriangle, .SVGIcon_FlatArrow > polygon, .SVGIcon_Download > path, .SVGIcon_Download > svg > path, :not(._1Pb6PMh_3L5p5NzuUz0Pp9) > ._2AzIX5kl9k6JnxLfR5H4kX svg /* update icon*/
 {
-	fill: rgba(var(--backgroundLightest)) !important;
+	fill: rgb(var(--textOnAction)) !important;
 }
 /* stop in the stop/cancle button*/
 ._3ydigb6zZAjJ0JCDgHwSYA._2AzIX5kl9k6JnxLfR5H4kX>svg>line{
-	stroke: rgba(var(--backgroundLightest)) !important;
+	stroke: rgb(var(--textOnAction)) !important;
 }
 
 /*rare achievment glow color*/
@@ -803,7 +803,7 @@ button.DialogButton.Primary, .gkgG-dWgjpwS_aqlcMNTM /* selected drive for instal
  /*disabled text*/
 button.DialogButton.Primary.Disabled{
 	text-decoration: line-through !important;
-	color: rgba(var(--backgroundDarkest)) !important;
+	color: rgba(var(--textOnAccent)) !important;
 }
 .disabled{
 	text-decoration: line-through !important;

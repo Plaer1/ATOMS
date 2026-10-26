@@ -1,4 +1,6 @@
+@import url('configDefaults.css');
 @import url('../config.css');
+@import url('themeText.css');
 *{ font-family: var(--font) !important; }
 
 
@@ -7,7 +9,7 @@
     background: rgba(var(--backgroundDarkest)) !important;
 }
 
-._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, ._3TvBVwaH8eIBabTdki35oe, ._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc, ._34o03-8cUc3fQX1u650c0L, ._34EufgHrrmvt164EDrO1LB .ModalOverlayBackground, .APY6jDS50MNUPuX38IgC0 /* main controller settings bottom stripe */
+._20sN9G_C5kZ9GO_mVUuWTD._2nCPl_RHHzapds8JFSJCat, ._3TvBVwaH8eIBabTdki35oe, ._2FqpD91Xarb7f0uIOuXFOR._15Ymb1OOfFUP4fAvwoG7Mc, ._34o03-8cUc3fQX1u650c0L, .APY6jDS50MNUPuX38IgC0 /* main controller settings bottom stripe */
  {
 background: rgba(var(--background)) !important;
 }
@@ -31,25 +33,39 @@ background: rgba(var(--background)) !important;
 ._2bl0iQ9xigbq4Zd1NI6NZl::before {
 	background: rgba(var(--accent)) !important;
 }
-/* hover on view layout button on main config page*/
-button.cXzBZxhPBl7fZs9LODEnc.DialogButton.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:enabled.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:active.Primary:hover, button.cXzBZxhPBl7fZs9LODEnc.DialogButton:enabled:active:hover.Primary:hover{
+/* View-layout actions retain separate resting, interactive and disabled paint. */
+:root button.cXzBZxhPBl7fZs9LODEnc.DialogButton {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root button.cXzBZxhPBl7fZs9LODEnc.DialogButton.Primary:not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus, :active) {
     background: rgba(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root button.cXzBZxhPBl7fZs9LODEnc.DialogButton:is(:disabled, .Disabled) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
 }
 
 ._2MjBd1kKOEyVfqBN5OQOb1, ._2swvcAycL4d0UoHFDoe6-d, ._3i-XV362MvNEX3j_oWQDmQ, ._3s28A0XlOXUOAWRIuBKHuH, ._19SMSHLlXqSLnXM3NjDNBS, .NoRFSLSfwRijJQt7R51OT, ._3yP_pf4vx1Q4W0mt2DR32P /* normal buttons on system page*/
 {
 	border-color: 	 rgba(var(--backgroundLight)) !important;
 	background: 	 rgba(var(--backgroundLight)) !important;
+	color: rgb(var(--textLightest)) !important;
 }
 
 ._2MjBd1kKOEyVfqBN5OQOb1.CX4Dp8XyHswkGEEnWeUpq, ._2swvcAycL4d0UoHFDoe6-d.CX4Dp8XyHswkGEEnWeUpq, ._3i-XV362MvNEX3j_oWQDmQ.CX4Dp8XyHswkGEEnWeUpq, ._3s28A0XlOXUOAWRIuBKHuH.CX4Dp8XyHswkGEEnWeUpq, ._19SMSHLlXqSLnXM3NjDNBS.CX4Dp8XyHswkGEEnWeUpq, .NoRFSLSfwRijJQt7R51OT.CX4Dp8XyHswkGEEnWeUpq, ._3yP_pf4vx1Q4W0mt2DR32P.CX4Dp8XyHswkGEEnWeUpq /* action sets + system? page*/ 
 {
     background-color: rgba(var(--accent)) !important;
     border-color: rgba(var(--accentLight)) !important;
+    color: rgb(var(--textOnAccent)) !important;
 }
 /* highlighted controller button on configurator page */
 .CX4Dp8XyHswkGEEnWeUpq>div>svg>path{
 	fill: rgba(var(--accent)) !important;
+}
+:is(._2MjBd1kKOEyVfqBN5OQOb1, ._2swvcAycL4d0UoHFDoe6-d, ._3i-XV362MvNEX3j_oWQDmQ, ._3s28A0XlOXUOAWRIuBKHuH, ._19SMSHLlXqSLnXM3NjDNBS, .NoRFSLSfwRijJQt7R51OT, ._3yP_pf4vx1Q4W0mt2DR32P).CX4Dp8XyHswkGEEnWeUpq > div > svg > path {
+    fill: rgb(var(--textOnAccent)) !important;
 }
 /* remove box shadow from controller configurator page */
 ._3IBLc81yyL08OJ7rfKtF00._31ZleDJpmmVr6YwR5VLHiu ._2JobstxtZVYF3078DblN2M::before, ._2JobstxtZVYF3078DblN2M._1jNhbFODJy7sNdcnEeZkz4::before {
@@ -70,4 +86,78 @@ rect{
 /* controller image in overview */
 .rlz-U2wn9ktH5Z9trfpZa{
 	filter: grayscale(100%);
+}
+
+/* Current Steam controller layout uses the shared PagedSettingsDialog module.
+ * Its page columns and navigation labels otherwise retain literal blue/white. */
+html, body,
+:root ._2FqpD91Xarb7f0uIOuXFOR,
+:root ._3TvBVwaH8eIBabTdki35oe,
+:root ._33vqr13-jdnjTkKKTh414f,
+:root .ZjHHXZlnZhCahNrBFplWc,
+:root .DialogContent._3mgb-3_dHk3POEOVOh0Dvp {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1d6VIquCc410kNE7rDAje6.PageListColumn {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root .gNwozyl1BAcDyyhUKvx1Y,
+:root ._2mL2HfT5AkDXRi1YBnRWKa {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3aOHbtFJ8uSR7XH0WFQ8vv {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2mL2HfT5AkDXRi1YBnRWKa:not(._1G3whBr0RMzXKIfj4fcQjI):is(:hover, :focus, .gpfocus) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2mL2HfT5AkDXRi1YBnRWKa._1ELdDY5kb5jxjXe-FpWBo5,
+:root ._2mL2HfT5AkDXRi1YBnRWKa:not(._1G3whBr0RMzXKIfj4fcQjI):is(:focus, .gpfocus) {
+    background-image: linear-gradient(90deg, rgba(var(--accent), .2), rgba(var(--accent), 0)) !important;
+    border-left-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textAccented)) !important;
+}
+:root ._2mL2HfT5AkDXRi1YBnRWKa._1G3whBr0RMzXKIfj4fcQjI {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3sUwukdeKdKRTojXu4I3ga {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Controller configuration's disconnected-device state uses separate native
+ * white labels and a currentColor glyph, outside the normal dialog fields. */
+:root ._2sGaarbWs7Iar4i7zAX3Uy,
+:root ._17M8gvakqjyaw_cLo6ntdl.P5_RqX9tG1AorOZjI6zUu {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._32f4mUbAzCnRxr-yFIrsQW,
+:root ._31JnnWnVv7U4VrSuta5yWO {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2fNrpCE_Xp5xNOpejG5Krs {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2J8FjbuDX9403OhTeSu2YP {
+    color: rgb(var(--icon)) !important;
+}
+
+/* The native YourControllerLabel is a small callout, not controller artwork.
+ * Keep its native size/transform and triangle geometry. */
+:root ._1DHGq556k6U7kJghbkCZ79 .TA5dR9XJAWRyQcgS4_una {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+:root ._1DHGq556k6U7kJghbkCZ79 .TA5dR9XJAWRyQcgS4_una::after {
+    border-bottom-color: rgb(var(--accent)) !important;
+}
+/* Keep the unused modal canvas translucent. Its original solid-background
+ * group member above was retired; only the actual menu receives a panel. */
+:root ._34EufgHrrmvt164EDrO1LB .ModalOverlayBackground {
+    background: rgba(var(--backgroundOverlay), var(--backgroundOverlayOpacity)) !important;
+}
+:root ._34EufgHrrmvt164EDrO1LB .BasicUIContextMenu.uWT-cMCXkxiyxcSs9UA-0 .oZw50c4oJ6-r0HP8UWv25 {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
 }

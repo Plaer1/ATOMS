@@ -40,6 +40,34 @@ class ReleaseTest(unittest.TestCase):
             self.assertFalse(list(Path(directory).glob('.atoms-release-*')))
         self.assertEqual(before, {name: (builder.ROOT / name).read_bytes() for name in before})
 
+    def test_readme_media_is_packaged_without_neighboring_private_files(self):
+        with tempfile.TemporaryDirectory(prefix='atoms-readme-release-') as directory:
+            root = Path(directory) / 'theme'
+            media = root / 'docs' / 'media'
+            media.mkdir(parents=True)
+            (root / 'skin.json').write_text('{"version":"test"}')
+            (root / 'README.md').write_text('![Library](docs/media/library.png)\n')
+            (media / 'library.png').write_bytes(b'public image fixture')
+            (media / '.draft.png').write_bytes(b'private draft fixture')
+            (root / 'docs' / 'private.md').write_text('private sibling fixture')
+            (root / '.clanker').mkdir()
+            (root / '.clanker' / 'notes.txt').write_text('private working fixture')
+            personal = {name: b'personal config fixture ' + name.encode() for name in builder.SAFE_CONFIGS}
+            for name, content in personal.items():
+                (root / name).write_bytes(content)
+            (media / 'linked.png').symlink_to(root / 'config.css')
+
+            output = Path(directory) / 'ATOMS.zip'
+            builder.build(output, root)
+            with zipfile.ZipFile(output) as archive:
+                self.assertIn('docs/media/library.png', archive.namelist())
+                self.assertEqual(archive.read('docs/media/library.png'), b'public image fixture')
+                for excluded in ('docs/private.md', 'docs/media/.draft.png', 'docs/media/linked.png', '.clanker/notes.txt'):
+                    self.assertNotIn(excluded, archive.namelist())
+                for name in personal:
+                    self.assertEqual(archive.read(name), builder.SAFE_CONFIGS[name])
+            self.assertEqual(personal, {name: (root / name).read_bytes() for name in personal})
+
 
 if __name__ == '__main__':
     unittest.main()

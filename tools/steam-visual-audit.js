@@ -16,7 +16,12 @@ const path = require('path');
 const { installAnnotationHighlights } = require('./steam-annotation-highlights.js');
 const { installAnnotationInputLock, AnnotationInputLockBridge, LOCK_BINDING } = require('./steam-annotation-input-lock.js');
 const { installAnnotationThemeToggle } = require('./steam-annotation-theme-toggle.js');
-const { AnnotationSelectionStore } = require('./annotation-selection-store.js');
+const { AnnotationNoteClient } = require('./annotation-note-client.js');
+const { createAnnotationDraftSave } = require('./annotation-draft-save.js');
+const { readAnnotationColorMode, createModeSelectionState } = require('./annotation-color-mode.js');
+const { installAnnotationColorToggle } = require('./steam-annotation-color-toggle.js');
+const { installAnnotationModalLayer } = require('./steam-annotation-modal-layer.js');
+const { installAnnotationOverlayEditor } = require('./steam-annotation-overlay-editor.js');
 let WebSocket;
 try {
     WebSocket = require('ws');
@@ -47,12 +52,16 @@ const files = {
     css: path.join(sessionDir, 'css-candidates.jsonl'),
     topLevel: path.join(sessionDir, 'top-level-unthemed.jsonl')
 };
-const selectionStore = new AnnotationSelectionStore(files.selections);
+const selectionWriter = new AnnotationNoteClient({
+    file: files.selections,
+    transport: process.env.ATOMS_ANNOTATION_IPC === '1' ? process : null
+});
 const streams = Object.fromEntries(Object.entries(files).filter(([name]) => name !== 'selections')
     .map(([name, file]) => [name, fs.createWriteStream(file, { flags: 'a' })]));
 const limits = { events: 5000, assets: 9000, css: 7000, topLevel: 5000 };
 const counts = { events: 0, assets: 0, selections: 0, css: 0, topLevel: 0 };
 const targets = new Map();
+const attaching = new Set();
 let stopping = false;
 
 const sessionMetadata = {
@@ -65,6 +74,7 @@ const sessionMetadata = {
         'records outermost visible unthemed surfaces in top-level-unthemed.jsonl',
         'Alt-click records the exact topmost rendered element with an optional note',
         'Alt-click never changes the selected element; it only records the selection and note',
+        'each note saves its light/dark colorMode at selection time',
         'unselecting deletes the saved note instead of retaining cancellation events',
         'holding Alt freezes CSS hover and shields page input while the picker remains usable',
         'the theme comparison button follows the annotator lifecycle; stopping restores the theme and removes it',
@@ -81,11 +91,33 @@ if (fs.existsSync(sessionFile)) {
     fs.writeFileSync(sessionFile, JSON.stringify(sessionMetadata, null, 2) + '\n');
 }
 
-function write(kind, payload) {
+function write(kind, payload, origin) {
     if (kind === 'selections') {
         // Authored notes are never dropped by the automatic-scan file caps.
-        selectionStore.record({ timestamp: new Date().toISOString(), ...payload });
-        counts.selections += 1;
+        const acknowledge = (ok, result, error) => {
+            if (!origin) return;
+            const selection = payload.payload || {}, changed = result?.changes?.find(item => item.type === 'delete');
+            const detail = { selectionId: selection.selectionId, colorMode: selection.colorMode || payload.colorMode,
+                selected: selection.selected !== false, saveRequestId: selection.saveRequestId, saveAttemptId: selection.saveAttemptId, ok,
+                id: result?.note?.id || changed?.id, revision: result?.note?.revision || changed?.revision,
+                error: ok ? '' : error?.code === 'CONFLICT'
+                    ? 'This saved note changed or was removed. Your draft is preserved; check saved notes before retrying.'
+                    : selection.selected === false ? 'Removal was not confirmed. Alt-click this selection again to retry.'
+                    : 'Your annotation could not be confirmed. Press Enter to retry; your draft is preserved.' };
+            origin.connection.call('Runtime.evaluate', {
+                expression: `window.dispatchEvent(new CustomEvent('atoms-annotation-save-ack', {detail:${JSON.stringify(detail)}}))`,
+                contextId: origin.contextId
+            }).catch(() => {});
+        };
+        selectionWriter.record({ timestamp: new Date().toISOString(), ...payload }).then(result => {
+            counts.selections += 1;
+            acknowledge(true, result);
+        }).catch(error => {
+            // Do not put authored text in automatic logs or use a second file
+            // writer. The selected entry remains recoverable in the picker.
+            event('selection-save-failed', { reason: 'Persistence did not confirm the annotation' });
+            acknowledge(false, null, error);
+        });
         return;
     }
     if (!streams[kind] || counts[kind] >= limits[kind]) return;
@@ -120,7 +152,7 @@ function getJson(url) {
     });
 }
 
-function visualAuditSource() {
+function visualAuditSource(readColorMode, createSelectionState, createDraftSave) {
     // This monitor deliberately creates one srcdoc iframe for its isolated
     // note field.  Page.addScriptToEvaluateOnNewDocument also runs in child
     // frames, so exit before that document can install another picker of its
@@ -174,7 +206,7 @@ function visualAuditSource() {
         emitted: new Set(),
         surfaceSignatures: new WeakMap(),
         selected: new Set(),
-        selectionState: new WeakMap(),
+        selectionState: createSelectionState(),
         hovered: null,
         pointer: null,
         picker: null,
@@ -203,12 +235,15 @@ function visualAuditSource() {
                     type,
                     url: location.href,
                     title: document.title,
+                    colorMode: payload.colorMode || readColorMode(),
                     payload
                 }));
+                return true;
             }
         } catch (_) {
             // A target can navigate while an audit slice is in progress.
         }
+        return false;
     };
 
     const cssEscape = (value) => {
@@ -581,7 +616,7 @@ function visualAuditSource() {
 
     const findPickedTarget = (eventOrTarget) => {
         const element = topmostElementFor(eventOrTarget);
-        if (!element || element.closest(`#${PICKER_HOST_ID}, #${TOGGLE_HOST_ID}`)) return null;
+        if (!element || element.closest(`#${PICKER_HOST_ID}, #${TOGGLE_HOST_ID}, #atoms-annotation-note-manager-host, [data-atoms-debug-palette-resolver]`)) return null;
         const tag = element.tagName.toLowerCase();
         if (['img', 'svg', 'image', 'video', 'canvas', 'picture', 'iframe'].includes(tag)) {
             return { element, kind: 'asset' };
@@ -615,16 +650,18 @@ function visualAuditSource() {
         shadow.innerHTML = `
             <style>
                 :host { all: initial; }
-                #box { position: fixed; display: none; box-sizing: border-box; border: 2px dashed #de7bff; background: rgba(222,123,255,.08); box-shadow: 0 0 0 1px rgba(0,0,0,.68), 0 0 18px rgba(222,123,255,.42); pointer-events: none; }
-                #label { position: absolute; left: -2px; top: -24px; max-width: 420px; padding: 4px 6px; border-radius: 4px; color: #fff; background: #4d2458; box-shadow: 0 2px 6px rgba(0,0,0,.5); font: 600 11px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+                #box { position: fixed; display: none; box-sizing: border-box; border: 2px dashed var(--atoms-debug-accent); background: color-mix(in srgb,var(--atoms-debug-accent) 8%,transparent); box-shadow: 0 0 0 1px var(--atoms-debug-border), 0 0 18px color-mix(in srgb,var(--atoms-debug-accent) 42%,transparent); pointer-events: none; }
+                #label { position: absolute; left: -2px; top: -24px; max-width: 420px; padding: 4px 6px; border-radius: 4px; color: var(--atoms-debug-text); background: var(--atoms-debug-raised); box-shadow: 0 2px 6px color-mix(in srgb,var(--atoms-debug-overlay) 50%,transparent); font: 600 11px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
                 #scrim { position: fixed; inset: 0; z-index: 0; display: none; pointer-events: auto; background: transparent; cursor: default; }
-                #note { position: fixed; z-index: 1; display: none; box-sizing: border-box; width: min(380px, calc(100vw - 16px)); padding: 10px; border: 1px solid rgba(245,238,247,.34); border-radius: 8px; color: #f5eef7; background: rgba(31,25,34,.98); box-shadow: 0 10px 32px rgba(0,0,0,.55); font: 500 12px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; pointer-events: auto; }
-                #note-title { margin-bottom: 6px; font-weight: 700; color: #f0c9ff; }
-                #note-hint { margin-bottom: 8px; color: #d4cbd7; font-size: 11px; }
+                #note { position: fixed; z-index: 1; display: none; box-sizing: border-box; width: min(380px, calc(100vw - 16px)); padding: 10px; border: 1px solid var(--atoms-debug-border); border-radius: 8px; color: var(--atoms-debug-text); background: var(--atoms-debug-surface); box-shadow: 0 10px 32px color-mix(in srgb,var(--atoms-debug-overlay) 55%,transparent); color-scheme: var(--atoms-debug-scheme); font: 500 12px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; pointer-events: auto; }
+                #note-title { margin-bottom: 6px; font-weight: 700; color: var(--atoms-debug-heading); }
+                #note-hint { margin-bottom: 8px; color: var(--atoms-debug-muted); font-size: 11px; }
                 #note-input-frame { display: block; box-sizing: border-box; width: 100%; height: 34px; border: 0; border-radius: 5px; background: transparent; pointer-events: auto; }
+                #save-status { position:fixed;left:12px;bottom:12px;max-width:min(560px,calc(100vw - 24px));padding:8px 10px;border-radius:5px;background:var(--atoms-debug-surface);color:var(--atoms-debug-error);font:12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
             </style>
             <div id="box"><div id="label"></div></div>
             <div id="scrim" aria-hidden="true"></div>
+            <div id="save-status" role="status" aria-live="polite" hidden></div>
             <div id="note" role="dialog" aria-modal="true" aria-label="Add this to the ATOMS fix list">
                 <div id="note-title">Add this to the ATOMS fix list</div>
                 <div id="note-hint">Optional note — Enter saves, even blank. Esc cancels.</div>
@@ -635,8 +672,31 @@ function visualAuditSource() {
         const scrim = shadow.getElementById('scrim');
         const note = shadow.getElementById('note');
         const noteFrame = shadow.getElementById('note-input-frame');
+        const saveStatus = shadow.getElementById('save-status');
         state.picker = { host, box, label, scrim, note, noteFrame };
         mount.appendChild(host);
+        let boundPalette = null, boundFrame = null;
+        const paletteRemovers = [];
+        const bindPalette = () => {
+            const palette = window.__atomsDebugPaletteV1;
+            if (!palette) return;
+            const frameRoot = noteFrame.contentDocument?.documentElement;
+            if (palette === boundPalette && frameRoot === boundFrame) return;
+            while (paletteRemovers.length) paletteRemovers.pop()();
+            paletteRemovers.push(palette.apply(host));
+            // Frame content does not inherit its owner's custom vars.
+            if (frameRoot) paletteRemovers.push(palette.apply(frameRoot));
+            boundPalette = palette;
+            boundFrame = frameRoot;
+        };
+        noteFrame.addEventListener('load', bindPalette);
+        window.addEventListener('atoms-debug-palette', bindPalette);
+        bindPalette();
+        state.picker.releasePalette = () => {
+            noteFrame.removeEventListener('load', bindPalette);
+            window.removeEventListener('atoms-debug-palette', bindPalette);
+            while (paletteRemovers.length) paletteRemovers.pop()();
+        };
         let inertBody = null;
         let priorBodyInert = false;
 
@@ -647,8 +707,8 @@ function visualAuditSource() {
         noteFrame.srcdoc = `<!doctype html>
             <html><head><style>
                 html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
-                #note-input { box-sizing: border-box; width: 100%; height: 34px; padding: 7px 8px; border: 1px solid rgba(255,255,255,.24); border-radius: 5px; outline: none; color: #fff; background: rgba(0,0,0,.28); font: 500 12px/1.25 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-                #note-input:focus { border-color: #de7bff; box-shadow: 0 0 0 2px rgba(222,123,255,.23); }
+                #note-input { box-sizing: border-box; width: 100%; height: 34px; padding: 7px 8px; border: 1px solid var(--atoms-debug-border); border-radius: 5px; outline: none; color: var(--atoms-debug-text); background: var(--atoms-debug-input); color-scheme: var(--atoms-debug-scheme); font: 500 12px/1.25 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+                #note-input:focus { border-color: var(--atoms-debug-accent); box-shadow: 0 0 0 2px color-mix(in srgb,var(--atoms-debug-accent) 23%,transparent); }
             </style></head><body>
                 <input id="note-input" type="text" maxlength="800" autocomplete="off" placeholder="e.g. reset to vanilla size / should be pink" />
                 <script>
@@ -681,6 +741,38 @@ function visualAuditSource() {
             else entry.element.style.removeProperty('filter');
         };
 
+        const onNotesChanged = event => {
+            for (const change of event.detail?.changes || []) {
+                if (change.type === 'delete') draftSave.deleted(change.id);
+                if (change.type === 'edit') draftSave.changed(change.id, change.revision);
+                for (const element of [...state.selected]) {
+                    for (const entry of state.selectionState.all(element)) {
+                        if (change.type === 'add' && !entry.recordId && entry.selectionId === change.selectionId
+                            && entry.colorMode === change.colorMode) {
+                            entry.recordId = change.id;
+                            entry.revision = change.revision;
+                        } else if (entry.recordId === change.id && change.type === 'delete') {
+                            restorePreview(entry);
+                            state.selectionState.delete(element, entry.colorMode);
+                        } else if (entry.recordId === change.id && change.type === 'edit') {
+                            entry.revision = change.revision;
+                            if (entry.colorMode !== change.colorMode) {
+                                state.selectionState.delete(element, entry.colorMode);
+                                entry.colorMode = change.colorMode;
+                                // A corrected note must not overwrite another
+                                // saved note on this element in its new mode.
+                                if (!state.selectionState.get(element, entry.colorMode)) state.selectionState.set(element, entry);
+                            }
+                        }
+                    }
+                    if (!state.selectionState.all(element).length) state.selected.delete(element);
+                }
+            }
+            queueDraw();
+        };
+        window.addEventListener('atoms-annotation-notes-changed', onNotesChanged);
+        state.picker.releaseNotes = () => window.removeEventListener('atoms-annotation-notes-changed', onNotesChanged);
+
         const focusNoteInput = () => {
             if (!state.pendingNote || !noteFrame.isConnected) return;
             const focus = () => {
@@ -688,6 +780,7 @@ function visualAuditSource() {
                 const input = getNoteInput();
                 if (!input) return;
                 try {
+                    if (window.__atomsAnnotationOverlayEditorV1?.focus()) return;
                     noteFrame.contentWindow.focus();
                     input.focus({ preventScroll: true });
                 } catch (_error) {
@@ -700,6 +793,7 @@ function visualAuditSource() {
         };
 
         const lockPageFocus = () => {
+            if (/^desktopoverlay_uid\d+$/.test(window.name)) return;
             const body = document.body;
             if (!body || inertBody === body) return;
             if (inertBody) inertBody.inert = priorBodyInert;
@@ -722,10 +816,45 @@ function visualAuditSource() {
             if (input) input.value = '';
         };
 
+        const saveState = ({ pending = false, error = '' } = {}, entry) => {
+            note.dataset.savePending = String(pending); note.dataset.saveError = error;
+            if (entry === state.pendingNote) {
+                const input = getNoteInput();
+                if (input) input.readOnly = pending;
+                const hint = shadow.getElementById('note-hint');
+                hint.textContent = pending ? 'Saving annotation…' : error || 'Optional note — Enter saves, even blank. Esc cancels.';
+                hint.style.color = error ? 'var(--atoms-debug-error)' : '';
+                if (!pending) focusNoteInput();
+            }
+            saveStatus.textContent = error; saveStatus.hidden = !error;
+            window.dispatchEvent(new CustomEvent('atoms-annotation-save-state', { detail: { pending, error } }));
+        };
+        const draftSave = createDraftSave({
+            createId: () => window.crypto?.randomUUID?.() || `selection-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`,
+            send: payload => emit('selection', payload), update: saveState,
+            saved: entry => {
+                if (state.pendingNote !== entry) return;
+                state.selectionState.set(entry.element, entry); state.selected.add(entry.element);
+                state.pendingNote = null; closeNote();
+                state.hovered = { element: entry.element, kind: entry.kind }; queueDraw();
+            },
+            removed: entry => {
+                restorePreview(entry);
+                if (state.selectionState.get(entry.element, entry.colorMode) === entry) state.selectionState.delete(entry.element, entry.colorMode);
+                if (!state.selectionState.all(entry.element).length) state.selected.delete(entry.element);
+                queueDraw();
+            }
+        });
+        const onSaveAck = event => draftSave.acknowledge(event.detail);
+        window.addEventListener('atoms-annotation-save-ack', onSaveAck);
+        state.picker.releaseSaveAck = () => { window.removeEventListener('atoms-annotation-save-ack', onSaveAck); draftSave.stop(); };
+
         const openNote = (entry) => {
+            saveState({}, entry);
             const rect = entry.element.getBoundingClientRect();
             lockPageFocus();
             scrim.style.display = 'block';
+            if (/^desktopoverlay_uid\d+$/.test(window.name)) scrim.style.pointerEvents = 'none';
             note.style.display = 'block';
             const width = Math.min(380, Math.max(220, innerWidth - 16));
             const left = Math.min(Math.max(8, Math.round(rect.left)), Math.max(8, innerWidth - width - 8));
@@ -739,31 +868,16 @@ function visualAuditSource() {
             const entry = state.pendingNote;
             if (!entry) return;
             const input = getNoteInput();
-            entry.note = trim(input ? input.value : '', MAX_NOTE_LENGTH);
-            entry.selectionId ||= window.crypto?.randomUUID?.()
-                || `selection-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
-            state.selectionState.set(entry.element, entry);
-            state.selected.add(entry.element);
-            state.pendingNote = null;
-            closeNote();
-            emit('selection', {
-                selected: true,
-                selectionId: entry.selectionId,
-                asset: entry.descriptor,
-                note: entry.note,
-                previewFilter: entry.previewFilter,
-                previewApplied: entry.previewApplied
-            });
-            state.hovered = { element: entry.element, kind: entry.kind };
-            queueDraw();
+            draftSave.save(entry, trim(input ? input.value : '', MAX_NOTE_LENGTH));
         };
 
         const cancelPendingNote = () => {
             const entry = state.pendingNote;
-            if (!entry) return;
+            if (!entry || entry.savePending) return;
             restorePreview(entry);
             state.pendingNote = null;
             closeNote();
+            saveState();
             queueDraw();
         };
 
@@ -775,9 +889,10 @@ function visualAuditSource() {
             else if (data.key === 'Escape') cancelPendingNote();
         };
         const keepFocus = (event) => {
+            if (/^desktopoverlay_uid\d+$/.test(window.name)) return;
             if (!state.pendingNote) return;
             const path = event.composedPath();
-            if (path.includes(noteFrame) || shadow.activeElement === noteFrame) return;
+            if (path.includes(note) || path.includes(noteFrame) || shadow.activeElement === noteFrame) return;
             focusNoteInput();
         };
         const consumeScrimEvent = (event) => {
@@ -818,11 +933,11 @@ function visualAuditSource() {
             box.style.width = `${Math.max(1, Math.round(rect.width))}px`;
             box.style.height = `${Math.max(1, Math.round(rect.height))}px`;
             const descriptor = describePicked(picked);
-            const selected = state.selected.has(picked.element);
+            const selected = Boolean(state.selectionState.get(picked.element, readColorMode()));
             const type = descriptor ? descriptor.kind.toUpperCase() : 'ELEMENT';
             const tag = picked.element.tagName.toLowerCase();
             const pending = state.pendingNote && state.pendingNote.element === picked.element;
-            label.textContent = `${type} <${tag}> · topmost${pending ? ' · note pending' : selected ? ' · selected · Alt-click to remove' : ' · Alt-click to add a note'}`;
+            label.textContent = `${readColorMode().toUpperCase()} · ${type} <${tag}> · topmost${pending ? ' · note pending' : selected ? ' · selected · Alt-click to remove' : ' · Alt-click to add a note'}`;
         };
 
         const queueDraw = () => {
@@ -841,7 +956,7 @@ function visualAuditSource() {
         // a chance to help.  Swallow the entire gesture in the capture phase;
         // only the final primary click below opens the annotation prompt.
         const blockAltPickerGesture = (event) => {
-            if (!event.altKey || state.pendingNote) return null;
+            if (!event.altKey || state.pendingNote || window.__atomsAnnotationNoteManagerV1?.isOpen()) return null;
             const picked = findPickedTarget(event);
             if (!picked || !picked.element || !picked.element.isConnected) return null;
             event.preventDefault();
@@ -895,23 +1010,15 @@ function visualAuditSource() {
             }
 
             const element = picked.element;
-            const prior = state.selectionState.get(element);
+            const prior = state.selectionState.get(element, readColorMode());
             if (prior) {
-                restorePreview(prior);
-                state.selectionState.delete(element);
-                state.selected.delete(element);
-                emit('selection', {
-                    selected: false,
-                    selectionId: prior.selectionId,
-                    asset: prior.descriptor,
-                    previewFilter: prior.previewFilter,
-                    previewApplied: prior.previewApplied
-                });
+                draftSave.withdraw(prior);
             } else {
                 const previewApplied = false;
                 const previewFilter = '';
                 const descriptor = describePicked(picked, element.tagName.toLowerCase() === 'svg');
                 const saved = {
+                    colorMode: readColorMode(),
                     element,
                     kind: picked.kind,
                     value: element.style.getPropertyValue('filter'),
@@ -991,7 +1098,7 @@ function visualAuditSource() {
     ].join(', ');
     const ASSET_SELECTOR = 'img, svg, image, video, canvas, picture, iframe';
 
-    const isAuditChrome = (element) => Boolean(element && element.closest && element.closest(`#${PICKER_HOST_ID}, #${TOGGLE_HOST_ID}`));
+    const isAuditChrome = (element) => Boolean(element && element.closest && element.closest(`#${PICKER_HOST_ID}, #${TOGGLE_HOST_ID}, #atoms-annotation-note-manager-host, [data-atoms-debug-palette-resolver]`));
 
     const likelySurface = (element) => {
         if (!element || element.nodeType !== Node.ELEMENT_NODE || isAuditChrome(element)) return false;
@@ -1137,14 +1244,18 @@ function visualAuditSource() {
                 state.picker.note.removeEventListener(type, state.picker.listeners.containNoteEvent);
             }
             document.removeEventListener('focusin', state.picker.listeners.keepFocus, true);
+            state.picker.releasePalette?.();
+            state.picker.releaseNotes?.();
+            state.picker.releaseSaveAck?.();
             state.picker.host.remove();
         }
         for (const element of state.selected) {
-            const prior = state.selectionState.get(element);
-            if (!prior || !element.isConnected) continue;
-            if (prior.previewApplied) {
-                if (prior.value) element.style.setProperty('filter', prior.value, prior.priority);
-                else element.style.removeProperty('filter');
+            if (!element.isConnected) continue;
+            for (const prior of state.selectionState.all(element)) {
+                if (prior.previewApplied) {
+                    if (prior.value) element.style.setProperty('filter', prior.value, prior.priority);
+                    else element.style.removeProperty('filter');
+                }
             }
         }
         if (window[KEY]) window[KEY].stopped = true;
@@ -1183,6 +1294,7 @@ function visualAuditSource() {
     };
     window.addEventListener('pageshow', state.pageShow);
     window[KEY] = { stop, schedule, getSelected: () => state.selected.size, stopped: false,
+        getSaveState: () => ({ pending: state.picker?.note.dataset.savePending === 'true', error: state.picker?.note.dataset.saveError || '' }),
         input: {
             move: event => state.picker?.listeners.onMove(event),
             click: event => state.picker?.listeners.onClick(event),
@@ -1197,7 +1309,7 @@ function visualAuditSource() {
     return 'installed';
 }
 
-const source = `(${installAnnotationHighlights.toString()})();(${installAnnotationInputLock.toString()})();(${visualAuditSource.toString()})();(${installAnnotationThemeToggle.toString()})();`;
+const source = `(()=>{if(/^atoms_annotation(?:_manager)?_uid/.test(window.name))return;(${installAnnotationHighlights.toString()})();(${installAnnotationInputLock.toString()})();(${visualAuditSource.toString()})(${readAnnotationColorMode.toString()}, ${createModeSelectionState.toString()}, ${createAnnotationDraftSave.toString()});window.__atomsInstallAnnotationColorToggleV1 = (${installAnnotationColorToggle.toString()});(${installAnnotationThemeToggle.toString()})();window.__atomsInstallAnnotationColorToggleV1();(${installAnnotationModalLayer.toString()})();(${installAnnotationOverlayEditor.toString()})();})();`;
 
 class TargetConnection {
     constructor(target) {
@@ -1207,8 +1319,11 @@ class TargetConnection {
         this.pending = new Map();
         this.closed = false;
         this.preloadScriptId = null;
+        this.preloadPending = null;
         this.contexts = new Set();
         this.ready = false;
+        this.stopping = false;
+        this.stopPromise = null;
         this.inputLock = new AnnotationInputLockBridge((method, params) => this.call(method, params));
     }
 
@@ -1240,7 +1355,7 @@ class TargetConnection {
             return;
         }
         if (message.method === 'Runtime.bindingCalled' && message.params && message.params.name === BINDING) {
-            this.onBinding(message.params.payload);
+            this.onBinding(message.params.payload, message.params.executionContextId);
         }
         if (message.method === 'Runtime.bindingCalled' && message.params && message.params.name === LOCK_BINDING) {
             this.inputLock.handle(message.params);
@@ -1259,6 +1374,7 @@ class TargetConnection {
     }
 
     async installContext(contextId) {
+        if (stopping || this.stopping || this.closed) return;
         const result = await this.call('Runtime.evaluate', {
             expression: source,
             contextId,
@@ -1274,9 +1390,10 @@ class TargetConnection {
         }
     }
 
-    onBinding(payload) {
+    onBinding(payload, contextId) {
         let message;
         try { message = JSON.parse(payload); } catch (_) { return; }
+        if (!message || typeof message !== 'object' || Array.isArray(message)) return;
         const target = {
             id: this.target.id,
             titleAtAttach: this.target.title,
@@ -1284,7 +1401,7 @@ class TargetConnection {
             type: this.target.type
         };
         if (message.type === 'asset') write('assets', { target, ...message });
-        else if (message.type === 'selection') write('selections', { target, ...message });
+        else if (message.type === 'selection') write('selections', { target, ...message }, { connection: this, contextId });
         else if (message.type === 'css') write('css', { target, ...message });
         else if (message.type === 'top-level-surface') write('topLevel', { target, ...message });
         else event(message.type || 'page-event', { target, ...message });
@@ -1296,6 +1413,7 @@ class TargetConnection {
             this.ws = socket;
             socket.once('open', resolve);
             socket.once('error', reject);
+            socket.once('close', () => reject(new Error('CDP socket closed before attach completed')));
             socket.on('message', (raw) => this.onMessage(raw));
             socket.on('close', () => {
                 this.closed = true;
@@ -1306,22 +1424,41 @@ class TargetConnection {
                 this.pending.clear();
             });
         });
+        const active = () => !stopping && !this.stopping && !this.closed;
+        if (!active()) return;
         await this.call('Runtime.enable');
+        if (!active()) return;
         await this.call('Page.enable').catch(() => {});
+        if (!active()) return;
         await this.call('DOM.enable');
+        if (!active()) return;
         await this.call('CSS.enable');
+        if (!active()) return;
         await this.call('Runtime.addBinding', { name: BINDING });
+        if (!active()) return;
         await this.call('Runtime.addBinding', { name: LOCK_BINDING });
-        const preload = await this.call('Page.addScriptToEvaluateOnNewDocument', { source }).catch(() => null);
+        if (!active()) return;
+        this.preloadPending = this.call('Page.addScriptToEvaluateOnNewDocument', { source }).catch(() => null);
+        const preload = await this.preloadPending;
         this.preloadScriptId = preload && preload.identifier || null;
+        if (!active()) return;
         this.ready = true;
         if (this.contexts.size) await Promise.all(Array.from(this.contexts, (id) => this.installContext(id)));
         else await this.call('Runtime.evaluate', { expression: source, returnByValue: true });
     }
 
     async stop() {
-        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
+        if (this.stopPromise) return this.stopPromise;
+        this.stopping = true;
         this.ready = false;
+        this.stopPromise = this.stopTarget();
+        return this.stopPromise;
+    }
+
+    async stopTarget() {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.ws?.close(); return;
+        }
         const expression = '(() => { for (const key of ["__atomsVisualAuditV5", "__atomsVisualAuditV4", "__atomsVisualAuditV3"]) { const audit = window[key]; if (audit && typeof audit.stop === "function") audit.stop(); } return true; })()';
         const contexts = this.contexts.size ? Array.from(this.contexts) : [null];
         await Promise.all(contexts.map((contextId) => this.call('Runtime.evaluate', {
@@ -1330,6 +1467,9 @@ class TargetConnection {
             returnByValue: true
         }).catch(() => {})));
         await this.inputLock.stop();
+        // A preload issued before OFF can acknowledge afterward. Await its
+        // identifier before removal so it cannot escape the teardown snapshot.
+        await this.preloadPending;
         if (this.preloadScriptId) {
             await this.call('Page.removeScriptToEvaluateOnNewDocument', {
                 identifier: this.preloadScriptId
@@ -1338,19 +1478,31 @@ class TargetConnection {
         }
         this.ws.close();
     }
+
+    closeSocket() {
+        this.stopping = true; this.ready = false;
+        if (!this.ws || this.ws.readyState === WebSocket.CLOSED) return Promise.resolve();
+        return new Promise(resolve => { this.ws.once('close', resolve); this.ws.terminate(); });
+    }
 }
 
-async function attach(target) {
+function attach(target) {
+    if (stopping) return Promise.resolve();
     const connection = new TargetConnection(target);
     targets.set(target.id, connection);
-    try {
-        await connection.connect();
-        event('target-attached', { target: { id: target.id, type: target.type, title: target.title, url: target.url } });
-    } catch (error) {
-        targets.delete(target.id);
-        event('target-attach-failed', { target: { id: target.id, title: target.title, url: target.url }, error: String(error.message || error) });
-        if (connection.ws) connection.ws.close();
-    }
+    const task = (async () => {
+        try {
+            await connection.connect();
+            if (!stopping && !connection.stopping) event('target-attached', { target: { id: target.id, type: target.type, title: target.title, url: target.url } });
+        } catch (error) {
+            if (targets.get(target.id) === connection) targets.delete(target.id);
+            if (!stopping) event('target-attach-failed', { target: { id: target.id, title: target.title, url: target.url }, error: String(error.message || error) });
+            if (connection.ws) connection.ws.close();
+        }
+    })();
+    attaching.add(task);
+    task.then(() => attaching.delete(task), () => attaching.delete(task));
+    return task;
 }
 
 async function pollTargets() {
@@ -1359,15 +1511,16 @@ async function pollTargets() {
     try {
         listed = await getJson(`${CDP_ROOT}/json/list`);
     } catch (error) {
-        event('target-poll-failed', { error: String(error.message || error) });
+        if (!stopping) event('target-poll-failed', { error: String(error.message || error) });
         return;
     }
+    if (stopping) return;
     const eligible = listed.filter((target) => {
         if (!target.webSocketDebuggerUrl || (target.type !== 'page' && target.type !== 'iframe')) return false;
         // The picker note field is a same-origin srcdoc iframe so Big Picture
         // cannot consume its typing.  Do not recursively instrument our own
         // input document as though it were a Steam surface.
-        if (/^about:srcdoc(?:[?#]|$)/i.test(String(target.url || ''))) return false;
+        if (/^about:srcdoc(?:[?#]|$)/i.test(String(target.url || '')) || ['ATOMS annotation', 'ATOMS saved annotations'].includes(target.title)) return false;
         return !ONLY_TARGET || target.id === ONLY_TARGET || target.title.includes(ONLY_TARGET);
     });
     const liveIds = new Set(eligible.map((target) => target.id));
@@ -1389,15 +1542,26 @@ async function finish(signal) {
     if (stopping) return;
     stopping = true;
     if (pollTimer) clearInterval(pollTimer);
-    await Promise.race([
-        Promise.all(Array.from(targets.values()).map((connection) => connection.stop())),
-        new Promise((resolve) => setTimeout(resolve, 3500))
-    ]);
-    event('stopped', { signal, counts });
+    let stopTimer;
+    try {
+        await Promise.race([
+            Promise.allSettled([...Array.from(targets.values(), connection => connection.stop()), ...attaching]),
+            new Promise((resolve) => { stopTimer = setTimeout(resolve, 3500); })
+        ]);
+    } finally { clearTimeout(stopTimer); }
+    // Closing transports rejects pending connect calls. Their post-await
+    // guards prevent a late preload/picker install after the OFF barrier.
+    await Promise.allSettled([...targets.values()].map(connection => connection.closeSocket()));
+    await Promise.allSettled([...attaching]);
+    let notesSaved = true;
+    try { await selectionWriter.close(); }
+    catch (_) { notesSaved = false; }
+    event('stopped', { signal, counts, notesSaved });
     fs.writeFileSync(path.join(sessionDir, 'stopped.json'), JSON.stringify({
         timestamp: new Date().toISOString(),
         signal,
-        counts
+        counts,
+        notesSaved
     }, null, 2) + '\n');
     await Promise.all(Object.values(streams).map((stream) => new Promise((resolve) => stream.end(resolve))));
     console.log(`[visual-audit] stopped; reports are in ${sessionDir}`);

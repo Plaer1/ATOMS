@@ -1,5 +1,6 @@
 @import url('configDefaults.css');
 @import url('../config.css');
+@import url('themeText.css');
 @import url('gameArtworkFallback.css');
 
 /* Approved image pass: only Steam's built-in startup media. Keep the
@@ -80,7 +81,7 @@ body,
 .BasicUI.GamepadMode .DY4_wSF8h9T5o46hO5I9V:focus {
 	background-color: rgb(var(--accentDarkish)) !important;
 	border-color: rgb(var(--accentLight)) !important;
-	color: rgb(var(--textLightest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 }
 
 .BasicUI.GamepadMode ._3eEbSktrstBdLk0dVpnKVI {
@@ -204,12 +205,14 @@ div.j78ibJaZ9aRJEMt_g81_F._3aJvw7qkqAwI1IzmT-em6q {
  * accent elevations and a visible edge instead of one merged pink slab. */
 ._2E-mSsWtptcnk088TudSSj {
 	background-color: rgb(var(--accentDarkest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 	outline: 1px solid rgba(var(--accentLight), .82) !important;
 	outline-offset: -1px !important;
 }
 
 ._2E-mSsWtptcnk088TudSSj > ._2_KY_e11FV0ftXR2_7TMmP {
 	background-color: rgb(var(--accent)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 /* The saved accent-background note also catches Steam's moving blue sheen. */
@@ -272,17 +275,17 @@ img._24_AuLm54JVe1Zc0AApCDR._3d_bT685lnWotXxgzKW6am.yDr03475kalWBTwAE-Rnw._3Mp8R
 
 /* flat Steam blue: rgb(109, 207, 246) */
 a._2g3Gley034M1ZGhcq005s.Focusable {
-	color: rgb(var(--textAccented)) !important;
+	color: rgb(var(--textLink)) !important;
 }
 
 /* flat Steam blue: rgb(0, 0, 238) */
 a._2m8YEKXvKa2bcFNjqXdJu7 {
-	color: rgb(var(--textAccented)) !important;
+	color: rgb(var(--textLink)) !important;
 }
 
 /* flat Steam blue: rgb(26, 159, 255) */
 a.CiFk6OuYAQSbv_DGXoBSX.Focusable {
-	color: rgb(var(--textAccented)) !important;
+	color: rgb(var(--textLink)) !important;
 }
 
 /* flat Steam blue: rgb(56, 100, 131) */
@@ -311,14 +314,17 @@ div.fyHnacqM-lF0eryq8p9s9 {
 }
 
 /* flat Steam blue: rgb(76, 180, 255) */
-div.nOdcT-MoOaXGePXLyPe0H {
-	color: rgb(var(--textAccented)) !important;
+.BasicUI .online:not(.ingame):not(.in-game):not(.offline) .nOdcT-MoOaXGePXLyPe0H {
+	color: rgb(var(--textLink)) !important;
 }
 
 /* 197uefn: Steam's playing-state class is `ingame`, not `in-game`.
  * Preserve green names even if the friend also has the online class. */
 .BasicUI :is(.ingame, .in-game) .nOdcT-MoOaXGePXLyPe0H {
-	color: rgb(var(--steamGreen)) !important;
+	color: rgb(var(--textInGame)) !important;
+}
+.BasicUI .offline .nOdcT-MoOaXGePXLyPe0H {
+	color: rgb(var(--textLightish)) !important;
 }
 
 /* flat Steam blue: rgb(102, 192, 244) */
@@ -365,8 +371,8 @@ span.Udzrpqr8534T5DvVZveNP {
 	border-color: rgb(var(--accentDarkest)) !important;
 }
 
-/* "New to Library" controller badge: it uses a currentColor SVG on a native
- * blue-black chip, so recolor the chip rather than touching the SVG artwork. */
+/* Controller-support chip: it uses a currentColor SVG on a native
+ * blue-black backing. The New-to-Library banner has its shared owner. */
 ._2GRcKrPZsMSF6glMPRMZei ._1TaKfLOhWBYEPtvv-WJv0n {
 	background-color: rgb(var(--backgroundDarkish)) !important;
 	color: rgb(var(--textLightest)) !important;
@@ -396,7 +402,7 @@ div._3-GyQfKnKaWozIRLOw4BjY {
  * Color-only changes; retain Steam's geometry, artwork and input behavior. */
 ._38sNQt6oEVaeO9D-gI_Lhl {
 	background-color: rgb(var(--green)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 ._38sNQt6oEVaeO9D-gI_Lhl._15VplG8ZhNCYs8IUwaufpO:not(.mHKj-UeGQdjT9lC0rOGdq) {
@@ -459,12 +465,12 @@ div._3-GyQfKnKaWozIRLOw4BjY {
 
 :is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton.Primary:not(.GreenPlay):not(.Destructive) {
 	background-color: rgb(var(--accentDarkest)) !important;
-	color: rgb(var(--textLightest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 }
 
 :is(._16sYNwqxz6giarbVaRUl7R, ._21qvBvPytuUH_A5_jX87K5) button.DialogButton.Primary:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, .gpfocus, :active) {
 	background-color: rgb(var(--accent)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 }
 
 /* Disabled is last so keyboard focus cannot make it look actionable. */
@@ -488,17 +494,17 @@ div._3-GyQfKnKaWozIRLOw4BjY {
  * use the accent, including Steam's dedicated controller-focus class. */
 .BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):not(:is(._213PVSQTmHdo8SK-jkU-m_, .Stream, .Connect, .Launch, .PlayMusic, .Play, .Resume, .BorrowApp, ._1HXm3O7vOzyuTFDaKPNUxy, .Stop, .Cancel)):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL, .OQmT6NKuekm5HuXQnkl2a) {
 	background-color: rgb(var(--accent)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 .BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):is(._213PVSQTmHdo8SK-jkU-m_, .Stream, .Connect, .Launch, .PlayMusic, .Play, .Resume, .BorrowApp):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL) {
 	background-color: rgb(var(--green)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 .BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L:not(.disabled):is(._1HXm3O7vOzyuTFDaKPNUxy, .Stop, .Cancel):is(:hover, .gpfocus, ._2XVTVAadkIvrBujZYN5jbL) {
 	background-color: rgb(var(--red)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 }
 
 .BasicUIContextMenu ._34o03-8cUc3fQX1u650c0L.disabled {
@@ -538,6 +544,8 @@ div._3-GyQfKnKaWozIRLOw4BjY {
  * transparent strips above/below their visible chrome. */
 html:has(#browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)),
 body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
+	/* BrowserView body otherwise has zero paint height with overflow:hidden. */
+	height: 100% !important;
 	background-color: transparent !important;
 }
 
@@ -553,7 +561,7 @@ body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
 .BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary {
 	background-color: rgb(var(--accentDarkest)) !important;
 	background-image: none !important;
-	color: rgb(var(--textLightest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 }
 
 .BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:not(:disabled):not(.Disabled):hover {
@@ -562,7 +570,7 @@ body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
 
 .BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:not(:disabled):not(.Disabled):is(.gpfocus, :active) {
 	background-color: rgb(var(--accent)) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAction)) !important;
 }
 
 .BasicUI button._2TWHMJvrhtyyuTse9Rqwps.DialogButton.Primary:is(:disabled, .Disabled) {
@@ -585,7 +593,7 @@ body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
 }
 
 /* 1j5ox48: online persona text only; in-game/offline states and avatars stay native. */
-.BasicUI ._2neyMP841w6Hpbx1y_-nOs.online:not(.in-game) ._1cB0qtF0paHWWyj1XNcnbG {
+.BasicUI ._2neyMP841w6Hpbx1y_-nOs.online:not(.in-game):not(.ingame) ._1cB0qtF0paHWWyj1XNcnbG {
 	color: rgb(var(--accent)) !important;
 }
 
@@ -659,7 +667,7 @@ body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
 .BasicUI .HijmccPB1BKyhOwhX1EVl._3-_jME_xsuvgT3Dvq4bw_q:not(._3hmGW9wIxNIoPPu1aS7rFm) {
 	background-color: rgb(var(--accent)) !important;
 	background-image: radial-gradient(rgba(var(--accent), .733), rgb(var(--accent))) !important;
-	color: rgb(var(--backgroundDarkest)) !important;
+	color: rgb(var(--textOnAccent)) !important;
 	border-color: rgb(var(--accentDarkish)) !important;
 }
 
@@ -677,4 +685,178 @@ body:has(> #browserview_target > :is(#MainNavMenuContainer, #QuickAccess-NA)) {
 .BasicUI .SliderControl ._2_vG6TwMW2XtyLlTEaODH9 {
 	--left-track-color: rgb(var(--accent)) !important;
 	background-color: rgb(var(--backgroundLight)) !important;
+}
+
+/* Native paint owners found in the light/dark dogfood pass. Layout-only
+ * carousel/transition wrappers retain Steam's native opacity and motion. */
+.BasicUI .DialogContentTransition.ZjHHXZlnZhCahNrBFplWc,
+.BasicUI ._3fp5y6tdU77MdrCQZt_aS9 {
+    background-color: rgb(var(--background)) !important;
+}
+.BasicUI ._1KKWf5v5FhqL_NrtrGZPzG,
+.BasicUI ._32SD3UPT95_ZL7tqOsf080 ._3hW5F3JQJmt0L67hcy_U1V {
+    color: rgb(var(--textLightest)) !important;
+}
+.BasicUI ._32SD3UPT95_ZL7tqOsf080 .Bk52VA5Jq79g0bx4-MZAy {
+    background-image: linear-gradient(to left, rgba(var(--textLight), .15), rgba(var(--textLight), .03)) !important;
+}
+.BasicUI ._3FDPeEvssr8wktS3dWB-RO {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI ._3FDPeEvssr8wktS3dWB-RO:is(:hover, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+.BasicUI ._1xu4iu0Qa3cGcIr-rZAsVb,
+.BasicUI ._7kr7kB5ui-hc8_6J6g5v0 {
+    color: rgb(var(--textLightish)) !important;
+}
+.BasicUI ._11NNMU7s1rEnvE2bfegIiX {
+    color: rgb(var(--textLink)) !important;
+}
+/* Neutral capsule labels only; review ratings, warning colors and completion
+ * badges retain their separate semantic owners. */
+.BasicUI ._1LJqx_qFOC8199RBQO5kU8:not(:is(._1KR40mXc7Z4Dss99aBDbyN, ._1H3NRDhuiZh5xH5jZsiI38, ._3lWVD8RYypVvbk60T5Vqcs, ._2pensWpJpr4aPLfsnWG2Mk, ._31wTtQjCH2ZSKgMiMZLhAM)) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+.BasicUI ._16sYNwqxz6giarbVaRUl7R ._DialogInputContainer:is(.gpfocus, .Active),
+.BasicUI ._16sYNwqxz6giarbVaRUl7R ._DialogInputContainer.Active .DialogListBuilderInput_Input {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Ordinary gamepad page links share the regular/soft link roles. */
+a._2g3Gley034M1ZGhcq005s.Focusable:is(:hover, :focus-visible, .gpfocus),
+a._2m8YEKXvKa2bcFNjqXdJu7:is(:hover, :focus-visible, .gpfocus),
+a.CiFk6OuYAQSbv_DGXoBSX.Focusable:is(:hover, :focus-visible, .gpfocus) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Mounted gamepad shell sets its own pale default, independently of body. */
+.BasicUI ._3LYP1SIxyoky-yW9Ug_1fq {
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI #header ._2HnVd7wV6yVaTiXfrBe3gq {
+    color: rgb(var(--icon)) !important;
+}
+.BasicUI #header ._2HnVd7wV6yVaTiXfrBe3gq._1HhLUvHH6BZLIOyOE80TVh,
+.BasicUI ._31JnnWnVv7U4VrSuta5yWO {
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI #header ._2HnVd7wV6yVaTiXfrBe3gq svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+.BasicUI #header ._2HnVd7wV6yVaTiXfrBe3gq:is(:hover, .gpfocus, :focus-visible) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+.BasicUI ._1kiZKVbDe-9Ikootk57kpA ._34lrt5-Fc3usZU6trA1P0- {
+    color: rgb(var(--textLightish)) !important;
+}
+.BasicUI ._1kiZKVbDe-9Ikootk57kpA :is(._2TYVGoD27ZMfjRirKQNLfk, ._1nfJNsQjTOXSQQyFahGnRi) {
+    color: rgb(var(--textLightest)) !important;
+}
+.BasicUI ._3qDWQGB0rtwM3qpXTb11Q- {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--icon)) !important;
+}
+.BasicUI ._3qDWQGB0rtwM3qpXTb11Q- svg {
+    color: inherit !important;
+}
+.BasicUI ._3qDWQGB0rtwM3qpXTb11Q-:is(:hover, .gpfocus, :focus-visible) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+/* Demo's native decorative blue gradient is chrome; its capsule stays intact. */
+.BasicUI .xYbDdgox9mzrraWWYN3_- {
+    background: linear-gradient(110deg, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .xYbDdgox9mzrraWWYN3_- ._1AazHUNJbyL5SIWE5jC4Tz {
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .xYbDdgox9mzrraWWYN3_- ._2rPfS5ipeg-YiBbwGz1Uzb {
+    color: rgb(var(--textLightest)) !important;
+}
+/* Header's search button is a separate owner from the status/clock buttons. */
+.BasicUI #header :is(svg._2Ya83QVfgqLema1GlOi9_C, svg._1Ka4TMacsEnWHBXCx3gp52) {
+    color: rgb(var(--icon)) !important;
+}
+/* Library tab counts have their own slate foreground. */
+.BasicUI ._3eEbSktrstBdLk0dVpnKVI ._1ui4IlLDo2hf32UFCezr1t {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Mounted neutral Game Info description, metadata and navigation controls.
+ * Collection collages/captions and the primary play action keep their media
+ * and action pairs. */
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._3GkV1NVDKuXYTLyRt2Uirz,
+.BasicUI .pzBMdSbGpu7XfypZMU6PK .izVv8jajo7mehdAkZozAK,
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._1VoVzLPXjhlaguJLgO8htG {
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK :is(._1vYL2q-91QLy-FBzntE7E5, ._2UN73dmbVcWzIR2ZCr8KID) {
+    color: rgb(var(--textLightish)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._2j8Xh4pPOOgF4MF6FVUI28 {
+    color: rgb(var(--textLink)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._2j8Xh4pPOOgF4MF6FVUI28:is(:hover, :focus-visible, .gpfocus) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._1b6LYWVijW-9E4YV0keDWZ {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLink)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._1b6LYWVijW-9E4YV0keDWZ ._2sNDjgK9EWiPLdNGkjun-w {
+    color: inherit !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._1b6LYWVijW-9E4YV0keDWZ:is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLinkSoft)) !important;
+}
+.BasicUI .pzBMdSbGpu7XfypZMU6PK ._1SIa8xLHqCJGyeA9sQ4yK_ {
+    color: rgb(var(--icon)) !important;
+}
+.BasicUI .QvHky2-yJGOkPJG16qeRL .fUTblKw-DF3ph-FUGHA1d {
+    color: rgb(var(--textLightish)) !important;
+}
+.BasicUI ._2r4TK4BAuU-J4FuF_O7v_5 :is(._1SQ30LQnUhED7sXI79rmas, ._3i0kopAostOz2IDi9HqmeN) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Gamepad's expanded news carousel uses a different owner from the web
+ * reader. Pair its chrome with the same roles; retain the banner/media. */
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ ._1KsYSVzmvIfRivBTcx-_GE {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(at top left, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ ._2-IygC3-t05_RYwPl6Fkgt {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ :is(._3z2NYCkFizMu4fMvWTIBUG, .mKmrOjr9bGjKAolgp9NoD) {
+    background-image: none !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ :is(.BB_Header1, .BB_Header2, .BB_Header3, .BB_Header4, .BB_Header5) {
+    color: rgb(var(--textLightest)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ ._20f2sKS2M7PlPSnPCinT26 {
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ .Udzrpqr8534T5DvVZveNP {
+    color: rgb(var(--textLink)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ :is(._3Kelh1-_v6xHfRjF68n7NB, ._16xC0mtOWoLbvSQbmo_ycv) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ ._1ABCOz8DSrl-YJdh1xD-m0 {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+.BasicUI .hDsbtRCdh6JhG6lq-Co1_ ._1ABCOz8DSrl-YJdh1xD-m0:is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
 }

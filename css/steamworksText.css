@@ -1,0 +1,180 @@
+@import url('configDefaults.css');
+@import url('../config.css');
+
+/* Loaded only on partner.steamgames.com. Native geometry, artwork, warning
+ * badges and registration behavior stay native; this sheet owns its palette. */
+:root { color-scheme: var(--atoms-color-scheme); }
+html body {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .AdminPageContent {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .AdminPageContent :is(h1,h2,h3,.section_title,.list_item_title) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .AdminPageContent :is(p,.list_item_desc,.list_item_desc.emphasis) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .AdminPageContent a:not(.btnv6_lightblue_blue) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .AdminPageContent .page_desc {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .AdminPageContent a:not(.btnv6_lightblue_blue):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .AdminPageContent .page_controls {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .AdminPageContent .btnv6_lightblue_blue,
+html body .AdminPageContent .btnv6_lightblue_blue > span {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .AdminPageContent .btnv6_lightblue_blue:is(:hover,:focus-visible) > span {
+    background: rgb(var(--accentLight)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .AdminPageContent .btnv6_lightblue_blue:active > span {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+/* The native cube image and branding logos are not filtered. Deep accent
+ * backing keeps their light marks legible in both palettes. */
+html body .steamworks_direct_header_ctn {
+    background: linear-gradient(90deg,rgb(var(--accentDark)),rgb(var(--accentDarkest))) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .steamworks_direct_header {
+    color: rgb(var(--textOnAccentDark)) !important;
+    text-shadow: none !important;
+}
+html body .Ey902omE2HM- {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body :is(.cBAd9S3Ud2Q-,.MDVfIY3rBx8-) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body :is(.Ey902omE2HM-,.cBAd9S3Ud2Q-,.L--4UsScyGU-,.YJoIbPvLQ4U-) :is(.Ki3DNx2CtLY-,.hCreNTnpfF0-,.J0-Jvf8IFgY-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .Ey902omE2HM- :is(.Ki3DNx2CtLY-,.hCreNTnpfF0-) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body :is(.Ey902omE2HM-,.cBAd9S3Ud2Q-,.L--4UsScyGU-,.YJoIbPvLQ4U-) :is(.Ki3DNx2CtLY-,.hCreNTnpfF0-,.J0-Jvf8IFgY-):is(:hover,:focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .Ki3DNx2CtLY-._4MfKVmN1OIk-,
+html body .Ki3DNx2CtLY-._4MfKVmN1OIk-:is(:hover,:focus-visible) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+html body :is(.YJoIbPvLQ4U-,dialog.L--4UsScyGU-,details._7eyxnzDE90k-,dialog.DHrGaOGxFu4-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body :is(input._2cIrkfKKNCo-,input.kmuz0LqWF14-) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body :is(input._2cIrkfKKNCo-,input.kmuz0LqWF14-)::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body :is(input._2cIrkfKKNCo-,input.kmuz0LqWF14-):focus-visible {
+    outline-color: rgb(var(--accent)) !important;
+}
+html body hr._16VS8YDe30M- {
+    background: linear-gradient(90deg,rgba(var(--accent),0),rgb(var(--accent)),rgba(var(--accent),0)) !important;
+}
+html body .responsive_footer_ctn {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .responsive_footer_ctn :is(.responsive_footer_content,.footer_content_left,.footer_content_right,.steamworks_desc,.corporate,ul) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .responsive_footer_ctn em {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .responsive_footer_ctn a:not(.header_login_btn) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .responsive_footer_ctn a:not(.header_login_btn):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .responsive_footer_ctn .header_login_btn.footerbtn {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .responsive_footer_ctn .header_login_btn.footerbtn:is(:hover,:focus-visible) {
+    background: rgb(var(--accentLight)) !important;
+}
+
+/* Landing-page login is outside AdminPageContent. Preserve its native flipping
+ * layout, QR/media and authentication behavior; this boundary owns paint only. */
+html body #login_form {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #login_form :is(h1,h2,h3) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body #login_form :is(p,label) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #login_form :is(input:not([type]),input[type="text"],input[type="email"],input[type="password"]) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #login_form :is(input:not([type]),input[type="text"],input[type="email"],input[type="password"])::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #login_form :is(input:not([type]),input[type="text"],input[type="email"],input[type="password"]):focus-visible {
+    outline-color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+html body #login_form a:not([role="button"],[class*="btn"]) {
+    color: rgb(var(--textLink)) !important;
+}
+html body #login_form a:not([role="button"],[class*="btn"]):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body #login_form :is(button,button > span,input[type="submit"]) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+html body #login_form :is(button,input[type="submit"]):is(:hover,:focus-visible),
+html body #login_form button:is(:hover,:focus-visible) > span {
+    background: rgb(var(--accentDark)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+html body #login_form .blue_button {
+    border-color: rgb(var(--accent)) !important;
+    text-shadow: none !important;
+}
+html body #login_form .blue_button:is(:hover,:focus-visible) {
+    border-color: rgb(var(--accentDark)) !important;
+}
+html body #login_form button.gray_button,
+html body #login_form button.gray_button > span {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #login_form button.gray_button:is(:hover,:focus-visible),
+html body #login_form button.gray_button:is(:hover,:focus-visible) > span {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}

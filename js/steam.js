@@ -14,9 +14,7 @@ import launchGameKeyHandler from './utilities/launchGameKeyHandler.js';
 import { wideGameIcons } from './utilities/wideGameIcons.js';
 import { installThemeToggle } from './utilities/visualThemeControls.js';
 import { installBigPictureMenuStyles } from './utilities/bigPictureMenus.js';
-
-
-
+import installLibraryTileTilt from './utilities/libraryTileTilt.js';
 // On macOS Steam's native traffic lights share the web titlebar. Keep
 // structural top-bar edits away from them so their placement stays native.
 const IS_MAC = /Macintosh/.test(navigator.userAgent);
@@ -33,6 +31,7 @@ if (IS_MAC) {
 }
 
 if (document.title == "Steam") {
+	installLibraryTileTilt();
 	downloadAll();
 	if (!IS_MAC) {
 		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', rootMenuDropdown); //notme

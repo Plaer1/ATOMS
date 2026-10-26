@@ -1,200 +1,249 @@
 {
-	"author":"Plaer1",
-	"name":"ATOMS",
-	"description":"Just another \"take\" on Metro Steam.",
-	"version":"1.1.1.1.1.1.1.1.1.1113",
-	"github":{
-		"owner":"Plaer1",
-		"repo_name":"ATOMS"
+	"author": "Plaer1",
+	"name": "ATOMS",
+	"description": "Just another \"take\" on Metro Steam.",
+	"version": "1.1.1.1.1.1.1.1.11",
+	"github": {
+		"owner": "Plaer1",
+		"repo_name": "ATOMS"
 	},
-	"discord_support":{
-		"inviteCodeExcludingLink":"UZvkvkh"
+	"discord_support": {
+		"inviteCodeExcludingLink": "UZvkvkh"
 	},
-	"tags":[
+	"tags": [
 		"Minimal",
 		"Dark",
 		"Customizable",
 		"Metro"
 	],
-	"header_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsHeaderImage.png",
-	"splash_image":"https://raw.githubusercontent.com/Plaer1/ATOMS-Media/main/atomsSplashImage.png",
-	"Steam-WebKit":"css/webkit.css",
-	"webkitJS":"js/webkit.js",
-	"Patches":[
+	"header_image": "https://raw.githubusercontent.com/Plaer1/ATOMS/main/docs/media/millennium-preview.gif",
+	"splash_image": "https://raw.githubusercontent.com/Plaer1/ATOMS/main/docs/media/library-dark.webp",
+	"Patches": [
 		{
-			"MatchRegexString":"^https://.*\\.steampowered\\.com(?:/.*)?$",
-			"TargetCss":"css/webkit.css",
-			"TargetJs":"js/webkit.js"
+			"MatchRegexString": "^https?://(?!(?:www\\.)?steamcommunity\\.com/(?:id|profiles)/[^/?#]+/?(?:[?#].*)?$)(?!partner\\.steamgames\\.com(?:[/?#]|$))(?!(?:www\\.)?(?:youtube\\.com|youtube-nocookie\\.com)/embed(?:[/?#]|$)).+",
+			"TargetCss": "css/webkit.css",
+			"TargetJs": "js/webkit.js"
 		},
 		{
-			"MatchRegexString":"^https://steamcommunity\\.com(?:/.*)?$",
-			"TargetCss":"css/webkit.css",
-			"TargetJs":"js/webkit.js"
+			"MatchRegexString": "^https?://(?:www\\.)?steamcommunity\\.com/(?:id|profiles)/[^/?#]+/?(?:[?#].*)?$",
+			"TargetCss": "css/profileAccents.css",
+			"TargetJs": "js/webkit.js"
 		},
 		{
-			"MatchRegexString":"^https://(?:www\\.)?(?:youtube\\.com|youtube-nocookie\\.com)/embed(?:/.*)?$",
-			"TargetCss":"css/youtube.css"
+			"MatchRegexString": "^https?://partner\\.steamgames\\.com(?:[/?#].*)?$",
+			"TargetCss": "css/steamworksText.css",
+			"TargetJs": "js/webkit.js"
 		},
 		{
-			"MatchRegexString":"^Steam$",
-			"TargetCss":"css/library.css",
-			"TargetJs":"js/steam.js"
+			"MatchRegexString": "^https://help\\.steampowered\\.com(?:/.*)?$",
+			"TargetCss": "css/supportText.css"
 		},
 		{
-			"MatchRegexString":"^Sign in to Steam$",
-			"TargetCss":"css/library.css",
-			"TargetJs":"js/steam.js"
+			"MatchRegexString": "^https://(?:www\\.)?(?:youtube\\.com|youtube-nocookie\\.com)/embed(?:/.*)?$",
+			"TargetCss": "css/youtube.css"
 		},
 		{
-			"MatchRegexString":".ModalDialogPopup",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": "^Steam$",
+			"TargetCss": "css/library.css",
+			"TargetJs": "js/steam.js"
 		},
 		{
-			"MatchRegexString":".FullModalOverlay",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": "^Sign in to Steam$",
+			"TargetCss": "css/library.css",
+			"TargetJs": "js/steam.js"
 		},
 		{
-			"MatchRegexString":".friendsui-container",
-			"TargetCss":"css/friends.css"
+			"MatchRegexString": ".ModalDialogPopup",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"^OverlayBrowser_Browser$",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": ".FullModalOverlay",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"^SP Overlay:",
-			"TargetCss":"css/inGameOverlay.css",
-			"TargetJs":"js/inGameOverlay.js"
+			"MatchRegexString": ".friendsui-container",
+			"TargetCss": "css/friends.css"
 		},
 		{
-			"MatchRegexString":"Menu$",
-			"TargetCss":"css/menus.css",
-			"TargetJs":"js/navigation.js"
+			"MatchRegexString": "^OverlayBrowser_Browser$",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"Supernav$",
-			"TargetCss":"css/menus.css"
+			"MatchRegexString": "^SP Overlay:",
+			"TargetCss": "css/inGameOverlay.css",
+			"TargetJs": "js/inGameOverlay.js"
 		},
 		{
-			"MatchRegexString":"^notificationtoasts_",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": "Menu$",
+			"TargetCss": "css/menus.css",
+			"TargetJs": "js/navigation.js"
 		},
 		{
-			"MatchRegexString":"^SteamBrowser_Find$",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": "Supernav$",
+			"TargetCss": "css/menus.css"
 		},
 		{
-			"MatchRegexString":"^OverlayTab\\d+_Find$",
-			"TargetCss":"css/library.css"
+			"MatchRegexString": "^notificationtoasts_",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"^Steam Big Picture Mode$",
-			"TargetCss":"css/bigpicture.css",
-			"TargetJs":"js/bigpicture.js"
+			"MatchRegexString": "^SteamBrowser_Find$",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"^Controller Layout$",
-			"TargetCss":"css/controller.css"
+			"MatchRegexString": "^OverlayTab\\d+_Find$",
+			"TargetCss": "css/library.css"
 		},
 		{
-			"MatchRegexString":"^Account Data$",
-			"TargetCss":"css/webkit.css"
+			"MatchRegexString": "^Steam Big Picture Mode$",
+			"TargetCss": "css/bigpicture.css",
+			"TargetJs": "js/bigpicture.js"
 		},
 		{
-			"MatchRegexString":"^QuickAccess_",
-			"TargetCss":"css/bigpicture.css"
+			"MatchRegexString": "Controller Layout$",
+			"TargetCss": "css/controller.css"
 		},
 		{
-			"MatchRegexString":"^MainMenu_",
-			"TargetCss":"css/bigpicture.css"
+			"MatchRegexString": "^Account Data$",
+			"TargetCss": "css/webkit.css"
 		},
 		{
-			"MatchRegexString":"Dev Tools",
-			"TargetCss":"css/menus.css"
+			"MatchRegexString": "^QuickAccess_",
+			"TargetCss": "css/bigpicture.css"
+		},
+		{
+			"MatchRegexString": "^MainMenu_",
+			"TargetCss": "css/bigpicture.css"
+		},
+		{
+			"MatchRegexString": "Dev Tools",
+			"TargetCss": "css/menus.css"
 		}
 	],
-	"Conditions":{
-		"Show floating theme toggle?":{
-			"tab":"General",
-			"default":"no",
-			"description":"Show the optional ATOMS on/off comparison button. Turning this option off restores the theme and removes the button.",
-			"values":{
-				"no":{
-					"TargetJs":{"affects":[".*"],"src":"js/themeToggleOff.js"}
-				},
-				"yes":{
-					"TargetJs":{"affects":[".*"],"src":"js/themeToggle.js"}
-				}
-			}
-		},
-		"Use Custom Accent Color?":{
-			"tab":"General",
-			"default":"no",
-			"description":"Enables Use of System Accent Color from Mill' settings.",
-			"values":{
-				"no":{
-
-				},
-				"yes":{
-					"TargetJs":{
-						"affects":[
+	"Conditions": {
+		"Light mode?": {
+			"tab": "General",
+			"default": "no",
+			"description": "Light backgrounds with the current ATOMS accents. Apply Millennium\u2019s Steam UI reload after switching modes.",
+			"values": {
+				"no": {},
+				"yes": {
+					"TargetCss": {
+						"affects": [
 							".*"
 						],
-						"src":"js/utilities/systemAccentColors.js"
+						"src": "css/lightMode.css"
 					}
 				}
 			}
 		},
-		"Dim uninstalled games?":{
-			"tab":"General",
-			"default":"yes",
-			"description":"Enables semi-transparent icons for uninstall games in the game-grid.",
-			"values":{
-				"no":{
-
+		"Show floating theme toggle?": {
+			"tab": "General",
+			"default": "no",
+			"description": "Show the ATOMS debug menu: theme comparison, light/dark preview and global annotator control. Turning this option off restores the theme and hides the controls.",
+			"values": {
+				"no": {
+					"TargetJs": {
+						"affects": [
+							".*"
+						],
+						"src": "js/themeToggleOff.js"
+					}
 				},
-				"yes":{
-					"TargetJs":{
-						"affects":[
+				"yes": {
+					"TargetJs": {
+						"affects": [
+							".*"
+						],
+						"src": "js/themeToggle.js"
+					}
+				}
+			}
+		},
+		"Use Custom Accent Color?": {
+			"tab": "General",
+			"default": "no",
+			"description": "Enables Use of System Accent Color from Mill' settings.",
+			"values": {
+				"no": {},
+				"yes": {
+					"TargetJs": {
+						"affects": [
+							".*"
+						],
+						"src": "js/utilities/systemAccentColors.js"
+					}
+				}
+			}
+		},
+		"Dim uninstalled games?": {
+			"tab": "General",
+			"default": "yes",
+			"description": "Dims uninstalled game artwork in the Library grid. Adjust the opacity below.",
+			"values": {
+				"no": {},
+				"yes": {
+					"TargetJs": {
+						"affects": [
 							"^Steam$"
 						],
-						"src":"js/utilities/transparentGames.js"
+						"src": "js/dimUninstalledGames.js"
 					}
 				}
 			}
 		},
-		"Enable Que Via Keyboard?":{
-			"tab":"General",
-			"default":"yes",
-			"description":"Allows you to navigate the Steam Que on store pages Via the arrow keys.",
-			"values":{
-				"no":{
-
-				},
-				"yes":{
-					"TargetJs":{
-						"affects":[
+		"Uninstalled game opacity": {
+			"tab": "General",
+			"default": "77.77",
+			"description": "Artwork opacity while dimming is enabled: 0% is invisible, 100% is fully opaque.",
+			"slider": {
+				"min": 0,
+				"max": 100,
+				"step": 0.01,
+				"cssVariable": "--uninstalledGameOpacity",
+				"unit": "%"
+			}
+		},
+		"Library tile tilt": {
+			"tab": "General",
+			"default": "100",
+			"description": "Adjust how much Library game tiles tilt. 0% is flat; 100% is the normal tilt.",
+			"slider": {
+				"min": 0,
+				"max": 200,
+				"step": 1,
+				"cssVariable": "--libraryTileTiltIntensity",
+				"unit": "%"
+			}
+		},
+		"Enable Que Via Keyboard?": {
+			"tab": "General",
+			"default": "yes",
+			"description": "Allows you to navigate the Steam Que on store pages Via the arrow keys.",
+			"values": {
+				"no": {},
+				"yes": {
+					"TargetJs": {
+						"affects": [
 							"^https://store\\.steampowered\\.com/.*"
 						],
-						"src":"js/utilities/queueKeyHandler.js"
+						"src": "js/utilities/queueKeyHandler.js"
 					}
 				}
 			}
 		},
-		"Enable Automatic Que Skipping?":{
-			"tab":"General",
-			"default":"no",
-			"description":"Automatically ignores certain games (tags/banned keywords can be set in 'config.js'; see 'js/configDefaults.js' for the full list)",
-			"values":{
-				"no":{
-
-				},
-				"yes":{
-					"TargetJs":{
-						"affects":[
+		"Enable Automatic Que Skipping?": {
+			"tab": "General",
+			"default": "no",
+			"description": "Automatically ignores certain games (tags/banned keywords can be set in 'config.js'; see 'js/configDefaults.js' for the full list)",
+			"values": {
+				"no": {},
+				"yes": {
+					"TargetJs": {
+						"affects": [
 							"^https://store\\.steampowered\\.com/.*"
 						],
-						"src":"js/utilities/queBlacklist.js"
+						"src": "js/utilities/queBlacklist.js"
 					}
 				}
 			}

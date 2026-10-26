@@ -6,6 +6,8 @@ import installMenus from '../js/utilities/restartMenus.js';
 import installDownloads from '../js/utilities/titlebarDownloads.js';
 import { installThemeToggle } from '../js/utilities/visualThemeControls.js';
 import { installAnnotationThemeToggle } from './steam-annotation-theme-toggle.js';
+import { installAnnotationControl } from './steam-annotation-control.js';
+import { installAnnotationModalLayer } from './steam-annotation-modal-layer.js';
 
 test('new checkbox groups all existing Millennium settings in the same visible tab', () => {
     const skin = JSON.parse(fs.readFileSync(new URL('../skin.json', import.meta.url), 'utf8'));
@@ -14,7 +16,10 @@ test('new checkbox groups all existing Millennium settings in the same visible t
     assert.deepEqual(Object.keys(condition.values), ['no', 'yes']);
     // Current Millennium drops untabbed groups and splits undefined tab names.
     assert.ok(Object.values(skin.Conditions).every(value => value.tab === 'General'));
-    assert.equal(Object.keys(skin.Conditions).length, 5);
+    const light = skin.Conditions['Light mode?'];
+    assert.equal(light.default, 'no');
+    assert.deepEqual(light.values.yes.TargetCss, { affects: ['.*'], src: 'css/lightMode.css' });
+    assert.equal(light.values.yes.TargetJs, undefined);
 });
 
 // Small structural DOM doubles only. Visual acceptance is in the live Steam RDP.
@@ -34,12 +39,20 @@ class Element {
     hasAttribute(k) { return this.attrs.has(k); }
     removeAttribute(k) { this.attrs.delete(k); }
     get nextSibling() { return this.parentNode?.children[this.parentNode.children.indexOf(this) + 1] ?? null; }
+    get isConnected() { return this === globalThis.document?.documentElement || Boolean(this.parentNode?.isConnected); }
     appendChild(e) { e.remove(); this.children.push(e); e.parentNode = this; return e; }
     insertBefore(e, anchor) { e.remove(); this.children.splice(this.children.indexOf(anchor), 0, e); e.parentNode = this; }
     remove() { if (this.parentNode) this.parentNode.children.splice(this.parentNode.children.indexOf(this), 1); this.parentNode = null; }
+    showPopover() { this.popoverOpen = true; const stack = document.topLayer; if (stack) { const i = stack.indexOf(this); if (i >= 0) stack.splice(i, 1); stack.push(this); } }
+    hidePopover() { this.popoverOpen = false; const stack = document.topLayer; const i = stack?.indexOf(this) ?? -1; if (i >= 0) stack.splice(i, 1); }
     cloneNode() { const e = new Element(this.tagName); e.attrs = new Map(this.attrs); return e; }
     matches(s) {
+        if (s === ':popover-open') return Boolean(this.popoverOpen);
+        if (s === ':modal') return this.tagName === 'DIALOG' && Boolean(this.modal);
+        if (s === 'dialog:modal') return this.matches(':modal');
         if (s.includes(',')) return s.split(',').some(v => this.matches(v.trim()));
+        const wantedId = s.match(/^#([\w-]+)/)?.[1];
+        if (wantedId && this.id !== wantedId) return false;
         const tag = s.match(/^[a-z]+/i)?.[0];
         if (tag && tag.toUpperCase() !== this.tagName) return false;
         if ([...s.matchAll(/\.([\w-]+)/g)].some(m => !this.classList.contains(m[1]))) return false;
@@ -61,15 +74,20 @@ class Element {
 function fixture(title = 'Steam', userAgent = 'Windows', lang = 'en') {
     const root = new Element('html'); root.lang = lang;
     const observers = [], listeners = new Map(), saved = new Map(), calls = [];
-    globalThis.document = { title, documentElement: root,
+    const documentListeners = new Map();
+    globalThis.document = { title, documentElement: root, topLayer: [],
+        addEventListener: (n, f) => documentListeners.set(n, f), removeEventListener: n => documentListeners.delete(n),
+        dispatchEvent: event => documentListeners.get(event.type)?.(event),
         createElement: t => new Element(t), querySelector: s => root.querySelector(s), querySelectorAll: s => root.querySelectorAll(s),
         getElementById: id => root.querySelector(`[id="${id}"]`) };
     globalThis.window = { opener: { eval: expr => calls.push(expr) },
-        addEventListener: (n, f) => listeners.set(n, f), removeEventListener: n => listeners.delete(n), dispatchEvent() {} };
+        addEventListener: (n, f) => listeners.set(n, f), removeEventListener: n => listeners.delete(n),
+        dispatchEvent: event => { listeners.get(event.type)?.(event); return true; } };
     Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { userAgent } });
     globalThis.sessionStorage = { getItem: k => saved.get(k), setItem: (k, v) => saved.set(k, v) };
     globalThis.CustomEvent = class { constructor(n, v) { this.type = n; this.detail = v.detail; } };
     globalThis.Node = { ELEMENT_NODE: 1 };
+    globalThis.location = { href: 'https://steamcommunity.com/' };
     globalThis.MutationObserver = class {
         constructor(fn) { this.fn = fn; observers.push(this); }
         observe() { this.active = true; }
@@ -88,6 +106,23 @@ test('floating toggle defaults off, restores old OFF state, and allocates no obs
     assert.equal(f.observers.length, 0);
     assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
     assert.equal(f.saved.get('atoms-theme-disabled-v1'), '0');
+});
+
+test('tiny browser context menus keep global controls enabled without mounting pills over their rows', () => {
+    const f = fixture('useBrowserViewContextMenu');
+    f.root.className = 'useBrowserViewContextMenu MillenniumWindow_ContextMenu';
+    const api = installThemeToggle({ showButton: true });
+    assert.equal(api.isButtonEnabled(), true);
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+    api.setButtonEnabled(true); api.install();
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+    f.root.className = '';
+    api.install();
+    assert.ok(document.getElementById('atoms-theme-toggle-host'));
+    f.root.className = 'useBrowserViewContextMenu MillenniumWindow_ContextMenu';
+    api.install();
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+    assert.equal(api.isButtonEnabled(), true);
 });
 
 test('toggle cycles preserve foreign and initially disabled sheets, then removes itself', () => {
@@ -116,10 +151,43 @@ test('toggle cycles preserve foreign and initially disabled sheets, then removes
     api.stop();
 });
 
+test('controller palette shortcut attaches when the debug host mounts after the bridge and remounts', () => {
+    const f = fixture();
+    globalThis.location = { href: 'https://steamcommunity.com/app/1374490/' };
+    let paletteInstalls = 0;
+    installAnnotationControl({ enabled: false, pending: false, available: true }, () => {
+        const host = document.getElementById('atoms-theme-toggle-host');
+        if (!host) return;
+        paletteInstalls++;
+        const shadow = host.shadowRoot;
+        if (!shadow.querySelector('#atoms-color-mode-toggle')) {
+            const button = document.createElement('button');
+            button.id = 'atoms-color-mode-toggle';
+            shadow.appendChild(button);
+        }
+    });
+    assert.equal(paletteInstalls, 0);
+
+    const api = installThemeToggle({ showButton: true });
+    const host = document.getElementById('atoms-theme-toggle-host');
+    assert.equal(paletteInstalls, 1);
+    assert.ok(host.shadowRoot.querySelector('#atoms-color-mode-toggle'));
+    api.install();
+    assert.equal(paletteInstalls, 1); // Routine synchronization emits no mount event.
+
+    host.remove();
+    f.observers[0].fn([{ addedNodes: [] }]);
+    assert.equal(document.getElementById('atoms-theme-toggle-host'), host);
+    assert.equal(host.isConnected, true);
+    assert.equal(paletteInstalls, 2);
+    assert.equal(host.shadowRoot.querySelectorAll('#atoms-color-mode-toggle').length, 1);
+    api.stop();
+});
+
 test('old recorder toggle is restored and replaced without an unconditional button', () => {
     fixture(); const calls = [];
     window.__atomsThemeToggleV1 = { setDisabled: v => calls.push(v), stop: () => calls.push('stop') };
-    assert.equal(installThemeToggle().version, 2);
+    assert.equal(installThemeToggle().version, 7);
     assert.deepEqual(calls, [false, 'stop']);
 });
 
@@ -205,4 +273,77 @@ test('system accent preserves the configured palette when no OS vars exist', () 
     assert.match(properties.get('--accent'), /SystemAccentColor/);
     assert.match(properties.get('--accentFilter'), /^hue-rotate/);
     assert.match(properties.get('--youtubeRedFilter'), /^hue-rotate/);
+    for (const suffix of ['', 'Light', 'Darkest', 'Transparent', 'DarkTransparent']) {
+        assert.equal(properties.get(`--accent${suffix}`), properties.get(`--accentLightMode${suffix}`));
+    }
+    assert.match(properties.get('--accentLight'), /SystemAccentColorAccent-RGB/,
+        'a missing system shade falls back to the available base');
+    assert.match(properties.get('--accentTransparent'), /, 0\.498$/);
+    assert.match(properties.get('--accentDarkTransparent'), /, 1$/);
+});
+
+ test('debug annotator button reflects the shared controller and requests a global change', () => {
+    const f = fixture(); const requests = [];
+    window.__atomsAnnotationControlV1 = { available: true, enabled: false, pending: false, setEnabled: enabled => requests.push(enabled) };
+    const api = installThemeToggle({ showButton: true });
+    const button = document.getElementById('atoms-theme-toggle-host').shadowRoot.querySelector('#atoms-annotator-toggle');
+    assert.equal(button.textContent, 'ANNOTATOR OFF'); assert.equal(button.disabled, false);
+    button.click(); assert.deepEqual(requests, [true]);
+    api.setButtonEnabled(false); assert.equal(document.getElementById('atoms-theme-toggle-host'), null);
+ });
+
+test('annotator hamburger is distinct from its toggle and only opens the one manager menu', () => {
+    const f = fixture(), calls=[];
+    window.__atomsAnnotationControlV1={available:true,enabled:false,requestNotes(){},setEnabled:value=>calls.push(['recorder',value])};
+    window.__atomsAnnotationNoteManagerV1={toggleMenu:anchor=>calls.push(['menu',anchor.id])};
+    const api=installThemeToggle({showButton:true});
+    const root=document.getElementById('atoms-theme-toggle-host').shadowRoot;
+    const menu=root.querySelector('#atoms-annotator-menu');
+    assert.equal(menu.getAttribute('aria-haspopup'),'menu');assert.equal(menu.disabled,false);
+    menu.click();assert.deepEqual(calls,[['menu','atoms-annotator-menu']]);
+    root.querySelector('#atoms-annotator-toggle').click();assert.deepEqual(calls[1],['recorder',true]);api.stop();
+});
+
+test('owned annotation and manager popups never receive floating debug controls', () => {
+    for (const name of ['atoms_annotation_uid123','atoms_annotation_manager_uid123']) {
+        fixture();window.name=name;const api=installThemeToggle({showButton:true});
+        assert.equal(document.getElementById('atoms-theme-toggle-host'),null);
+        api.install();assert.equal(document.getElementById('atoms-theme-toggle-host'),null);api.stop();
+    }
+});
+
+test('toolbar stays in the top layer, follows modal ancestry and promotes above later page popovers without focusing',()=>{
+    const f=fixture('Steam Community'),focused=f.add(f.root,'','input');document.activeElement=focused;
+    const api=installThemeToggle({showButton:true}),host=document.getElementById('atoms-theme-toggle-host');
+    assert.equal(host.getAttribute('popover'),'manual');assert.equal(host.matches(':popover-open'),true);
+    assert.equal(document.topLayer.at(-1),host);assert.equal(document.activeElement,focused);
+    const dialog=f.add(f.root,'','dialog');dialog.modal=true;
+    f.observers[0].fn([{type:'attributes',target:dialog,addedNodes:[],removedNodes:[]}]);
+    assert.equal(host.parentNode,dialog);assert.equal(document.topLayer.at(-1),host);
+    const popup=f.add(dialog);popup.setAttribute('popover','manual');popup.showPopover();
+    document.dispatchEvent({type:'toggle',target:popup,newState:'open',composedPath:()=>[popup,dialog,f.root]});
+    assert.equal(document.topLayer.at(-1),host);assert.equal(document.activeElement,focused);
+    const fullscreen=f.add(dialog,'','video');document.topLayer.push(fullscreen);
+    document.dispatchEvent({type:'fullscreenchange',target:document});
+    assert.equal(document.topLayer.at(-1),host);
+    const own=f.add(f.root);own.id='atoms-annotation-note-manager-host';const menu=f.add(own);menu.setAttribute('popover','manual');menu.showPopover();
+    document.dispatchEvent({type:'toggle',target:menu,composedPath:()=>[menu,own,f.root]});
+    assert.equal(document.topLayer.at(-1),menu);
+    dialog.modal=false;document.dispatchEvent({type:'close',target:dialog});
+    assert.equal(host.parentNode,f.root);assert.equal(document.querySelectorAll('[id="atoms-theme-toggle-host"]').length,1);
+    api.stop();assert.equal(document.getElementById('atoms-theme-toggle-host'),null);
+});
+
+test('upgrading the toolbar retains its inherited enabled preference before retiring the old owner',()=>{
+    fixture();window.__atomsThemeToggleButtonEnabledV1=true;
+    window.__atomsThemeToggleV1={version:6,setDisabled(){},stop(){window.__atomsThemeToggleButtonEnabledV1=false;}};
+    const api=installThemeToggle();assert.equal(api.version,7);assert.equal(api.isButtonEnabled(),true);
+    assert.ok(document.getElementById('atoms-theme-toggle-host'));api.stop();
+});
+
+test('recorder modal cleanup cannot demote a toolbar whose layer is owned by the controls',()=>{
+    const f=fixture(),api=installThemeToggle({showButton:true}),host=document.getElementById('atoms-theme-toggle-host');
+    f.add(f.root).id='atoms-visual-audit-host';const layer=installAnnotationModalLayer();
+    layer.sync();layer.stop();assert.equal(host.matches(':popover-open'),true);assert.equal(document.topLayer.at(-1),host);
+    api.stop();
 });

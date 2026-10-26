@@ -1,0 +1,1022 @@
+/* Current native Library controls. All foregrounds/backgrounds use ATOMS
+ * roles, so light/dark and local palette overrides share the same rules. */
+
+/* Launch options: themed list, alternating rows, checkbox, and action. */
+:root .LclHwcOfHFpwObYMD1HLa ._134yW7SKfZYwmvwlUElGx-,
+:root ._1dbgUdk0xgEX7E4Db_r5mb {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._134yW7SKfZYwmvwlUElGx- ._3DEhfTvEKwgLd4smd6QdaU {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._134yW7SKfZYwmvwlUElGx- ._3DEhfTvEKwgLd4smd6QdaU:nth-child(even) {
+    background: rgb(var(--background)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._134yW7SKfZYwmvwlUElGx- ._3DEhfTvEKwgLd4smd6QdaU:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._134yW7SKfZYwmvwlUElGx- :is(label,input) {
+    color: rgb(var(--textLight)) !important;
+    accent-color: rgb(var(--accent)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._3H2GezG50hog8gSDj-qbx1 ._3EWVuoln1WAvpEaPNfpift {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root .LclHwcOfHFpwObYMD1HLa ._3H2GezG50hog8gSDj-qbx1 ._3EWVuoln1WAvpEaPNfpift:hover {
+    background: rgb(var(--accentLightish)) !important;
+}
+
+/* Modal positioning wrappers must not paint a full opaque page. Only the
+ * native dialog backdrop provides dimming; the inner form keeps its surface. */
+:root ._27qasW5wLU4h4nUgawpo1q:has(> .FullModalOverlay > dialog),
+:root .FullModalOverlay:has(> dialog),
+:root .FullModalOverlay > dialog,
+:root .FullModalOverlay > dialog > .ModalOverlayContent,
+:root .FullModalOverlay > dialog .ModalPosition {
+    background: transparent !important;
+}
+:root .FullModalOverlay > dialog::backdrop {
+    background: rgba(var(--backgroundOverlay), var(--backgroundOverlayOpacity)) !important;
+}
+:root ._1dbgUdk0xgEX7E4Db_r5mb :is(p,li,div,span) {
+    color: inherit;
+}
+
+/* Recommendation button: the foreground is paired with its accent fill. */
+:root ._3AjoLnMNKxYmNTGTJCLfgs {
+    color: rgb(var(--textOnAction)) !important;
+}
+:root ._3AjoLnMNKxYmNTGTJCLfgs svg,
+:root ._3AjoLnMNKxYmNTGTJCLfgs svg path {
+    fill: rgb(var(--textOnAction)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root ._3AjoLnMNKxYmNTGTJCLfgs:not(._1aml4h4CSJbtrNbX4brUYs):is(:hover, :focus-visible, .gpfocus)::after {
+    border-color: rgb(var(--accentLightest)) !important;
+}
+:root ._3AjoLnMNKxYmNTGTJCLfgs._1aml4h4CSJbtrNbX4brUYs {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3AjoLnMNKxYmNTGTJCLfgs._1aml4h4CSJbtrNbX4brUYs :is(svg, path) {
+    fill: rgb(var(--textLightish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Sidebar filters: outlines stay unfilled; active state gets an accent glyph
+ * and underline instead of relying on Steam's literal white/black colors. */
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6 {
+    color: rgb(var(--icon)) !important;
+    background: transparent !important;
+}
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6:hover {
+    color: rgb(var(--iconSelected)) !important;
+}
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq {
+    color: rgb(var(--iconSelected)) !important;
+    box-shadow: inset 0 -2px 0 rgb(var(--iconSelected)) !important;
+}
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6 svg,
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6 svg path {
+    fill: currentColor !important;
+    color: inherit !important;
+}
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6 svg :is(circle,polyline,line,path) {
+    stroke: currentColor !important;
+}
+:root ._1PgAonvorr0o_NMxNKiDFU ._3mzKdQXht__YHo6PX1LmB6 :is(.SVGIcon_SortBy,.SVGIcon_ReadyToPlay) :is(circle,polyline,line) {
+    fill: none !important;
+}
+
+/* Steam's original reaction sprite is used as an alpha mask. Its shape and
+ * hitbox stay native; the theme controls its foreground without hue filters. */
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30:is(._1gbP5LTrY5-iovVIjgi-kd,._3BEgJ9I-_0mVQ1f0a_KF4I) {
+    background-image: none !important;
+    background-color: rgb(var(--icon)) !important;
+    mask-image: url('img/steamReactionThumbs.png');
+    mask-mode: alpha;
+    mask-repeat: no-repeat;
+    mask-size: 320px 32px;
+}
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._1gbP5LTrY5-iovVIjgi-kd {
+    mask-position: -112px -16px;
+}
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._3BEgJ9I-_0mVQ1f0a_KF4I {
+    mask-position: -64px -16px;
+}
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30:is(._1gbP5LTrY5-iovVIjgi-kd,._3BEgJ9I-_0mVQ1f0a_KF4I):hover {
+    background-color: rgb(var(--accentLightish)) !important;
+}
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30:is(._1gbP5LTrY5-iovVIjgi-kd,._3BEgJ9I-_0mVQ1f0a_KF4I)._3CH2x1r1wjOXc7fLD-c9jj {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* One backing per sidebar game row. Native selected descendants can carry
+ * literal white; keep their labels readable on the shared accent highlight. */
+/* Installed and uninstalled captions remain distinct; selected pairs below
+ * take precedence over both normal states. */
+:root ._2-O4ZG0KrnSrzISHBKctFQ ._1vO6BoiVslZgs1kqDGdUs8 {
+    background: transparent !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2-O4ZG0KrnSrzISHBKctFQ._5YTBr7WwIfzVU_3nUtAph ._1vO6BoiVslZgs1kqDGdUs8 {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9 ._1vO6BoiVslZgs1kqDGdUs8,
+:root ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ ._1vO6BoiVslZgs1kqDGdUs8 {
+    background: transparent !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+/* The running/update caption contains an explicitly accented span. It must
+ * inherit the selected-row pair rather than paint pale accent on accent. */
+:root ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9 ._2SXJM0PeFEi3gbC7V3S5pE > span,
+:root ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ ._2SXJM0PeFEi3gbC7V3S5pE > span {
+    color: inherit !important;
+}
+:root ._2-O4ZG0KrnSrzISHBKctFQ .-BsLCHlCHg50lwvxnBWt1,
+:root ._2-O4ZG0KrnSrzISHBKctFQ .cMb2tLY-QjdRohM5U6Btp {
+    color: inherit !important;
+    background: transparent !important;
+}
+:root ._2-O4ZG0KrnSrzISHBKctFQ._3km84Vscc0uS91f0RN_30C {
+    background: color-mix(in srgb, rgb(var(--accent)) calc(var(--opacity333) * 100%), rgb(var(--background))) !important;
+}
+:root ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9._3km84Vscc0uS91f0RN_30C,
+:root ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ._3km84Vscc0uS91f0RN_30C {
+    background: color-mix(in srgb, rgb(var(--accent)) calc(var(--opacity8) * 100%), rgb(var(--background))) !important;
+}
+:root ._2kzMb_F7UTOEdecAFftN-l svg.f6-7-5CWFxNqF2BycKWlb.f6-7-5CWFxNqF2BycKWlb.f6-7-5CWFxNqF2BycKWlb circle {
+    stroke: rgb(var(--accent)) !important;
+}
+:root .uE7Pj4tb2n3_Bx4vjEX0a .SVGIcon_Arrow {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root .uE7Pj4tb2n3_Bx4vjEX0a .SVGIcon_Arrow polyline {
+    stroke: rgb(var(--icon)) !important;
+}
+:root .uE7Pj4tb2n3_Bx4vjEX0a:hover .SVGIcon_Arrow {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+:root .uE7Pj4tb2n3_Bx4vjEX0a:hover .SVGIcon_Arrow polyline {
+    stroke: rgb(var(--textLightest)) !important;
+}
+:root ._1VNuYHM6BPBOJspC6zPf5r:is(:hover,._3-SbBb63lDnu6LzKV-q3Cg),
+:root ._21P7c4MWmsU2QSZeL-uyZo.gpfocus ._1VNuYHM6BPBOJspC6zPf5r {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+/* Logos have alpha in their source; only these logo slots clear backings and
+ * contain the complete image. Capsule art elsewhere retains native cover. */
+:root ._3KDkLoCR8OM8xfdQysKn9t,
+:root ._3KDkLoCR8OM8xfdQysKn9t ._1R9r2OBCxAmtuUVrgBEUBw,
+:root .iu7jaxFxWk1sYge_kwKmz ._1R9r2OBCxAmtuUVrgBEUBw {
+    background: transparent !important;
+}
+:root ._3KDkLoCR8OM8xfdQysKn9t :is(._1H3SuC0g9zjHUSMZY2T32U,._2VT4s72bqcVb83Su1b1VEv) img,
+:root .iu7jaxFxWk1sYge_kwKmz img {
+    background: transparent !important;
+    object-fit: contain !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+/* Scope the uninstalled-opacity variable to Play Next only, including the
+ * inline opacity written by transparentGames.js. Other shelves retain it. */
+:root ._1UfZyOg0Kk7YyzjaCi2pNz {
+    --transparentGameOpacity: 1;
+}
+/* Steam's native mark was 5% white, invisible against the light Home row. */
+:root ._3pSPluBgf0NeR1kkCLWMhR ._1ooROmAgkhoBH_o65yl9dJ {
+    fill: rgba(var(--textLightish), .45) !important;
+}
+/* Also cover native logo wrappers independently of their current screen.
+ * Source alpha remains untouched; rectangular header/capsule art is excluded. */
+:root ._1R9r2OBCxAmtuUVrgBEUBw:has(> img[src*="/logo."]) {
+    background: transparent !important;
+    overflow: visible !important;
+}
+:root img._24_AuLm54JVe1Zc0AApCDR[src*="/logo."] {
+    background: transparent !important;
+    object-fit: contain !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+/* Desktop Play Next shelf (the other carousel class is Steam Deck's view). */
+:root ._3fiHsLeD_6rtm6bM9lHlVL._3iXvgnyrIW0ldDNbrIhAyc {
+    --transparentGameOpacity: 1;
+}
+:root ._30wJO3MC4x-I1OWpy1TAeE ._2oAiZidGyUxL-hfupFDQ2m {
+    color: rgb(var(--textLight)) !important;
+    background: transparent !important;
+}
+:root ._30wJO3MC4x-I1OWpy1TAeE ._2oAiZidGyUxL-hfupFDQ2m:is(:hover,:focus,.gpfocus,[aria-selected="true"]) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+
+/* Article headings are page text, including BBCode's explicit white labels. */
+:root ._32mHvRSmD7AVK9OIOPlaFu .A_A2B6fTn_MPLlGCmsLtd :is(h1,h2,h3,h4,h5,h6,.BB_Header1,.BB_Header2,.BB_Header3) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Announcement reactions/share controls own their neutral backing and glyphs.
+ * Selected thumbs retain accent; SVG IDs such as Layer_2 are not unique. */
+:root .mKmrOjr9bGjKAolgp9NoD ._1ABCOz8DSrl-YJdh1xD-m0 {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .mKmrOjr9bGjKAolgp9NoD ._1ABCOz8DSrl-YJdh1xD-m0:is(:hover,:focus-visible,.gpfocus) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .mKmrOjr9bGjKAolgp9NoD ._1ABCOz8DSrl-YJdh1xD-m0 svg,
+:root .mKmrOjr9bGjKAolgp9NoD ._1ABCOz8DSrl-YJdh1xD-m0 svg path {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+:root .mKmrOjr9bGjKAolgp9NoD ._1ABCOz8DSrl-YJdh1xD-m0 :is(._34YgMAbrVXVMMfXvsZAU9_,._1PTQ2mq0eTaG8ifW8juu81) {
+    color: rgb(var(--accent)) !important;
+}
+
+/* Screenshot navigation arrows, including native polygon fill attributes. */
+:root ._1t_97P9KMsEBaPq9y-6OUl {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--icon)) !important;
+}
+:root ._1t_97P9KMsEBaPq9y-6OUl:is(:hover,:focus-visible,.gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1t_97P9KMsEBaPq9y-6OUl svg polygon {
+    fill: currentColor !important;
+}
+
+/* Game menu/settings/favorite controls and the Home shelf settings gear. */
+:root ._3qDWQGB0rtwM3qpXTb11Q- {
+    background: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--icon)) !important;
+}
+:root ._3qDWQGB0rtwM3qpXTb11Q-:is(:hover,:focus-visible,.gpfocus,.fyJia4DC2A-H5pIR9DD87) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1eFe5VbyACJE4RVGpOWKMC {
+    color: rgb(var(--icon)) !important;
+}
+:root ._1eFe5VbyACJE4RVGpOWKMC:is(:hover,:focus-visible,.gpfocus) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(._3qDWQGB0rtwM3qpXTb11Q-,._1eFe5VbyACJE4RVGpOWKMC) :is(svg,.zvLq1GUCH3yLuqv_TXBJ1) {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+:root :is(._3qDWQGB0rtwM3qpXTb11Q-,._1eFe5VbyACJE4RVGpOWKMC) svg :is(path,.I) {
+    fill: currentColor !important;
+}
+:root :is(._3qDWQGB0rtwM3qpXTb11Q-,._1eFe5VbyACJE4RVGpOWKMC) svg :is(circle,polyline) {
+    stroke: currentColor !important;
+    fill: none !important;
+}
+:root ._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob svg path {
+    fill: none !important;
+    stroke: currentColor !important;
+}
+:root ._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob._2WaHZuAetbqENmqDthu3nl svg path {
+    color: rgb(var(--accent)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+:root ._1kiZKVbDe-9Ikootk57kpA :is(.MbTRimZpGCATmn39ae8RT,.k-QNT9kzOEOvG0U_kGmwr) {
+    color: rgb(var(--icon)) !important;
+}
+
+/* Native clickable activity buttons add CanClick to their hover selectors. */
+:root ._1yWgPveQ73QeYCdLcs6oFQ :is(._161IKq84RwQO4abJSCqv7q,._3i62HEXIhsNTd5-Z4uL3K,._35yrbgVC5TQttl8IPVlKQB)._3Mds9UG-5yRsWUclIV_Y9q:is(:hover,:focus-visible,.gpfocus) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+:root ._1yWgPveQ73QeYCdLcs6oFQ :is(._161IKq84RwQO4abJSCqv7q,._3i62HEXIhsNTd5-Z4uL3K,._35yrbgVC5TQttl8IPVlKQB)._3Mds9UG-5yRsWUclIV_Y9q:is(:hover,:focus-visible,.gpfocus) :is(._3grvnr9zzkvx6NoBOdmTnf,._2RkIcXHXACX4EdBluR3nAH,._1S3Q9rK5wn6PAIXII0mBz4) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1yWgPveQ73QeYCdLcs6oFQ :is(._161IKq84RwQO4abJSCqv7q,._3i62HEXIhsNTd5-Z4uL3K,._35yrbgVC5TQttl8IPVlKQB)._3Mds9UG-5yRsWUclIV_Y9q:is(:hover,:focus-visible,.gpfocus) :is(._1OhPtd0sU2yzZwckCTGRNC,._1R6Oubrk1mRaGQf56EQwd4,.QL3AayCY6oJkK95jwGibN,._2AVfXlAuHy0YQ4h1B3Kk2R,._1Wl4VZ2Y1BWml1Rxnb9JtR) {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+:root ._1yWgPveQ73QeYCdLcs6oFQ :is(._161IKq84RwQO4abJSCqv7q,._3i62HEXIhsNTd5-Z4uL3K,._35yrbgVC5TQttl8IPVlKQB)._3Mds9UG-5yRsWUclIV_Y9q:is(:hover,:focus-visible,.gpfocus) :is(svg,path) {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+:root ._1yWgPveQ73QeYCdLcs6oFQ :is(._161IKq84RwQO4abJSCqv7q,._3i62HEXIhsNTd5-Z4uL3K,._35yrbgVC5TQttl8IPVlKQB)._3Mds9UG-5yRsWUclIV_Y9q:is(:hover,:focus-visible,.gpfocus) ._2AVfXlAuHy0YQ4h1B3Kk2R._2gr2M1hKDYXcLNwR7k05oF {
+    color: rgb(var(--accent)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+/* About/details owns one neutral panel rather than a black translucent strip. */
+:root ._2jPMy2QZr8bWi6yrk5ZzHA {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2jPMy2QZr8bWi6yrk5ZzHA :is(._3GkV1NVDKuXYTLyRt2Uirz,._1vYL2q-91QLy-FBzntE7E5,.nkIX48cHLbjc0eaP5CNmM,.nkIX48cHLbjc0eaP5CNmM span,.nkIX48cHLbjc0eaP5CNmM a) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2jPMy2QZr8bWi6yrk5ZzHA ._3cntzF30xAuwn1ARWJjvCb .izVv8jajo7mehdAkZozAK {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2jPMy2QZr8bWi6yrk5ZzHA .nkIX48cHLbjc0eaP5CNmM svg {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+:root .IIJeieZ-ZPRfIULY7uSDG {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDark)) !important;
+}
+:root .IIJeieZ-ZPRfIULY7uSDG ._3sfpA6uM8IJuAnrtDiJLZI {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .IIJeieZ-ZPRfIULY7uSDG ._3sfpA6uM8IJuAnrtDiJLZI:hover {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* The Library section heading and its label are distinct native foregrounds. */
+:root ._2r4TK4BAuU-J4FuF_O7v_5 :is(._1Q2q_tQ9_Eq8YdEHNAHS3F,._3i0kopAostOz2IDi9HqmeN) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 ._1ARfZOxT1vchz5PX1Qhzlj {
+    color: rgb(var(--icon)) !important;
+}
+
+/* Native achievement summaries are reused by Activity and the right column. */
+:root :is(.yJLy7HDLJT44C1fcm6lPI,._2r4TK4BAuU-J4FuF_O7v_5) ._39Y01uSRcLiDg5DneTTR0m {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.yJLy7HDLJT44C1fcm6lPI,._2r4TK4BAuU-J4FuF_O7v_5) :is(._2gLHbXukQBdrIKhqEYVvOe,.VKo9pLPbwpF3xIzL8Wnou,.uoFNFZ7Hs5cF1IjP2fvPw) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._1UXC2lGcmNTGepRJTwtuH0 :is(.IM0uEBPVo6MDEDQLGzeZr,.OAV6QqJuXaBPRBW9RaPA6,._3LS_NZyqY77COuRN-Z3TVB,._17WmAft0lOwrau_jKP2_JW) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1UXC2lGcmNTGepRJTwtuH0 :is(._2LZ4vK_KnigpU4nOhD3Gic,.YnSJkFQ84_KA8pnTLPjdY,._231lloeMz5EvNkHHGXN6RJ,._3Y63d79wKiXs14rvBcrsDx) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._1UXC2lGcmNTGepRJTwtuH0 ._316Uo4SBrQ_beBdSYn2HNO {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+/* The achievement page owns a separate hero backdrop above GamepadPage. */
+:root ._3FQHgRosfNJYE44Fsd_U6z {
+    background: radial-gradient(at left top, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z > .ODpLjkbgMnhnQTcm8ZCMO {
+    opacity: var(--pageBackdropOpacity) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z > .ODpLjkbgMnhnQTcm8ZCMO ._294HV0se7vdDLPe-RvRZbb {
+    filter: var(--storeBackdropFilter) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z > .ODpLjkbgMnhnQTcm8ZCMO ._3Fjw7Sm_QUgOr8r3khWTSm {
+    backdrop-filter: blur(20px) !important;
+    background: linear-gradient(to bottom, transparent, rgb(var(--backgroundDarkish))) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z ._2iGYYePQN5QQzHWNLybmd4 ._3wNylaCAUJ8XtRM6mu2C0k {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z ._2iGYYePQN5QQzHWNLybmd4 :is(._17zZlCuxyWWUil57ZLDOXp,._3SUIg58IByHm04owJ81NVL) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z ._3eEbSktrstBdLk0dVpnKVI {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3FQHgRosfNJYE44Fsd_U6z ._3eEbSktrstBdLk0dVpnKVI._3Gp1bACHx__POxmy6Gd3kG {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* Activity announcement summaries and dates, outside their image columns. */
+:root ._3dJ4Bq6Msivz5-UIHzSEQu {
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+:root ._3dJ4Bq6Msivz5-UIHzSEQu ._1gljEIuhbsQpFCWuVhdKTJ {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3dJ4Bq6Msivz5-UIHzSEQu :is(.Ru7OBQzSxqIo3jIsbtV9g,.ElNfQSVSKeMaOVHygQ4Nh) {
+    color: rgb(var(--textLightish)) !important;
+    text-shadow: none !important;
+}
+
+/* The Library sidebar collection selector must not retain native dark hover. */
+:root ._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K ._2m_orETo6AghzAnc0sISCt:hover {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root ._1bGewp3tfzqAF6fVTFFUOz .UkR3sY319PuaUNuUWks2K ._2m_orETo6AghzAnc0sISCt:hover :is(.MZPxEZcxAGtPDf1NYtouS,._3izqEKa-zuPIrUDSm1bRvf) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Recommendation widget: MvLJDX is explicitly Steam's decorative BgTint
+ * clone. Only that owner is neutralized; the actual capsule is preserved. */
+:root ._2hhNOdcC6yLwL_rugP3YLf {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf .MvLJDXjfbme8Uw3OERaCb {
+    display: none !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._2ekpT6PjwtcFaT4jLQehUK,.Fmi-agZ0W7_4TkZ7CNquC) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._3AsE5JhqLAiICKUYvZLpap,._1qvTFgmehUzbdYM9cw0eS7,.vCEpeeiHJkcIDdtTkRfjT,._3tIbO7JWeYXTD8fDol5_-f,._3Q_taCjMHNZqbKEr1-r2GQ) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._3FJnZuxmPA_MjxsF8BQQ5L,._33yqka47vWurNqhnhLJb_m,._3Q_taCjMHNZqbKEr1-r2GQ) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._2zssEuiPfY5YdQlnihDfVD,._1djkdp7OAd0mF3a90RKf27) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+    text-shadow: none !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._2zssEuiPfY5YdQlnihDfVD,._1djkdp7OAd0mF3a90RKf27):hover {
+    background: rgb(var(--accentLightish)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf ._1djkdp7OAd0mF3a90RKf27 svg {
+    fill: currentColor !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._2s-O5T3qJJYR2AUq4b9jIN,._3NhLu7mTdty7JufpSpz6Re) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf ._3j4dI1yA7cRfCvK8h406OB {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf :is(._3fFFsvII7Y2KXNLDk_krOW,._3mInDnGL3LlUC7uPs1CfOP) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2hhNOdcC6yLwL_rugP3YLf ._2_KY_e11FV0ftXR2_7TMmP {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+
+/* Home shelf labels own a separate sticky backing and foreground. */
+:root ._3bWISeqP3H2j6YJnFwVEwu {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3bWISeqP3H2j6YJnFwVEwu::after {
+    background: rgb(var(--background)) !important;
+}
+:root ._3bWISeqP3H2j6YJnFwVEwu ._2hvQbTq62AjXQS4tZqVepi {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Collections use a neutral page and accented tiles. Their rotated capsule
+ * display case/mask stays native; only the separate blurred tint is omitted. */
+:root div._3vHkmRShhzwd67_MtEq8-n.Ma65KR7z4XhZl4vJvxf4D.Panel {
+    background: rgb(var(--background)) !important;
+}
+:root ._3IWn-2rn7x98o5fDd0rAxb {
+    background: rgb(var(--accent)) !important;
+}
+:root ._3IWn-2rn7x98o5fDd0rAxb:is(:hover,:focus,.gpfocus) {
+    background: rgb(var(--accentLightish)) !important;
+}
+:root ._3IWn-2rn7x98o5fDd0rAxb .akZKnBQkmOCFmiD2JWwfo {
+    display: none !important;
+}
+:root ._3IWn-2rn7x98o5fDd0rAxb :is(._1J1LQ0vGtpM3n0xw7XwQM6,._36QQLBgXFUVTOhU9jMkCWD) {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+:root ._3IWn-2rn7x98o5fDd0rAxb._2_dwxMdH27kBf-gQ3Wrk7z :is(._1J1LQ0vGtpM3n0xw7XwQM6,._36QQLBgXFUVTOhU9jMkCWD,.g0-tUEN69PBXlaY8cML51) {
+    color: rgb(var(--textOnAccent)) !important;
+    text-shadow: none !important;
+}
+
+/* Dynamic collection controls and filter pills are separate native modules.
+ * Error/removed tags retain their semantic red treatment. */
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._8JUfQypf4Uxt2i_hxBk_t {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._8JUfQypf4Uxt2i_hxBk_t:is(:hover, :focus, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._8JUfQypf4Uxt2i_hxBk_t ._2cTiGDjpUyBonh9hRHHcwz {
+    color: inherit !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._12pDikfkuNH_o3MHKU1skz svg {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._1grg9gmk1v5ri4iOuDymaz {
+    background: linear-gradient(to right, rgba(var(--icon), .2), transparent) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6._3BuvsawgurSVH2VrlfyD49,
+:root ._2q70uOe6xM3-c5XIVfBLe6.dTH3e7ytjojWGC4otYUq2 {
+    border-color: rgb(var(--accent)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6.dTH3e7ytjojWGC4otYUq2 {
+    background: radial-gradient(100% 100% at 33% 45%, rgba(var(--accent), .22), rgb(var(--backgroundDarkish))) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._172OFJhtx4Jt2ydY6-9IUm {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._172OFJhtx4Jt2ydY6-9IUm ._3gzh_NvTKey56JeHY7Q1WW:not(._2cpSBApqycTLpwhqkkTLNf):not(._14AvU_6vgC36GW48AJ2o6A) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._172OFJhtx4Jt2ydY6-9IUm ._3gzh_NvTKey56JeHY7Q1WW:not(._2cpSBApqycTLpwhqkkTLNf):not(._14AvU_6vgC36GW48AJ2o6A) ._39NBdww-fPxMN1AsYJ4fu5 {
+    color: inherit !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._172OFJhtx4Jt2ydY6-9IUm._1Gjk27xaRIzt2zOSwOSP0N {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2q70uOe6xM3-c5XIVfBLe6 ._172OFJhtx4Jt2ydY6-9IUm._1Gjk27xaRIzt2zOSwOSP0N ._3gzh_NvTKey56JeHY7Q1WW:not(._2cpSBApqycTLpwhqkkTLNf):not(._14AvU_6vgC36GW48AJ2o6A) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Library Friends uses an overflow alpha mask. Theme the actual row/control
+ * paint beneath it; the clipping mask and persona status graphics stay native. */
+:root ._39bm0CkBxBjJsnPpAzoZlv ._1GCZAht_W2I3Elndk5cU0-:is(:hover, :focus-within, .gpfocus) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+:root .qGJMO0uQwngYsOvMwgGWa button.TextButton._34gmVq6C3FNtdHqDLa3-XR {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .qGJMO0uQwngYsOvMwgGWa button.TextButton._34gmVq6C3FNtdHqDLa3-XR ._2svsyHbl5BVVIsPeW8HLpN {
+    color: inherit !important;
+}
+:root .qGJMO0uQwngYsOvMwgGWa button.TextButton._34gmVq6C3FNtdHqDLa3-XR:is(:hover, :focus-visible, .gpfocus) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Downloads progress labels and section headings are neutral page text.
+ * Keep the existing colored state/progress bars separate from these labels. */
+:root ._20JlDJD9-uoCjNLGp_8mY6 :is(._1SyggnJY6qbRSmbZpkK3-H,._3nx-k9xXUVgejG1BIAc84r,._3a973VY2X3US_cZqA9ZgNF,.FuJLsEk_Umr68UjGanMno,._3tEPpl-d9-fiCX5AdJiXJL) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._20JlDJD9-uoCjNLGp_8mY6 .sv3ZHPWbrD7yjwx5Mi3u5 ._1dHjjSl-57o1KQsQ1m1HSA {
+    color: rgb(var(--textLightish)) !important;
+}
+:root :is(.qq2xItSXjpCsNrcxyPJtO,.mw7VZNUZJWOhSrh3-kiym) .TK9wvF55dyA6RcOclozC8,
+:root .qq2xItSXjpCsNrcxyPJtO {
+    color: rgb(var(--textLightest)) !important;
+}
+:root .qq2xItSXjpCsNrcxyPJtO ._1CGnw50aAma6AYKF51Qzsm {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._38Kbc0h04V8wdbbGE5yN11 {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._38Kbc0h04V8wdbbGE5yN11 .TK9wvF55dyA6RcOclozC8 {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._38Kbc0h04V8wdbbGE5yN11 ._1IKbaHLvcciS-EMMYx1WVG {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* These announcement labels/counts intentionally use the normal accent. */
+:root :is(.Udzrpqr8534T5DvVZveNP,._3csl-MPe-hKuT8hQpOqEG5,.QQy4BCjcpjCfAvTKAqBq3) {
+    color: rgb(var(--accent)) !important;
+}
+
+/* Downloads' right column includes graph statistics with their own literal
+ * white figures. Queued percentages also render outside that active column. */
+:root ._20JlDJD9-uoCjNLGp_8mY6 {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._20JlDJD9-uoCjNLGp_8mY6 :is(._5TdA4FjU9OYsTIaHzloD,._34H1wIZZZBEL43X2j8RFu6,._1XPhokWzgS4nLzEJv72FhC) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._20JlDJD9-uoCjNLGp_8mY6 :is(.eXF8xL2LUtzeWMbK-FSRz,._3BdWqJYvZfTohY-twD2i6Q,._1qxZA8plMzXZ_nK2ntZNhX) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._20JlDJD9-uoCjNLGp_8mY6 ._1XPhokWzgS4nLzEJv72FhC:hover ._1qxZA8plMzXZ_nK2ntZNhX {
+    color: rgb(var(--accent)) !important;
+}
+:root ._1SyggnJY6qbRSmbZpkK3-H .FuJLsEk_Umr68UjGanMno {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3KDkLoCR8OM8xfdQysKn9t ._1IKbaHLvcciS-EMMYx1WVG .Rgy-7t7i1Yv97qhWQae7K ._1nCT-M7nZcoNzedbVzbXha {
+    color: rgb(var(--textLight)) !important;
+}
+/* Completed is a section modifier. Error states retain their own explicit
+ * descendant color; completed timestamps/status text inherit this role. */
+:root ._3Mbhnlk1Go2j8yCdjthzc7.Zh51LA1WZNKTkf1qlZabn ._1SyggnJY6qbRSmbZpkK3-H {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Native download drop targets keep their dashed/solid geometry. Replace
+ * blue borders and the blue target gradient without altering drag handlers. */
+:root ._1bq4x9pa4-9RLY-dXWUZTp .OINnOU8K5HzPe2nzczpZi._2m6Q3ca-wXeLIVShFCO51T {
+    border-color: rgb(var(--accent)) !important;
+}
+:root ._1bq4x9pa4-9RLY-dXWUZTp .OINnOU8K5HzPe2nzczpZi._2m6Q3ca-wXeLIVShFCO51T.d9VKGABvFZQGmdqtaicMo {
+    background: radial-gradient(100% 100% at 33% 45%, rgba(var(--accent), .22), rgb(var(--backgroundDarkish))) !important;
+}
+:root ._1bq4x9pa4-9RLY-dXWUZTp ._2m6Q3ca-wXeLIVShFCO51T ._2sCvZTD6ZTZz3p9_ekH_gI ._3B3J2qtE6ozU_VXMMN2L51 {
+    border-color: rgb(var(--accent)) !important;
+}
+/* The outer active target already supplies its ring; retain Steam's rule
+ * suppressing the redundant inner ring while the active item is dragged. */
+:root ._1bq4x9pa4-9RLY-dXWUZTp .IbePLaw-vSvhG1GTenYFg .OINnOU8K5HzPe2nzczpZi._2m6Q3ca-wXeLIVShFCO51T.d9VKGABvFZQGmdqtaicMo ._21P7c4MWmsU2QSZeL-uyZo ._3B3J2qtE6ozU_VXMMN2L51,
+:root ._1bq4x9pa4-9RLY-dXWUZTp ._3-SbBb63lDnu6LzKV-q3Cg ._2sCvZTD6ZTZz3p9_ekH_gI ._3B3J2qtE6ozU_VXMMN2L51 {
+    border-color: transparent !important;
+}
+:root ._1bq4x9pa4-9RLY-dXWUZTp ._1VNuYHM6BPBOJspC6zPf5r._3-SbBb63lDnu6LzKV-q3Cg ._14DhZoqwtCm4l0yDeN6QZe {
+    color: rgb(var(--accent)) !important;
+}
+:root ._1bq4x9pa4-9RLY-dXWUZTp ._1VNuYHM6BPBOJspC6zPf5r._3-SbBb63lDnu6LzKV-q3Cg ._14DhZoqwtCm4l0yDeN6QZe svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* Library Filters is a native popover rather than a DialogContent form. */
+:root ._170Npw5h84elypMSQ8zNDI {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2DTdZVPQmiXaVGuTTpV7Ai {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI :is(._3iV2vMTw_vwWJ_gmiz1Q1k,.EbQQNBB5OWhkXc99pLPZ7) {
+    color: rgb(var(--accent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI :is(._2AOkQORncEi9SJ3FCWnPmY,.DialogToggle_Label,.Z3TpQT_EHk-rLoGBhkOjp) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._3VddNiXyMYFjWRF3LPyKA2 {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2AOkQORncEi9SJ3FCWnPmY:hover {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2AOkQORncEi9SJ3FCWnPmY .DialogCheckbox {
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2AOkQORncEi9SJ3FCWnPmY .DialogCheckbox.Active {
+    background: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI .DialogCheckbox.Active .SVGIcon_DialogCheck path {
+    fill: none !important;
+    stroke: currentColor !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI .MIMuVt_bcI4rYVo1e14kR ._32e6rHniKd5ztOQ1lYIulu {
+    background: rgb(var(--backgroundDark)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI .DialogInput_Wrapper .DialogTextInputBase {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI .DialogInput_Wrapper .DialogInput.DialogTextInputBase.Focusable {
+    color: rgb(var(--textLight)) !important;
+}
+/* The legacy four-class input/placeholder rules load after this import.
+ * DialogInputPlaceholder can remain on an input containing entered text. */
+:root ._170Npw5h84elypMSQ8zNDI .DialogInput_Wrapper .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable:placeholder-shown,
+:root ._170Npw5h84elypMSQ8zNDI .DialogInput_Wrapper .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI .DialogInput_Wrapper .DialogTextInputBase:is(:hover,:focus),
+:root ._170Npw5h84elypMSQ8zNDI ._2J170P0ckFcUIlsDU13MLS ._DialogInputContainer:is(:hover,:focus) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2J170P0ckFcUIlsDU13MLS ._DialogInputContainer {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2J170P0ckFcUIlsDU13MLS._1muMGoOWz_FIoLJHK0HsG8 ._DialogInputContainer {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2J170P0ckFcUIlsDU13MLS._1muMGoOWz_FIoLJHK0HsG8 .DialogDropDown_CurrentDisplay {
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._2J170P0ckFcUIlsDU13MLS .DialogDropDown_Arrow svg {
+    fill: currentColor !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._1xPZwgYI7sXtyFt2n8ZjtP:not(.tHGbugQML4xKAMv6Q0moK),
+:root ._170Npw5h84elypMSQ8zNDI :is(._1IWRebeWMEAGcZ2ZUCokSS,._3TbvbA43LhIlIEKsH7eqhI) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI :is(._1IWRebeWMEAGcZ2ZUCokSS,._3TbvbA43LhIlIEKsH7eqhI):is(:hover,:focus-visible,.gpfocus) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._1xPZwgYI7sXtyFt2n8ZjtP._1w0iw7FyLAu5ZHcULpomxi:not(.tHGbugQML4xKAMv6Q0moK),
+:root ._170Npw5h84elypMSQ8zNDI ._1bqGAcZx1C71VYj14hz0po:not(:disabled):not(.Disabled) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._1xPZwgYI7sXtyFt2n8ZjtP._1w0iw7FyLAu5ZHcULpomxi .Z3TpQT_EHk-rLoGBhkOjp {
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._170Npw5h84elypMSQ8zNDI ._1bqGAcZx1C71VYj14hz0po:is(:disabled,.Disabled) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Showcase is Steam's reorderable Library shelf. Preserve native dashed/solid
+ * drag geometry and animation; replace only blue target paint. */
+:root .V7RuDNUxhxoBRaiGWbk3B {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1HgDLE-DG3HVYV4bVvKdAJ .V7RuDNUxhxoBRaiGWbk3B,
+:root ._3oXyqYCk5syor0ZiuqyboQ .V7RuDNUxhxoBRaiGWbk3B {
+    border-color: rgb(var(--accent)) !important;
+}
+:root ._3oXyqYCk5syor0ZiuqyboQ .V7RuDNUxhxoBRaiGWbk3B {
+    background: radial-gradient(100% 100% at 33% 45%, rgba(var(--accent), .22), rgb(var(--backgroundDarkish))) !important;
+}
+/* Shelf reordering has its own header and handle, separate from game drops. */
+:root ._23SnllqT_AqZ1C_QHcNQ4Z._2Ho8z58cxQIJljp55uGkdt {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._176H2JawcvTj3qzNqyhSGl ._23SnllqT_AqZ1C_QHcNQ4Z {
+    background-color: rgb(var(--backgroundLight)) !important;
+    border-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._23SnllqT_AqZ1C_QHcNQ4Z ._1OGfHXv6ksR1Ub-OuLN2NB,
+:root ._23SnllqT_AqZ1C_QHcNQ4Z ._1OGfHXv6ksR1Ub-OuLN2NB :is(svg, path, rect, line, polyline) {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+/* Collection-card drop borders and the small navigation target have separate
+ * native owners from the open Collection's large drop container. */
+:root ._3IWn-2rn7x98o5fDd0rAxb:is(.-D43EUFy_hOQ6W8fjUSV3, ._2AN97sM1rwSxFm4tZqB4JK) {
+    border-color: rgb(var(--accent)) !important;
+}
+:root ._3BFcmjAaMyP6GTPwc0VyWi ._3PAPBHNnHiNjIQiBr7Ya3t {
+    background: rgb(var(--accent)) !important;
+    border-color: rgb(var(--textOnAccent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._3PAPBHNnHiNjIQiBr7Ya3t ._1XmVtR1hMvJmgGg2ltacUl {
+    color: inherit !important;
+}
+/* Removal keeps its native red warning border, with a neutral surface and
+ * readable text instead of the fixed brown fill and black inset. */
+:root ._1rdB72srqUsfYI63F3UmGn {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    box-shadow: none !important;
+}
+:root ._1rdB72srqUsfYI63F3UmGn._3m8OWhk-mDnSSyNNCpYjJa {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+:root ._1rdB72srqUsfYI63F3UmGn ._1cn0X9mbJqBDSQL1BXrXPe {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1rdB72srqUsfYI63F3UmGn ._3Wdcnn441kMnbBhOOz7uba {
+    color: rgb(var(--textLight)) !important;
+}
+/* Both captured shelf selectors share this stable dropdown owner. */
+:root ._23SnllqT_AqZ1C_QHcNQ4Z > .Focusable button.DialogDropDown._DialogInputContainer.Focusable {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._23SnllqT_AqZ1C_QHcNQ4Z > .Focusable button.DialogDropDown._DialogInputContainer.Focusable:not(.Disabled):not(:disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+    outline-color: rgb(var(--accent)) !important;
+}
+:root ._23SnllqT_AqZ1C_QHcNQ4Z .DialogDropDown_Arrow :is(svg, path, polygon) {
+    color: rgb(var(--textLight)) !important;
+    fill: currentColor !important;
+}
+/* Summary carousel is separate from Play Next; keep its native gradient
+ * shape and inset shadow while replacing the blue/black channels. */
+:root ._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi {
+    background: radial-gradient(100% 150% at 33% 45%, rgba(var(--backgroundDarkish), .3), rgba(var(--backgroundDarkest), .3)) !important;
+}
+:root ._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi::after {
+    box-shadow: inset 1px 1px 12px rgb(var(--backgroundDarkest)) !important;
+}
+/* The post-game summary's date and achievement text have separate native
+ * foregrounds; leave achievement artwork and the carousel layout untouched. */
+:root .SMWMsB-gz3WbYRK2HOm7i:has(._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi) .P_gQ8X-yCsgXeXpP68KS0 {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi :is(._3ugJ_KPVlOd9oeYm-fYC_w, .VKo9pLPbwpF3xIzL8Wnou) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi ._39Y01uSRcLiDg5DneTTR0m {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._3fiHsLeD_6rtm6bM9lHlVL._2MKO5j24KqDdD-92hH5FXi ._2gLHbXukQBdrIKhqEYVvOe {
+    color: rgb(var(--textLight)) !important;
+}
+/* Community guide previews have literal slate/white below the Header. */
+:root ._-85o5-M_cGo-fefOuWwER ._1dJuvQ4rvlB0q8vmLJH3l2 {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root ._-85o5-M_cGo-fefOuWwER .l0pbvMApUzYaf32F51pIO ._2xEgUh8bB82nVRtIzS6EHD {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._-85o5-M_cGo-fefOuWwER .xsBpzsjWWv0lqaQr0yzrG {
+    color: rgb(var(--textLightish)) !important;
+}
+/* Sidebar sections need a separate surface, including their inner panel. */
+:root .OhSdLYuggDtBcWjYP0j_9 ._2aor4XVOYzN1PBSREk0UbO > ._2r4TK4BAuU-J4FuF_O7v_5.Panel {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root .OhSdLYuggDtBcWjYP0j_9 ._2aor4XVOYzN1PBSREk0UbO > ._2r4TK4BAuU-J4FuF_O7v_5.Panel > ._31ptFGGMZrSQc5BCX1e5lm {
+    background: transparent !important;
+}
+/* Native visibility is retained; keyboard focus gets the same reveal. */
+:root ._3QS6OBHpvI5bXsSQA2zQuW:focus-within ._3lh8aaHNMcFvupuNhQDfFt ._1GfHtX6GRZ_5BukahmkQp4 {
+    opacity: 1;
+    transform: scale(1);
+}
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._1gbP5LTrY5-iovVIjgi-kd:hover { mask-position: -144px -16px; }
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._1gbP5LTrY5-iovVIjgi-kd._3CH2x1r1wjOXc7fLD-c9jj { mask-position: -128px -16px; }
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._3BEgJ9I-_0mVQ1f0a_KF4I:hover { mask-position: -80px -16px; }
+:root ._3lh8aaHNMcFvupuNhQDfFt ._3AoQ6Gu9jJ6BCK8TiMic30._3BEgJ9I-_0mVQ1f0a_KF4I._3CH2x1r1wjOXc7fLD-c9jj { mask-position: -96px -16px; }
+
+/* Only the Library name search hides its empty, unfocused placeholder. */
+:root ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable::placeholder {
+    color: transparent !important;
+    opacity: 1;
+}
+:root ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable:focus::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._20QAC4WMXm8qFE8waUT5oo .vCCmYvn9yQ_V8CpKupllU ._1TxHdzOt3OD9ikR3xIseKe {
+    color: rgb(var(--icon)) !important;
+    background: transparent !important;
+}
+:root ._20QAC4WMXm8qFE8waUT5oo .vCCmYvn9yQ_V8CpKupllU:not(._1Gjk27xaRIzt2zOSwOSP0N):is(:hover, :focus-within, ._31r1_h2SmzwQtP9ZLLyA0I) ._1TxHdzOt3OD9ikR3xIseKe {
+    color: rgb(var(--iconSelected)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root ._20QAC4WMXm8qFE8waUT5oo .vCCmYvn9yQ_V8CpKupllU ._1TxHdzOt3OD9ikR3xIseKe svg path {
+    fill: currentColor !important;
+}
+
+/* The selected right-column Controller section declares white/slate leaves.
+ * Keep its device glyph's native currentColor geometry and status overlays. */
+:root ._2r4TK4BAuU-J4FuF_O7v_5 .Gs_qHIFwN4Z9JusWrfbfP ._2L06P_EWxoS_20kC2eNCQl {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 .Gs_qHIFwN4Z9JusWrfbfP ._8tm4KhHFNHvzsiuuyHgld {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5 .Gs_qHIFwN4Z9JusWrfbfP ._2A8NghNvAnMQQTHsudFu7H {
+    color: rgb(var(--icon)) !important;
+}
+
+/* Native AppSocialLinks owns monochrome service glyphs, separate from game
+ * hero artwork. Retain native opacity/geometry and reveal on hover. */
+:root .YMmXzjieZthpAehitId4M .OlwlyAPTdpJ7OieZmqzhc {
+    color: rgb(var(--icon)) !important;
+    fill: currentColor !important;
+}
+:root .YMmXzjieZthpAehitId4M a:is(:hover, :focus-visible) .OlwlyAPTdpJ7OieZmqzhc {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* ClipManager's StickyHeader owns the gradient, border and toolbar chrome.
+ * Retain native stops/angle, blur, dimensions and the theme's shadow policy. */
+:root .ClipManager ._1f9_BgoyE1cjqyeKD8dh9u .YzIcpcz4oFx-nndxro5jE {
+    background: linear-gradient(0.68deg, rgba(var(--backgroundDarkish), 0) .62%, rgb(var(--backgroundDarkish)) 40%) !important;
+    color: rgb(var(--textLight)) !important;
+    border-image-source: linear-gradient(to right, rgba(var(--backgroundLight), .5) 20%, rgba(var(--backgroundLight), .2) 50%) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub._32Lfwcdolc3ByZWItfR3ni:not(._36CGU2t5Vavx0_9dwem6kb):not(._2kVw_wgJd5TfnNePlpwmN):not(._3JYigpIF46lZDATkhxHZmZ):is(:hover, :focus-visible, .gpfocus, :active) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub._3JYigpIF46lZDATkhxHZmZ {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub._2kVw_wgJd5TfnNePlpwmN {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub._2kVw_wgJd5TfnNePlpwmN._32Lfwcdolc3ByZWItfR3ni:not(._36CGU2t5Vavx0_9dwem6kb):is(:hover, :focus-visible, .gpfocus, :active) {
+    background: rgb(var(--accentDarkish)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub._36CGU2t5Vavx0_9dwem6kb {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub svg [fill]:not([fill="none"]) {
+    fill: currentColor !important;
+}
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._2tNpad3vtsqKJArP-xArfx {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Native Text declares white independently of its paired ButtonBox owner. */
+:root .ClipManager .YzIcpcz4oFx-nndxro5jE ._28eIRmQ229ntDIyQXTn3Ub :is(._2X6Uf9dpYzWmrq3hGfefrI, ._3-MC3Pot0krX8hkZy-TOhK) {
+    color: inherit !important;
+}
+
+/* Shelf controls own explicit pale glyphs independently of their captions.
+ * The collection selector stays unfilled; its separate sorting control keeps
+ * the normal native/theme field backing. */
+:root ._23SnllqT_AqZ1C_QHcNQ4Z :is(._13-cO9eq6O9aq45oHhSgVE, ._29NTOneobxPjUfxHUk9N8Y, ._3sz4Ldugm_cV_JaHOErVR8) svg,
+:root ._2o5c89vAnrXN8C60QTSMqO .bsNegRKT1Hbv4tqHrOk9- svg {
+    color: rgb(var(--icon)) !important;
+}
+:root ._23SnllqT_AqZ1C_QHcNQ4Z :is(._13-cO9eq6O9aq45oHhSgVE, ._29NTOneobxPjUfxHUk9N8Y, ._3sz4Ldugm_cV_JaHOErVR8) svg.SVGIcon_DoubleArrow :is(.Arrow1, .Arrow2),
+:root ._2o5c89vAnrXN8C60QTSMqO .bsNegRKT1Hbv4tqHrOk9- svg.SVGIcon_DoubleArrow :is(.Arrow1, .Arrow2) {
+    stroke: currentColor !important;
+}
+:root ._2o5c89vAnrXN8C60QTSMqO ._2hfibYuzyMOQ0sj2egsHh0 {
+    color: rgb(var(--accent)) !important;
+}
+:root ._2o5c89vAnrXN8C60QTSMqO .bsNegRKT1Hbv4tqHrOk9- :is(._14b-hQsLwSwYcELtknxCUX, ._3IIEUTw03Vm3Mk54jlnUaT):hover svg {
+    color: rgb(var(--iconSelected)) !important;
+}
+/* Notification skeletons retain their native loading/hide opacity/animation. */
+:root ._3zfQA8bEKpisPtsyT4SovP .Lakql1yamweHbP1OPuahF {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._3zfQA8bEKpisPtsyT4SovP .Lakql1yamweHbP1OPuahF :is(._2macs5lWMPN5NfDpGE3Iyh, ._3Ivl8dbxH6D6LwaSLTNTLe, ._2a2loheX4ZKGZCGNEdAT3h) {
+    background-image: linear-gradient(to right, transparent 33.33%, rgb(var(--backgroundLight)) 50%, transparent 66.66%) !important;
+}
+/* Native review panels declare their own white/slate leaves. Vote state
+ * colors and authored review content/media stay outside these neutral roles. */
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO :is(._3k8QEeaHvwc2EQBC7nteqS, .wTCesdvNchS3DQ22NNDwe, ._3RAZjAKj6G9cfAcjGWVjAx) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO :is(._2dMi-HQygJER0QL_AaQNIj, .BDa6lbTAdR4RwtqgRNUnO, ._2EyEa4GxazAthx5c83AUGO, ._2FYBwhP98BAjYNtW0mlkR7) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO ._1ckgRqBDUbThcwQTHHL6K0 {
+    border-color: rgb(var(--accent)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO :is(._2cFKqVak8vsZdvk9mKdum_, .szq-QUt-0soxUfoD65BC7) {
+    fill: rgb(var(--icon)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO ._17u7kJzj4gno8unUOzRaz-:hover :is(._2EyEa4GxazAthx5c83AUGO, ._2FYBwhP98BAjYNtW0mlkR7) {
+    color: rgb(var(--textLink)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO ._17u7kJzj4gno8unUOzRaz-:hover :is(._2cFKqVak8vsZdvk9mKdum_, .szq-QUt-0soxUfoD65BC7) {
+    fill: rgb(var(--accent)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO ._3jaOUPXgTvdkXWXaHD0hq0 {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2r4TK4BAuU-J4FuF_O7v_5._3ii4EUZ1oF_rrhxGNbOcXO ._3jaOUPXgTvdkXWXaHD0hq0:is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+/* Native grayscale remains authoritative; only requested locked icons fade
+ * toward their real neutral backing in the light palette. */
+:root ._3ca11X3AK6npLS3emMa5Lr ._3llpbyrXsfwsh1apqHhPfB .zcasgBSVIteabq-j_3g1m {
+    opacity: var(--unachievedIconOpacity) !important;
+}
+
+:root ._23SnllqT_AqZ1C_QHcNQ4Z ._13-cO9eq6O9aq45oHhSgVE svg {
+    fill: currentColor !important;
+}
+:root ._23SnllqT_AqZ1C_QHcNQ4Z ._13-cO9eq6O9aq45oHhSgVE svg [fill]:not([fill="none"]) {
+    fill: currentColor !important;
+}
+:root ._2o5c89vAnrXN8C60QTSMqO .bsNegRKT1Hbv4tqHrOk9- .SVGIcon_X_Line line {
+    stroke: currentColor !important;
+}
+
+/* Preserve the native trading-card tilt, texture mask, moving light geometry
+ * and opacity. Only this selected unowned card's south sheen changes color. */
+:root ._1WsOngnf2RD4f5N-38rPLZ._1A6NCTdU46HX1K7YgrP5Wt .tWMy7O_XbkZWJ7I-br-AC > ._3onKXBacLUEm9MwSDNKlOz {
+    background-image: radial-gradient(circle farthest-corner at 50% 40%, rgba(var(--accent), .7) 0%, rgba(var(--accent), .5) 33%, rgba(var(--accent), 0) 60%, rgba(var(--accent), 0) 100%) !important;
+}

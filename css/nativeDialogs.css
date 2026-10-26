@@ -1,0 +1,354 @@
+/* Native Steam forms use literal slate/white beneath the dialog root.
+ * Shared dark-default roles also cover the light palette without recoloring
+ * artwork, avatar status, or the alpha masks used to fade scroll content. */
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, ._1n-sV5GdQis4Wh9XN3GJ7L)
+    :is(.DialogBodyText, .DialogLabel, .DialogToggle_Label, ._DialogInputContainer) {
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, ._1n-sV5GdQis4Wh9XN3GJ7L)
+    :is(.DialogLabelStrong, .DialogHeader) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, ._1n-sV5GdQis4Wh9XN3GJ7L)
+    :is(.DialogSubHeader, .DialogLabelExplainer, .DialogToggle_Description) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .DialogBodyText p a {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+:root .DialogBodyText p a:is(:hover, :focus-visible, .gpfocus) {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* What's New: priority lists and their explicitly translucent-white labels. */
+:root form._1n-sV5GdQis4Wh9XN3GJ7L {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1n-sV5GdQis4Wh9XN3GJ7L ._DialogInputContainer._25JfLo9lwRM2V_2fUDsAaA {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1n-sV5GdQis4Wh9XN3GJ7L ._3Hf53stS1-9flruoPqwO0O {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Neutral checkbox controls, including Friends' Do Not Disturb menu. */
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox) .DialogCheckbox {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    border: 1px solid rgb(var(--icon)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox)
+    .DialogCheckbox_Container:is(:hover, :focus, .gpfocus) .DialogCheckbox:not(.Disabled):not(.Active),
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox)
+    .DialogCheckbox:is(:hover, :focus, .gpfocus):not(.Disabled):not(.Active),
+:root .DNDCheckBox:is(:hover, :focus, .gpfocus) .DialogCheckbox:not(.Disabled):not(.Active) {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox) .DialogCheckbox.Active {
+    background-color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox)
+    .DialogCheckbox.Active .SVGIcon_DialogCheck path {
+    stroke: rgb(var(--textOnAccent)) !important;
+}
+
+/* The segmented form switch has its own native selected/off colors. */
+:root .DialogContent .DialogToggleField_Control {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root .DialogContent .DialogToggleField_Option {
+    color: rgb(var(--textLight)) !important;
+}
+:root .DialogContent .DialogToggleField_Option:hover:not(.Active) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .DialogContent .DialogToggleField_Option.Active {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root .DialogContent .DialogToggleField_Option.Off.Active {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Settings Downloads/FakeContainer and Account/FatButton native modules. */
+:root .DialogBody ._3Vl2zkYPoCpw1q_1n28D3z {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root .DialogBody ._3Vl2zkYPoCpw1q_1n28D3z ._1RCWDLVLFja1TdD1P53BMq {
+    color: rgb(var(--textLight)) !important;
+}
+:root .onPxgvGKxGbKdE7dDWrMx button.TEWmsM70ZLEOxLAjDMpcv.DialogButton {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root .onPxgvGKxGbKdE7dDWrMx button.TEWmsM70ZLEOxLAjDMpcv.DialogButton:is(:hover, :focus, .gpfocus, ._2rd6kyE9QIMeIPPOJ19fOq) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .onPxgvGKxGbKdE7dDWrMx button.TEWmsM70ZLEOxLAjDMpcv.DialogButton :is(._3wadwgMy2-9k8uOKh3iSdT, svg) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root .onPxgvGKxGbKdE7dDWrMx button.TEWmsM70ZLEOxLAjDMpcv.DialogButton ._3Wb9yDmYPUJksCr7HmaT9H {
+    color: rgb(var(--textLightish)) !important;
+}
+/* Account's nonclickable Field contains the real action in its right column.
+ * Keep the surrounding panel steady and theme interaction on that button. */
+.MillenniumWindow_Settings .eKmEXJCm_lgme24Fp_HWt._16vVnDqpbNs-zIH-EdV6Vz.GxgIyq8R5xTOeu4ftGrgX._3nLNLFMUMSt4jvxIayuPV3:not(._2HuzvKQ2QMUJ-JJOeApaF1)
+    .PSZtxj2h3MlyYv-c9dgke button.DialogButton.Secondary:not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Family rows share persona widgets; only the surrounding role/heading text
+ * is neutral. Keep the native online/game colors and the green "me" badge. */
+:root ._3RNLmzBdpcg55exL2SwhT1 ._3K8Afwm4bvd9vSIzAz9siX .H4JE-8OU0E7AeMZY3bEeM,
+:root ._2LyGIHuQ8SFKb5T262YUvg ._3C9nRrwzQk9qHlJx6NaXDI {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2LyGIHuQ8SFKb5T262YUvg ._1uvKF_UbD6VhnVdaRkXhbu path {
+    fill: rgb(var(--icon)) !important;
+}
+:root ._2LyGIHuQ8SFKb5T262YUvg .offline .nOdcT-MoOaXGePXLyPe0H {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Overlay guide cards: these neutral ratings sit beside the game preview. */
+:root ._27m9Qbg4ShilOgwvYZWV8l ._1vG-vFfwpDeNStVbyo1Qy6 ._2OwqXw1nhBL430bsYTeEr- {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._1vG-vFfwpDeNStVbyo1Qy6 ._2OwqXw1nhBL430bsYTeEr-:hover {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._2OwqXw1nhBL430bsYTeEr- :is(.oTb9Yy4tmwfFIPFAqeNCJ, ._1RTRUWz6wEsiebou2T3QcQ) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._2OwqXw1nhBL430bsYTeEr- ._3ny3uH8ap-LqFj59jojZwh {
+    color: rgb(var(--icon)) !important;
+}
+
+/* Game Overview's nested sections have their own literal foregrounds and
+ * surfaces. Keep these on the shared palette without touching game media. */
+:root ._27m9Qbg4ShilOgwvYZWV8l {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._2heIyaBp5LdaF76WpjYU4R,
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2wBK7MqJSrj6QCxf3357yL {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._1vG-vFfwpDeNStVbyo1Qy6.P46KVvNDqOUONCIHBwKgU {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2wBK7MqJSrj6QCxf3357yL {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2wBK7MqJSrj6QCxf3357yL > svg,
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2wBK7MqJSrj6QCxf3357yL svg.IPRP2v8nPJRvTxirY9NyU {
+    color: rgb(var(--icon)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2wBK7MqJSrj6QCxf3357yL > svg:hover {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l :is(._1g_TUEp_Z0N96bj-QwdYKO, .gK1HBk7JSxeVVDT4FEdOj) {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l ._2rTQlAsCnpUODQMvTAV8iY {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l :is(.I0sr90EArZw2mvxW7WgVV, .VZWVj0PFTfCLZ7elpjmJV, ._2FYqqi_n7-zSIdmORuo2T9) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l :is(._2NLwfYHr9KUJZ7LD9nkyva, .nzZlhFJAzKTdsKCWil0F9, ._3eNE5TKtDTnfNBAsCqfcP0) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._27m9Qbg4ShilOgwvYZWV8l :is(._2NLwfYHr9KUJZ7LD9nkyva, .nzZlhFJAzKTdsKCWil0F9, ._3eNE5TKtDTnfNBAsCqfcP0):hover {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Game Properties: BlueHighlight uses the shared emphasis foreground. */
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._1KmR8MOpvgQ9OO2AmwOCca {
+    color: rgb(var(--textAccented)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody :is(._3zuICQ63IRympzZ6qgs-5O, ._3H9mJurCFIkAqvWpYfEaDM) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody :is(.xaKMOMnrD4cxBofrqNxTd, .t4XYbyKAM5Yz-nmWNHSLB),
+:root .TlSg5YiFT0KKv6hj9YlKm {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogDropDown {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogDropDown:not(.Disabled):is(:hover, .gpfocus) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._1KAp5PPYG7si-T_66zNEcU:not(.GreenPlay):not(.Destructive):not(.Primary):not(.Disabled):not(:disabled):is(:hover, .gpfocus) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._1wSQxXZWWYuvKQyTg1CHKj a {
+    color: rgb(var(--textLink)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._1wSQxXZWWYuvKQyTg1CHKj a:hover {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Beta rows already share Library's selected/alternating roles. Cover the
+ * remaining table headers and DLC grid without recoloring DLC artwork. */
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody :is(._3sXdOJ9DEh5zdS54_ptwgW, ._3jWpi0kJp_piNEvdMufMmy) {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._3sXdOJ9DEh5zdS54_ptwgW {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody :is(.X3pN_ESh0aoxmm2nK65Hu, ._1SKB0Xc7OpWlOlr-wSi8ho) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._1SKB0Xc7OpWlOlr-wSi8ho:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._3sXdOJ9DEh5zdS54_ptwgW .bP2Ipgau61tQ0ZGNU5LM {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._3sXdOJ9DEh5zdS54_ptwgW .bP2Ipgau61tQ0ZGNU5LM:hover {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* The Beta name column reuses the branch-name class outside the row table. */
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody .X3pN_ESh0aoxmm2nK65Hu ._33vTXbnDrHUQCTEKwJC3Eh {
+    color: inherit !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._3jWpi0kJp_piNEvdMufMmy ._2d_FE9TOpHt1FsYhLEpjCp input[type="radio"] {
+    accent-color: rgb(var(--accent)) !important;
+}
+
+/* Legacy Library input rules also reach native dialogs. The placeholder class
+ * can remain after typing, so only the empty hint uses the secondary role. */
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings) .DialogInput.DialogTextInputBase.Focusable {
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings) .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable:placeholder-shown,
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings) .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Properties' controller status grid has independent slate/white/blue paint. */
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz .DialogBody ._3lj3-GDYOlcoIFB3fFo1ko {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._3lj3-GDYOlcoIFB3fFo1ko ._2H4LypEOvoKY3pHtDIpt5l {
+    color: rgb(var(--textLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._3lj3-GDYOlcoIFB3fFo1ko .nsJRdcmwAO0dIk0dR87fv ._3QVsc21O3y-P2jJiD5t6-s {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+:root ._1FyBL6obxHQ2Z2CsaV2Gbz ._3lj3-GDYOlcoIFB3fFo1ko .nsJRdcmwAO0dIk0dR87fv ._3QVsc21O3y-P2jJiD5t6-s._11Gq_4A3cMXdDfUnoeM14v {
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* Confirmation actions keep a hierarchy at rest and distinct interaction
+ * states. Preserve native focus outlines and destructive/green action roles. */
+:root .GenericConfirmDialog button.DialogButton:not(.Destructive):not(.GreenPlay) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton.Primary:not(.Destructive):not(.GreenPlay) {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton.Primary:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--accentDarkish)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):active {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton.Primary:not(.Destructive):not(.GreenPlay):not(:disabled):not(.Disabled):active {
+    background: rgb(var(--accent)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton:is(:focus-visible, .gpfocus) {
+    outline-color: rgb(var(--accent)) !important;
+}
+:root .GenericConfirmDialog button.DialogButton:not(.Destructive):not(.GreenPlay):is(:disabled, .Disabled) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Detached Steam browser tabs: explicit native slate/white leaves. Favicons
+ * and web content are independent media, so only chrome/text/SVG are themed. */
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 .TSlxCkeUMGwzmg21_WU8- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 .TSlxCkeUMGwzmg21_WU8-:hover {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 .TSlxCkeUMGwzmg21_WU8-._1W4bbifjEN3KdqKEhpmies {
+    background: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLightish)) !important;
+}
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 ._2RI6oQrDKUNzBqhIk4zI {
+    color: rgb(var(--textLight)) !important;
+}
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 ._2DQbopwR5aguhf6fXQO8dQ {
+    color: rgb(var(--icon)) !important;
+}
+:root .TabbedPopupBrowser .aqvbkhC1ejt4s8QvWA-c5 ._2DQbopwR5aguhf6fXQO8dQ:hover {
+    color: rgb(var(--textLightest)) !important;
+}
+/* Notifications uses ToggleControl's native Disabled/On/Off classes.
+ * Geometry, opacity, checked values and disabled behavior stay native. */
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._2Fw7gGOSCr7y9elv8iszxw {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._2Fw7gGOSCr7y9elv8iszxw._2OUxguuTe-NeOXZXxSNQsw {
+    background-color: rgb(var(--accentDarkish)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._3IWp5BnnsY_aMKCxhCjShP._317lekDG36odwSaDLtFQgd {
+    background: rgb(var(--accent)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._3IWp5BnnsY_aMKCxhCjShP._3blKBzfHJaBz7ksPINK9aq {
+    background: rgb(var(--icon)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._3Sl0QHQ69uK7ZMQo5vBfrA.M8qsAk8m30GwcGz7HCVnv ._2Fw7gGOSCr7y9elv8iszxw {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._3Sl0QHQ69uK7ZMQo5vBfrA.M8qsAk8m30GwcGz7HCVnv ._3IWp5BnnsY_aMKCxhCjShP {
+    background: rgb(var(--textLightish)) !important;
+}
+.MillenniumWindow_Settings ._27r3CjIYhU20TsukVgm25C ._1Dhs8IG9_tJWb3XP9ccN9M.M8qsAk8m30GwcGz7HCVnv {
+    color: rgb(var(--textLightish)) !important;
+}
+/* Current paged Settings supplies the other native ToggleControl variant.
+ * Disabled is the explicit field class, never inferred from its color. */
+.MillenniumWindow_Settings ._9Ql-oVe_j8E-vsDdyVdWo ._2bl0iQ9xigbq4Zd1NI6NZl {
+    background: rgb(var(--backgroundLight)) !important;
+}
+.MillenniumWindow_Settings ._9Ql-oVe_j8E-vsDdyVdWo ._2bl0iQ9xigbq4Zd1NI6NZl::before {
+    background: rgb(var(--accent)) !important;
+}
+.MillenniumWindow_Settings ._9Ql-oVe_j8E-vsDdyVdWo ._1PQppcgkuXQAiFPar9AGi- {
+    background: rgb(var(--textOnAction)) !important;
+}
+.MillenniumWindow_Settings ._9Ql-oVe_j8E-vsDdyVdWo.aIeh3X5T2M074RLW1qn6_ ._2bl0iQ9xigbq4Zd1NI6NZl {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+.MillenniumWindow_Settings ._9Ql-oVe_j8E-vsDdyVdWo.aIeh3X5T2M074RLW1qn6_ ._1PQppcgkuXQAiFPar9AGi- {
+    background: rgb(var(--textLightish)) !important;
+}

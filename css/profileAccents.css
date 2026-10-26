@@ -1,0 +1,106 @@
+/* Personal-profile landings keep Steam's own theme, layout and media.
+ * Requested accents and shared-file modal chrome are scoped exceptions. */
+@import url("configDefaults.css");
+@import url("../config.css");
+@import url("sharedMedia.css");
+
+/* Native shared buttons use --background as a full color and declare their
+ * own value on each variant. Do not let the palette's inherited RGB triplet
+ * become an invalid background on an otherwise unstyled native button. */
+body.profile_page {
+    --background: initial;
+}
+
+/* Murugiah's native showcase header uses blue at both existing gradient
+ * stops. Change those local paint tokens only; custom themes, white header
+ * text, geometry and the native hidden/instruction variants stay intact. */
+body.profile_page.MurugiahTheme .profile_customization_header {
+    --gradient-showcase-header-left: rgb(var(--accentDark));
+    --color-showcase-header: rgb(var(--accentDark));
+}
+
+/* Requested showcase statistics accent on the otherwise native profile.
+ * Keep its native line height, icon sprites, screenshots and media intact. */
+body.profile_page .screenshot_showcase_stats {
+    color: rgb(var(--accentLight)) !important;
+}
+
+/* These three explicitly requested 16/17px glyphs are alpha-backed UI art.
+ * Reuse the real bitmaps as masks; screenshot/avatar/video pixels stay native. */
+body.profile_page img.screenshot_showcase_staticon:is(
+    [src*="/sharedfiles/icons/icon_rate.png"], [src*="/skin_1/icon_btn_comment.png"]) {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'/%3E");
+    background-color: rgb(var(--accent)) !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 16px 16px;
+    filter: none !important;
+}
+body.profile_page img.screenshot_showcase_staticon[src*="/sharedfiles/icons/icon_rate.png"] {
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/icons/icon_rate.png");
+}
+body.profile_page img.screenshot_showcase_staticon[src*="/skin_1/icon_btn_comment.png"] {
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/skin_1/icon_btn_comment.png");
+}
+body.profile_page span.screenshot_showcase_staticon.favorite {
+    background-image: none !important;
+    background-color: rgb(var(--accent)) !important;
+    mask-image: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/ico_fav_tiled.png");
+    mask-repeat: no-repeat;
+    mask-position: 0 -65px;
+    filter: none !important;
+}
+
+/* Requested text-link accents on the native artist profile. Enumerate text
+ * owners; filled Edit/Add Friend controls, persona states and media stay native. */
+body.profile_page :is(a.linkStandard,a.linkTitle,a.underlinedLink,a.whiteLink,
+    .profile_count_link,.profile_count_link .count_link_label,
+    .profile_customization .showcase_content_bg a:not([class*="btn_"])) {
+    color: rgb(var(--textLink)) !important;
+}
+body.profile_page :is(a.linkStandard,a.linkTitle,a.underlinedLink,a.whiteLink,
+    .profile_count_link,.profile_customization .showcase_content_bg a:not([class*="btn_"])):is(:hover,:focus-visible),
+body.profile_page .profile_count_link:is(:hover,:focus-visible) .count_link_label {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+body.profile_page :is(.persona.online, a.persona.online, .persona.online a,
+    .friend_status_online, .friend_status_online div, .friend_status_online a,
+    .showcase_stat.favoritegroup_online .value) {
+    color: rgb(var(--accentLight)) !important;
+}
+body.profile_page .border_color_online {
+    border-color: rgb(var(--accentLight)) !important;
+}
+body.profile_page :is(.playerAvatar.online,
+    .friend_status_online .friend_block_avatar, .avatar_block_status_online) {
+    background: linear-gradient(to bottom, rgb(var(--accent)) 5%, rgb(var(--accentDarkish)) 95%) !important;
+}
+body.profile_page :is(.friend_status_online .friend_block_avatar img, .avatar_block_status_online img) {
+    background: linear-gradient(to bottom, rgb(var(--accentDarkish)) 5%, rgb(var(--accentDark)) 95%) !important;
+}
+
+/* Steam distinguishes base-game blue segments from pink DLC segments. Only
+ * the base segments change; achievements, capsules and showcase art stay native. */
+body.profile_page .achievement_segmented_bar .segment.base {
+    background-color: rgb(var(--accent)) !important;
+}
+body.profile_page .achievement_segmented_bar .segment.base.alternate {
+    background-color: rgb(var(--accentLight)) !important;
+}
+body.profile_page .showcase_completion_ribbon_group,
+body.profile_page :is(a.whiteLink:hover, .whiteLink:hover, a.linkStandard:hover,
+    a.linkTitle:hover, a.underlinedLink:hover, span.underlinedLink:hover,
+    .commentthread_subscribe_hint_q, .commentthread_prepopulate_prompt,
+    .community_award_count, .shared_autocollapse_readmore),
+body.profile_page .supernav_content a.submenuitem:hover,
+body.profile_page div#global_header .menuitem.supernav_active {
+    color: rgb(var(--accentLight)) !important;
+}
+body.profile_page div#global_header .menuitem.supernav_active::after {
+    background-color: rgb(var(--accent)) !important;
+}
+body.profile_page :is(.pagebtn:not(.disabled):hover, .pagelink:hover) {
+    background-color: rgb(var(--accentDarkish)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}

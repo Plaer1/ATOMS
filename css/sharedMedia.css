@@ -1,0 +1,204 @@
+/* Shared-file modal chrome is imported by both the full Community theme and
+ * the native-profile entrypoint. Resolve aliases at root: profile body resets
+ * the native --background name, without changing this modal-only palette. */
+:root {
+    /* Native 16px legacy close alpha, shared with the Store tag dialog. */
+    --atoms-legacy-dialog-close-mask: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABPElEQVR42mI8cuQIAyWABUqbAXEylH0fiDtwqI8FYhsoewEQH4cZcBaI64DYG8p/AVWADDyAeD4QMwPxJiA+BRJkgkr+BeJoIL4D5U8DYi0kzepAvAKq+TJU7V9kA0DgIxD7Q2lOIF4NpfmBeAuUfg3EPkD8BaaJCc2Z14A4EcoGuWAC1NkqQPwLqvkRsgYmLAG1HoiboOw0IA6EshNh/iZkAAjUA/FBJP5KIF6GTSEuAwygUQsDflAxogwQAuJ10AAExcpNKHsjEIsSMoAZGl2K0EALBeIIKFsOKSpxGtACxK5Qdi4QX4DiAqiYExB34TIgBIgrkAJtFpLcdKgYCBQBcRRMghGamUBxfhKIeaB+NkFOLFAAkjsDTZXfgdgK5DpYXvBGiqYpWDQzQMVAYZKDlDcuMFKanQECDAAqw0LA+GRiqAAAAABJRU5ErkJggg==");
+    --atoms-shared-media-bg: rgb(var(--background));
+    --atoms-shared-media-panel: rgb(var(--backgroundDarkish));
+    --atoms-shared-media-raised: rgb(var(--backgroundLightish));
+    --atoms-shared-media-hover: rgb(var(--backgroundLight));
+    --atoms-shared-media-text: rgb(var(--textLight));
+    --atoms-shared-media-heading: rgb(var(--textLightest));
+    --atoms-shared-media-border: rgb(var(--backgroundLight));
+}
+html body #modalContent.modal_frame {
+    background-color: var(--atoms-shared-media-bg) !important;
+    border-color: var(--atoms-shared-media-border) !important;
+}
+html body #modalContent > #modalContentTitleBar {
+    filter: none !important;
+    background: var(--atoms-shared-media-raised) !important;
+    color: var(--atoms-shared-media-heading) !important;
+}
+/* The native title link declares its own white foreground on profile hosts. */
+html body #modalContent > #modalContentTitleBar a {
+    color: var(--atoms-shared-media-heading) !important;
+}
+html body #modalContent > #modalContentTitleBar a:is(:hover,:focus-visible) {
+    color: rgb(var(--textLink)) !important;
+}
+html body #modalContent :is(#modalContentWait,#modalContentFrameContainer,.modalContent_iFrame) {
+    background-color: var(--atoms-shared-media-bg) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+
+/* The iframe is a separate themed shared-file or review document. No selector here
+ * reaches into it or repaints the artist profile surrounding its host. */
+html body :is(.mediaTop,#modalMediaRightScroll,.mediaBodyNoBackground) {
+    background-color: var(--atoms-shared-media-panel) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+html body .mediaTop :is(.workshopItemTitle,.workshopItemDetailsHeader,.commentthread_header_label) {
+    color: var(--atoms-shared-media-heading) !important;
+}
+html body .mediaTop :is(.mediaDescription,.commentthread_comment_text,.commentthread_comment_author,
+    .commentthread_entry,.commentthread_textarea) {
+    color: var(--atoms-shared-media-text) !important;
+}
+html body .mediaTop :is(.commentthread_comment_timestamp,.commentthread_comment_editlink,
+    .commentthread_subscribe_hint,.commentthread_paging) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .mediaTop :is(.commentthread_comment_author a,.commentthread_comment_text a,
+    .commentthread_subscribe_hint_q,.modalFullItemLink) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .mediaTop :is(.commentthread_comment_author a,.commentthread_comment_text a,
+    .commentthread_subscribe_hint_q,.modalFullItemLink):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .mediaTop :is(.commentthread_entry_quotebox,.commentthread_textarea,.modalFullItemLink) {
+    background-color: var(--atoms-shared-media-raised) !important;
+    border-color: var(--atoms-shared-media-border) !important;
+}
+html body .mediaTop .commentthread_comment:hover {
+    background-color: var(--atoms-shared-media-hover) !important;
+}
+html body :is(.mediaTop .general_btn,.guideTop #ItemControls .general_btn,
+    .mediaTop .commentthread_entry_submitlink .btn_grey_black) {
+    background-color: var(--atoms-shared-media-raised) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+html body :is(.mediaTop .general_btn,.guideTop #ItemControls .general_btn,
+    .mediaTop .commentthread_entry_submitlink .btn_grey_black):is(:hover,:focus-visible) {
+    background-color: var(--atoms-shared-media-hover) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body :is(.mediaTop .general_btn,.guideTop #ItemControls .general_btn):is(.toggled,.btn_active) {
+    background-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+html body :is(.mediaTop .general_btn,.guideTop #ItemControls .general_btn):focus-visible {
+    outline: 1px solid rgb(var(--accent)) !important;
+    outline-offset: 2px;
+}
+/* Share keeps the filled action it already owns, independent of neutral
+ * buttons. Child label spans inherit the foreground of their paired owner. */
+html body :is(.mediaTop,.guideTop #ItemControls) #ShareItemBtn {
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .guideTop #ItemControls {
+    background: var(--atoms-shared-media-panel) !important;
+    color: var(--atoms-shared-media-text) !important;
+    border-block: 1px solid var(--atoms-shared-media-border);
+}
+/* Keep sprite geometry/state coordinates on a decorative pseudo, so masks
+ * can use configured colors without recoloring count text or the whole control. */
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn,#settings_btn) {
+    position: relative;
+    background-image: none !important;
+    --atoms-media-sprite-position: 8px 0;
+}
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn,#settings_btn)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-color: rgb(var(--icon));
+    mask-position: var(--atoms-media-sprite-position);
+    mask-repeat: no-repeat;
+    mask-image: var(--atoms-media-sprite);
+}
+html body :is(.mediaTop,.guideTop) #VoteUpBtn {
+    --atoms-media-sprite: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/rate_ico_up_tiled.png?v=1");
+}
+html body :is(.mediaTop,.guideTop) #VoteDownBtn {
+    --atoms-media-sprite: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/rate_ico_dn_tiled.png?v=1");
+}
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn):is(:hover,:focus-visible) {
+    --atoms-media-sprite-position: 8px -30px;
+}
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn).toggled {
+    --atoms-media-sprite-position: 8px -60px;
+}
+html body :is(.mediaTop,.guideTop) #settings_btn {
+    --atoms-media-sprite: url("https://community.fastly.steamstatic.com/public/images/sharedfiles/ico_settings_tiled.png?v=1");
+    --atoms-media-sprite-position: 7px 2px;
+}
+html body :is(.mediaTop,.guideTop) #settings_btn:is(:hover,:focus-visible,.toggled) {
+    --atoms-media-sprite-position: 7px -28px;
+}
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn,#settings_btn):is(:hover,:focus-visible)::before {
+    background-color: rgb(var(--accent));
+}
+html body :is(.mediaTop,.guideTop) :is(#VoteUpBtn,#VoteDownBtn,#settings_btn):is(.toggled,.btn_active)::before {
+    background-color: rgb(var(--textOnSelection));
+}
+/* Exact award-dialog wallet glyph; preserve masks, artwork and path data. */
+html body ._164mmLkSJ91cXzABhIrlZq ._1v0jLHAK-8P4IONBwuF4kv svg._3VvvB-r8dZsAaPGZ2nsi1A {
+    color: rgb(var(--accent)) !important;
+}
+html body ._164mmLkSJ91cXzABhIrlZq ._1v0jLHAK-8P4IONBwuF4kv svg._3VvvB-r8dZsAaPGZ2nsi1A > path {
+    fill: currentColor !important;
+}
+/* Legacy shared-file dialogs mount directly below body. Their Store tag and
+ * promotional counterparts have separate owners and paired action roles. */
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal {
+    background: var(--atoms-shared-media-panel) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal .newmodal_header {
+    color: var(--atoms-shared-media-heading) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal .newmodal_content {
+    color: var(--atoms-shared-media-text) !important;
+}
+/* The glyph-only native close retains its 16px geometry and .7/1 opacity.
+ * Labeled close controls remain native rather than masking their text. */
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal .newmodal_close:not(.with_label) {
+    background: rgb(var(--icon)) !important;
+    mask: var(--atoms-legacy-dialog-close-mask) center / contain no-repeat;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal .newmodal_close:not(.with_label):is(:hover,:focus-visible) {
+    background: rgb(var(--textLightest)) !important;
+}
+
+/* The native Share chooser uses a fixed raster for its Steam action and
+ * literal blue input text. Pair those exact controls inside shared-file
+ * dialogs; external-service logo bitmaps keep their native dark buttons. */
+/* Native globalv2 owns this reusable Share-content well separately from the
+ * dialog body. Preserve its padding/radius while replacing only its paint. */
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) #SharePopup {
+    background-color: var(--atoms-shared-media-panel) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) :is(.share_controls_steam,.share_controls_steam a) {
+    background-image: none !important;
+    background-color: var(--atoms-shared-media-raised) !important;
+    color: var(--atoms-shared-media-text) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) :is(.share_controls_steam,.share_controls_steam a):is(:hover,:focus-visible) {
+    background-color: var(--atoms-shared-media-hover) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) .share_controls_steam span {
+    color: inherit !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) .share_controls_divider {
+    background-color: var(--atoms-shared-media-border) !important;
+    border-color: var(--atoms-shared-media-border) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) .share_controls_page_link {
+    color: rgb(var(--textLightish)) !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) .share_controls_page_link input {
+    background-color: var(--atoms-shared-media-raised) !important;
+    color: var(--atoms-shared-media-text) !important;
+    border-color: var(--atoms-shared-media-border) !important;
+    box-shadow: none !important;
+}
+html:has(#sharedfiles_content_ctn,.mediaTop,.guideTop) body > dialog.newmodal:has(.share_controls_steam) .share_controls_page_link input:focus-visible {
+    outline: 1px solid rgb(var(--accent)) !important;
+    outline-offset: 2px;
+}

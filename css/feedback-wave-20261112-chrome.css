@@ -1,0 +1,47 @@
+/* Steam's native selected-row :hover selector also paints the descendant
+ * title span slate blue. Keep the row as the sole highlight surface. */
+:root ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9 ._1vO6BoiVslZgs1kqDGdUs8 > span:hover,
+:root ._1UBpAXP408Ez_L_mXhW5Q9 ._2-O4ZG0KrnSrzISHBKctFQ ._1vO6BoiVslZgs1kqDGdUs8 > span:hover {
+    background: transparent !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* Text selection in the Library sidebar must use the same accent and paired
+ * foreground even when Steam gives the active game caption its own color. */
+:root ._2-O4ZG0KrnSrzISHBKctFQ ._1vO6BoiVslZgs1kqDGdUs8 span::selection {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* The existing root-menu stylesheet overrides SVG presentation attributes.
+ * Match its open state with stronger specificity, leaving the closed and
+ * hover states alone. The accent remains the configured Millennium accent. */
+:root ._39oUCO1OuizVPwcnnv88no:has(.rootMenuWrapperDiv ._1Ky59qmywxOUtNcI1cgmkX[style*="display: flex"]) .rootToggleButtonWrapperDiv #toggleButton #logoPath {
+    fill: rgb(var(--accent)) !important;
+}
+
+/* Steam renders notifications in a detached Menu document. Theme the shared
+ * desktop template, including read, unread and hover states, without
+ * recoloring user avatars, artwork, persona colors or notification status. */
+:root .NotificationsMenuScrollable .StandardTemplateDesktop {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop:is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop.Unread {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop.Unread:is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop :is(._26v9mHAi56x63OwY-jxett, ._3hEeummFKRey8l5VXxZwxz) {
+    color: rgb(var(--textLight)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop :is(._2MGSmn9lIFnmLVIX49POSx, ._7XKFnSNjW_tHfyxaezoD3, .TimestampDesktop) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root .NotificationsMenuScrollable .StandardTemplateDesktop .CRYjulQaQOjokS7b_8cOH {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}

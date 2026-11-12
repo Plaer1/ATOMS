@@ -1,0 +1,51 @@
+/* Store page links use the configurable link palette on neutral surfaces. */
+html:root:root body :is(#game_area_reviews, .glance_ctn) a.user_reviews_summary_row,
+html:root:root body :is(#game_area_reviews, .glance_ctn) .summary.column a,
+html:root:root body :is(#game_area_details_section, .glance_tags) .app_tag,
+html:root:root body .queue_actions_ctn a.btnv6_blue_hoverfade,
+html:root:root body .rightcol.game_meta_data a.btnv6_blue_hoverfade,
+html:root:root body .recommendation_reasons .reason.info a,
+html:root:root body .details_block a:not(.game_purchase_price):not(.discount_prices),
+html:root:root body #gameAreaDLCSection h2.gradientbg .note a,
+html:root:root body .Y2-ks0gaz6E- a.T7JPI-q--Xw-,
+html:root:root body .nKsKxQO2ePs- a.T7JPI-q--Xw-,
+html:root:root body .apphub_OtherSiteInfo .btnv6_blue_hoverfade,
+html:root:root body .apphub_OtherSiteInfo .btnv6_blue_hoverfade > span {
+    color: rgb(var(--textLink)) !important;
+}
+
+html:root:root body :is(#game_area_reviews, .glance_ctn) a.user_reviews_summary_row:is(:hover, :focus-visible),
+html:root:root body :is(#game_area_reviews, .glance_ctn) .summary.column a:is(:hover, :focus-visible),
+html:root:root body :is(#game_area_details_section, .glance_tags) .app_tag:is(:hover, :focus-visible),
+html:root:root body .queue_actions_ctn a.btnv6_blue_hoverfade:is(:hover, :focus-visible),
+html:root:root body .rightcol.game_meta_data a.btnv6_blue_hoverfade:is(:hover, :focus-visible),
+html:root:root body .recommendation_reasons .reason.info a:is(:hover, :focus-visible),
+html:root:root body .details_block a:not(.game_purchase_price):not(.discount_prices):is(:hover, :focus-visible),
+html:root:root body #gameAreaDLCSection h2.gradientbg .note a:is(:hover, :focus-visible),
+html:root:root body .Y2-ks0gaz6E- a.T7JPI-q--Xw-:is(:hover, :focus-visible),
+html:root:root body .nKsKxQO2ePs- a.T7JPI-q--Xw-:is(:hover, :focus-visible),
+html:root:root body .apphub_OtherSiteInfo .btnv6_blue_hoverfade:is(:hover, :focus-visible),
+html:root:root body .apphub_OtherSiteInfo .btnv6_blue_hoverfade:is(:hover, :focus-visible) > span {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* The old block-header link is presented as a filled button in the theme.
+ * Put its surface back on a neutral panel so regular/soft link roles retain
+ * their contrast in both palettes. */
+html:root:root body .game_description_column .block .block_header a {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+
+html:root:root body .game_description_column .block .block_header a:is(:hover, :focus-visible) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+
+html:root:root body .game_description_column .block .block_header a,
+html:root:root body .game_description_column .block .block_header a > span {
+    color: rgb(var(--textLink)) !important;
+}
+
+html:root:root body .game_description_column .block .block_header a:is(:hover, :focus-visible),
+html:root:root body .game_description_column .block .block_header a:is(:hover, :focus-visible) > span {
+    color: rgb(var(--textLinkSoft)) !important;
+}

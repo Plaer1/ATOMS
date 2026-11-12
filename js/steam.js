@@ -19,6 +19,11 @@ import installLibraryTileTilt from './utilities/libraryTileTilt.js';
 // structural top-bar edits away from them so their placement stays native.
 const IS_MAC = /Macintosh/.test(navigator.userAgent);
 
+// The main window and its title can appear well after the initial body during
+// slow Steam startup. Keep the root-menu installer watching until it mounts;
+// macOS retains its native top bar.
+if (!IS_MAC) rootMenuDropdown();
+
 waitForElement('body', function(element) {
 
 installThemeToggle();
@@ -34,7 +39,6 @@ if (document.title == "Steam") {
 	installLibraryTileTilt();
 	downloadAll();
 	if (!IS_MAC) {
-		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', rootMenuDropdown); //notme
 		waitForElement('._3Z3ohQ8-1NKnCZkbS6fvy', combineTopMenus);
 		waitForElement('._1KrJ3sFAqPBN9mfpaNTU5F', moveButtons);
 	}

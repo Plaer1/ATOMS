@@ -1,5 +1,3 @@
-import waitForElement from "../waitForElement.js";
-
 // Replace only the decorative glyph. Existing root-menu button/listeners and
 // wrapper geometry survive a safe hot upgrade of an already-mounted widget.
 export function applyRootMenuGlyph(logoSVG = document.querySelector('.rootToggleButtonWrapperDiv #toggleButton > svg')) {
@@ -10,17 +8,37 @@ export function applyRootMenuGlyph(logoSVG = document.querySelector('.rootToggle
     return logoSVG;
 }
 
-export default function rootMenuDropdown() {
-
-	waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
-
-		waitForElement('._1Ky59qmywxOUtNcI1cgmkX', function(element) {
-
-			// Select the existing menu
-			var menu = document.querySelector("._1Ky59qmywxOUtNcI1cgmkX"); // selecting the menu
+export default function rootMenuDropdown({ win = window, doc = document } = {}) {
+	const key = '__atomsRootMenuWatcherV1';
+	if (win[key]?.sync) {
+		win[key].sync();
+		return win[key];
+	}
+	let stopped = false;
+	let observer = null;
+	let mounted = null;
+	const sync = () => {
+		if (stopped || doc.title !== 'Steam') return;
+		if (mounted?.wrapper.isConnected && mounted.toggle.isConnected && mounted.wrapper.contains(mounted.menu)) return;
+		const menu = doc.querySelector('._1Ky59qmywxOUtNcI1cgmkX');
+		const target = doc.querySelector('._39oUCO1OuizVPwcnnv88no');
+		if (!menu || !target) return;
+		const existingWrapper = target.querySelector('.rootMenuWrapperDiv');
+		const existingToggle = target.querySelector('.rootToggleButtonWrapperDiv');
+		// A repeated install or unrelated DOM change must not move the real
+		// Steam menu again or create another button.
+		if (existingWrapper && existingToggle && existingWrapper.contains(menu)) {
+			mounted = { wrapper: existingWrapper, toggle: existingToggle, menu };
+			return;
+		}
+		// If a prior theme-owned wrapper became incomplete during a remount,
+		// discard only that wrapper before constructing the replacement.
+		if (existingWrapper?.contains(menu)) target.insertBefore(menu, existingWrapper);
+		if (existingWrapper) existingWrapper.remove();
+		if (existingToggle) existingToggle.remove();
 
 			// Create wrapper div
-			var rootMenuWrapperDiv = document.createElement('div');
+			var rootMenuWrapperDiv = doc.createElement('div');
 			rootMenuWrapperDiv.setAttribute("class", "rootMenuWrapperDiv");
 			rootMenuWrapperDiv.style.backgroundColor = 'none'; // Setting the background color
 			rootMenuWrapperDiv.style.minWidth = '0px';
@@ -31,7 +49,7 @@ export default function rootMenuDropdown() {
 			rootMenuWrapperDiv.style.zIndex = '2';
 
 			// Create wrapper div
-			var rootToggleButtonWrapperDiv = document.createElement('div');
+			var rootToggleButtonWrapperDiv = doc.createElement('div');
 			rootToggleButtonWrapperDiv.setAttribute("class", "rootToggleButtonWrapperDiv");
 			rootToggleButtonWrapperDiv.style.backgroundColor = 'none'; // Setting the background color
 			rootToggleButtonWrapperDiv.style.minWidth = '30px';
@@ -47,7 +65,7 @@ export default function rootMenuDropdown() {
 			rootToggleButtonWrapperDiv.style.zIndex = '2';
 
 			// Create SVG Button
-			var buttonSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			var buttonSVG = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
 			buttonSVG.setAttribute("id", "toggleButton");
 			buttonSVG.setAttribute("width", "22");
 			buttonSVG.setAttribute("height", "22");
@@ -55,16 +73,11 @@ export default function rootMenuDropdown() {
 			buttonSVG.style.marginTop = "0px";
 			buttonSVG.style.webkitAppRegion = "no-drag"; // -webkit-app-region style
 
-			var target = document.querySelector("._39oUCO1OuizVPwcnnv88no"); // selecting the target of the menu
-			if (target.firstChild){
-
-				rootToggleButtonWrapperDiv.appendChild(buttonSVG);
-				target.insertBefore(rootToggleButtonWrapperDiv, target.firstChild); // inserting the menu before the first child of the target
-
-			}
+			rootToggleButtonWrapperDiv.appendChild(buttonSVG);
+			target.insertBefore(rootToggleButtonWrapperDiv, target.firstChild);
 
 			// Create SVG Logo
-			var logoSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			var logoSVG = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
 			logoSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 			logoSVG.setAttribute("width", "22");
 			logoSVG.setAttribute("height", "22");
@@ -85,12 +98,9 @@ export default function rootMenuDropdown() {
 					
 					if (menu.style.display != "flex") {
 						menu.style.display = "flex"; // Show menu
-						logoSVG.querySelector("#logoPath").setAttribute("fill", "rgb(var(--textLightest))");
-						if (
-						menu.getBoundingClientRect().right > document.querySelector('.ip-YZhijAMZcuRoXBGiye').getBoundingClientRect().left + 5 
-						||
-						menu.getBoundingClientRect().right > document.querySelector('._2EQ7ghgqIdjKv9jsQC0Zq9').getBoundingClientRect().left + 5
-						) {
+						logoSVG.querySelector("#logoPath").setAttribute("fill", "rgb(var(--accent))");
+						const rightEdges = [doc.querySelector('.ip-YZhijAMZcuRoXBGiye'), doc.querySelector('._2EQ7ghgqIdjKv9jsQC0Zq9')].filter(Boolean);
+						if (rightEdges.some(edge => menu.getBoundingClientRect().right > edge.getBoundingClientRect().left + 5)) {
 								rootMenuWrapperDiv.style.marginTop = "42px";
 								rootMenuWrapperDiv.style.marginLeft = "-36px";
 								rootToggleButtonWrapperDiv.style.height = "60px";
@@ -103,14 +113,14 @@ export default function rootMenuDropdown() {
 						}
 					} else {
 						menu.style.display = "none"; // Hide menu
-						document.querySelector(".rootToggleButtonWrapperDiv").setAttribute("height", "30px");
+						rootToggleButtonWrapperDiv.setAttribute("height", "30px");
 						logoSVG.querySelector("#logoPath").setAttribute("fill", "rgb(var(--icon))");
-						if (window.innerWidth >= 1551) {
+						if (win.innerWidth >= 1551) {
 							rootMenuWrapperDiv.style.marginLeft = "0px";
 							rootMenuWrapperDiv.style.marginTop = "6px";
 							rootToggleButtonWrapperDiv.style.height = "30px";
 						}
-						if (window.innerWidth < 1551) {
+						if (win.innerWidth < 1551) {
 							rootMenuWrapperDiv.style.marginLeft = "0px";
 							if (rootToggleButtonWrapperDiv.style.height === "60px") {
 								rootToggleButtonWrapperDiv.style.height = "30px";
@@ -119,12 +129,20 @@ export default function rootMenuDropdown() {
 					}
 				});
 
-				var target = document.querySelector("._39oUCO1OuizVPwcnnv88no"); // selecting the target of the menu
-				if (target.firstChild){
-				
-					target.insertBefore(rootMenuWrapperDiv, target.firstChild.nextSibling); // inserting the menu after the first child of the target
-				
-				}  
-			});
-	});
+				target.insertBefore(rootMenuWrapperDiv, rootToggleButtonWrapperDiv.nextSibling);
+				mounted = { wrapper: rootMenuWrapperDiv, toggle: rootToggleButtonWrapperDiv, menu };
+	};
+	const stop = () => {
+		stopped = true;
+		observer?.disconnect();
+		win.removeEventListener('pagehide', stop);
+		if (win[key] === api) delete win[key];
+	};
+	const api = { sync, stop };
+	win[key] = api;
+	observer = new win.MutationObserver(sync);
+	observer.observe(doc, { childList: true, subtree: true, characterData: true });
+	win.addEventListener('pagehide', stop, { once: true });
+	sync();
+	return api;
 }

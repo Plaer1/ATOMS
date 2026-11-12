@@ -6,6 +6,12 @@
 @import url('gameArtworkFallback.css');
 @import url('capture3.css');
 @import url('libraryFeedback.css');
+@import url('feedback-20261028-dialogs.css');
+@import url('feedback-20261028-chrome.css');
+@import url('feedback-20261028-library.css');
+@import url('feedback-next-library.css');
+@import url('feedback-wave-20261112-chrome.css');
+@import url('feedback-wave-20261112-library-game.css');
 
 /* 1ux2dkw: Millennium's theme description uses a blue-tinted native grey. */
 .MillenniumWindow_MainSteamWindow .MillenniumThemes_Description {

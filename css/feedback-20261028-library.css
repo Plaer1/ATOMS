@@ -1,0 +1,24 @@
+/* Desktop Steam News/demo card: replace the native blue surface treatment
+ * while keeping its capsule artwork, layout, and interaction unchanged. */
+:root div._27RcNu8aXKBpYkHcNNrt-X._2OOzYVWIHaKXm6_7sscT9i
+> div.OhSdLYuggDtBcWjYP0j_9
+> div._11kuVRYZvWXn-3rBJ_6yL8._3wbndu1paxHkciYr4rFJH5
+> div._1RXqe8xTnoJk0PaVkFTk4O
+> div.xYbDdgox9mzrraWWYN3_- {
+    background: linear-gradient(110deg, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root div._27RcNu8aXKBpYkHcNNrt-X._2OOzYVWIHaKXm6_7sscT9i
+> div.OhSdLYuggDtBcWjYP0j_9
+> div._11kuVRYZvWXn-3rBJ_6yL8._3wbndu1paxHkciYr4rFJH5
+> div._1RXqe8xTnoJk0PaVkFTk4O
+> div.xYbDdgox9mzrraWWYN3_- ._1AazHUNJbyL5SIWE5jC4Tz {
+    color: rgb(var(--textLight)) !important;
+}
+:root div._27RcNu8aXKBpYkHcNNrt-X._2OOzYVWIHaKXm6_7sscT9i
+> div.OhSdLYuggDtBcWjYP0j_9
+> div._11kuVRYZvWXn-3rBJ_6yL8._3wbndu1paxHkciYr4rFJH5
+> div._1RXqe8xTnoJk0PaVkFTk4O
+> div.xYbDdgox9mzrraWWYN3_- ._2rPfS5ipeg-YiBbwGz1Uzb {
+    color: rgb(var(--textLightest)) !important;
+}

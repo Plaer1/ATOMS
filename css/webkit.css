@@ -11,10 +11,22 @@
 @import url('libraryFeedback.css');
 @import url('storeText.css');
 @import url('newsText.css');
+@import url('feedback-news-hub-20261111.css');
 @import url('chartsText.css');
 @import url('walletText.css');
 @import url('communityText.css');
 @import url('sharedMedia.css');
+@import url('feedback-20261028-store-carousel.css');
+@import url('feedback-20261028-store-tiles.css');
+@import url('feedback-20261028-store-pages.css');
+@import url('feedback-next-store-home.css');
+@import url('feedback-next-store-links.css');
+@import url('feedback-next-store-game-controls.css');
+@import url('feedback-next-store-game-panels.css');
+@import url('feedback-light-accent-actions.css');
+@import url('feedback-wave-20261112-store-game.css');
+@import url('feedback-wave-20261112-store-reviews.css');
+@import url('feedback-wave-20261112-community.css');
 
 /* ATOMS CSS-only web controls. Keep the imported Shiina layer unchanged and
  * theme these non-image controls from the actual webkit file. */

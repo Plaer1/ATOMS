@@ -1,0 +1,156 @@
+/* Store header/search and home navigation feedback, using shared dark-first roles. */
+
+/* Store V7 header search/navigation strip. A neutral surface and inherited
+ * text role fix the light-mode white-on-white region without painting media. */
+html body .oZSaGCJH4G4- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+}
+
+/* The search field is the exact active input captured in the header search. */
+html body .oZSaGCJH4G4- input.rFKwchjD-WU- {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    caret-color: rgb(var(--accent)) !important;
+}
+html body .oZSaGCJH4G4- input.rFKwchjD-WU-::placeholder {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .oZSaGCJH4G4- input.rFKwchjD-WU-:focus-visible {
+    outline: 2px solid rgb(var(--accent)) !important;
+    outline-offset: 1px;
+}
+
+/* Suggestions container only. Individual game rows retain their native media,
+ * recommendation/status colors and blue-backed promotional art. */
+html body .oZSaGCJH4G4- .O2jUvAs3OiU- {
+    color: rgb(var(--textLight)) !important;
+    background-image: linear-gradient(
+        rgb(var(--backgroundDarkish)),
+        rgb(var(--backgroundDarkest))) !important;
+}
+
+/* Exact search dropdown empty state and footer link. Suggestion rows and their
+ * artwork/status colors remain native. */
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU- .XxvfleuvczA-,
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU- .XxvfleuvczA- * {
+    color: rgb(var(--textLight)) !important;
+    -webkit-text-fill-color: rgb(var(--textLight)) !important;
+}
+
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+a.JhiIqI-S0Js-,
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+a.JhiIqI-S0Js- > span._077DfADYleA- {
+    color: rgb(var(--textLink)) !important;
+    -webkit-text-fill-color: rgb(var(--textLink)) !important;
+}
+
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+a.JhiIqI-S0Js-:is(:hover, :focus-visible),
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+a.JhiIqI-S0Js-:is(:hover, :focus-visible) > span._077DfADYleA- {
+    color: rgb(var(--textLinkSoft)) !important;
+    -webkit-text-fill-color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Populated suggestions use a pale shell in light mode. Correct only the
+ * dropdown heading and each result's title / regular price foreground. */
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU- .Lvs2qQJx5Ug- {
+    color: rgb(var(--textLightish)) !important;
+    -webkit-text-fill-color: rgb(var(--textLightish)) !important;
+}
+
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+.QHiQcR8jG10-.Focusable .-sYwJqKAVvw- {
+    color: rgb(var(--textLightest)) !important;
+    -webkit-text-fill-color: rgb(var(--textLightest)) !important;
+}
+
+html:root:root body .oZSaGCJH4G4- .O2jUvAs3OiU-
+.QHiQcR8jG10-.Focusable .JBijjejcvmo- {
+    color: rgb(var(--textLight)) !important;
+    -webkit-text-fill-color: rgb(var(--textLight)) !important;
+}
+
+/* Search submit action, whose captured native fill is Steam blue. */
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI-,
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- > *,
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- svg,
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- svg * {
+    color: rgb(var(--textOnAccentDark)) !important;
+    -webkit-text-fill-color: rgb(var(--textOnAccentDark)) !important;
+}
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- {
+    background-color: rgb(var(--accent)) !important;
+}
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- svg *,
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI- svg path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+html:root:root body .oZSaGCJH4G4- button.A42lZ-U1dhI-:is(:hover,:focus-visible) {
+    background-color: rgb(var(--accentDarkish)) !important;
+}
+
+/* Cart / wishlist actions in the header. Keep the native count semantics and
+ * icons; make the blue cart action and surrounding count text legible. */
+html body .rQfSdlfLw80- {
+    color: rgb(var(--textLightest)) !important;
+}
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc-,
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- > *,
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- svg,
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- svg * {
+    color: rgb(var(--textOnAccentDark)) !important;
+    -webkit-text-fill-color: rgb(var(--textOnAccentDark)) !important;
+}
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- {
+    background-color: rgb(var(--accent)) !important;
+    text-shadow: none !important;
+}
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- svg *,
+html:root:root body .rQfSdlfLw80- a.NEUWLuwsNfc- svg path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+html body .rQfSdlfLw80- a.NEUWLuwsNfc-:is(:hover,:focus-visible) {
+    background-color: rgb(var(--accentDarkish)) !important;
+}
+html body .rQfSdlfLw80- a.YDdwAJxZnvY- {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Neutral Store navigation buttons sit on the pale header strip in light
+ * mode. Change foregrounds only; preserve Steam's native control surfaces. */
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o-,
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o- *,
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o- svg,
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o- svg * {
+    color: rgb(var(--textLightest)) !important;
+    -webkit-text-fill-color: rgb(var(--textLightest)) !important;
+}
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o- svg *,
+html:root:root body .oZSaGCJH4G4- button.xybfgg9GK6o- svg path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+/* Wishlist count is also text on the neutral header surface. */
+html:root:root body .rQfSdlfLw80- a.YDdwAJxZnvY- span.UfswBqIt4DA- {
+    color: rgb(var(--textLightest)) !important;
+    -webkit-text-fill-color: rgb(var(--textLightest)) !important;
+}
+
+/* Main carousel pegbar: the native selected dot is white, which disappears on
+ * a light palette. Preserve dimensions and focus mechanics; only recolor dots. */
+html body .carousel_container .carousel_thumbs > div {
+    background-color: rgba(var(--textLightest), .55) !important;
+}
+html body .carousel_container .carousel_thumbs > div.focus {
+    background-color: rgb(var(--accent)) !important;
+}
+html body .carousel_container .carousel_thumbs > div:hover {
+    background-color: rgb(var(--accentLightish)) !important;
+}

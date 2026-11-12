@@ -1,0 +1,78 @@
+/* Precise Store game-page controls from the 2026-10-28 capture. */
+
+/* Video controls sit over game media: theme their foreground only and retain
+ * Steam's transparent hit area, native controls, and artwork underneath. */
+html body .EE0MOLi31qY- {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+html body .EE0MOLi31qY- :is(button,[role="button"],svg) {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+html body .EE0MOLi31qY- svg {
+    fill: currentColor !important;
+}
+
+/* The media-strip arrows are the exact two 38×18 blue gradients in the
+ * capture. Recolor only those arrow controls; do not touch neighboring media. */
+html body .WgVMB4YQiSs- .dhoOKL-yTAw- > ._1WAcs3o8Lg4- {
+    color: rgb(var(--textOnAccentDark)) !important;
+    background-image: linear-gradient(
+        135deg,
+        rgb(var(--accentDarkest)) 0%,
+        rgb(var(--accentDark)) 100%) !important;
+}
+html body .WgVMB4YQiSs- .dhoOKL-yTAw- > ._1WAcs3o8Lg4- svg {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* Keep the strip's native translucent scrim and media. Its foreground becomes
+ * artwork-paired white in both palettes. */
+html body .WgVMB4YQiSs- .dhoOKL-yTAw- > .xfzmpLIv9nQ- {
+    color: rgb(var(--textOnArtwork)) !important;
+}
+
+/* Category metadata has a Steam-blue chip in the capture. Theme that chip's
+ * surface and foreground; do not recolor category artwork/icons or DRM status. */
+html:root:root body #category_block a.GMZfIVrEZB0- > .TM-gf0Qc-hM- {
+    color: rgb(var(--textLink)) !important;
+    background-color: rgba(var(--accent), .12) !important;
+}
+
+/* The captured achievements panel has a black-to-black wash. Preserve the
+ * gradient's opacity and direction while mapping its neutral backdrop by mode. */
+html body .rightcol.game_meta_data .Bj8vGJI7AGo-.oln6i1TGpO0-.uZGVdQKYKa0-.PmISXgz3FoQ- {
+    color: rgb(var(--textLight)) !important;
+    background-image: linear-gradient(
+        90deg,
+        rgba(var(--backgroundDarkest), .5) 5%,
+        rgba(var(--backgroundDarkest), .65) 95%) !important;
+}
+
+/* Achievements utility card: its first row is an actual link, and the
+ * remaining labels are metadata. Keep foregrounds on the panel surface;
+ * artwork and achievement status colors stay native. */
+html:root:root body .rightcol.game_meta_data
+.Bj8vGJI7AGo-.oln6i1TGpO0-.uZGVdQKYKa0-.PmISXgz3FoQ-
+> a.N0lq2uMA5pI-.kZa66EAHeHM-.Focusable {
+    color: rgb(var(--textLink)) !important;
+}
+
+html:root:root body .rightcol.game_meta_data
+.Bj8vGJI7AGo-.oln6i1TGpO0-.uZGVdQKYKa0-.PmISXgz3FoQ-
+> a.N0lq2uMA5pI-.kZa66EAHeHM-.Focusable
+span.onLSYXBtvEU-.GeWSoC6e568-.oDEFTUumdv8- {
+    color: rgb(var(--textLightest)) !important;
+}
+
+html:root:root body .rightcol.game_meta_data
+.Bj8vGJI7AGo-.oln6i1TGpO0-.uZGVdQKYKa0-.PmISXgz3FoQ-
+span.oDEFTUumdv8-.F2gk6wzla9E- {
+    color: rgb(var(--textLink)) !important;
+}
+
+html:root:root body .rightcol.game_meta_data
+.Bj8vGJI7AGo-.oln6i1TGpO0-.uZGVdQKYKa0-.PmISXgz3FoQ-
+span.oDEFTUumdv8-.l98CR7uB-F8- {
+    color: rgb(var(--textLightish)) !important;
+}

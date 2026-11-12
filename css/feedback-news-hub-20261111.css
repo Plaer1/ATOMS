@@ -1,0 +1,187 @@
+/* The current React News Hub bundle has its own hashed component family.
+ * These rules are scoped to the captured Hub classes; artwork and video
+ * elements remain native, and status/error labels keep their own colors. */
+html body .QiZCPwhEAvE-.Panel.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+}
+html body .QiZCPwhEAvE-.Panel.Focusable > .yDJ1-6CIoOA-.LH-GwC6nGI4-.Panel.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(at left top, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+}
+
+/* News Hub masthead and article-card overlays. Keep their image/video layers
+ * intact while replacing the white native glows with neutral surface tints. */
+html body .QiZCPwhEAvE-.Panel.Focusable ._63S-hd0G758-.ia4XSgYUjLE-.mnYmd2J72yY-.iBRlCPA5wLk- {
+    background-image: radial-gradient(at center bottom, rgba(var(--backgroundLight), .1) 10%, rgba(var(--backgroundLight), 0) 80%) !important;
+}
+html body .QiZCPwhEAvE-.Panel.Focusable .bOEXfqM27eQ- {
+    background-image: radial-gradient(100% 100% at 50% 100%, rgba(var(--backgroundLight), .14) 0%, rgba(var(--backgroundLight), .05) 90%) !important;
+}
+html body .QiZCPwhEAvE-.Panel.Focusable .OHAAoz1G1I4- {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .QiZCPwhEAvE-.Panel.Focusable .ohvlfUuwWIg-.k1akHy9HHzA- {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Sidebar filters and selected row surfaces use neutral roles. */
+html body ._1-sUXu7fTvU-.Panel.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+html body ._1-sUXu7fTvU-.Panel.Focusable ._0sA1Zp8H8XE- {
+    background-image: linear-gradient(30deg, rgba(var(--backgroundLight), .3) 0%, rgba(var(--backgroundLight), 0) 100%) !important;
+}
+html body ._1-sUXu7fTvU-.Panel.Focusable .LURVMdGd1ko- {
+    color: rgb(var(--textLightish)) !important;
+}
+html body ._1-sUXu7fTvU-.Panel.Focusable .aNHqqAqPfAg-._55sl-K26NHU- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body ._1-sUXu7fTvU-.Panel.Focusable .aNHqqAqPfAg-._55sl-K26NHU-:is(:hover,:focus-visible) {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body:has(.QiZCPwhEAvE-.Panel.Focusable) a.menuitem.supernav.supernav_active {
+    color: rgb(var(--textLink)) !important;
+}
+html body:has(.QiZCPwhEAvE-.Panel.Focusable) a.menuitem.supernav.supernav_active:is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* Current News Hub feed: section surfaces, headings and controls inside the
+ * right column have their own opaque native backgrounds and foregrounds. */
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .hqPTI05KkUw- .UEdZYCw7i6A- {
+    color: rgb(var(--textLight)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- :is(.DhR43YJ9-wc-, .xE9Dp6pmE08-) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- .xE9Dp6pmE08-.SqY7DmeCIqo- {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- ._0az7EQ9Oqik- {
+    background: linear-gradient(rgb(var(--backgroundLightish)), rgba(var(--backgroundDarkish), 0)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- :is(.AWm6RNWZdM4-, .SlFMYJwWSU4-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- :is(.hG0eaq6y-C8-, ._9lDmRzgjqs4-, .O79JneSzM9g-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- .Vi2EIPmgpxw- {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- .RdMlBc0C1Rk- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .UEdZYCw7i6A- :is(.QgcGWkkF5Is-, ._1-we0jg7skM-, .kBqESD5qsDg-):is(:hover, :focus-visible, .j0zYlXH6S-E-) {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .QiZCPwhEAvE- .yDJ1-6CIoOA- .JTFHmASEfjQ- .bOEXfqM27eQ-:is(:hover, :focus-within) {
+    background-image: radial-gradient(circle at 0 0, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+}
+
+/* Event reader modals have their own scroll canvas and article card. The
+ * blurred header copy is decorative; leave its image and article media intact. */
+html body .FullModalOverlay .CmGdbGDNSV4- > .LwJMhK0HNVM- {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .vO1QeI3w9Dk- {
+    color: rgb(var(--textLight)) !important;
+    background: radial-gradient(at 0 0, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .vO1QeI3w9Dk- :is(.bb_paragraph, .bb_ul, .bb_ol, .bb_table) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .vO1QeI3w9Dk- :is(h1, h2, h3, .ID9Ds4YdxDc-) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .vO1QeI3w9Dk- :is(.bb_link, a.bb_link) {
+    color: rgb(var(--textLink)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .vO1QeI3w9Dk- :is(.bb_link, a.bb_link):is(:hover, :focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* A subdued accent edge gives the event banner an ATOMS treatment while the
+ * original game art remains the source of its blurred decoration. */
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner.iPOPhGzC-a0- {
+    background: linear-gradient(90deg, rgba(var(--accent), .16), rgba(var(--backgroundDarkish), .94) 55%), rgb(var(--backgroundDarkish)) !important;
+    border-bottom: 1px solid rgba(var(--accent), .65) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .CI7Kfj6g0IA- {
+    filter: blur(60px) var(--storeBackdropFilter) !important;
+    opacity: calc(.4 * var(--pageBackdropOpacity)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .ZGGCLp-BDTo- .wqku6E-Abwg- {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .ZGGCLp-BDTo- ._5H7AM3ktKFA- {
+    color: rgb(var(--textLight)) !important;
+    --apppartnerevents-bannerlink-icon-fill: rgb(var(--icon));
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .ZGGCLp-BDTo- ._5H7AM3ktKFA-:is(:hover, :focus-visible) {
+    color: rgb(var(--textAccented)) !important;
+    --apppartnerevents-bannerlink-icon-fill: rgb(var(--accent));
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .ZGGCLp-BDTo- :is(._72FICgCQSdY-, ._2XopQbI8Bi8-) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- .AppPartnerEventsBanner .ZGGCLp-BDTo- :is(._72FICgCQSdY-, ._2XopQbI8Bi8-):is(:hover, :focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body .FullModalOverlay .CmGdbGDNSV4- :is(.QHtC9T0nSOI-, .TlGGn2-aFiY-) {
+    color: rgb(var(--icon)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    --apppartnerevents-scrollbutton-icon-fill: rgb(var(--icon));
+    --apppartnerevents-closebutton-icon-stroke: rgb(var(--icon));
+}
+html body .FullModalOverlay .CmGdbGDNSV4- :is(.QHtC9T0nSOI-, .TlGGn2-aFiY-):is(:hover, :focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLight)) !important;
+    --apppartnerevents-scrollbutton-icon-fill: rgb(var(--textLightest));
+    --apppartnerevents-closebutton-icon-stroke: rgb(var(--textLightest));
+}
+
+/* The same event can also open as a full News article rather than a modal.
+ * Its artwork sits in separate image layers; theme only the surrounding card,
+ * text and footer surfaces. */
+html body.partner_events .FCDwJOWV1GM- {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+}
+html body.partner_events .FCDwJOWV1GM- :is(._4OTq0--XlTY-, ._7rq2r-AuB6A-, .bSRjbpQs554-) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: radial-gradient(at 0 0, rgb(var(--backgroundLightish)), rgb(var(--backgroundDarkish))) !important;
+}
+html body.partner_events .FCDwJOWV1GM- :is(._3wNjVve5vqc-, h1, h2, h3) {
+    color: rgb(var(--textLightest)) !important;
+}
+html body.partner_events .FCDwJOWV1GM- :is(.aFhUTUuEGZ4-, .ay-K0NBOIuc-) {
+    color: rgb(var(--textLight)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body.partner_events .FCDwJOWV1GM- .aFhUTUuEGZ4- a:not(.LinkButton, .WidgetTag) {
+    color: rgb(var(--textLink)) !important;
+}
+html body.partner_events .FCDwJOWV1GM- .aFhUTUuEGZ4- a:not(.LinkButton, .WidgetTag):is(:hover, :focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body.partner_events .FCDwJOWV1GM- .tSbTvpNvWOQ- {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}

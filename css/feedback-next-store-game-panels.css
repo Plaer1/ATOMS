@@ -1,0 +1,97 @@
+/* Native game-detail utility panel. Preserve the native gradient axis and
+ * opacity while pairing its stops with the shared background roles. */
+html body .rightcol.game_meta_data > div > div > div.-h3mdabpWCk- > div.-JC2DTwjTLY- {
+    background-image: linear-gradient(
+        90deg,
+        rgba(var(--backgroundLight), .2) 0%,
+        rgba(var(--backgroundDarkest), .5) 100%
+    ) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* More from Publisher and More Like This. Replace the native white-on-light
+ * radial tint with a palette-aware neutral gradient; card art remains native. */
+html body .related_items_ctn > .page_content.game_description_column > div > div > :is(
+    .Y2-ks0gaz6E-._8ad-y5MwlAM-.Panel.Focusable,
+    .nKsKxQO2ePs-.Panel.Focusable
+) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    background-image: linear-gradient(
+        180deg,
+        rgb(var(--backgroundDarkest)),
+        rgb(var(--backgroundLight))
+    ) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Panel headings and publisher actions have native white text even after the
+ * panel backing is neutralized. Keep title contrast on the panel and give the
+ * linked actions the shared link role. */
+html body .related_items_ctn > .page_content.game_description_column
+> div > div > .Y2-ks0gaz6E- .L1upjLLYkOs- > a {
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body .related_items_ctn > .page_content.game_description_column
+> div > div > .Y2-ks0gaz6E- .XdqYj7xUx4k- > a {
+    color: rgb(var(--textLink)) !important;
+}
+
+/* Discounted related-card prices use a pale native widget backing; keep the
+ * price legible while leaving the separate green discount badge untouched. */
+html body .related_items_ctn > .page_content.game_description_column
+> div > div > .nKsKxQO2ePs- .StoreSalePriceWidgetContainer.Discounted
+ .OySWwOLLxFc- {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Learn more is a button-like action on this panel. Pair its accent surface
+ * with the dark-theme on-accent role; leave disabled controls to Steam. */
+html:root:root body .rightcol.game_meta_data .-JC2DTwjTLY-
+a.S0TPsOpik3c-:not([aria-disabled="true"]):not([disabled]) {
+    background-color: rgb(var(--accentDarkest)) !important;
+    background-image: none !important;
+}
+
+html:root:root body .rightcol.game_meta_data .-JC2DTwjTLY-
+a.S0TPsOpik3c-:not([aria-disabled="true"]):not([disabled]),
+html:root:root body .rightcol.game_meta_data .-JC2DTwjTLY-
+a.S0TPsOpik3c-:not([aria-disabled="true"]):not([disabled]) > * {
+    color: rgb(var(--textOnAccentDark)) !important;
+    -webkit-text-fill-color: rgb(var(--textOnAccentDark)) !important;
+}
+
+html:root:root body .rightcol.game_meta_data .-JC2DTwjTLY-
+a.S0TPsOpik3c-:not([aria-disabled="true"]):not([disabled]):is(:hover, :focus-visible) {
+    background-color: rgb(var(--accentDark)) !important;
+}
+
+/* Product-card price strip: use a neutral panel backing. Discount boxes keep
+ * their separate native/theme green state colors. */
+html body .related_items_ctn > .page_content.game_description_column .CapsuleBottomBar {
+    background-color: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Related-item carousel next button: neutral edge backing and a strong icon
+ * role improve contrast without changing the 50×189 native hit target. */
+html body .DyOrE-LFQDQ-.BRZXitJANxc-.SaleSectionCarousel._1iA0kFrL4Xs-
+> .carousel > ._538FwVlPb0E-.SliderBody
+> button.buttonNext___2mOCa.carousel__next-button._6KbJ1ZwTIeY-.O2Vg9rmPwSE- {
+    background-image: linear-gradient(
+        to left,
+        rgb(var(--backgroundLight)),
+        transparent
+    ) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+html body .DyOrE-LFQDQ-.BRZXitJANxc-.SaleSectionCarousel._1iA0kFrL4Xs-
+> .carousel > ._538FwVlPb0E-.SliderBody
+> button.buttonNext___2mOCa.carousel__next-button._6KbJ1ZwTIeY-.O2Vg9rmPwSE- svg polygon {
+    fill: currentColor !important;
+}
+
+/* Review-area record selected the full scroll container. The existing
+ * storeText.css .review_ctn text role already covers its inherited foreground;
+ * review-score/status colors and media are kept with their native owners. */

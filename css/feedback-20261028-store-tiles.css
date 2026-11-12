@@ -1,0 +1,33 @@
+/* Store home frame and carousel focus affordances.
+ * Keep the 1200px carousel panels and homepage content wrapper transparent:
+ * their descendants include promotional artwork and native status surfaces. */
+html body .XLbP8xOkCYw-.Panel.Focusable {
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    background-image: none !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .XLbP8xOkCYw-.Panel.Focusable :is(a,button):is(:hover,:focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body .RZQWX-64UNU- :is(a,button):focus-visible {
+    outline: 2px solid rgb(var(--accent)) !important;
+    outline-offset: 2px;
+}
+
+/* The homepage promo CTA and its neighboring text panel have explicit blue
+ * gradients in capture metadata. Recolor those controls only; leave media,
+ * discounts and the enclosing homepage/carousel surfaces untouched. */
+html body .RZQWX-64UNU- button.eRszG1u51Rs-._49ENuOhw3UU-.Focusable,
+html body .RZQWX-64UNU- button.eRszG1u51Rs-._49ENuOhw3UU-.Focusable * {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .RZQWX-64UNU- button.eRszG1u51Rs-._49ENuOhw3UU-.Focusable {
+    background-image: linear-gradient(90deg, rgb(var(--accentDarkest)), rgb(var(--accentDark))) !important;
+}
+html body .RZQWX-64UNU- button.eRszG1u51Rs-._49ENuOhw3UU-.Focusable:is(:hover,:focus-visible) {
+    background-image: linear-gradient(90deg, rgb(var(--accentDark)), rgb(var(--accentDarkest))) !important;
+}
+html body .RZQWX-64UNU- .jYoDYbgCCU0-.Panel.Focusable {
+    color: rgb(var(--textLight)) !important;
+    background-image: linear-gradient(90deg, rgba(var(--accent), .1) 0%, rgba(var(--backgroundDarkest), 0) 100%) !important;
+}

@@ -1,6 +1,7 @@
 @import url('configDefaults.css');
 @import url('../config.css');
 @import url('themeText.css');
+@import url('feedback-wave-20261112-chrome.css');
 *{  /*Uncomment if you want to change the font */
     font-family: var(--font) !important;
 	box-shadow: none !important;

@@ -1,0 +1,136 @@
+/* Game Store page: shared dark-first roles also resolve through light mode.
+ * Keep video, capsule art, status colors and the underlying hit areas intact. */
+
+/* Broadcast chrome surrounds, but does not replace, the native video. */
+html body #broadcast .broadcast_brd_ctn_trgt {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(180deg,
+        rgb(var(--backgroundDarkish)), rgb(var(--backgroundDarkest))) !important;
+}
+html body #broadcast .broadcast_brd_ctn_trgt .bordered_title_trgt {
+    background-color: rgb(var(--accentDarkest)) !important;
+    border-color: rgba(var(--accent), .45) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body #broadcast .broadcast_brd_ctn_trgt .bordered_title_trgt > :not(:first-child) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+/* Legacy category rows and the newer accessibility details share the same
+ * accent treatment. The nested icons, controller status, and images keep
+ * their native states; only the interactive chip and text surfaces change. */
+html body #category_block .game_area_details_specs_ctn {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+html body #category_block details > summary > div:has(> svg) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #category_block details :is(summary > span, li > a > span) {
+    background-color: rgba(var(--accent), .10) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body #category_block details :is(summary > span, li > a > span) span {
+    color: rgb(var(--textLink)) !important;
+}
+html body #category_block details li > span {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #category_block details > summary > span > a {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body #category_block details :is(summary, li > a):is(:hover, :focus-visible) > span {
+    background-color: rgba(var(--accent), .18) !important;
+    color: rgb(var(--textLinkSoft)) !important;
+}
+
+/* The same achievements utility panel appears with more than one set of
+ * Steam utility classes. Scope the shared panel roles to the right-hand game
+ * metadata column, not every use of these helpers throughout the Store. */
+html body .rightcol.game_meta_data .noOpinionatedGlobalStyles
+:is(.Bj8vGJI7AGo-.PmISXgz3FoQ-:has(> a[href*="/achievements/"]),
+    .gEM5qnbRU58-.Bj8vGJI7AGo-.PmISXgz3FoQ-) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(90deg,
+        rgba(var(--backgroundDarkest), .5), rgba(var(--backgroundDarkest), .65)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .rightcol.game_meta_data .noOpinionatedGlobalStyles
+:is(.Bj8vGJI7AGo-.PmISXgz3FoQ-:has(> a[href*="/achievements/"]),
+    .gEM5qnbRU58-.Bj8vGJI7AGo-.PmISXgz3FoQ-) span.oDEFTUumdv8- {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Augmented Steam's SteamPeek section has a stable section ID. Recolor its
+ * panel, header action and price strips while preserving all capsule images. */
+html body .related_items_ctn #steampeek {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(180deg,
+        rgb(var(--backgroundDarkest)), rgb(var(--backgroundLight))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .related_items_ctn #steampeek > header > div {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .related_items_ctn #steampeek > header > a {
+    background: rgba(var(--accentDarkest), .4) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body .related_items_ctn #steampeek > header > a:is(:hover, :focus-visible) {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAction)) !important;
+}
+html body .related_items_ctn #steampeek .buy {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* The publisher/related panel can omit Steam's extra modifier class. Select
+ * the panel by its carousel relationship as well as the shared panel class. */
+html body .related_items_ctn > .page_content.game_description_column {
+    color: rgb(var(--textLight)) !important;
+}
+html body .related_items_ctn > .page_content.game_description_column > div > div > .Panel.Focusable:has(.SaleSectionCarousel) {
+    background-color: rgb(var(--backgroundLight)) !important;
+    background-image: linear-gradient(180deg,
+        rgb(var(--backgroundDarkest)), rgb(var(--backgroundLight))) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .related_items_ctn .TwoWidthSideInfo {
+    background-color: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .related_items_ctn .TwoWidthSideInfo > div:first-child {
+    background-color: rgba(var(--accent), .15) !important;
+    color: rgb(var(--textLink)) !important;
+}
+html body .related_items_ctn .TwoWidthSideInfo > div:nth-child(2) {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Steam's expanded related-capsule preview is a portal, so it is not always
+ * nested under .related_items_ctn. The observed media target is a transparent
+ * child of this preview: theme only its card and text panels, never its image
+ * or its black media-loading overlay. */
+html body .PFP2RDjCi0w- {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    background-image: linear-gradient(0deg,
+        rgb(var(--backgroundLight)), rgb(var(--backgroundDarkest)) 15%) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+html body .PFP2RDjCi0w- .uN9-XHR7odQ- {
+    background-image: linear-gradient(0deg,
+        rgb(var(--backgroundDarkish)) 30%, rgba(var(--backgroundLight), .3) 85%) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body .PFP2RDjCi0w- .uN9-XHR7odQ- a {
+    color: rgb(var(--textLightest)) !important;
+}
+html body .PFP2RDjCi0w- .uN9-XHR7odQ- ._8UjVVV-S-j8- {
+    color: rgb(var(--textLightish)) !important;
+}
+html body .PFP2RDjCi0w- .uN9-XHR7odQ- .mW8gl4NPYGg- {
+    background-color: rgba(var(--accent), .12) !important;
+    color: rgb(var(--textLight)) !important;
+}

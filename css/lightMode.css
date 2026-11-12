@@ -15,6 +15,7 @@
     --backgroundDarkish: var(--backgroundLightModeDarkish) !important;
     --backgroundDark: var(--backgroundLightModeDark) !important;
     --backgroundDarkest: var(--backgroundLightModeDarkest) !important;
+    --backgroundDesktopSidebarOverlay: var(--background) !important;
     --backgroundUnownedCard: var(--backgroundLightModeUnownedCard) !important;
     --unachievedIconOpacity: var(--unachievedIconLightModeOpacity) !important;
     --accent: var(--accentLightMode) !important;
@@ -43,6 +44,17 @@
     --textDark: var(--textLightModeDark) !important;
     --textNeutral: var(--textLightModeLightest) !important;
     --textOnAccent: var(--white) !important;
+    /* Pink accent text is for ordinary surfaces; these actions keep paired
+     * white text on deep-pink fills in light mode. */
+    --backgroundRelatedFollowAction: rgb(var(--accentDarkest)) !important;
+    --backgroundRelatedFollowActionHover: rgb(var(--accentDark)) !important;
+    --textRelatedFollowAction: var(--textOnAccentDark) !important;
+    --textRelatedFollowActionChildHover: var(--textOnAccentDark) !important;
+    --backgroundEarlyAccessMoreAction: linear-gradient(to right,
+        rgb(var(--accentDark)) 0%,
+        rgb(var(--accentDarkest)) 15%,
+        rgb(var(--accentDarkest)) 100%) !important;
+    --textEarlyAccessMoreAction: var(--textOnAccentDark) !important;
     --storeBackdropFilter: var(--storeBackdropLightModeFilter) !important;
     --communityBackdropFilter: var(--communityBackdropLightModeFilter) !important;
     --storeBackdropOpacity: var(--storeBackdropLightModeOpacity) !important;

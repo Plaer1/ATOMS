@@ -1,0 +1,260 @@
+/* Library game details: keep presence cues while removing Steam's blue
+ * snooze glyphs. The animation and the in-game green state remain native. */
+:root :is(.Friends, ._1umjft7ymqKrhhjDroeBUO)
+    :is(.statusAndName, ._4ZTzGZ5TTgFyfw1DcXLXS)
+    :is(.SnoozeContainer, ._1DsumfIa3MlkzUV9EXY5W9):not(.in-game)
+    :is(.SnoozeZ, ._2n0EiKMGRP-r_BI5tDtttu) {
+    color: rgb(var(--textAccented)) !important;
+    text-shadow: none !important;
+}
+
+/* Steam's friend hovercard is a separate native popup. Keep profile artwork,
+ * avatar frames, videos and in-game status colors; theme its fallback canvas
+ * and translucent information surfaces instead. */
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfileBackground, ._3HzZhZyBuR0K4qXaQoHMxI):not([style*="background"]) {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF) {
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF) :is(.personaNameLabel, ._2VUw8xyYCaD1WduLCK3nlW) {
+    color: rgb(var(--textLightest)) !important;
+    text-shadow: none !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF).online
+    :is(.miniProfileAvatarStatus, ._1k5YkN8kx48i2TZ6kG9muA) {
+    background: rgb(var(--accent)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF):is(.online, .watchingbroadcast)
+    :is(.awayStatusLabel, ._1FgWIOIaRCAekjhGj0zFWq) {
+    color: rgb(var(--textAccented)) !important;
+    text-shadow: none !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF).in-game
+    :is(.personaNameLabel, ._2VUw8xyYCaD1WduLCK3nlW, .awayStatusLabel, ._1FgWIOIaRCAekjhGj0zFWq) {
+    color: rgb(var(--textInGame)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(._7-U6jtoeGvesTm7JFGH0-, ._26ga2HHZL2HlK6wwFImcgX) {
+    background: rgba(var(--backgroundDarkish), .94) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(._3hSAG74hI2XkboOz8Vpg5L) :is(._3Hxc3f2ZlkYTKbrxVoS9sq, ._39T3EbAEqqKrJl5rX1-qPW) {
+    color: rgb(var(--textAccented)) !important;
+}
+
+/* Achievement/right-column sections share this component on every game. */
+:root :is(.RightColumn, ._2aor4XVOYzN1PBSREk0UbO)
+    :is(.RightColumnSection, ._3KfxIwlXEvum7FCD_AM2_t) {
+    border-image: none !important;
+    border: 1px solid rgba(var(--backgroundLight), .6) !important;
+    background: radial-gradient(100% 80% at 64% 95%,
+        rgba(var(--accent), .12), rgba(var(--backgroundLightish), .45) 45%,
+        rgba(var(--backgroundDarkish), .95)) !important;
+}
+:root :is(.AppDetailsSection, ._2r4TK4BAuU-J4FuF_O7v_5)
+    :is(.Highlight, ._38t1mljBjmJfqjpVzMT1CG) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+    box-shadow: none !important;
+}
+:root :is(.AppDetailsSection, ._2r4TK4BAuU-J4FuF_O7v_5)
+    :is(.Body, ._5uvIN6jXDXzzck59F-nhv) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AppDetailsSection, ._2r4TK4BAuU-J4FuF_O7v_5)
+    :is(.UnlockedLabel, ._3jC8om-5Sci_dkUB-6VYiU, .Label, .uoFNFZ7Hs5cF1IjP2fvPw) {
+    color: rgb(var(--textLight)) !important;
+}
+/* Use the configured rare-achievement gradient, keeping Steam's geometry,
+ * mask and motion. No fixed accent or filtered game art. */
+:root :is(.AppDetailsSection, ._2r4TK4BAuU-J4FuF_O7v_5) ._1Z2eJs9-zNTKcWKy4M-oDE {
+    background: var(--achievementGlow) !important;
+}
+
+/* The in-client achievements overlay has its own drawer/header and list
+ * components, distinct from the web achievements page. Scope to that overlay
+ * so generic GamepadPage spacing and other Steam drawers remain untouched. */
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf) {
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GamepadPage, ._2FqpD91Xarb7f0uIOuXFOR) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementList, .w90opbLiWlZ1xgZVi51an, ._1UXC2lGcmNTGepRJTwtuH0) {
+    background: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementListItemBase, ._2cIsMgTamV-qptkDKO0XNC, ._2Kmn7fJOkLT4KyWl467a9M,
+        .GlobalAchievementListItem, ._3SGC6De_ZUjSViw20mnvYv, ._316Uo4SBrQ_beBdSYn2HNO,
+        .SortableUserAchievementInner, ._1tTuIhabs4uQQmR2udzw_P) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementTitle, ._1hCng1RGOB0Usr_3Uz2ZXg, ._17dhGq-FsL8xZBes7dOOlN,
+        ._2t0Fm9FFhcdDLlbSptB_vt, ._3LS_NZyqY77COuRN-Z3TVB,
+        .ListTitle, ._2DloxrGwBEsNnLaD81WJk1, .IM0uEBPVo6MDEDQLGzeZr) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementDescription, ._1i7oUcMQndXEBMEQz2zZ-r, ._1WP2YDDWrL5LPHoS04AKx8,
+        .AchievementGlobalPercentage, ._1rEINS_x88uR8c9xJLSb0, .VQbek1VTyOX04qHmTsssW,
+        ._1JSM3p613cpaG7NrYhBUHn, ._231lloeMz5EvNkHHGXN6RJ,
+        .ProgressLabel, ._1C3ChlmeBQeWaNo2u--Zl2, ._3Y63d79wKiXs14rvBcrsDx) {
+    color: rgb(var(--textLightish)) !important;
+}
+/* Base-game and DLC group headers use the configured accent; unowned DLC
+ * remains neutral. Their progress fills use the same ATOMS accent. */
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GroupHeader, ._22S4Af9ZUjd6IavgboVcEC) {
+    background: radial-gradient(70% 277% at 21% 24%, rgb(var(--accentDarkish)), rgb(var(--accentDarkest))) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GroupHeader, ._22S4Af9ZUjd6IavgboVcEC):is(.Unowned, ._2SM8f4bzHU6yQMr7kHqymE) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GroupProgressBar, ._3Q-2vGhBjiRG6f3OJ1ZBuB) {
+    --achievement-progress-bar-background: rgb(var(--backgroundDarkish));
+    --achievement-progress-bar-foreground: rgb(var(--accent));
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementsTable, ._1BnbXfdEvRubouJucJRU7z) {
+    --color-achievements-global-progress-common: rgb(var(--accent));
+    --color-achievements-global-progress-rare: rgb(var(--accentLightest));
+    --color-rare: rgb(var(--textAccented));
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementRow, .ZjLfk-YYYg2BeAX0wJt3k):not(.LastRow):not(._1tf8WFrY8ToUBmcPMJ_W8T),
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.EmptyTableDivider, ._2MWG4Z1oGIxUJUss508nyh) {
+    border-bottom-color: rgb(var(--backgroundLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.CollapseButton, ._301Koz8KhQ56mW1_VvClYo) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GroupHeader, ._22S4Af9ZUjd6IavgboVcEC):is(.Unowned, ._2SM8f4bzHU6yQMr7kHqymE)
+    :is(.CollapseButton, ._301Koz8KhQ56mW1_VvClYo) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.AchievementProgressBar, .Fur8xECXK4OVuhm8aWu3K) {
+    --color-progress-bar-background: rgb(var(--backgroundDarkish));
+    --color-progress-bar-foreground: rgb(var(--accent));
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.ProgressFill, .ySY47YjOVEzyDBtKsXrId, ._2lgHVJbZwxb10Md7bZ6USU) {
+    background-color: rgba(var(--accent), .2) !important;
+}
+
+/* Current Steam achievement drawers use shared layout primitives rather than
+ * the older list classes. These selectors are limited to the achievement page. */
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.SummaryHeading, ._2Cap9kDsIiQhd0jROKcZh1, .FriendCompareBox, ._3yQg8ImDrqj78xIoWem3m5) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.SummaryHeading, ._2Cap9kDsIiQhd0jROKcZh1) :is(.Background, ._1i6AhxSEgz1FAUyiEt1Xsk).Grid {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.SummaryHeading, ._2Cap9kDsIiQhd0jROKcZh1) :is(.Unlocked, ._3WOeX9PHv29FSw4EKlG77h):not(._2E98Z2axaJzx4rToEJq4nU):not(._3eZH1oNlB2EnSOcHMJqoiL) {
+    background: rgb(var(--accent)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.HiddenLabel, ._1smYxH70zcX0D3CUQDwF3o, .RevealInstructions, ._3XmaECEiZHReYvvsI0ldpa) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf) :is(.Heading, ._12ldq1_X5RuLWAAs_ODwt7) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf) :is(.Text, .f6hU22EA7Z8peFWZVBJU) {
+    color: rgb(var(--textLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.GroupHeader, ._22S4Af9ZUjd6IavgboVcEC) :is(.Text, .Heading, .f6hU22EA7Z8peFWZVBJU, ._12ldq1_X5RuLWAAs_ODwt7) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.ControlBox, ._2gL71Yq-HzVI9oOGyWu3jH):not(.Variant-bare) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.ControlBox, ._2gL71Yq-HzVI9oOGyWu3jH):not(.Variant-bare):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--backgroundLightest)) !important;
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.Track, .wCPKWvwCOuo-4mHzhEcBW) {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.Track, .wCPKWvwCOuo-4mHzhEcBW)::before {
+    background: rgb(var(--accent)) !important;
+}
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.Handle, ._14qr0P2xMoRiEbcekixcZh) {
+    background: rgb(var(--textLightest)) !important;
+}
+
+/* Steam's in-client achievement backdrop has its own blue-grey fade above
+ * the artwork. Match the page canvas while retaining the artwork and blur. */
+:root :is(.AchievementsPageContainer, .gioyPMOZttYFcnmgLnsWf)
+    :is(.BackgroundScroll, ._29m0NwtVyTtM8ImkZ_a_4z)
+    > :is(.Blur, ._3Fjw7Sm_QUgOr8r3khWTSm) {
+    background-image: linear-gradient(to bottom, transparent, rgb(var(--backgroundDarkish))) !important;
+}
+
+/* The native mini-profile can carry a user-selected video as well as a
+ * playtime panel. Leave video, badge and game-logo assets untouched while
+ * replacing Steam's blue panel gradient and low-contrast fixed text. */
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.miniProfileVideoBackgroundContainer, ._3MrYvAGQ-g7bNccn6VJNpK) {
+    background-color: rgb(var(--backgroundDarkish)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.PlaytimeSection, ._1s3b90MDEzWiXAzyEg4vu2) {
+    background: linear-gradient(to bottom, rgba(var(--accent), .2), rgba(var(--backgroundDarkish), .92)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.featuredTitle, ._2mCgtDakdGp_qrKcyIcZii, .friendPlayerLevelNum, ._3vvwMiUuxFKnz-LwGwe5Do) {
+    color: rgb(var(--textLightest)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.featuredSubTitle, ._3DelZ7HZu1TfU115lLc7vl, .PlaytimeContent, ._28NsonuduTy4g7L-pE1ocN) {
+    color: rgb(var(--textLightish)) !important;
+}
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd)
+    :is(.TimePlayed, .KiUMH-qZUhdrtWF93sxVo) {
+    color: rgb(var(--textAccented)) !important;
+}
+/* Header names are drawn over the owner's profile video, not the neutral
+ * panel. Keep their artwork foreground readable in either palette. */
+:root :is(.miniProfileContent, ._1xTATKELHR-lRS_s3A4yzd):has(:is(.miniProfileVideoBackground, ._2ZqfbNDeHFU_qaf3X3_Jjv))
+    :is(.miniProfilePlayer, ._2jZ0A5VjGTNGTQm03FbLrF):not(.in-game)
+    :is(.personaNameLabel, ._2VUw8xyYCaD1WduLCK3nlW) {
+    color: rgb(var(--textOnArtwork)) !important;
+}

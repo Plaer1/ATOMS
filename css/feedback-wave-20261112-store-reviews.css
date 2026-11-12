@@ -1,0 +1,149 @@
+/* Store app reviews: these are Steam's current React review components,
+ * scoped to the review area rather than an individual game's page. Color
+ * roles follow the active ATOMS palette; rating/graph sentiment colors and
+ * reviewer artwork retain their own meaning. */
+html body .review_ctn:has(#app_reviews_hash) {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash {
+    color: rgb(var(--textLight)) !important;
+}
+
+/* Aggregate score cards and the dividing rule around them. */
+html body #app_reviews_hash .d57g2l1FXWk- :is(.PwTlk5b4Rh0-, ._3tTNLTWh51g-) {
+    background: rgb(var(--backgroundLightish)) !important;
+    box-shadow: none !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .d57g2l1FXWk- .nQmgFD0Ujec- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash .d57g2l1FXWk- :is(.VxxhsJVwAVI-, .M3USwhkZRvk-, ._3tTNLTWh51g-) {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #app_reviews_hash .d57g2l1FXWk- ._0J6O0kq9Hts- {
+    color: rgb(var(--textLightest)) !important;
+}
+
+/* Histogram backing, recent-period panel, axes and decoration. The actual
+ * positive/negative bars and score labels deliberately keep Steam's states. */
+html body #app_reviews_hash .EpJ2bqGTew8- {
+    background: rgb(var(--backgroundLightish)) !important;
+}
+html body #app_reviews_hash .EpJ2bqGTew8- ._1FOq8Z-HYOo-.Cbt2Mrm2GWw- {
+    background: rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+html body #app_reviews_hash .EpJ2bqGTew8- .uTBHzkHV79g- .mbnuzMfW2Kc- {
+    fill: rgb(var(--backgroundDark)) !important;
+}
+html body #app_reviews_hash .EpJ2bqGTew8- .xFlW4jpX2P4- {
+    background-color: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash .EpJ2bqGTew8- :is(.fJc-AASyFaI-, .IYszGSONzIc-) {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Review controls, open filters, and selected-filter summary. */
+html body #app_reviews_hash :is(.nS3iAoyO-XI-, .ZfAN2LXWDnM-) {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .nS3iAoyO-XI- .XInq2YYReWw- {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash :is(.SnXunF8fARU-, .c-M0cwSZcRY-, .cjTWlfDj9cQ-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .IAqNJdOEnoc-:is(:hover, :has([aria-expanded="true"])) {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash .IAqNJdOEnoc-:is(:hover, :has([aria-expanded="true"])) .SnXunF8fARU- {
+    color: rgb(var(--textLightest)) !important;
+}
+html body #app_reviews_hash :is(.zBv-ywTeLcQ-, .hYGYOUjTOx4-) {
+    --popover-background: rgb(var(--backgroundLightish));
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+    text-shadow: none !important;
+}
+html body #app_reviews_hash :is(.hZCJuNpl1KM-, ._7pIsVrmbCbw-, .dAKtJif-TvE-) {
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash :is(.hZCJuNpl1KM- a, .oTYK022j8Xc- a, .-SdyCjz7ogE-, .RUDUdPXdg9A-) {
+    color: rgb(var(--textLink)) !important;
+}
+html body #app_reviews_hash :is(.hZCJuNpl1KM- a, .oTYK022j8Xc- a, .-SdyCjz7ogE-):is(:hover, :focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body #app_reviews_hash .KbaITRGAFWM- {
+    background: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+    text-shadow: none !important;
+}
+html body #app_reviews_hash .KbaITRGAFWM-:is(:hover, :focus-visible) {
+    background: rgb(var(--accentLightish)) !important;
+    border-color: rgb(var(--accentLightish)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+
+/* Individual reviews and expanded cards. Keep avatars, review text and
+ * recommendation icons intact; only neutral surfaces and metadata change. */
+html body #app_reviews_hash .lsFCe2D6yJo- ._4rFF1L9jPC8- {
+    background: rgb(var(--backgroundLightish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo-._41-ZKo9YE20- ._4rFF1L9jPC8- {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash .SE4Y5ArEv38- .enxqWUgCPNc- {
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo- :is(.eNXwO1akYzc-, .Bbflu2codsU-, .o62k18gmiXQ-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo- :is(.bgorXAs2e8Y-, .t2jY3BPODTY-, .A8-lQbiuq-E-) {
+    color: rgb(var(--textLightish)) !important;
+    opacity: 1 !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo- .PaJFVCJu0g0- {
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo- .PaJFVCJu0g0-:is(:hover, :focus-within) {
+    background: rgb(var(--backgroundLight)) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo- .uCfEru-Rv30- .o79HbP6msR0- {
+    background: linear-gradient(rgba(var(--backgroundLightish), 0), rgb(var(--backgroundLightish))) !important;
+}
+html body #app_reviews_hash .lsFCe2D6yJo-._41-ZKo9YE20- .uCfEru-Rv30- .o79HbP6msR0- {
+    background: linear-gradient(rgba(var(--backgroundLight), 0), rgb(var(--backgroundLight))) !important;
+}
+
+/* Steam gives the labels inside its filter popover their own hard-coded
+ * foregrounds, including on hover; pair them with the themed surface. */
+html body #app_reviews_hash .zBv-ywTeLcQ- :is(.WSZJpvJ2Gdw-, .M9Y-qF7xyD0-:hover .WSZJpvJ2Gdw-) {
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .zBv-ywTeLcQ- .jB7WOPGD9-8- {
+    color: rgb(var(--textLightish)) !important;
+}
+html body #app_reviews_hash .nS3iAoyO-XI- .XInq2YYReWw- .n3lY4-PXI2Q- {
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .dAKtJif-TvE- .fr-bGCVaw-k- a {
+    color: rgb(var(--textLink)) !important;
+}
+html body #app_reviews_hash .dAKtJif-TvE- .fr-bGCVaw-k- a:is(:hover, :focus-visible) {
+    color: rgb(var(--textLinkSoft)) !important;
+}
+html body #app_reviews_hash .ZfAN2LXWDnM- :is(.SxMXeGtYmYI-, .bclfj96oVPU-) {
+    background: rgb(var(--backgroundDarkish)) !important;
+    color: rgb(var(--textLight)) !important;
+}
+html body #app_reviews_hash .ZfAN2LXWDnM- :is(.SxMXeGtYmYI-, .bclfj96oVPU-):is(:hover, :focus-visible) {
+    background: rgb(var(--backgroundLight)) !important;
+    color: rgb(var(--textLightest)) !important;
+}

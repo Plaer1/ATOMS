@@ -3,6 +3,7 @@
 @import url("configDefaults.css");
 @import url("../config.css");
 @import url("sharedMedia.css");
+@import url('feedback-wave-20261112-community.css');
 
 /* Native shared buttons use --background as a full color and declare their
  * own value on each variant. Do not let the palette's inherited RGB triplet

@@ -1,8 +1,10 @@
 import { installThemeToggle } from './utilities/visualThemeControls.js';
 import { refreshDebugHooks } from './utilities/refreshDebugHooks.js';
+import { teardown as teardownAnnotationMenu } from './annotation/menu.js';
 
 window.__atomsDebugMenuEnabledV1 = false;
 refreshDebugHooks(false);
+teardownAnnotationMenu();
 
 // Retire session helpers too: they can outlive the controller process in an
 // existing Steam document. The saved Millennium palette remains authoritative.

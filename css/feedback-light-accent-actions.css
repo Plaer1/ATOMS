@@ -1,0 +1,29 @@
+/* Filled Store actions consume mode-aware roles: dark values preserve the
+ * existing appearance, while light mode uses white over deep-pink fills. */
+
+/* Related-game Follow action. Leave disabled state styling native. */
+html body .related_items_ctn .FollowButton:not(:disabled):not([disabled]):not([aria-disabled="true"]):not(.disabled),
+html body .related_items_ctn .FollowButton:not(:disabled):not([disabled]):not([aria-disabled="true"]):not(.disabled) > * {
+    color: rgb(var(--textRelatedFollowAction)) !important;
+    -webkit-text-fill-color: rgb(var(--textRelatedFollowAction)) !important;
+}
+
+html body .related_items_ctn .FollowButton:not(:disabled):not([disabled]):not([aria-disabled="true"]):not(.disabled) {
+    background: var(--backgroundRelatedFollowAction) !important;
+}
+
+html body .related_items_ctn .FollowButton:not(:disabled):not([disabled]):not([aria-disabled="true"]):not(.disabled):hover {
+    background: var(--backgroundRelatedFollowActionHover) !important;
+}
+
+html body .related_items_ctn .FollowButton:not(:disabled):not([disabled]):not([aria-disabled="true"]):not(.disabled) > div:hover {
+    color: rgb(var(--textRelatedFollowActionChildHover)) !important;
+    -webkit-text-fill-color: rgb(var(--textRelatedFollowActionChildHover)) !important;
+}
+
+/* The early-access disclosure control overlays its description. */
+html body div.early_access_header .devnotes .morebutton {
+    background: var(--backgroundEarlyAccessMoreAction) !important;
+    color: rgb(var(--textEarlyAccessMoreAction)) !important;
+    -webkit-text-fill-color: rgb(var(--textEarlyAccessMoreAction)) !important;
+}

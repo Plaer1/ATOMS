@@ -112,8 +112,8 @@ the config is broken down into a few main sections:
      * background*   = page/panel/row surfaces
      * textLink / textLinkSoft = regular/light accent links on page/panel surfaces
      *                (independent light accents follow the matching LightMode roles)
-     * textAccented  = contrasting emphasis; light mode uses textLightModeAccented
-     * textAccentedSoft = lighter accent text on dark panels; readable accent in light
+     * textAccented  = accent emphasis; light mode uses the regular light-mode accent
+     * textAccentedSoft = lighter accent emphasis; light mode uses the lighter accent
      * textLight     = normal text on those surfaces
      * textLightish  = secondary labels, metadata, and placeholders
      * textLightest  = headings and emphasized values
@@ -175,6 +175,16 @@ the config is broken down into a few main sections:
     --textOnAction: var(--white);     /* light play/stop/download glyphs on accent action buttons */
     --textOnArtwork: var(--white);     /* stays white over game artwork in either mode */
     --textOnDiscount: 0, 0, 0;         /* stays dark on Steam's discount badges */
+    /* Store filled-action roles preserve the existing dark appearance. */
+    --backgroundRelatedFollowAction: rgba(var(--accentDarkest), .2);
+    --backgroundRelatedFollowActionHover: rgba(var(--accent), .8);
+    --textRelatedFollowAction: var(--textAccented);
+    --textRelatedFollowActionChildHover: var(--textLightest);
+    --backgroundEarlyAccessMoreAction: linear-gradient(to right,
+        rgba(var(--accentDarkest), 0) 0%,
+        rgba(var(--accentDarkest), 1) 15%,
+        rgba(var(--accentDarkest), 1) 100%);
+    --textEarlyAccessMoreAction: var(--textAccented);
     /* Semantic green controls retain their surface/foreground pair in either mode. */
     --backgroundPositiveAction: 121, 153, 5;
     --backgroundPositiveActionHover: 83, 105, 4;
@@ -186,6 +196,9 @@ the config is broken down into a few main sections:
     /* Modal scrim: color and transparency are independent of panel colors. */
     --backgroundOverlay: 0, 0, 0;
     --backgroundOverlayOpacity: .55;
+    /* Millennium desktop sidebar uses native .8-alpha coverage; the light
+     * palette swaps only the RGB channels to the light canvas role. */
+    --backgroundDesktopSidebarOverlay: var(--backgroundOverlay);
 
     /* Decorative Store backdrops only: images/video content are unaffected. */
     --storeBackdropFilter: grayscale(1) brightness(.77);
@@ -240,9 +253,9 @@ the config is broken down into a few main sections:
     --accentLightModeDarkTransparent: var(--transparentdarkPink);
     --accentLightModeDarkerTransparent: var(--transparentdarkerPink);
 
-    /* Text accent is darker than the unchanged accent fill on light panels. */
-    --textLightModeAccented: var(--accentLightModeDarkest);
-    --textLightModeAccentedSoft: var(--accentLightModeDarkest);
+    /* Ordinary accent text follows regular/lighter pink in light mode. */
+    --textLightModeAccented: var(--accentLightMode);
+    --textLightModeAccentedSoft: var(--accentLightModeLightish);
     --textLightModeLink: var(--accentLightMode);
     --textLightModeLinkSoft: var(--accentLightModeLightish);
     --textLightMode: 45, 45, 45;

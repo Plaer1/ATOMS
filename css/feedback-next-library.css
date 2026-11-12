@@ -1,0 +1,69 @@
+/* Selected Library row: Steam's hovered title span explicitly switches to
+ * near-black. Keep the actual selection foreground paired with its accent. */
+:root ._2-O4ZG0KrnSrzISHBKctFQ._1UBpAXP408Ez_L_mXhW5Q9:is(:hover,._3cMVyOc-9F9Jvp3uKF7_xj) ._1vO6BoiVslZgs1kqDGdUs8._2wgFGloLUdbOVEeIYkuqTp > span {
+    color: rgb(var(--textOnSelection)) !important;
+}
+
+/* Library search placeholder remains legible while hovering and when idle;
+ * only placeholder paint changes, never the entered value or input behavior. */
+:root ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable:placeholder-shown::placeholder,
+:root ._20QAC4WMXm8qFE8waUT5oo ._12vo5L1hsNGdao6_ssuirS .DialogInput_Wrapper .DialogInput.DialogInputPlaceholder.DialogTextInputBase.Focusable:placeholder-shown::-webkit-input-placeholder {
+    color: rgb(var(--textLightish)) !important;
+    opacity: 1 !important;
+}
+
+/* Game detail feature labels inherit page text; links and persona/status
+ * descendants retain their own semantic colors. */
+:root ._2b6WkTnmJxMuX1biL7aS3C {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* Keep the unselected Favorite outline distinct from pale native gray.
+ * Favorite/selected accent state and native hitbox remain untouched. */
+:root .lO1IF132jJ1gc9yz2HYvV ._3qDWQGB0rtwM3qpXTb11Q-._21hXW2oDD7zvNsoOaW7Yob:not(._2WaHZuAetbqENmqDthu3nl) svg path {
+    fill: none !important;
+    stroke: rgb(var(--textLightest)) !important;
+}
+
+/* The empty collection-creation tile uses the lighter accent with its dark
+ * paired foreground in both palettes. Other collection artwork stays intact. */
+:root ._3vHkmRShhzwd67_MtEq8-n.Ma65KR7z4XhZl4vJvxf4D ._3IWn-2rn7x98o5fDd0rAxb._2_dwxMdH27kBf-gQ3Wrk7z {
+    background: rgb(var(--accentLightish)) !important;
+}
+:root ._3vHkmRShhzwd67_MtEq8-n.Ma65KR7z4XhZl4vJvxf4D ._3IWn-2rn7x98o5fDd0rAxb._2_dwxMdH27kBf-gQ3Wrk7z :is(._1J1LQ0vGtpM3n0xw7XwQM6,._36QQLBgXFUVTOhU9jMkCWD,.g0-tUEN69PBXlaY8cML51) {
+    color: rgb(var(--textOnSelection)) !important;
+    text-shadow: none !important;
+}
+
+/* Showcase add-row is neutral chrome; the add control keeps its native size,
+ * opacity and action semantics. The one-pixel separator stays visible. */
+:root ._3SkuN_ykQuWGF94fclHdhJ {
+    color: rgb(var(--textLightish)) !important;
+}
+:root ._3SkuN_ykQuWGF94fclHdhJ ._1PhK8scyztOxjJwWUpkiLJ {
+    background: rgb(var(--backgroundLight)) !important;
+}
+:root ._3SkuN_ykQuWGF94fclHdhJ ._2aw5aUUo3lrK6wxJb4_ms5 {
+    color: rgb(var(--icon)) !important;
+}
+:root ._3SkuN_ykQuWGF94fclHdhJ ._2aw5aUUo3lrK6wxJb4_ms5:not(._1MNhU5EYdeegJRmQ51prWb):is(:hover,:focus-visible,._3dQDoCmoAJqOiOK7oAJIKM) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+}
+:root ._3SkuN_ykQuWGF94fclHdhJ ._2aw5aUUo3lrK6wxJb4_ms5 svg {
+    color: inherit !important;
+}
+:root ._3SkuN_ykQuWGF94fclHdhJ ._2aw5aUUo3lrK6wxJb4_ms5 svg :is(line,circle) {
+    stroke: currentColor !important;
+}
+
+/* Reordering handle remains draggable; only its decorative separator changes. */
+:root ._2tC_c87MH67xQM7Y0pVyXm .V7RuDNUxhxoBRaiGWbk3B ._23SnllqT_AqZ1C_QHcNQ4Z ._2W0O30CG0Q1UtW0Oq2-p6N._1PhK8scyztOxjJwWUpkiLJ {
+    background: rgb(var(--backgroundLight)) !important;
+}
+
+/* Event detail title surface: replace the legacy near-white light-mode fill
+ * with the paired elevated neutral; title/body text retains its existing roles. */
+:root ._3z2NYCkFizMu4fMvWTIBUG {
+    background: rgb(var(--backgroundLight)) !important;
+}

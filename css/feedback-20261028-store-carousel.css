@@ -1,0 +1,5 @@
+/* Recolor only the two masked maincap glyphs. The native cut_arrow.svg mask,
+ * rotation, dimensions, wrapper opacity and hover target are owned elsewhere. */
+html body #home_maincap_v7 > .home_cluster_ctn.home_pagecontent_ctn.v2 > .carousel_container.maincap > .arrow:is(.left,.right) > div {
+    background-color: rgb(var(--textLightest)) !important;
+}

@@ -1,0 +1,97 @@
+/* Drive selection in Steam's native install dialog. The native row uses a
+ * bright blue selected fill with white labels/check glyphs; pair it with the
+ * theme's dark accent and paired foreground in both palettes. */
+:root .Oo5JPcEk_erKEYAzYp2nY.gkgG-dWgjpwS_aqlcMNTM {
+    background-color: rgb(var(--accentDarkest)) !important;
+    background-image: none !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root .Oo5JPcEk_erKEYAzYp2nY.gkgG-dWgjpwS_aqlcMNTM :is(._2vs_5hKYSMZTn7dKHTim5D, ._3a3KjxO7NqnVAjxtVypiCk) {
+    color: inherit !important;
+}
+
+:root .Oo5JPcEk_erKEYAzYp2nY.gkgG-dWgjpwS_aqlcMNTM ._VEHWl9XgUCHDV7oGKSW4,
+:root .Oo5JPcEk_erKEYAzYp2nY.gkgG-dWgjpwS_aqlcMNTM ._VEHWl9XgUCHDV7oGKSW4 :is(svg, path) {
+    color: rgb(var(--textOnAccentDark)) !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+/* Ordinary install choices use neutral panel text. Steam's muted secondary
+ * label remains secondary, while its yellow storage/status icon is untouched. */
+:root .Oo5JPcEk_erKEYAzYp2nY:not(.gkgG-dWgjpwS_aqlcMNTM) :is(._2vs_5hKYSMZTn7dKHTim5D, ._3a3KjxO7NqnVAjxtVypiCk) {
+    color: rgb(var(--textLight)) !important;
+}
+
+:root .Oo5JPcEk_erKEYAzYp2nY:not(.gkgG-dWgjpwS_aqlcMNTM) ._2vs_5hKYSMZTn7dKHTim5D._3WMFKYH3gPd8T5RGPjpUah {
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* The captured primary in a form footer was using accentDarkish (the exact
+ * observed dim fill). Lift it to the active accent and pair it with the dark
+ * foreground so the brighter surface remains readable in both palettes. */
+:root form > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled) {
+    background: rgb(var(--accent)) !important;
+    background-image: none !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+
+:root form > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--accentDarkish)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+
+:root form > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):active {
+    background: rgb(var(--accentDark)) !important;
+}
+
+:root form > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:is(:disabled, .Disabled):not(.GreenPlay):not(.Destructive) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* A distinct dialog content footer has a white label by request. Pair that
+ * label with the darker accent role in dark and light palettes for contrast. */
+:root .DialogContent_InnerWidth > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled) {
+    background: rgb(var(--accentDark)) !important;
+    background-image: none !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root .DialogContent_InnerWidth > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):is(:hover, :focus-visible, .gpfocus) {
+    background: rgb(var(--accentDarkest)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root .DialogContent_InnerWidth > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:not(.GreenPlay):not(.Destructive):not(:disabled):not(.Disabled):active {
+    background: rgb(var(--accentDarkish)) !important;
+}
+
+:root .DialogContent_InnerWidth > .DialogBody > .DialogFooter > .DialogTwoColLayout._DialogColLayout.Panel > button.DialogButton._DialogLayout.Primary.Focusable:is(:disabled, .Disabled):not(.GreenPlay):not(.Destructive) {
+    background: rgb(var(--backgroundDarkest)) !important;
+    color: rgb(var(--textLightish)) !important;
+}
+
+/* The active checkbox includes a native gradient stroke. Replace it with the
+ * white foreground and deepen only the active dialog checkbox surface enough
+ * to keep the glyph legible in either palette. */
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox) .DialogCheckbox.Active {
+    background-color: rgb(var(--accentDark)) !important;
+    border-color: rgb(var(--accentDark)) !important;
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox) .DialogCheckbox.Active .SVGIcon_DialogCheck {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+
+:root :is(.DialogContent, .GenericDialogBase, .MillenniumWindow_Settings, .DNDCheckBox) .DialogCheckbox.Active .SVGIcon_DialogCheck path {
+    stroke: rgb(var(--textOnAccentDark)) !important;
+}
+
+/* Preserve the native desktop sidebar scrim's .8 alpha and interaction while
+ * swapping its RGB surface from dark black to the light canvas role. */
+:root .MillenniumDesktopSidebar_Overlay {
+    background-color: rgba(var(--backgroundDesktopSidebarOverlay), .8) !important;
+}

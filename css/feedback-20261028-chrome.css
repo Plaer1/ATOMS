@@ -1,0 +1,26 @@
+/* 1b36033cbe51: keep the Steam logo legible while the custom root menu is open.
+ * The menu's legacy handler writes the open state to the native menu's display.
+ * Scope to the shared titlebar so closed states retain the neutral glyph. */
+:root ._39oUCO1OuizVPwcnnv88no:has(.rootMenuWrapperDiv ._1Ky59qmywxOUtNcI1cgmkX[style*="display: flex"]) .rootToggleButtonWrapperDiv #logoPath {
+    fill: rgb(var(--textLightest)) !important;
+}
+
+/* fd11647acd32: style the three review actions by their Steam CSS-module
+ * classes. Steam renders these through its Button/Focusable wrapper, so target
+ * the classes rather than assuming a particular root tag or role attribute. */
+:root ._1E6Ivnp3A4apXqQYtlQHEc.Panel :is(._1kCN0pAntrcGCSmcc-vYdk,._35_OgqfHHZfSzTYfv367K6,._2bF4k-NqETM87LmHPN-Jp3):hover {
+    background: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+:root ._1E6Ivnp3A4apXqQYtlQHEc.Panel :is(._1kCN0pAntrcGCSmcc-vYdk,._35_OgqfHHZfSzTYfv367K6,._2bF4k-NqETM87LmHPN-Jp3):hover :is(svg, path) {
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* 682340fa1bf7: the selected container is the persistent URL bar, not the
+ * toast. Steam's portal renders the transient copied message under its own
+ * FloatingConfirmation class, which is the narrowly scoped notification owner. */
+:root ._3cXgxM5dBuTxGOOYw0lxsP {
+    background-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}

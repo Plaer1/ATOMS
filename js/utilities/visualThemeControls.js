@@ -5,6 +5,44 @@ const TOGGLE_KEY = 'atoms-theme-disabled-v1';
 const HOST_ID = 'atoms-theme-toggle-host';
 const API_KEY = '__atomsThemeToggleV1';
 const PREFERENCE_KEY = '__atomsThemeToggleButtonEnabledV1';
+const POPUP_MENU_FLAG = 1 << 16;
+
+function isSupportedBrowserViewPopup(href, name) {
+    if (!/^(?:MainMenu|QuickAccess)_uid\d+$/.test(name || '')) return false;
+    try {
+        const url = new URL(href);
+        if (url.protocol !== 'about:' || url.pathname !== 'blank' || url.hash) return false;
+        const params = url.searchParams;
+        const keys = ['browserviewpopup', 'requestid', 'parentpopup'];
+        return [...params.keys()].length === keys.length && keys.every(key => params.getAll(key).length === 1) &&
+            params.get('browserviewpopup') === '1' && /^\d+$/.test(params.get('requestid') || '') &&
+            /^\d+$/.test(params.get('parentpopup') || '');
+    } catch (_) {
+        return false;
+    }
+}
+
+// Transient Steam menus have no room for the fixed controls. Keep actual,
+// strictly identified Big Picture BrowserView popups, which have their own
+// supported control path, while filtering the native menu/toast windows.
+export function isTransientSteamWindow(doc = document, win = window) {
+    const root = doc?.documentElement;
+    const name = String(win?.name || '');
+    const title = String(doc?.title || '');
+    const href = String(win?.location?.href || globalThis.location?.href || '');
+    const supportedBrowserView = isSupportedBrowserViewPopup(href, name);
+
+    if (supportedBrowserView) return false;
+    if (root?.classList?.contains('MillenniumWindow_ContextMenu')) return true;
+    if (/(?:Menu|Supernav)$|^Sign in/i.test(title)) return true;
+
+    const flags = Number(/(?:[?&])createflags=(\d+)/i.exec(href)?.[1] || 0);
+    if (flags & POPUP_MENU_FLAG) return true;
+
+    if (/^(?:contextmenu|notificationtoasts|tooltip|desktopoverlay)/i.test(name)) return true;
+    if (/^(?:MainMenu|QuickAccess)_uid\d+$/i.test(name)) return true;
+    return false;
+}
 
 function isAtomsStylesheet(link) {
     if (!link || link.tagName !== 'LINK' || !link.rel.split(/\s+/).includes('stylesheet')) {
@@ -131,6 +169,54 @@ export function installThemeToggle(options = {}) {
     let observer = null;
     let releasePalette = null;
     let modalHint = null;
+    let identityObserver = null;
+    let headObserver = null;
+    let titleObserver = null;
+    let observedHead = null;
+    let observedTitle = null;
+
+    const removeButton = () => {
+        const host = document.getElementById(HOST_ID) || buttonHost;
+        if (host?.matches?.(':popover-open')) host.hidePopover();
+        host?.remove?.();
+        releasePalette?.(); releasePalette = null;
+        button = null; buttonHost = null; modalHint = null;
+    };
+
+    const observeTitle = () => {
+        const title = document.querySelector?.('title') || null;
+        if (title === observedTitle) return;
+        titleObserver?.disconnect();
+        titleObserver = null;
+        observedTitle = title;
+        if (title && typeof MutationObserver === 'function') {
+            titleObserver = new MutationObserver(ensureButton);
+            titleObserver.observe(title, { childList: true, characterData: true, subtree: true });
+        }
+        ensureButton();
+    };
+
+    const observeWindowIdentity = () => {
+        if (!document.documentElement || typeof MutationObserver !== 'function') return;
+        if (!identityObserver) {
+            identityObserver = new MutationObserver(ensureButton);
+            identityObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        }
+        const head = document.head || document.documentElement;
+        if (head !== observedHead) {
+            headObserver?.disconnect();
+            observedHead = head;
+            headObserver = new MutationObserver(observeTitle);
+            headObserver.observe(head, { childList: true });
+        }
+        observeTitle();
+    };
+
+    const stopWindowIdentityObservers = () => {
+        identityObserver?.disconnect(); identityObserver = null;
+        headObserver?.disconnect(); headObserver = null; observedHead = null;
+        titleObserver?.disconnect(); titleObserver = null; observedTitle = null;
+    };
 
     const syncLayer = ({ promote = false } = {}) => {
         const host = document.getElementById(HOST_ID);
@@ -211,13 +297,11 @@ export function installThemeToggle(options = {}) {
         // Store replaces body contents during navigation. Mount at the document
         // root so the comparison control survives those renders.
         const mount = document.documentElement;
-        if (mount?.classList.contains('useBrowserViewContextMenu') && mount.classList.contains('MillenniumWindow_ContextMenu')) {
-            releasePalette?.(); releasePalette = null;
-            document.getElementById(HOST_ID)?.remove();
-            button = null; buttonHost = null;
+        if (!mount || !showButton || document.title === 'SharedJSContext' || /^atoms_annotation(?:_manager)?_uid\d+$/.test(window.name || '')) return;
+        if (isTransientSteamWindow(document, window)) {
+            removeButton();
             return;
         }
-        if (!mount || !showButton || document.title === 'SharedJSContext' || /^atoms_annotation(?:_manager)?_uid\d+$/.test(window.name || '')) return;
         let host = document.getElementById(HOST_ID) || buttonHost;
         let mounted = false;
         if (!host) {
@@ -264,6 +348,7 @@ export function installThemeToggle(options = {}) {
         apply();
 
         if (showButton && !observer && document.documentElement) {
+            observeWindowIdentity();
             observer = new MutationObserver((mutations) => {
                 let needsSync = false;
                 for (const mutation of mutations) {
@@ -291,6 +376,7 @@ export function installThemeToggle(options = {}) {
         showButton = Boolean(enabled);
         window[PREFERENCE_KEY] = showButton;
         if (!showButton) {
+            stopWindowIdentityObservers();
             setDisabled(false);
             observer?.disconnect();
             observer = null;
@@ -325,6 +411,7 @@ export function installThemeToggle(options = {}) {
         syncLayer,
         stop: () => {
             setButtonEnabled(false);
+            stopWindowIdentityObservers();
             observer?.disconnect();
             observer = null;
         }

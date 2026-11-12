@@ -1,0 +1,24 @@
+/* Store home and Wishlist affordances from the 2026-10-28 feedback batch.
+ * Accent shades are shared roles: light mode swaps their values centrally. */
+
+/* The captured Store home panel has its own gradient surface. Keep this
+ * restricted to the named panel so game artwork and promo backgrounds survive. */
+html body .nHdn-Ea4zSg-.Panel.Focusable {
+    background-image: linear-gradient(135deg, rgb(var(--accentLightest)), rgb(var(--accentDarkest))) !important;
+}
+
+/* Exact Steam-blue chip found inside the named Store home gradient panel. */
+html body .nHdn-Ea4zSg- .x8jWPgfdVoI- {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+}
+
+/* react-beautiful-dnd marks the active Wishlist row with I81GCdWS-oQ-
+ * and renders its active clone in a body portal. Add an accent lift cue on
+ * the native active row state without changing dimensions or drag mechanics. */
+html body .awGgT3ZKumU- .PE-3oq-yIvg-.I81GCdWS-oQ-,
+html body .PE-3oq-yIvg-.I81GCdWS-oQ- {
+    outline: 2px solid rgb(var(--accent)) !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 18px rgba(var(--accent), .65) !important;
+}

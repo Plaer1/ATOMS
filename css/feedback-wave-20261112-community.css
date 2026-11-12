@@ -1,0 +1,51 @@
+/* Profile landings load their own small entrypoint; other Community pages use
+ * webkit.css. Both consume the same ATOMS roles and preserve profile artwork. */
+html body.profile_page .profile_summary .bb_h1 {
+    color: rgb(var(--textAccented)) !important;
+}
+
+/* Legacy Community dialogs are mounted directly on the profile body. Resolve
+ * background through the root aliases because native profile styles reset the
+ * inherited --background token for Steam's own button components. */
+html body.profile_page > dialog.newmodal {
+    background: var(--atoms-shared-media-panel) !important;
+    color: var(--atoms-shared-media-text) !important;
+    border-color: var(--atoms-shared-media-border) !important;
+}
+html body.profile_page > dialog.newmodal .newmodal_header_border {
+    background: var(--atoms-shared-media-border) !important;
+}
+html body.profile_page > dialog.newmodal .newmodal_header {
+    background: var(--atoms-shared-media-raised) !important;
+    color: var(--atoms-shared-media-heading) !important;
+}
+html body.profile_page > dialog.newmodal .newmodal_header .title_text {
+    color: var(--atoms-shared-media-heading) !important;
+}
+html body.profile_page > dialog.newmodal .newmodal_content {
+    color: var(--atoms-shared-media-text) !important;
+}
+
+/* Augmented Steam adds this Steam Card Exchange mark, not game artwork.
+ * Tint the mark's luminance over the live accent while retaining the white
+ * glyph and its extension-provided image, link, dimensions and accessible name. */
+html body .es_steamcardexchange_link > a {
+    display: inline-block;
+    background-color: rgb(var(--accent));
+    isolation: isolate;
+}
+html body .es_steamcardexchange_link > a > img {
+    display: block;
+    filter: grayscale(1);
+    mix-blend-mode: luminosity;
+}
+
+/* Profile showcase uses the legacy named glow layer and a separate halo on
+ * each rare achievement image. Keep the native animation, mask and artwork;
+ * only replace the rare-gold paints with the configurable ATOMS glow. */
+html body.profile_page .achievement_showcase .showcase_achievement.rare .achievement_glow {
+    background-image: var(--achievementGlow) !important;
+}
+html body.profile_page .achievement_showcase .showcase_achievement.rare > a > img {
+    box-shadow: 0 0 2px 1px rgba(var(--accent), .6), 0 0 16px 1px rgba(var(--accent), .4) !important;
+}

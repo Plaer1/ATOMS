@@ -1,0 +1,84 @@
+/* Store game-page action surfaces and controls observed in the 2026-11-12
+ * annotation wave. Use shared roles so the rules follow both palettes. */
+html body #category_block details > summary:is(:hover, :focus-visible),
+html body #category_block details[open] > summary {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    outline-color: rgb(var(--accent)) !important;
+}
+html body #category_block details > summary:is(:hover, :focus-visible) :is(span, svg),
+html body #category_block details[open] > summary :is(span, svg) {
+    color: rgb(var(--textLinkSoft)) !important;
+    fill: currentColor !important;
+}
+html body #category_block details > summary:focus-visible {
+    box-shadow: 0 0 0 2px rgb(var(--accent)) !important;
+}
+html body .OtherEvents_EventCtn,
+html body .OtherEvents_EventCtn :is(.EventName, .EventType, .EventDate) {
+    color: rgb(var(--textLight)) !important;
+}
+html body .OtherEvents_EventCtn:is(:hover, :focus-within),
+html body .OtherEvents_EventCtn :is(a, button):is(:hover, :focus-visible) {
+    color: rgb(var(--textLightest)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+}
+html body .OtherEvents_EventCtn a:is(:hover, :focus-visible) :is(*, span) {
+    color: inherit !important;
+}
+html body .early_access_banner .img {
+    background-color: rgb(var(--accent)) !important;
+    color: rgb(var(--textOnAccent)) !important;
+}
+html body .early_access_banner .img svg {
+    color: rgb(var(--textOnAccent)) !important;
+    fill: currentColor !important;
+}
+html body :is(.WishlistButtonText, .game_area_purchase_game .btn_addtocart, .game_area_purchase_game .btn_active) {
+    color: rgb(var(--textOnAccentDark)) !important;
+}
+html body .WishlistButtonText {
+    background-color: rgb(var(--accentDarkest)) !important;
+}
+html body .WishlistButtonText:is(:hover, :focus-visible),
+html body .WishlistButtonText:hover * {
+    color: rgb(var(--textOnAccentDark)) !important;
+    background-color: rgb(var(--accentDark)) !important;
+}
+/* These are Steam React panels identified by the saved selectors. Keep every
+ * child image/media layer native; only neutralize panel chrome and controls. */
+html body :is(._58-zzK2uRws-, .VoUAFxiR2CU-.Focusable, .u42TE7-obXg-.Panel.Focusable, .ev-4YE2674o-) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body :is(._58-zzK2uRws-, .u42TE7-obXg-.Panel.Focusable, .ev-4YE2674o-) :is(button, [role="button"], .DialogButton, .Focusable) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body :is(._58-zzK2uRws-, .u42TE7-obXg-.Panel.Focusable, .ev-4YE2674o-) :is(button, [role="button"], .DialogButton, .Focusable):is(:hover, :focus-visible, .active) {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+}
+html body :is(._58-zzK2uRws-, .VoUAFxiR2CU-.Focusable, .u42TE7-obXg-.Panel.Focusable, .ev-4YE2674o-) :is(svg, svg *) {
+    color: currentColor !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+html body .FullModalOverlay .ModalOverlayContent.active :is(.DialogContent._DialogLayout, .DialogContent_InnerWidth) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .FullModalOverlay .ModalOverlayContent.active :is(.DialogButton, button, [role="button"]) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .FullModalOverlay .ModalOverlayContent.active :is(.DialogButton, button, [role="button"]):is(:hover, :focus-visible) {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+    border-color: rgb(var(--accent)) !important;
+}

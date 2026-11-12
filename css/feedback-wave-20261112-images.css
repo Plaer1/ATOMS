@@ -1,0 +1,23 @@
+/* Image treatments from the annotation wave are keyed by the stable asset
+ * URL, never Steam's generated React IDs or surrounding container. */
+html body .QiZCPwhEAvE- ._1ZYmIx0m7bo-[style*="clan.fastly.steamstatic.com/images/27766192/"] {
+    filter: var(--accentFilter) !important;
+}
+
+/* Community home shortcut icons are image assets addressed by app URL. Scope
+ * to Steam's Community app-icon endpoint; leave avatars, badges, and capsules
+ * outside this explicit target unchanged. */
+html body img.appHubShortcut_Icon[src*="/community_assets/images/apps/"] {
+    filter: var(--accentFilter) !important;
+}
+
+/* The News Hub's Steam News masthead is a separate native header component;
+ * theme its text/surface while retaining the Steam header image itself. */
+html body .QiZCPwhEAvE- .ZGGCLp-BDTo- {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundLightish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body .QiZCPwhEAvE- .ZGGCLp-BDTo- .gg4cpQLGyDc- {
+    color: rgb(var(--textLinkSoft)) !important;
+}

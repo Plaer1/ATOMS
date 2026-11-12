@@ -1,0 +1,88 @@
+/* ATOMS treatment for the Store broadcast masthead and embedded player
+ * controls. Preserve stream/video frames; theme only their interactive chrome. */
+html body #broadcast .broadcast_brd_ctn_trgt {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #broadcast .broadcast_brd_ctn_trgt .bordered_title_trgt {
+    color: rgb(var(--textOnAccentDark)) !important;
+    background: rgb(var(--accentDarkest)) !important;
+    border-color: rgba(var(--accent), .55) !important;
+}
+html body #broadcast .broadcast_brd_ctn_trgt .bordered_title_trgt * {
+    color: inherit !important;
+}
+html body #broadcast :is(.tool-tip-source.Focusable, button, [role="button"]),
+html body #broadcast .videoControls :is(div, button, [role="button"]) {
+    --color-control: rgb(var(--textLight));
+}
+html body #broadcast .tool-tip-source.Focusable:is(:hover, :focus-visible),
+html body #broadcast .videoControls :is(button, [role="button"], .Focusable):is(:hover, :focus-visible) {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+    outline-color: rgb(var(--accentLight)) !important;
+}
+html body #broadcast .videoControls,
+html body #broadcast .videoControlsBottom,
+html body #broadcast .videoControlsTop,
+html body #broadcast .videoControls :is(.videoControlsLeft, .videoControlsRight) {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgba(var(--backgroundDarkest), .94) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+html body #broadcast .videoControls :is(button, [role="button"], .Focusable) {
+    color: rgb(var(--textLight)) !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+html body #broadcast .videoControls :is(button, [role="button"], .Focusable):is(:hover, :focus-visible, .active) {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+}
+html body #broadcast .broadcast_right_panel_simple,
+html body #broadcast .viewer_bar,
+html body #broadcast .SObNBjtfgbU- {
+    color: rgb(var(--textLight)) !important;
+    background-color: rgb(var(--backgroundDarkest)) !important;
+    border-color: rgb(var(--backgroundLight)) !important;
+}
+html body #broadcast .viewer_bar :is(button, a, .Focusable, [role="button"]) {
+    color: rgb(var(--textLight)) !important;
+    background-color: transparent !important;
+}
+html body #broadcast .viewer_bar :is(button, a, .Focusable, [role="button"]):is(:hover, :focus-visible, .active) {
+    color: rgb(var(--textOnAccent)) !important;
+    background-color: rgb(var(--accent)) !important;
+}
+html body #broadcast [popover],
+html body #broadcast .j-9OlMX1FS8- {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border: 1px solid rgb(var(--backgroundLight)) !important;
+    box-shadow: none !important;
+}
+html body #broadcast [popover] :is(button, a, .Focusable, [role="button"]) {
+    color: rgb(var(--textLight)) !important;
+    background: rgb(var(--backgroundDarkish)) !important;
+}
+html body #broadcast [popover] :is(button, a, .Focusable, [role="button"]):is(:hover, :focus-visible, .active) {
+    color: rgb(var(--textOnAccent)) !important;
+    background: rgb(var(--accent)) !important;
+}
+html body #broadcast .videoControls svg,
+html body #broadcast .broadcast_brd_ctn_trgt svg {
+    color: currentColor !important;
+    fill: currentColor !important;
+}
+/* Steam renders the broadcast gear/expand glyphs as raster CSS backgrounds,
+ * so inherited text color cannot reach them. They sit on the accent header. */
+html body #broadcast .broadcast_brd_ctn_trgt .tool-tip-source > :is(.Ku3ORKocBrQ-, .ECJWFclMDpk-) {
+    filter: brightness(0) invert(1) !important;
+}
+html body #broadcast :is(.tool-tip, .tooltip, [role="tooltip"]) {
+    color: rgb(var(--textLightest)) !important;
+    background: rgb(var(--backgroundDarkest)) !important;
+    border: 1px solid rgb(var(--backgroundLight)) !important;
+}
